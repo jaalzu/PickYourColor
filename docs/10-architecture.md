@@ -2,140 +2,126 @@
 
 ## 📁 Estructura de carpetas completa
 
-```
-realtime-colors/
-├── public/                      # Assets estáticos
+PickYourColor/
+├── public/
 │   └── favicon.ico
 │
 ├── src/
 │   ├── components/
-│   │   ├── atoms/              # Elementos básicos, no divisibles
+│   │   ├── ui/                          # Componentes reutilizables pequeños
 │   │   │   ├── Button/
 │   │   │   │   ├── Button.tsx
 │   │   │   │   └── index.ts
 │   │   │   ├── Input/
 │   │   │   │   ├── Input.tsx
 │   │   │   │   └── index.ts
-│   │   │   ├── Icon/
-│   │   │   │   ├── Icon.tsx
+│   │   │   ├── Badge/
+│   │   │   │   ├── Badge.tsx
 │   │   │   │   └── index.ts
-│   │   │   └── Badge/          # Para contrast indicator
-│   │   │       ├── Badge.tsx
+│   │   │   ├── Card/
+│   │   │   │   ├── Card.tsx
+│   │   │   │   └── index.ts
+│   │   │   └── ColorInput/
+│   │   │       ├── ColorInput.tsx
 │   │   │       └── index.ts
 │   │   │
-│   │   ├── molecules/          # Combinación de atoms
-│   │   │   ├── ColorInput/
-│   │   │   │   ├── ColorInput.tsx
+│   │   ├── features/                    # Features específicos
+│   │   │   ├── ColorPicker/             # Input de color individual con lock
+│   │   │   │   ├── ColorPicker.tsx
 │   │   │   │   └── index.ts
-│   │   │   ├── LockButton/
-│   │   │   │   ├── LockButton.tsx
+│   │   │   ├── ColorPanel/              # Panel flotante con los 5 pickers
+│   │   │   │   ├── ColorPanel.tsx
 │   │   │   │   └── index.ts
-│   │   │   ├── ContrastIndicator/
-│   │   │   │   ├── ContrastIndicator.tsx
+│   │   │   ├── ColorControls/           # Randomize, undo/redo, export
+│   │   │   │   ├── ColorControls.tsx
 │   │   │   │   └── index.ts
-│   │   │   └── ThemeToggle/
-│   │   │       ├── ThemeToggle.tsx
+│   │   │   └── ContrastIndicator/
+│   │   │       ├── ContrastIndicator.tsx
 │   │   │       └── index.ts
 │   │   │
-│   │   ├── organisms/          # Secciones complejas
-│   │   │   ├── ColorPalette/
-│   │   │   │   ├── ColorPalette.tsx
+│   │   ├── layout/                      # Layout principal
+│   │   │   ├── Navbar/
+│   │   │   │   ├── Navbar.tsx
 │   │   │   │   └── index.ts
-│   │   │   ├── PaletteControls/
-│   │   │   │   ├── PaletteControls.tsx
+│   │   │   ├── Footer/
+│   │   │   │   ├── Footer.tsx
 │   │   │   │   └── index.ts
-│   │   │   └── PreviewUI/
-│   │   │       ├── PreviewUI.tsx
-│   │   │       ├── PreviewNavbar.tsx
-│   │   │       ├── PreviewCard.tsx
-│   │   │       ├── PreviewButton.tsx
+│   │   │   └── MainLayout/
+│   │   │       ├── MainLayout.tsx
 │   │   │       └── index.ts
 │   │   │
-│   │   └── templates/          # Layout completo (opcional)
-│   │       └── AppLayout/
-│   │           ├── AppLayout.tsx
+│   │   └── sections/                    # Secciones de la landing page
+│   │       ├── HeroSection/             # Hero con título y descripción
+│   │       │   ├── HeroSection.tsx
+│   │       │   └── index.ts
+│   │       ├── FeaturesSection/         # Cómo funciona / features
+│   │       │   ├── FeaturesSection.tsx
+│   │       │   └── index.ts
+│   │       ├── TestimonialsSection/     # Reviews/comments
+│   │       │   ├── TestimonialsSection.tsx
+│   │       │   └── index.ts
+│   │       ├── PricingSection/          # Planes de pricing
+│   │       │   ├── PricingSection.tsx
+│   │       │   └── index.ts
+│   │       └── CTASection/              # Call to action final
+│   │           ├── CTASection.tsx
 │   │           └── index.ts
 │   │
-│   ├── stores/
-│   │   ├── slices/             # Separar lógica por concerns
-│   │   │   ├── paletteSlice.ts
-│   │   │   ├── locksSlice.ts
-│   │   │   ├── themeSlice.ts
-│   │   │   └── historySlice.ts
-│   │   ├── usePaletteStore.ts  # Store principal que combina slices
-│   │   └── types.ts            # Types del store
+│   ├── store/
+│   │   ├── slices/
+│   │   │   ├── paletteSlice.ts          # colors, updateColor
+│   │   │   ├── locksSlice.ts            # locks, toggleLock
+│   │   │   ├── historySlice.ts          # history, undo, redo
+│   │   │   └── uiSlice.ts               # theme, scheme selector, etc
+│   │   ├── usePaletteStore.ts           # Combine all slices
+│   │   └── types.ts
 │   │
 │   ├── utils/
-│   │   ├── color/              # Todo lo de color separado
-│   │   │   ├── validation.ts   # isValidHex, normalizeHex
-│   │   │   ├── conversion.ts   # hexToRgb, rgbToHsl, hslToRgb, etc.
-│   │   │   ├── contrast.ts     # calculateContrast, getContrastLevel
-│   │   │   └── index.ts        # Barrel export
-│   │   ├── randomizer/
-│   │   │   ├── schemes.ts      # Algoritmos por esquema (monochrome, analogous, etc.)
-│   │   │   ├── randomizer.ts   # Lógica principal de randomización
-│   │   │   └── index.ts
-│   │   └── constants.ts        # Valores default (DEFAULT_PALETTE, etc.)
+│   │   ├── colors.ts                    # Color conversions, validation, contrast
+│   │   ├── randomize.ts                 # Random generation por scheme
+│   │   └── constants.ts
 │   │
 │   ├── hooks/
-│   │   ├── useShortcuts.ts     # Space → randomize
-│   │   ├── useDebounce.ts      # Debounce para auto-save
-│   │   └── useColorSync.ts     # Sincroniza colores con CSS custom properties
+│   │   ├── useKeyboardShortcuts.ts      # Space → randomize, Ctrl+Z/Y
+│   │   ├── useLocalStorage.ts           # Persist palette
+│   │   └── useColorSync.ts              # Sync colores con CSS custom properties
 │   │
-│   ├── types/                  # Types globales
-│   │   ├── palette.ts          # Palette, ColorKey, Locks
-│   │   ├── history.ts          # PaletteSnapshot, History
-│   │   └── index.ts            # Barrel export
+│   ├── types/
+│   │   ├── palette.ts
+│   │   └── index.ts
 │   │
 │   ├── styles/
-│   │   └── index.css           # CSS global + Tailwind imports
+│   │   └── index.css
 │   │
-│   ├── App.tsx                 # Componente principal
-│   ├── main.tsx                # Entry point de Vite
-│   └── vite-env.d.ts           # Types de Vite
+│   ├── App.tsx                          # Navbar + Sections + Footer
+│   ├── main.tsx
+│   └── vite-env.d.ts
 │
-├── tests/                       # Tests separados del src
-│   ├── unit/                    # Tests de lógica (Vitest)
+├── tests/
+│   ├── unit/
 │   │   ├── utils/
-│   │   │   ├── color.test.ts
-│   │   │   └── randomizer.test.ts
-│   │   └── stores/
-│   │       └── usePaletteStore.test.ts
-│   ├── e2e/                     # Tests E2E (Playwright)
+│   │   │   ├── colors.test.ts
+│   │   │   └── randomize.test.ts
+│   │   └── store/
+│   │       └── paletteSlice.test.ts
+│   ├── e2e/
+│   │   ├── color-sync.spec.ts
 │   │   ├── randomize.spec.ts
-│   │   ├── locks.spec.ts
-│   │   ├── undo-redo.spec.ts
 │   │   └── accessibility.spec.ts
-│   └── setup.ts                 # Setup de Vitest
+│   └── setup.ts
 │
-├── docs/                        # Documentación del proyecto
-│   ├── 00-how-to-use-these-docs.md
-│   ├── 01-overview.md
-│   ├── 02-scope.md
-│   ├── 03-features.md
-│   ├── 04-data-and-state.md
-│   ├── 05-user-flow.md
-│   ├── 06-undo-redo.md
-│   ├── 07-accessibility.md
-│   ├── 08-testing.md
-│   ├── 09-roadmap.md
-│   ├── 10-architecture.md       # Este archivo
-│   ├── 11-color-system.md
-│   └── 12-sprint-tracker.md
-│
+├── docs/
 ├── .gitignore
-├── index.html                   # HTML de Vite
+├── index.html
 ├── package.json
 ├── tsconfig.json
-├── tsconfig.node.json           # Config de Vite
-├── vite.config.ts               # Configuración de Vite
+├── tsconfig.node.json
+├── vite.config.ts
 ├── tailwind.config.js
 ├── postcss.config.js
 ├── playwright.config.ts
 ├── vitest.config.ts
 └── README.md
-```
-
 ---
 
 ## 🧬 Responsabilidades por nivel (Atomic Design)

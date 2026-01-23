@@ -47,25 +47,6 @@ code .
 # ============================================
 # ¡LISTO! Ahora seguí con la configuración
 # ===
-  ```
-  src/
-  ├── components/
-  │   ├── ui/
-  │   ├── palette/
-  │   └── preview/
-  ├── stores/
-  ├── utils/
-  ├── hooks/
-  └── styles/
-  ```
-- [ ] Instalar ESLint + Prettier (opcional pero recomendado)
-- [ ] Primer commit: `chore: project setup`
-- [ ] `npm run dev` funciona → ves página en blanco
-
-**Criterio de éxito:**  
-✅ `npm run dev` abre localhost sin errores  
-✅ Estructura de carpetas creada  
-✅ Git inicializado y primer commit hecho
 
 ---
 
