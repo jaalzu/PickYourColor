@@ -92,7 +92,7 @@ interface PaletteSnapshot {
 
 ### Key del localStorage
 ```
-realtime-colors-state
+pick-your-color-state
 ```
 
 ---

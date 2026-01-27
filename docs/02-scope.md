@@ -1,29 +1,61 @@
 # 02 - Scope
 
-## ✅ Qué ENTRA
+**Scope** significa *alcance*: qué cosas **entran** en el producto y, por omisión, qué cosas **quedan afuera**. Es el límite que evita que el proyecto se descontrole.
 
-### Features core
-- [ ] Paleta de 5 colores: background, text, primary, secondary, accent
-- [ ] Inputs de color (HEX con validación)
-- [ ] Randomize con `Space`
-- [ ] Lock individual por color (máximo 4 locks simultáneos)
-- [ ] Theme toggle: Light / Dark
-- [ ] Contrast checker con indicadores visuales
-- [ ] Undo / Redo (10 pasos máximo)
-- [ ] Persistencia automática en localStorage
-- [ ] Preview UI realista (navbar, cards, buttons, text)
-
-### Accesibilidad
-- [ ] Navegación por teclado
-- [ ] ARIA labels
-- [ ] Contrast ratio calculator (WCAG)
-- [ ] Indicadores visuales claros (fail/warn/pass)
-
-### Testing
-- [ ] Tests de lógica (Vitest)
-- [ ] Tests E2E críticos (Playwright)
+Este scope está ordenado por **valor para el usuario**, no por complejidad técnica.
 
 ---
+
+## ✅ Qué ENTRA
+
+### Core absoluto (razón de existir del producto)
+
+* [ ] Paleta de 5 colores: background, text, primary, secondary, accent
+* [ ] Inputs de color (HEX con validación)
+* [ ] Preview UI realista (navbar, cards, buttons, text)
+
+---
+
+### Creatividad y flow
+
+* [ ] Randomize con `Space`
+* [ ] Lock individual por color (máximo 4 locks simultáneos)
+
+---
+
+### Calidad visual y criterio
+
+* [ ] Contrast checker con indicadores visuales (WCAG)
+
+---
+
+### Helpers de experiencia
+
+* [ ] Theme toggle: Light / Dark
+* [ ] Undo / Redo (10 pasos máximo)
+
+---
+
+### Infraestructura invisible
+
+* [ ] Persistencia automática en localStorage
+
+---
+
+## ♿ Accesibilidad
+
+* [ ] Navegación por teclado
+* [ ] ARIA labels
+* [ ] Contrast ratio calculator (WCAG)
+* [ ] Indicadores visuales claros (fail / warn / pass)
+
+---
+
+## 🧪 Testing
+
+* [ ] Tests de lógica (Vitest)
+* [ ] Tests E2E críticos (Playwright)
+
 
 ## ❌ Qué NO ENTRA
 
