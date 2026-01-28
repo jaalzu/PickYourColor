@@ -1,5 +1,5 @@
-import { useThemeSync } from './features/Palette/hooks/useThemeSync';
-import { ColorToolbar } from './features/Palette/components/ColorToolbar';
+import { useThemeSync } from './hooks/useThemeSync';
+import { Toolbar } from './features/Toolbar/components/Toolbar';
 import { Navbar } from './components/layout/Navbar';
 import { Hero } from './components/sections/HeroSection/Hero';
 
@@ -10,7 +10,7 @@ function App() {
     <>
       <Navbar />
       <Hero />
-      <ColorToolbar />
+      <Toolbar />
     </>
   );
 }

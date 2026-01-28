@@ -1,13 +1,12 @@
-// src/features/Palette/components/ColorToolbar.tsx
 import { useState } from 'react';
-import { usePaletteStore } from '../../../store/usePaletteStore';
-import { ColorSquare } from '../../../components/ui/ColorSquare';
-import { ColorPickerModal } from './ColorPickerModal';
+import { useColorStore } from '../../../store/useColorStore';
+import { ColorSquare } from './ColorPicker/ColorSquare';
+import { ColorPickerModal } from './ColorPicker/ColorPickerModal';
 
 type ColorKey = 'background' | 'text' | 'primary' | 'secondary' | 'accent';
 
 export const ColorToolbar = () => {
-  const colors = usePaletteStore((state) => state.colors);
+  const colors = useColorStore((state) => state.colors);
   const [selectedColor, setSelectedColor] = useState<ColorKey | null>(null);
 
   const colorConfig = [

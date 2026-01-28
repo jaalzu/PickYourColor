@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import { usePaletteStore } from '../../../store/usePaletteStore';
+import { useColorStore } from '../store/useColorStore';
 
 export const useThemeSync = () => {
-  const colors = usePaletteStore((state) => state.colors);
+  const colors = useColorStore((state) => state.colors);
 
   useEffect(() => {
     const root = document.documentElement;

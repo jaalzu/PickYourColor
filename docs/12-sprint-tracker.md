@@ -87,12 +87,12 @@ code .
 
 ### Preview UI
 
-- [ ] Crear `PreviewUI.tsx` en `/components/preview/`
-- [ ] Navbar de ejemplo (con background y text)
-- [ ] 2-3 Cards de ejemplo
-- [ ] Botones con primary, secondary, accent
-- [ ] Párrafo de texto de ejemplo
-- [ ] Todo actualiza en tiempo real al cambiar input
+- [ ✅] Crear `PreviewUI.tsx` en `/components/preview/`
+- [✅ ] Navbar de ejemplo (con background y text)
+- [✅ ] 2-3 Cards de ejemplo
+- [ ✅] Botones con primary, secondary, accent
+- [ ✅] Párrafo de texto de ejemplo
+- [ ✅] Todo actualiza en tiempo real al cambiar input
 
 ### Validación
 
@@ -100,6 +100,131 @@ code .
 - [ ✅] Función isValidHex(value) - usa tinycolor(value).isValid()
 - [ ✅] Mostrar error visual si es inválido
 - [ ✅] No romper UI si el input es inválido
+
+
+
+---
+
+
+## 🧰 Etapa 1.5: Toolbar System (CORE)
+
+**Objetivo:**  
+Construir el sistema central de interacción de la app.  
+El toolbar debe permitir **modificar colores, deshacer/rehacer acciones, randomizar y exportar el resultado**, funcionando de forma sólida tanto en desktop como en mobile.
+
+Esta etapa es **bloqueante**: no se continúan nuevas features ni secciones hasta que el toolbar funcione perfectamente.
+
+---
+
+### 🧱 Definición del Toolbar
+
+El **Toolbar** es el contenedor único de:
+
+- Inputs de color:
+  - background
+  - text
+  - primary
+  - secondary
+  - accent
+- Acciones:
+  - randomize
+  - undo
+  - redo
+  - export
+- Output:
+  - exportar paleta como:
+    - CSS variables
+    - SCSS variables
+    - Tailwind config
+
+---
+
+### 🖥️ Comportamiento en Desktop
+
+- [ ] Toolbar flotante fijo en la parte inferior
+- [ ] Siempre visible (no se oculta con scroll)
+- [ ] No bloquea el preview
+- [ ] Layout horizontal claro y compacto
+- [ ] Acciones principales accesibles en 1 click
+
+---
+
+### 📱 Comportamiento en Mobile
+
+- [ ] Toolbar colapsado por defecto
+- [ ] Botón sticky inferior para expandir / colapsar
+- [ ] Al expandirse:
+  - ocupa todo el ancho de la pantalla
+  - se organiza en grilla vertical
+
+#### Grid del toolbar (mobile)
+
+- [ ] Fila 1: Text / Background
+- [ ] Fila 2: Primary / Secondary
+- [ ] Fila 3: Accent / Randomize
+- [ ] Fila 4: Undo / Redo
+- [ ] Fila 5: Export
+
+---
+
+### 🎨 Inputs de color (integración)
+
+- [ ] Todos los inputs leen desde Zustand
+- [ ] Todos los inputs escriben en el store
+- [ ] Validación HEX en tiempo real
+- [ ] Error visual sin romper el estado
+- [ ] Locks visibles y accesibles desde el toolbar
+
+---
+
+### 🔄 Acciones del Toolbar
+
+#### Randomize
+- [ ] Botón visible en toolbar
+- [ ] Respeta locks
+- [ ] Shortcut Space (desktop)
+
+#### Undo / Redo
+- [ ] Botones visibles en toolbar
+- [ ] Disabled cuando no hay historial
+- [ ] Estado sincronizado con el store
+
+---
+
+### 📤 Export
+
+- [ ] Botón de export en toolbar
+- [ ] Modal o panel con opciones:
+  - [ ] CSS Variables
+  - [ ] SCSS Variables
+  - [ ] Tailwind Config
+- [ ] Botón “Copy to clipboard”
+- [ ] Feedback visual al copiar (toast o label)
+
+---
+
+### ♿ Accesibilidad
+
+- [ ] Todos los botones con `aria-label`
+- [ ] Toolbar navegable con teclado
+- [ ] Focus visible en todos los controles
+- [ ] Mobile: botones con tamaño táctil adecuado
+
+---
+
+### ✅ Criterio de éxito
+
+- [ ] Puedo cambiar cualquier color desde el toolbar
+- [ ] Puedo randomizar y volver atrás sin errores
+- [ ] Puedo exportar la paleta y pegarla en un proyecto real
+- [ ] El toolbar funciona igual de bien en desktop y mobile
+- [ ] El toolbar se siente como el **centro del producto**
+
+---
+
+**Commit sugerido:**  
+`feat(toolbar): add core toolbar system`
+
 
 
 ### Theme toggle
@@ -115,7 +240,9 @@ code .
 ✅ Theme toggle funciona (light ↔ dark)  
 ✅ HEX inválidos no rompen la app
 
----
+
+
+
 
 ## 🧠 Etapa 2: Estado y randomización
 

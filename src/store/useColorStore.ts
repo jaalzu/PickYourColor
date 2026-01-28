@@ -1,9 +1,10 @@
+// src/store/useColorStore.ts
 import { create } from 'zustand';
 import type { ColorSlice } from './slices/colorSlice';
 import { createColorSlice } from './slices/colorSlice';
 
-type PaletteStore = ColorSlice;
+type ColorStore = ColorSlice;
 
-export const usePaletteStore = create<PaletteStore>()((...a) => ({
+export const useColorStore = create<ColorStore>()((...a) => ({
   ...createColorSlice(...a),
 }));

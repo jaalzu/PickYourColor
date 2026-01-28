@@ -1,6 +1,6 @@
 // src/features/Palette/components/ColorPickerModal.tsx
 import { HexColorPicker } from 'react-colorful';
-import { usePaletteStore } from '../../../store/usePaletteStore';
+import { usePaletteStore } from '../../../../store/useColorStore';
 import { useEffect, useState } from 'react';
 
 interface ColorPickerModalProps {

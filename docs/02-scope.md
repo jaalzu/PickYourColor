@@ -13,6 +13,10 @@ Este scope está ordenado por **valor para el usuario**, no por complejidad téc
 * [ ] Paleta de 5 colores: background, text, primary, secondary, accent
 * [ ] Inputs de color (HEX con validación)
 * [ ] Preview UI realista (navbar, cards, buttons, text)
+* [ ] Toolbar central con todos los inputs y acciones
+  - Inputs de color (background, text, primary, secondary, accent)
+  - Acciones: randomize, undo, redo
+  - Export de paleta listo para usar
 
 ---
 
@@ -35,6 +39,29 @@ Este scope está ordenado por **valor para el usuario**, no por complejidad téc
 * [ ] Undo / Redo (10 pasos máximo)
 
 ---
+
+### Comportamiento responsive (toolbar)
+
+* [ ] Desktop: toolbar flotante inferior siempre visible
+* [ ] Mobile: toolbar colapsable con botón sticky inferior
+* [ ] Layout en grilla optimizado para uso con pulgar
+
+---
+
+
+
+### Output del producto (valor tangible)
+
+* [ ] Export de paleta en formatos reales:
+  - CSS variables
+  - SCSS variables
+  - Tailwind config
+* [ ] Copy to clipboard con feedback visual
+
+---
+
+
+
 
 ### Infraestructura invisible
 

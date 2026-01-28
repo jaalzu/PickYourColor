@@ -12,13 +12,13 @@ Cada etapa es **completable** y te deja con algo funcional.
 
 ### Tareas
 - [x] Definir documentos de planificación
-- [ ] Crear repo en GitHub
-- [ ] Inicializar proyecto (Vite + React o Astro)
-- [ ] Instalar dependencias: Zustand, Tailwind, Vitest, Playwright,zod
-- [ ] Configurar scripts de dev, build, test
-- [ ] Crear estructura de carpetas base
+- [x ] Crear repo en GitHub
+- [ x] Inicializar proyecto (Vite + React o Astro)
+- [ x] Instalar dependencias: Zustand, Tailwind, Vitest, Playwright,zod
+- [x ] Configurar scripts de dev, build, test
+- [ x] Crear estructura de carpetas base
 - [ ] Configurar ESLint + Prettier
-- [ ] Primer commit: "chore: project setup"
+- [ x] Primer commit: "chore: project setup"
 
 **Criterio de éxito:**
 - `npm run dev` abre una página en blanco
@@ -46,6 +46,104 @@ Cada etapa es **completable** y te deja con algo funcional.
 **No incluye todavía:** randomize, locks, undo/redo
 
 ---
+
+
+
+## 🧰 Etapa 1.5: Toolbar System (CORE)
+
+**Objetivo:**  
+Construir el sistema central de interacción del producto.  
+El toolbar es el punto único desde donde el usuario **modifica, controla y exporta** la paleta.
+
+Esta etapa es **bloqueante**: no se continúa con nuevas features hasta que el toolbar sea sólido, usable y confiable.
+
+---
+
+### Definición del Toolbar
+
+El toolbar concentra **todas las acciones operativas**:
+
+- Inputs de color:
+  - background
+  - text
+  - primary
+  - secondary
+  - accent
+- Acciones:
+  - randomize
+  - undo
+  - redo
+- Output:
+  - exportar paleta como:
+    - CSS variables
+    - SCSS variables
+    - Tailwind config
+
+---
+
+### Comportamiento en Desktop
+
+- [ ] Toolbar flotante en la parte inferior
+- [ ] Siempre visible
+- [ ] No bloquea el preview
+- [ ] Layout claro y compacto
+- [ ] Acciones accesibles en un solo click
+
+---
+
+### Comportamiento en Mobile
+
+- [ ] Toolbar colapsado por defecto
+- [ ] Botón sticky inferior para expandir / colapsar
+- [ ] Al expandirse ocupa todo el ancho de la pantalla
+- [ ] Organización en grilla vertical
+
+#### Grid del toolbar (mobile)
+
+- [ ] Fila 1: Text / Background
+- [ ] Fila 2: Primary / Secondary
+- [ ] Fila 3: Accent / Randomize
+- [ ] Fila 4: Undo / Redo
+- [ ] Fila 5: Export
+
+---
+
+### Integración con estado
+
+- [ ] Todos los inputs leen desde Zustand
+- [ ] Todos los inputs escriben en el store
+- [ ] Validación HEX en tiempo real
+- [ ] Locks visibles y accesibles desde el toolbar
+
+---
+
+### Export
+
+- [ ] Panel o modal de export
+- [ ] Opciones:
+  - CSS Variables
+  - SCSS Variables
+  - Tailwind Config
+- [ ] Botón “Copy to clipboard”
+- [ ] Feedback visual al copiar
+
+---
+
+### Criterio de éxito
+
+- [ ] Puedo cambiar cualquier color desde el toolbar
+- [ ] Puedo randomizar y volver atrás sin errores
+- [ ] Puedo exportar la paleta y usarla en un proyecto real
+- [ ] El toolbar funciona igual de bien en desktop y mobile
+- [ ] El toolbar se siente como el centro del producto
+
+**Commit sugerido:**  
+`feat(toolbar): add core toolbar system`
+
+
+
+
+
 
 ## 🧠 Etapa 2: Estado y randomización
 
@@ -179,9 +277,12 @@ Cada etapa es **completable** y te deja con algo funcional.
 
 ### Must-have (core)
 1. Etapa 1: Base visual
-2. Etapa 2: Randomización + locks
-3. Etapa 3: Undo/redo
-4. Etapa 5: Accesibilidad
+2. Etapa 1.5: Toolbar System
+3. Etapa 2: Randomización + locks
+4. Etapa 3: Undo/redo
+4. Etapa 4: Export
+5. Etapa 5: Accesibilidad
+
 
 ### Nice-to-have (pero importante)
 - Etapa 4: Persistencia
