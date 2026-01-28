@@ -1,7 +1,7 @@
 // src/features/Palette/components/ColorToolbar.tsx
 import { useState } from 'react';
 import { usePaletteStore } from '../../../store/usePaletteStore';
-import { ColorSquare } from './ColorSquare';
+import { ColorSquare } from '../../../components/ui/ColorSquare';
 import { ColorPickerModal } from './ColorPickerModal';
 
 type ColorKey = 'background' | 'text' | 'primary' | 'secondary' | 'accent';

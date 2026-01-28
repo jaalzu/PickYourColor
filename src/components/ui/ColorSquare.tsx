@@ -1,5 +1,3 @@
-// src/features/Palette/components/ColorSquare.tsx
-
 interface ColorSquareProps {
   label: string;
   color: string;

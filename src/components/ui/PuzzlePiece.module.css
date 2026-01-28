@@ -1,0 +1,17 @@
+/* src/components/ui/PuzzlePiece.module.css */
+.puzzle-piece {
+  width: 80px;
+  height: 80px;
+  clip-path: polygon(
+    20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%,
+    20% 100%, 0% 80%, 0% 20%
+  );
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .puzzle-piece {
+    width: 120px;
+    height: 120px;
+  }
+}
