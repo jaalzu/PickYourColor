@@ -1,14 +1,10 @@
+// src/store/slices/colorSlice.ts
 import type { StateCreator } from 'zustand';
+import type { ColorScheme, ColorKey } from '../../types';  // ← Desde raíz
 
 export interface ColorSlice {
-  colors: {
-    background: string;
-    text: string;
-    primary: string;
-    secondary: string;
-    accent: string;
-  };
-  setColor: (key: keyof ColorSlice['colors'], value: string) => void;
+  colors: ColorScheme;
+  setColor: (key: ColorKey, value: string) => void;
 }
 
 export const createColorSlice: StateCreator<ColorSlice> = (set) => ({

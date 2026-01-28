@@ -1,15 +1,16 @@
 // src/features/Palette/components/ColorPickerModal.tsx
 import { HexColorPicker } from 'react-colorful';
-import { usePaletteStore } from '../../../../store/useColorStore';
+import { useColorStore } from '../../../../store/useColorStore';
 import { useEffect, useState } from 'react';
+import type { ColorKey } from '../../../../types';
 
 interface ColorPickerModalProps {
-  colorKey: 'background' | 'text' | 'primary' | 'secondary' | 'accent';
+  colorKey: ColorKey;  
   onClose: () => void;
 }
 
 export const ColorPickerModal = ({ colorKey, onClose }: ColorPickerModalProps) => {
-  const { colors, setColor } = usePaletteStore();
+  const { colors, setColor } = useColorStore();
   const currentColor = colors[colorKey];
   const [isVisible, setIsVisible] = useState(false);
 

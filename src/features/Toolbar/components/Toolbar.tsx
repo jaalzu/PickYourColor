@@ -1,4 +1,4 @@
-import { useMediaQuery } from '../hooks/useMediaQuery';
+import { useMediaQuery } from '../../../hooks/useMediaQuery';
 import { ToolbarDesktop } from './ToolbarDesktop';
 import { ToolbarMobile } from './ToolbarMobile';
 
