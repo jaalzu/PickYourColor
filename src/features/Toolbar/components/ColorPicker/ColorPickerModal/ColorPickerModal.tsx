@@ -15,7 +15,6 @@ export const ColorPickerModal = ({ colorKey, onClose }: ColorPickerModalProps) =
     format,
     formattedColor,
     handleColorChange,
-    // Eliminamos commitColor de acá porque el Hook ya lo maneja globalmente
     handleCopy,
     toggleFormat,
     startClosing,
@@ -47,7 +46,6 @@ export const ColorPickerModal = ({ colorKey, onClose }: ColorPickerModalProps) =
           formattedColor={formattedColor}
           format={format}
           onColorChange={handleColorChange}
-          // Ya no pasamos commitColor aquí
           onCopy={handleCopy}
           onToggleFormat={toggleFormat}
           onClose={() => startClosing(onClose)}

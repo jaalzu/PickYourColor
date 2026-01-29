@@ -5,7 +5,7 @@ import { ClipboardDocumentIcon, CheckIcon } from '@heroicons/react/24/outline';
 
 interface ColorPickerContentProps {
   colorKey: string;
-  currentColor: string; // Recibe el localColor del hook
+  currentColor: string; 
   formattedColor: string;
   format: 'HEX' | 'RGB';
   onColorChange: (color: string) => void;

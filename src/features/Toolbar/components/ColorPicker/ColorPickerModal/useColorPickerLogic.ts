@@ -15,17 +15,13 @@ export const useColorPickerLogic = (colorKey: ColorKey) => {
   useEffect(() => { setIsVisible(true); }, []);
   useEffect(() => { setLocalColor(currentColorFromStore); }, [currentColorFromStore]);
 
-  // Sincronización final: Usamos useCallback para poder limpiar el evento
   const commitColor = useCallback(() => {
-    // Solo disparamos el store si el color realmente cambió
-    // Accedemos al valor más reciente de localColor mediante una ref o el estado
     setLocalColor(prev => {
       setColor(colorKey, prev);
       return prev;
     });
   }, [colorKey, setColor]);
 
-  // ESCUCHA GLOBAL: No importa dónde sueltes el mouse
   useEffect(() => {
     const handleGlobalUp = () => commitColor();
     
@@ -55,7 +51,7 @@ export const useColorPickerLogic = (colorKey: ColorKey) => {
     handleCopy: () => navigator.clipboard.writeText(getFormattedColor()),
     toggleFormat: () => setFormat(format === 'HEX' ? 'RGB' : 'HEX'),
     startClosing: (onClose: () => void) => {
-      commitColor(); // Aseguramos guardado antes de cerrar
+      commitColor(); 
       setIsVisible(false);
       setTimeout(onClose, 200);
     },
