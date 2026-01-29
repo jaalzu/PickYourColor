@@ -1,6 +1,6 @@
 // src/features/Toolbar/components/ToolbarDesktop.tsx
-import { ColorInputButton } from './ColorPicker/ColorInputButton/ColorInputButton';
-import { ColorPickerModal } from './ColorPicker/ColorPickerModal';
+import { ColorInputButton } from './ColorPicker/ColorInputButton/ColorInputDesktop';
+import { ColorPickerModal } from './ColorPicker/ColorPickerModal/ColorPickerModal';
 import { RandomizeButton } from './Actions/RandomizeButton';
 import { UndoRedoButtons } from './Actions/UndoRedoButtons';
 import { ExportButton } from './Actions/ExportButton';

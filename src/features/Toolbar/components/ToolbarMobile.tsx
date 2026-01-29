@@ -1,7 +1,9 @@
 // src/features/Toolbar/components/ToolbarMobile.tsx
-import { ColorSquare } from './ColorPicker/ColorSquare';
-import { ColorPickerModal } from './ColorPicker/ColorPickerModal';
-import { COLOR_CONFIG } from '../constants/colorConfig';
+import { ColorInputMobile } from './ColorPicker/ColorInputButton/ColorInputMobile';
+import { ColorPickerModal } from './ColorPicker/ColorPickerModal/ColorPickerModal';
+import { RandomizeButton } from './Actions/RandomizeButton';
+import { UndoRedoButtons } from './Actions/UndoRedoButtons';
+import { ExportButton } from './Actions/ExportButton';
 import { useToolbarLogic } from '../hooks/useToolbarLogic';
 import { useToolbarMobileLogic } from '../hooks/useToolbarMobileLogic';
 
@@ -11,28 +13,82 @@ export const ToolbarMobile = () => {
 
   return (
     <>
-      <button
-        onClick={toggleToolbar}
-        className="fixed bottom-4 right-4 z-50 w-14 h-14 rounded-full bg-blue-500 text-white shadow-2xl flex items-center justify-center text-2xl"
-      >
-        {isOpen ? '×' : '🎨'}
-      </button>
-
-      {isOpen && (
-        <div className="fixed inset-x-0 bottom-0 z-40 bg-white dark:bg-gray-800 rounded-t-3xl shadow-2xl p-6 pb-8">
-          <div className="grid grid-cols-2 gap-4">
-            {COLOR_CONFIG.map(({ key, label }) => (
-              <ColorSquare
-                key={key}
-                label={label}
-                color={colors[key]}
-                onClick={() => handleColorSelectAndClose(key, handleColorSelect)}
+      <div className="fixed inset-x-0 bottom-0 z-50 flex flex-col pointer-events-none">
+        
+        <div className={`
+          bg-[#1a1a2e] transition-all duration-200 
+          pointer-events-auto overflow-hidden border-t border-white/20
+          ${isOpen ? 'max-h-[95vh] opacity-100' : 'max-h-0 opacity-0'}
+        `}>
+          <div className="grid grid-cols-2 gap-[2px] bg-white/30 p-2">
+            
+            <div className="bg-[#1a1a2e] p-2">
+              <ColorInputMobile 
+                colorKey="text" 
+                label="Text" 
+                color={colors.text} 
+                onClick={() => handleColorSelectAndClose('text', handleColorSelect)} 
               />
-            ))}
+            </div>
+            <div className="bg-[#1a1a2e] p-2">
+              <ColorInputMobile 
+                colorKey="background" 
+                label="Background" 
+                color={colors.background} 
+                onClick={() => handleColorSelectAndClose('background', handleColorSelect)} 
+              />
+            </div>
+
+            <div className="bg-[#1a1a2e] p-2">
+              <ColorInputMobile 
+                colorKey="primary" 
+                label="Primary" 
+                color={colors.primary} 
+                onClick={() => handleColorSelectAndClose('primary', handleColorSelect)} 
+              />
+            </div>
+            <div className="bg-[#1a1a2e] p-2">
+              <ColorInputMobile 
+                colorKey="secondary" 
+                label="Secondary" 
+                color={colors.secondary} 
+                onClick={() => handleColorSelectAndClose('secondary', handleColorSelect)} 
+              />
+            </div>
+
+            <div className="bg-[#1a1a2e] p-2">
+              <ColorInputMobile 
+                colorKey="accent" 
+                label="Accent" 
+                color={colors.accent} 
+                onClick={() => handleColorSelectAndClose('accent', handleColorSelect)} 
+              />
+            </div>
+            
+            <div className="bg-[#1a1a2e] p-2 flex flex-col justify-end">
+              <RandomizeButton className="w-full h-32" />
+            </div>
+
+            <div className="col-span-2 grid grid-cols-2 gap-[2px] bg-white/30">
+              <div className="bg-[#1a1a2e] p-2">
+                <UndoRedoButtons className="h-20 w-full" />
+              </div>
+              <div className="bg-[#1a1a2e] p-2">
+                <ExportButton className="h-20 w-full" />
+              </div>
+            </div>
           </div>
         </div>
-      )}
 
+        <button 
+          onClick={toggleToolbar}
+          className="pointer-events-auto w-full bg-[#1a1a2e] text-white py-6 font-bold text-[16px] tracking-[0.25em] uppercase border-t border-white/20"
+        >
+          TOOLBAR
+        </button>
+      </div>
+
+      {/* Modal */}
       {selectedColor && (
         <ColorPickerModal
           colorKey={selectedColor}
