@@ -13,7 +13,7 @@ export const LockButton = ({ isLocked, onToggle }: LockButtonProps) => {
         e.stopPropagation();
         onToggle();
       }}
-      className="text-xs text-gray-400 hover:text-white transition"
+      className="text-xs text-gray-200 hover:text-white/50 transition"
     >
        {isLocked ? (
         <LockClosedIcon className="w-3.5 h-3.5" />

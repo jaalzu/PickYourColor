@@ -35,7 +35,7 @@ export const ColorInputButton = ({
     >
       <ColorCircle color={color} />
       
-      <div className="flex flex-col items-center gap-0.5 lg:gap-1 flex-1 min-w-0">
+      <div className="flex flex-col items-center gap-2 lg:gap-2 flex-1 min-w-0">
         <span className="mt-2 text-[13.5px] font-medium text-white uppercase truncate">
           {label}
         </span>
