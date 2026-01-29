@@ -15,15 +15,22 @@ export const ColorPickerModal = ({ colorKey, onClose }: ColorPickerModalProps) =
     format,
     formattedColor,
     handleColorChange,
+    // Eliminamos commitColor de acá porque el Hook ya lo maneja globalmente
     handleCopy,
     toggleFormat,
     startClosing,
   } = useColorPickerLogic(colorKey);
 
+  const handleOverlayClick = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      startClosing(onClose);
+    }
+  };
+
   return (
     <div
-      className="fixed inset-0 z-40"
-      onClick={() => startClosing(onClose)}
+      className="fixed inset-0 z-40 "
+      onMouseDown={handleOverlayClick}
     >
       <div
         className="fixed bottom-32 left-1/2 transform -translate-x-1/2 transition-all duration-200"
@@ -40,6 +47,7 @@ export const ColorPickerModal = ({ colorKey, onClose }: ColorPickerModalProps) =
           formattedColor={formattedColor}
           format={format}
           onColorChange={handleColorChange}
+          // Ya no pasamos commitColor aquí
           onCopy={handleCopy}
           onToggleFormat={toggleFormat}
           onClose={() => startClosing(onClose)}

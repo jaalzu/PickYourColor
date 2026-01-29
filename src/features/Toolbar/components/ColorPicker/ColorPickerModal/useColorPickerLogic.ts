@@ -1,55 +1,63 @@
 // src/features/Toolbar/components/ColorPicker/ColorPickerModal/useColorPickerLogic.ts
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useColorStore } from '../../../../../store/useColorStore';
 import tinycolor from 'tinycolor2';
 import type { ColorKey } from '../../../../../types';
 
-type ColorFormat = 'HEX' | 'RGB';
-
 export const useColorPickerLogic = (colorKey: ColorKey) => {
   const { colors, setColor } = useColorStore();
   const [isVisible, setIsVisible] = useState(false);
-  const [format, setFormat] = useState<ColorFormat>('HEX');
-  const currentColor = colors[colorKey];
+  const [format, setFormat] = useState<'HEX' | 'RGB'>('HEX');
+  
+  const currentColorFromStore = colors[colorKey];
+  const [localColor, setLocalColor] = useState(currentColorFromStore);
 
+  useEffect(() => { setIsVisible(true); }, []);
+  useEffect(() => { setLocalColor(currentColorFromStore); }, [currentColorFromStore]);
+
+  // Sincronización final: Usamos useCallback para poder limpiar el evento
+  const commitColor = useCallback(() => {
+    // Solo disparamos el store si el color realmente cambió
+    // Accedemos al valor más reciente de localColor mediante una ref o el estado
+    setLocalColor(prev => {
+      setColor(colorKey, prev);
+      return prev;
+    });
+  }, [colorKey, setColor]);
+
+  // ESCUCHA GLOBAL: No importa dónde sueltes el mouse
   useEffect(() => {
-    setIsVisible(true);
-  }, []);
+    const handleGlobalUp = () => commitColor();
+    
+    window.addEventListener('mouseup', handleGlobalUp);
+    window.addEventListener('touchend', handleGlobalUp);
 
-  const handleColorChange = (newColor: string) => {
-    setColor(colorKey, newColor);
-  };
+    return () => {
+      window.removeEventListener('mouseup', handleGlobalUp);
+      window.removeEventListener('touchend', handleGlobalUp);
+    };
+  }, [commitColor]);
 
-  const getFormattedColor = (): string => {
-    if (format === 'HEX') {
-      return currentColor;
-    }
-    const rgb = tinycolor(currentColor).toRgb();
+  const handleColorChange = (newColor: string) => setLocalColor(newColor);
+  
+  const getFormattedColor = () => {
+    if (format === 'HEX') return localColor;
+    const rgb = tinycolor(localColor).toRgb();
     return `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
   };
 
-  const handleCopy = () => {
-    const colorToCopy = getFormattedColor();
-    navigator.clipboard.writeText(colorToCopy);
-  };
-
-  const toggleFormat = () => {
-    setFormat(format === 'HEX' ? 'RGB' : 'HEX');
-  };
-
-  const startClosing = (onClose: () => void) => {
-    setIsVisible(false);
-    setTimeout(onClose, 200);
-  };
-
   return {
-    currentColor,
+    currentColor: localColor,
     isVisible,
     format,
     formattedColor: getFormattedColor(),
     handleColorChange,
-    handleCopy,
-    toggleFormat,
-    startClosing,
+    handleCopy: () => navigator.clipboard.writeText(getFormattedColor()),
+    toggleFormat: () => setFormat(format === 'HEX' ? 'RGB' : 'HEX'),
+    startClosing: (onClose: () => void) => {
+      commitColor(); // Aseguramos guardado antes de cerrar
+      setIsVisible(false);
+      setTimeout(onClose, 200);
+    },
   };
 };
