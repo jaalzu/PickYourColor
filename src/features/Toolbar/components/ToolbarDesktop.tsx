@@ -13,7 +13,7 @@ export const ToolbarDesktop = () => {
   return (
     <>
       <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 w-[98vw] max-w-[1100px]">
-        <div className="bg-[#1a1a2e] border border-white/30 rounded-[40px] h-18 lg:h-19 flex items-center overflow-hidden">
+        <div className="bg-[#1a1a2e] border border-white/30 rounded-[10px] h-18 lg:h-19 flex items-center overflow-hidden">
           {/* Colores */}
           {COLOR_CONFIG.map(({ key, label, width }, index) => (
             <div key={key} className={`flex items-center h-full ${width}`}>

@@ -4,9 +4,9 @@ import type { ColorKey } from '../../../types';
 export const COLOR_CONFIG: Array<{ 
   key: ColorKey; 
   label: string; 
-  width: string;  // ← NUEVO
+  width: string; 
 }> = [
-  { key: 'text', label: 'Text', width: 'flex-[1]' },           // Más chico
+  { key: 'text', label: 'Text', width: 'flex-[.970]' },          
   { key: 'background', label: 'Background', width: 'flex-[1.3]' }, 
   { key: 'primary', label: 'Primary', width: 'flex-[1.1]' },
   { key: 'secondary', label: 'Secondary', width: 'flex-[1.2]' },

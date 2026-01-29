@@ -1,4 +1,4 @@
-import { CheckIcon, MinusIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { CheckIcon, MinusCircleIcon, XCircleIcon } from '@heroicons/react/24/outline';
 import type { ContrastLevel } from '../../../utils/contrastChecker';
 
 interface AccessibilityBadgeProps {
@@ -10,17 +10,17 @@ export const AccessibilityBadge = ({ level }: AccessibilityBadgeProps) => {
     AAA: { 
       Icon: CheckIcon, 
       label: 'AAA', 
-      color: 'text-green-500' 
+      color: 'text-green-400' 
     },
     AA: { 
-      Icon: MinusIcon, 
+      Icon: MinusCircleIcon, 
       label: 'AA', 
-      color: 'text-yellow-500' 
+      color: 'text-yellow-400' 
     },
     Fail: { 
-      Icon: XMarkIcon, 
+      Icon: XCircleIcon, 
       label: 'Fail', 
-      color: 'text-red-500' 
+      color: 'text-red-600' 
     },
   };
 
@@ -28,8 +28,8 @@ export const AccessibilityBadge = ({ level }: AccessibilityBadgeProps) => {
 
   return (
     <div className="relative group">
-      <Icon className={`w-3.5 h-3.5 ${color}`} />
-      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 px-2 py-1 bg-gray-900 text-white text-[10px] rounded opacity-0 group-hover:opacity-100 transition pointer-events-none whitespace-nowrap">
+      <Icon className={`w-4 h-4 ${color}`} />
+      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 px-2 py-1 bg-gray-900 text-white text-[13px]  opacity-0 group-hover:opacity-100 transition pointer-events-none whitespace-nowrap">
         {label}
       </div>
     </div>

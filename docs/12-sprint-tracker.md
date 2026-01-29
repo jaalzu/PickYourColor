@@ -120,7 +120,7 @@ Esta etapa es **bloqueante**: no se continúan nuevas features ni secciones hast
 
 El **Toolbar** es el contenedor único de:
 
-- Inputs de color:
+- Inputs de color: 
   - background
   - text
   - primary
@@ -141,29 +141,29 @@ El **Toolbar** es el contenedor único de:
 
 ### 🖥️ Comportamiento en Desktop
 
-- [ ] Toolbar flotante fijo en la parte inferior
-- [ ] Siempre visible (no se oculta con scroll)
-- [ ] No bloquea el preview
-- [ ] Layout horizontal claro y compacto
-- [ ] Acciones principales accesibles en 1 click
+- [✅ ] Toolbar flotante fijo en la parte inferior
+- [ ✅] Siempre visible (no se oculta con scroll)
+- [✅ ] No bloquea el preview
+- [✅ ] Layout horizontal claro y compacto
+- [ ✅] Acciones principales accesibles en 1 click
 
 ---
 
 ### 📱 Comportamiento en Mobile
 
-- [ ] Toolbar colapsado por defecto
-- [ ] Botón sticky inferior para expandir / colapsar
-- [ ] Al expandirse:
+- [✅ ] Toolbar colapsado por defecto
+- [ ✅] Botón sticky inferior para expandir / colapsar
+- [ ✅] Al expandirse:
   - ocupa todo el ancho de la pantalla
   - se organiza en grilla vertical
 
 #### Grid del toolbar (mobile)
 
-- [ ] Fila 1: Text / Background
-- [ ] Fila 2: Primary / Secondary
-- [ ] Fila 3: Accent / Randomize
-- [ ] Fila 4: Undo / Redo
-- [ ] Fila 5: Export
+- [✅ ] Fila 1: Text / Background
+- [ ✅] Fila 2: Primary / Secondary
+- [✅ ] Fila 3: Accent / Randomize
+- [✅ ] Fila 4: Undo / Redo
+- [✅ ] Fila 5: Export
 
 ---
 

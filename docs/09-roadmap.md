@@ -17,7 +17,7 @@ Cada etapa es **completable** y te deja con algo funcional.
 - [ x] Instalar dependencias: Zustand, Tailwind, Vitest, Playwright,zod
 - [x ] Configurar scripts de dev, build, test
 - [ x] Crear estructura de carpetas base
-- [ ] Configurar ESLint + Prettier
+- [x ] Configurar ESLint + Prettier
 - [ x] Primer commit: "chore: project setup"
 
 **Criterio de éxito:**
@@ -33,8 +33,8 @@ Cada etapa es **completable** y te deja con algo funcional.
 
 ### Tareas
 - [ ] Layout principal (header, sidebar, preview)
-- [ ] 5 inputs de color (background, text, primary, secondary, accent)
-- [ ] Preview UI estático (navbar, cards, buttons, text)
+- [ x] 5 inputs de color (background, text, primary, secondary, accent)
+- [x ] Preview UI estático (navbar, cards, buttons, text)
 - [ ] Theme toggle (botón que cambia clase CSS)
 - [ ] Validación básica de HEX en inputs
 
@@ -83,35 +83,35 @@ El toolbar concentra **todas las acciones operativas**:
 
 ### Comportamiento en Desktop
 
-- [ ] Toolbar flotante en la parte inferior
-- [ ] Siempre visible
-- [ ] No bloquea el preview
-- [ ] Layout claro y compacto
-- [ ] Acciones accesibles en un solo click
+- [ x] Toolbar flotante en la parte inferior
+- [x ] Siempre visible
+- [x ] No bloquea el preview
+- [x ] Layout claro y compacto
+- [ x] Acciones accesibles en un solo click
 
 ---
 
 ### Comportamiento en Mobile
 
-- [ ] Toolbar colapsado por defecto
-- [ ] Botón sticky inferior para expandir / colapsar
-- [ ] Al expandirse ocupa todo el ancho de la pantalla
-- [ ] Organización en grilla vertical
+- [x ] Toolbar colapsado por defecto
+- [x ] Botón sticky inferior para expandir / colapsar
+- [x ] Al expandirse ocupa todo el ancho de la pantalla
+- [ x] Organización en grilla vertical
 
 #### Grid del toolbar (mobile)
 
-- [ ] Fila 1: Text / Background
-- [ ] Fila 2: Primary / Secondary
-- [ ] Fila 3: Accent / Randomize
-- [ ] Fila 4: Undo / Redo
-- [ ] Fila 5: Export
+- [x ] Fila 1: Text / Background
+- [x ] Fila 2: Primary / Secondary
+- [x ] Fila 3: Accent / Randomize
+- [x ] Fila 4: Undo / Redo
+- [x ] Fila 5: Export
 
 ---
 
 ### Integración con estado
 
-- [ ] Todos los inputs leen desde Zustand
-- [ ] Todos los inputs escriben en el store
+- [ x] Todos los inputs leen desde Zustand
+- [x ] Todos los inputs escriben en el store
 - [ ] Validación HEX en tiempo real
 - [ ] Locks visibles y accesibles desde el toolbar
 
