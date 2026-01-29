@@ -11,7 +11,7 @@ export const ColorSquare = ({ label, color, onClick }: ColorSquareProps) => {
       className="flex flex-col items-center gap-1 hover:opacity-80 transition"
     >
       <div
-        className="w-16 h-16 rounded-lg shadow-md border-2 border-gray-200"
+        className="w-16 h-16 rounded-lg  border-2 border-gray-200"
         style={{ backgroundColor: color }}
       />
       <span className="text-xs font-medium" style={{ color: 'var(--color-text)' }}>
