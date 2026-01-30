@@ -4,11 +4,12 @@ import { useColorPickerLogic } from './useColorPickerLogic';
 import type { ColorKey } from '../../../../../types';
 
 interface ColorPickerModalProps {
-  colorKey: ColorKey;  
+  colorKey: ColorKey;
+  position: { x: number; y: number };
   onClose: () => void;
 }
 
-export const ColorPickerModal = ({ colorKey, onClose }: ColorPickerModalProps) => {
+export const ColorPickerModal = ({ colorKey, position, onClose }: ColorPickerModalProps) => {
   const {
     currentColor,
     isVisible,
@@ -20,26 +21,22 @@ export const ColorPickerModal = ({ colorKey, onClose }: ColorPickerModalProps) =
     startClosing,
   } = useColorPickerLogic(colorKey);
 
-  const handleOverlayClick = (e: React.MouseEvent) => {
-    if (e.target === e.currentTarget) {
-      startClosing(onClose);
-    }
-  };
-
   return (
     <div
       className="fixed inset-0 z-40 "
-      onMouseDown={handleOverlayClick}
+      onClick={() => startClosing(onClose)}
     >
-      <div
-        className="fixed bottom-32 left-1/2 transform -translate-x-1/2 transition-all duration-200"
-        style={{
-          opacity: isVisible ? 1 : 0,
-          transform: isVisible 
-            ? 'translateX(-50%) translateY(0)' 
-            : 'translateX(-50%) translateY(20px)',
-        }}
-      >
+<div
+  className="fixed transition-all duration-200"
+  style={{
+    left: `${position.x}px`,
+    bottom: '120px',
+    transform: isVisible 
+      ? 'translateX(-50%) translateY(0)' 
+      : 'translateX(-50%) translateY(20px)',
+    opacity: isVisible ? 1 : 0,
+  }}
+>
         <ColorPickerContent
           colorKey={colorKey}
           currentColor={currentColor}

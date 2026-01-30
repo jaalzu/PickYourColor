@@ -32,21 +32,21 @@ export const ColorPickerContent = ({
 
   return (
     <div 
-      className="bg-[#1a1a2e] rounded-lg p-4 shadow-2xl border border-white/10"
+      className="bg-[#1a1a2e] rounded-lg p-4 w-65  "
       onClick={(e) => e.stopPropagation()}
     >
-      {/* Color Picker: Respuesta visual inmediata */}
+      {/* Color Picker*/}
       <HexColorPicker
         color={currentColor}
         onChange={onColorChange}
-        style={{ width: '100%', height: '250px' }}
+        style={{ width: '100%', height: '240px' }}
       />
 
       {/* Format Toggle: HEX / RGB */}
-      <div className="flex items-center gap-3 mt-4">
+      <div className="flex items-center gap-3 mt-4 ">
         <button
           onClick={onToggleFormat}
-          className={`px-3 py-1 text-[10px] font-bold rounded transition-all ${
+          className={`px-3 py-1 text-[10px] border border-white/20 font-bold rounded transition-all ${
             format === 'HEX' 
               ? 'bg-white text-black' 
               : 'bg-white/10 text-gray-400 hover:bg-white/20'
@@ -56,7 +56,7 @@ export const ColorPickerContent = ({
         </button>
         <button
           onClick={onToggleFormat}
-          className={`px-3 py-1 text-[10px] font-bold rounded transition-all ${
+          className={`px-3 py-1 text-[10px]  border border-white/20 font-bold rounded transition-all ${
             format === 'RGB' 
               ? 'bg-white text-black' 
               : 'bg-white/10 text-gray-400 hover:bg-white/20'
@@ -73,13 +73,13 @@ export const ColorPickerContent = ({
           value={formattedColor}
           onChange={(e) => onColorChange(e.target.value)}
           spellCheck={false}
-          className="flex-1 px-3 py-2 bg-black/40 border border-white/20 rounded-lg text-white text-sm font-mono focus:outline-none focus:border-indigo-500/50 transition-colors"
+          className="flex-1 px-3 py-1.5 bg-black/40 border border-white/20 rounded-lg text-white text-sm font-mono focus:outline-none focus:border-indigo-500/50 transition-colors"
           readOnly={format === 'RGB'}
         />
         
         <button
           onClick={handleCopy}
-          className="p-2.5 bg-white/5 hover:bg-white/10 rounded-lg transition-colors border border-white/5"
+          className="p-1.5 hover:bg-white/10 rounded-lg transition-colors border border-white/20"
           title={`Copy ${format}`}
         >
           {copied ? (
@@ -92,7 +92,7 @@ export const ColorPickerContent = ({
 
       {/* Preview del color debajo */}
       <div
-        className="w-full h-12 rounded-lg mt-4 border border-white/10 shadow-inner transition-colors duration-75"
+        className="w-full h-8 rounded-sm mt-3 border border-white/20 "
         style={{ backgroundColor: currentColor }}
       />
     </div>
