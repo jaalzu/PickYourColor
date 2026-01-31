@@ -13,11 +13,11 @@ export const ToolbarDesktop = () => {
   return (
     <>
       <div className="fixed bottom-3 left-1/2 transform -translate-x-1/2 z-50 w-[99vw] max-w-[1150px]">
-        <div className="bg-[#1a1a2e] border border-white/20 rounded-[8px] h-22 flex items-center overflow-hidden">
+        <div className="bg-[#131322] border border-white/20 rounded-[6px] h-23 flex items-center overflow-hidden">
           
           {/* Colores */}
           {COLOR_CONFIG.map(({ key, label, width }) => (
-            <div key={key} className={`flex items-center h-full ${width}`}>
+            <div key={key} className={`flex items-center  h-full ${width}`}>
               <ColorInputButton
                 colorKey={key}
                 label={label}

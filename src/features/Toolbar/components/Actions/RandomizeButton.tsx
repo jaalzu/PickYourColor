@@ -13,7 +13,7 @@ export const RandomizeButton = ({ className = "" }: RandomizeButtonProps) => {
       onClick={() => {/* TODO: lógica */}}
     >
       <Squares2X2Icon className="w-6 h-6 text-white" />
-      <span className="text-[12px] text-white uppercase">Aleatorio</span>
+      <span className="text-[12px] text-white tracking-wide">Aleatorio</span>
     </button>
   );
 };

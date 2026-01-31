@@ -8,18 +8,26 @@ interface LockButtonProps {
 
 export const LockButton = ({ isLocked, onToggle }: LockButtonProps) => {
   return (
-    <button
+    <div
       onClick={(e) => {
         e.stopPropagation();
         onToggle();
       }}
-      className="text-xs text-gray-200 hover:text-white/50 transition"
+      className="text-gray-400 hover:text-white transition-colors duration-200 cursor-pointer"
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onToggle();
+        }
+      }}
     >
-       {isLocked ? (
+      {isLocked ? (
         <LockClosedIcon className="w-3.5 h-3.5" />
       ) : (
         <LockOpenIcon className="w-3.5 h-3.5" />
       )}
-    </button>
+    </div>
   );
 };

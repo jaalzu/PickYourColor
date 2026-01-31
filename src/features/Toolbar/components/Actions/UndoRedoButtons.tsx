@@ -13,7 +13,7 @@ export const UndoRedoButtons = ({ className = "" }: UndoRedoButtonsProps) => {
         onClick={() => {/* TODO: undo */}}
       >
         <ArrowUturnLeftIcon className="w-6 h-6 text-white" />
-        <span className="text-[12px] text-white uppercase">Undo</span>
+        <span className="text-[12px] text-white ">Undo</span>
       </button>
       
       <div className="w-px h-10 bg-gray-600" />
@@ -23,7 +23,7 @@ export const UndoRedoButtons = ({ className = "" }: UndoRedoButtonsProps) => {
         onClick={() => {/* TODO: redo */}}
       >
         <ArrowUturnRightIcon className="w-6 h-6 text-white" />
-        <span className="text-[12px] text-white uppercase">Redo</span>
+        <span className="text-[12px] text-white tracking-wide">Redo</span>
       </button>
     </div>
   );
