@@ -5,7 +5,7 @@ import type { ColorKey } from '../../../../../types';
 
 interface ColorPickerModalProps {
   colorKey: ColorKey;
-  position: { x: number; y: number };
+  position: { x: number; y: number } | null;
   onClose: () => void;
 }
 
@@ -21,22 +21,32 @@ export const ColorPickerModal = ({ colorKey, position, onClose }: ColorPickerMod
     startClosing,
   } = useColorPickerLogic(colorKey);
 
+  // Desktop: posicionado según botón
+  // Mobile: centrado
+  const positionStyles = position
+    ? {
+        left: `${position.x}px`,
+        transform: 'translateX(-50%)',
+        bottom: '120px',
+      }
+    : {
+        left: '50%',
+        top: '50%',
+        transform: 'translate(-50%, -50%)',
+      };
+
   return (
     <div
-      className="fixed inset-0 z-40 "
+      className="fixed inset-0 z-60"
       onClick={() => startClosing(onClose)}
     >
-<div
-  className="fixed transition-all duration-200"
-  style={{
-    left: `${position.x}px`,
-    bottom: '120px',
-    transform: isVisible 
-      ? 'translateX(-50%) translateY(0)' 
-      : 'translateX(-50%) translateY(20px)',
-    opacity: isVisible ? 1 : 0,
-  }}
->
+      <div
+        className="fixed transition-all duration-200"
+        style={{
+          ...positionStyles,
+          opacity: isVisible ? 1 : 0,
+        }}
+      >
         <ColorPickerContent
           colorKey={colorKey}
           currentColor={currentColor}

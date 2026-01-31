@@ -17,14 +17,14 @@ export const ColorInputMobile = ({ colorKey, label, color, onClick }: ColorInput
   const accessibilityLevel = useColorAccessibility(colorKey);
 
   return (
-    <div className="flex flex-col w-full h-full border-white/5">
+    <div className="flex flex-col w-full h-full ">
       <button
   onClick={onClick}
-  className="relative flex flex-col items-center justify-between px-5 py-2 h-30 w-full "
+  className="relative flex flex-col items-center justify-between px-3 py-1 h-25 w-full "
   style={{ backgroundColor: color }}
 >
   <div className="flex-1 flex items-center justify-center">
-    <span className="text-[18px] font-medium text-white uppercase tracking-wider">
+    <span className="text-[18px] font-medium text-white  tracking-wider">
       {label}
     </span>
   </div>
