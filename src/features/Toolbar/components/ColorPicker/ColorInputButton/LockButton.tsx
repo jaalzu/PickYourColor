@@ -1,32 +1,30 @@
 // src/features/Toolbar/components/ColorPicker/ColorInputButton/LockButton.tsx
 import { LockClosedIcon, LockOpenIcon } from '@heroicons/react/24/outline';
+import { useColorStore } from '../../../../../store/useColorStore';
+import type { ColorKey } from '../../../../../types';
 
 interface LockButtonProps {
-  isLocked: boolean;
-  onToggle: () => void;
+  colorKey: ColorKey; // Única prop necesaria
 }
 
-export const LockButton = ({ isLocked, onToggle }: LockButtonProps) => {
+export const LockButton = ({ colorKey }: LockButtonProps) => {
+  const isLocked = useColorStore((state) => state.lockedColors.includes(colorKey));
+  const toggleLock = useColorStore((state) => state.toggleLock);
+
+  const sizeClass = "w-[18px] h-[18px] md:w-3.5 md:h-3.5";
+
   return (
     <div
       onClick={(e) => {
         e.stopPropagation();
-        onToggle();
+        toggleLock(colorKey); // Usamos la acción del store
       }}
-      className="text-gray-400 hover:text-white transition-colors duration-200 cursor-pointer"
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          onToggle();
-        }
-      }}
+      className="text-gray-400 hover:text-white transition-all duration-200 cursor-pointer opacity-100 md:opacity-0 group-hover:opacity-100"
     >
       {isLocked ? (
-        <LockClosedIcon className="w-3.5 h-3.5" />
+        <LockClosedIcon className={sizeClass} />
       ) : (
-        <LockOpenIcon className="w-3.5 h-3.5" />
+        <LockOpenIcon className={sizeClass} />
       )}
     </div>
   );

@@ -113,7 +113,7 @@ El toolbar concentra **todas las acciones operativas**:
 - [ x] Todos los inputs leen desde Zustand
 - [x ] Todos los inputs escriben en el store
 - [ ] Validación HEX en tiempo real
-- [ ] Locks visibles y accesibles desde el toolbar
+- [ x] Locks visibles y accesibles desde el toolbar
 
 ---
 

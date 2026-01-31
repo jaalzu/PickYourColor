@@ -1,37 +1,34 @@
-import { CheckIcon, MinusCircleIcon, XCircleIcon } from '@heroicons/react/24/outline';
-import type { ContrastLevel } from '../../../utils/contrastChecker';
+// import { CheckCircleIcon, InformationCircleIcon, XCircleIcon } from '@heroicons/react/24/solid';
+// import type { ContrastLevel } from '../../../utils/contrastChecker';
 
-interface AccessibilityBadgeProps {
-  level: ContrastLevel;
-}
+// export const AccessibilityBadge = ({ level }: { level: ContrastLevel }) => {
+//   const config: Record<ContrastLevel, { Icon: any; label: string; color: string }> = {
+//     High: { 
+//       Icon: CheckCircleIcon, 
+//       label: 'Legibilidad: Alta', 
+//       color: 'text-emerald-500' 
+//     },
+//     Medium: { 
+//       Icon: InformationCircleIcon, 
+//       label: 'Legibilidad: Media', 
+//       color: 'text-sky-400' 
+//     },
+//     Fail: { 
+//       Icon: XCircleIcon, 
+//       label: 'Legibilidad: Muy Baja / Inadmisible', 
+//       color: 'text-red-600' 
+//     },
+//   };
 
-export const AccessibilityBadge = ({ level }: AccessibilityBadgeProps) => {
-  const config = {
-    AAA: { 
-      Icon: CheckIcon, 
-      label: 'AAA', 
-      color: 'text-green-400' 
-    },
-    AA: { 
-      Icon: MinusCircleIcon, 
-      label: 'AA', 
-      color: 'text-yellow-400' 
-    },
-    Fail: { 
-      Icon: XCircleIcon, 
-      label: 'Fail', 
-      color: 'text-red-600' 
-    },
-  };
+//   const { Icon, label, color } = config[level];
 
-  const { Icon, label, color } = config[level];
-
-  return (
-    <div className="relative group">
-      <Icon className={`w-4 h-4 ${color}`} />
-      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 px-2 py-1 bg-gray-900 text-white text-[13px]  opacity-0 group-hover:opacity-100 transition pointer-events-none whitespace-nowrap">
-        {label}
-      </div>
-    </div>
-  );
-};
+//   return (
+//     <div className="relative group inline-block">
+//       <Icon className={`w-5 h-5 ${color} cursor-help`} />
+      
+//       <div className="hidden group-hover:block absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-black text-white p-2 text-xs rounded whitespace-nowrap z-50">
+//         {label}
+//       </div>
+//     </div>
+//   );
+// };

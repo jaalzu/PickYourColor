@@ -1,10 +1,10 @@
 // src/features/Toolbar/components/ColorPicker/ColorInputButton/ColorInputDesktop.tsx
 import { useState, useRef } from 'react';
 import { ColorCircle } from './ColorCircle';
-import { AccessibilityBadge } from './AccessibilityBadge';
 import { LockButton } from './LockButton';
-import { useColorAccessibility } from '../../../hooks/useColorAccessibility';
+// import { useColorAccessibility } from '../../../hooks/useColorAccessibility';
 import type { ColorKey } from '../../../../../types';
+// import { AccessibilityBadge } from './AccessibilityBadge';
 
 interface ColorInputButtonProps {
   colorKey: ColorKey;
@@ -15,14 +15,14 @@ interface ColorInputButtonProps {
 }
 
 export const ColorInputButton = ({
-  colorKey,
+  colorKey, // Descomentado para pasárselo al LockButton
   label,
   color,
   onClick,
 }: ColorInputButtonProps) => {
-  const [isLocked, setIsLocked] = useState(false);
+  // Eliminamos el useState de isLocked porque ahora lo maneja el Store
   const [isHovered, setIsHovered] = useState(false);
-  const accessibilityLevel = useColorAccessibility(colorKey);
+  // const accessibilityLevel = useColorAccessibility(colorKey);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const handleClick = () => {
@@ -37,33 +37,23 @@ export const ColorInputButton = ({
       onClick={handleClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="
-        flex flex-col items-center 
-        w-full h-full 
-        px-2 py-2.5 gap-1.5
-        transition-all duration-200
-      "
+      className="group flex flex-col items-center w-full h-full px-2 py-2.5 gap-1.5 transition-all duration-200"
       style={{
-        backgroundColor: isHovered ? `${color}18` : 'transparent', // 15 = ~8% opacity
+        backgroundColor: isHovered ? `${color}18` : 'transparent',
       }}
     >
-      {/* 1. Texto primero */}
-    <span className="text-[12.5px] font-medium text-white tracking-wider">
-  {label}
-</span>
+      <span className="text-[12.5px] font-medium text-white tracking-wider">
+        {label}
+      </span>
 
-      
-      {/* 2. Color debajo usando todo el largo */}
       <ColorCircle color={color}/>
       
-      {/* 3. Candado y Accesibilidad con justify-between */}
-<div className="flex w-full items-center justify-between px-0.5">
-  <LockButton 
-    isLocked={isLocked} 
-    onToggle={() => setIsLocked(!isLocked)}
-  />
-  <AccessibilityBadge level={accessibilityLevel}/>
-</div>
+      <div className="flex w-full items-center justify-between px-0.5">
+        {/* LockButton ahora solo necesita la key para conectarse al store */}
+        <LockButton colorKey={colorKey} />
+        
+        {/* <AccessibilityBadge level={accessibilityLevel}/> */}
+      </div>
     </button>
   );
 };

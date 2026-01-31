@@ -13,7 +13,6 @@ export const ToolbarMobile = () => {
     modalPosition,
     isToolbarOpen,
     handleColorSelect,
-    handleColorSelectAndClose,
     handleCloseModal,
     toggleToolbar 
   } = useToolbarLogic();
