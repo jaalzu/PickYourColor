@@ -1,8 +1,9 @@
 // src/store/slices/selectionSlice.ts
 import type { StateCreator } from 'zustand';
 import tinycolor from 'tinycolor2';
-import type { ColorKey } from '../../types';
+import type { ColorKey, ColorScheme } from '../../types';
 import type { ColorSlice } from './colorSlice';
+import type { HistorySlice } from './historySlice';
 
 export interface SelectionSlice {
   lockedColors: ColorKey[];
@@ -10,8 +11,9 @@ export interface SelectionSlice {
   randomizeColors: () => void;
 }
 
+// Agregamos HistorySlice a la intersección del StateCreator
 export const createSelectionSlice: StateCreator<
-  ColorSlice & SelectionSlice,
+  ColorSlice & SelectionSlice & HistorySlice,
   [],
   [],
   SelectionSlice
@@ -29,14 +31,20 @@ export const createSelectionSlice: StateCreator<
   },
 
   randomizeColors: () => {
-    const { colors, lockedColors, setColor } = get();
+    // Traemos saveHistory del store
+    const { colors, lockedColors, saveHistory } = get();
     
+    // 1. Guardamos el estado actual en el historial ANTES de cambiar nada
+    saveHistory({ ...colors });
+
+    // 2. Creamos una copia de los colores para trabajar
+    const newColors: ColorScheme = { ...colors };
+
     (Object.keys(colors) as ColorKey[]).forEach((key) => {
       if (!lockedColors.includes(key)) {
         let finalColor: string;
 
         if (key === 'background') {
-          // Fondos suaves pero que se notan
           finalColor = tinycolor({
             h: Math.random() * 360,
             s: Math.random() * 10 + 10, 
@@ -44,7 +52,6 @@ export const createSelectionSlice: StateCreator<
           }).toHexString();
         } 
         else if (key === 'text') {
-          // Texto oscuro para contraste
           finalColor = tinycolor({
             h: Math.random() * 360,
             s: Math.random() * 10,      
@@ -52,11 +59,7 @@ export const createSelectionSlice: StateCreator<
           }).toHexString();
         } 
         else {
-          // LIBRES: Primary, Secondary, Accent
-          // Usamos random() pero con un pequeño ajuste para que no sean 100% blancos
           const tempColor = tinycolor.random();
-          
-          // Si es demasiado claro (L > 90), lo oscurecemos un toque para que se vea
           if (tempColor.getBrightness() > 230) {
             finalColor = tempColor.darken(20).toHexString();
           } else {
@@ -64,8 +67,12 @@ export const createSelectionSlice: StateCreator<
           }
         }
 
-        setColor(key, finalColor);
+        // 3. Actualizamos la copia local, NO el store todavía
+        newColors[key] = finalColor;
       }
     });
+
+    // 4. Aplicamos todos los colores de una vez
+    set({ colors: newColors });
   },
 });

@@ -1,13 +1,22 @@
 // src/store/slices/colorSlice.ts
 import type { StateCreator } from 'zustand';
-import type { ColorScheme, ColorKey } from '../../types';  // ← Desde raíz
+import type { ColorScheme, ColorKey } from '../../types';
+import type { SelectionSlice } from './selectionSlice';
+import type { HistorySlice } from './historySlice';
 
 export interface ColorSlice {
   colors: ColorScheme;
   setColor: (key: ColorKey, value: string) => void;
 }
 
-export const createColorSlice: StateCreator<ColorSlice> = (set) => ({
+type CombinedState = ColorSlice & SelectionSlice & HistorySlice;
+
+export const createColorSlice: StateCreator<
+  CombinedState,
+  [],
+  [],
+  ColorSlice
+> = (set, get) => ({
   colors: {
     background: '#ffffff',
     text: '#000000',
@@ -15,8 +24,15 @@ export const createColorSlice: StateCreator<ColorSlice> = (set) => ({
     secondary: '#8b5cf6',
     accent: '#ec4899',
   },
-  setColor: (key, value) =>
-    set((state) => ({
-      colors: { ...state.colors, [key]: value },
-    })),
+  setColor: (key, value) => {
+    const { colors, saveHistory } = get();
+    
+    // Solo guardamos si el color realmente cambió para no llenar el historial de basura
+    if (colors[key] !== value) {
+      saveHistory({ ...colors });
+      set((state) => ({
+        colors: { ...state.colors, [key]: value },
+      }));
+    }
+  },
 });
