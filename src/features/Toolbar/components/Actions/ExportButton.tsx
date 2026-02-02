@@ -15,6 +15,7 @@ export const ExportButton = ({ className = "" }: ExportButtonProps) => {
       <button
         className={`flex flex-col items-center justify-center gap-1 px-4 h-full hover:bg-white/5 transition-colors ${className}`}
         onClick={() => setIsModalOpen(true)}
+        aria-label="Export color palette"
       >
         <ArrowDownTrayIcon className="w-6 h-6 text-white" />
         <span className="text-[12px] text-white tracking-wide">Exportar</span>

@@ -15,12 +15,11 @@ interface ColorInputButtonProps {
 }
 
 export const ColorInputButton = ({
-  colorKey, // Descomentado para pasárselo al LockButton
+  colorKey, 
   label,
   color,
   onClick,
 }: ColorInputButtonProps) => {
-  // Eliminamos el useState de isLocked porque ahora lo maneja el Store
   const [isHovered, setIsHovered] = useState(false);
   // const accessibilityLevel = useColorAccessibility(colorKey);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -33,6 +32,7 @@ export const ColorInputButton = ({
 
   return (
     <button
+    
       ref={buttonRef}
       onClick={handleClick}
       onMouseEnter={() => setIsHovered(true)}
@@ -49,7 +49,6 @@ export const ColorInputButton = ({
       <ColorCircle color={color}/>
       
       <div className="flex w-full items-center justify-between px-0.5">
-        {/* LockButton ahora solo necesita la key para conectarse al store */}
         <LockButton colorKey={colorKey} />
         
         {/* <AccessibilityBadge level={accessibilityLevel}/> */}

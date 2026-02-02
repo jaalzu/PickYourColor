@@ -195,9 +195,9 @@ El toolbar concentra **todas las acciones operativas**:
 **Objetivo:** Guardar estado en localStorage.
 
 ### Tareas
-- [ ] Integrar middleware `persist` de Zustand
-- [ ] Configurar debounce de 500ms para auto-save
-- [ ] Testear reload de página → estado se restaura
+- [ x] Integrar middleware `persist` de Zustand
+- [ x] Configurar debounce de 500ms para auto-save
+- [ x] Testear reload de página → estado se restaura
 
 **Criterio de éxito:**
 - Cambio colores → recargo página → todo sigue igual
@@ -213,10 +213,7 @@ El toolbar concentra **todas las acciones operativas**:
 - [ ] Implementar cálculo de contrast ratio
 - [ ] Indicadores visuales (fail/warn/pass) en cada input
 - [ ] ARIA labels en todos los inputs y botones
-- [ ] Navegación completa por teclado (tab order lógico)
-- [ ] Focus visible en todos los interactivos
-- [ ] Live regions para anuncios (randomize, lock, etc.)
-- [ ] Correr axe DevTools → corregir errores
+- [x ] Focus visible en todos los interactivos
 
 **Criterio de éxito:**
 - Puedo usar la app solo con teclado

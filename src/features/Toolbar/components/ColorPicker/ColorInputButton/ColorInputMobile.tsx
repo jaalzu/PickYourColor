@@ -12,12 +12,13 @@ interface ColorInputMobileProps {
 }
 
 export const ColorInputMobile = ({ colorKey, label, color, onClick }: ColorInputMobileProps) => {
-  // Eliminamos el useState de isLocked
+ 
   // const accessibilityLevel = useColorAccessibility(colorKey);
 
   return (
     <div className="flex flex-col w-full h-full">
       <button
+      
         onClick={onClick}
         className="group relative flex flex-col items-center justify-between px-3 py-1 h-25 w-full"
         style={{ backgroundColor: color }}
@@ -30,7 +31,7 @@ export const ColorInputMobile = ({ colorKey, label, color, onClick }: ColorInput
 
         <div className="flex w-full items-center justify-between">
           <div onClick={(e) => e.stopPropagation()}>
-            {/* Solo pasamos colorKey, el store maneja el resto */}
+           
             <LockButton colorKey={colorKey} />
           </div>
           

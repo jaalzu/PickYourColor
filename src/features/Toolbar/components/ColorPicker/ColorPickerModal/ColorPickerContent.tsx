@@ -79,6 +79,7 @@ export const ColorPickerContent = ({
         
         <button
           onClick={handleCopy}
+          aria-label="copy to clipboard"
           className="p-1.5 hover:bg-white/10 rounded-lg transition-colors border border-white/20"
           title={`Copy ${format}`}
         >

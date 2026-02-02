@@ -7,7 +7,6 @@ interface UndoRedoButtonsProps {
 }
 
 export const UndoRedoButtons = ({ className = "" }: UndoRedoButtonsProps) => {
-  // Extraemos las acciones y los arrays para controlar el estado visual
   const { undo, redo, past, future } = useColorStore();
 
   return (
@@ -17,6 +16,7 @@ export const UndoRedoButtons = ({ className = "" }: UndoRedoButtonsProps) => {
         onClick={undo}
         disabled={past.length === 0}
         title="Deshacer (Ctrl+Z)"
+        aria-label="Undo last change"
       >
         <ArrowUturnLeftIcon className="w-6 h-6 text-white" />
         <span className="text-[12px] text-white">Undo</span>
@@ -29,6 +29,7 @@ export const UndoRedoButtons = ({ className = "" }: UndoRedoButtonsProps) => {
         onClick={redo}
         disabled={future.length === 0}
         title="Rehacer (Ctrl+Y)"
+        aria-label="Redo last change"
       >
         <ArrowUturnRightIcon className="w-6 h-6 text-white" />
         <span className="text-[12px] text-white tracking-wide">Redo</span>

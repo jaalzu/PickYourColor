@@ -169,78 +169,60 @@ El **Toolbar** es el contenedor único de:
 
 ### 🎨 Inputs de color (integración)
 
-- [ ] Todos los inputs leen desde Zustand
-- [ ] Todos los inputs escriben en el store
+- [✅ ] Todos los inputs leen desde Zustand
+- [✅ ] Todos los inputs escriben en el store
 - [ ] Validación HEX en tiempo real
 - [ ] Error visual sin romper el estado
-- [ ] Locks visibles y accesibles desde el toolbar
+- [ ✅] Locks visibles y accesibles desde el toolbar
 
 ---
 
 ### 🔄 Acciones del Toolbar
 
 #### Randomize
-- [ ] Botón visible en toolbar
-- [ ] Respeta locks
-- [ ] Shortcut Space (desktop)
+- [✅ ] Botón visible en toolbar
+- [ ✅] Respeta locks
+- [ ✅] Shortcut Space (desktop)
 
 #### Undo / Redo
-- [ ] Botones visibles en toolbar
-- [ ] Disabled cuando no hay historial
-- [ ] Estado sincronizado con el store
+- [ ]✅ Botones visibles en toolbar
+- [ ✅] Disabled cuando no hay historial
+- [ ✅] Estado sincronizado con el store
 
 ---
 
 ### 📤 Export
 
-- [ ] Botón de export en toolbar
-- [ ] Modal o panel con opciones:
-  - [ ] CSS Variables
-  - [ ] SCSS Variables
-  - [ ] Tailwind Config
-- [ ] Botón “Copy to clipboard”
-- [ ] Feedback visual al copiar (toast o label)
+- [✅ ] Botón de export en toolbar
+- [ ✅] Modal o panel con opciones:
+  - [✅ ] CSS Variables
+  - [ ✅] SCSS Variables
+  - [ ✅] Tailwind Config
+- [ ✅] Botón “Copy to clipboard”
+- [ ✅] Feedback visual al copiar (toast o label)
 
 ---
 
 ### ♿ Accesibilidad
 
-- [ ] Todos los botones con `aria-label`
-- [ ] Toolbar navegable con teclado
-- [ ] Focus visible en todos los controles
-- [ ] Mobile: botones con tamaño táctil adecuado
+- [ ✅] Todos los botones con `aria-label`
+- [✅ ] Focus visible en todos los controles
+- [ ✅] Mobile: botones con tamaño táctil adecuado
 
 ---
 
 ### ✅ Criterio de éxito
 
-- [ ] Puedo cambiar cualquier color desde el toolbar
-- [ ] Puedo randomizar y volver atrás sin errores
-- [ ] Puedo exportar la paleta y pegarla en un proyecto real
-- [ ] El toolbar funciona igual de bien en desktop y mobile
-- [ ] El toolbar se siente como el **centro del producto**
+- [ ✅] Puedo cambiar cualquier color desde el toolbar
+- [ ✅] Puedo randomizar y volver atrás sin errores
+- [ ✅] Puedo exportar la paleta y pegarla en un proyecto real
+- [ ✅] El toolbar funciona igual de bien en desktop y mobile
+- [ ✅] El toolbar se siente como el **centro del producto**
 
 ---
 
 **Commit sugerido:**  
 `feat(toolbar): add core toolbar system`
-
-
-
-### Theme toggle
-
-- [ ] Botón para cambiar light/dark
-- [ ] Clase CSS en `<body>` o root
-- [ ] Variables CSS para light/dark
-**Commit:** `feat(ui): add base layout and color inputs`
-
-**Criterio de éxito:**  
-✅ Puedo escribir un HEX en un input  
-✅ El preview se actualiza instantáneamente  
-✅ Theme toggle funciona (light ↔ dark)  
-✅ HEX inválidos no rompen la app
-
-
 
 
 
@@ -250,8 +232,8 @@ El **Toolbar** es el contenedor único de:
 
 ### Store de Zustand
 
-- [ ] Crear `usePaletteStore.ts` en `/stores/`
-- [ ] Definir shape del state (ver `04-data-and-state.md`):
+- [ ✅] Crear `usePaletteStore.ts` en `/stores/`
+- [ ✅] Definir shape del state (ver `04-data-and-state.md`):
   ```ts
   palette: {
     (background, text, primary, secondary, accent);
@@ -261,48 +243,46 @@ El **Toolbar** es el contenedor único de:
   }
   theme: "light" | "dark";
   ```
-- [ ] Acción `setColor(key, value)`
-- [ ] Acción `toggleTheme()`
-- [ ] Acción `toggleLock(key)`
+- [ ✅] Acción `setColor(key, value)`
+- [ ✅] Acción `toggleLock(key)`
 
 ### Randomización básica
 
-- [ ] Crear `randomizer.ts` en `/utils/`
-- [ ] Función `randomizePalette()` que genera 5 colores random
-- [ ] Acción `randomize()` en el store
-- [ ] No respeta locks todavía (eso viene después)
+- [ ✅] Crear `randomizer.ts` en `/utils/`
+- [ ✅] Función `randomizePalette()` que genera 5 colores random
+- [ ✅] Acción `randomize()` en el store
 
 ### Randomización con tinycolor2
 
-- [ ] Generar colores usando tinycolor2
-- [ ] Asegurar formato #RRGGBB
-- [ ] Evitar colores inválidos
+- [✅ ] Generar colores usando tinycolor2
+- [ ✅] Asegurar formato #RRGGBB
+- [ ✅] Evitar colores inválidos
 
 ### Integrar Zustand con UI
 
-- [ ] `ColorInput.tsx` lee del store (`palette[key]`)
-- [ ] `ColorInput.tsx` llama a `setColor()` en `onChange`
-- [ ] `PreviewUI.tsx` lee colores del store
+- [✅ ] `ColorInput.tsx` lee del store (`palette[key]`)
+- [ ✅] `ColorInput.tsx` llama a `setColor()` en `onChange`
+- [ ✅] `PreviewUI.tsx` lee colores del store
 
 ### Shortcut Space
 
-- [ ] Crear hook `useShortcuts.ts` en `/hooks/`
-- [ ] Escuchar evento `keydown` con `Space`
-- [ ] Llamar a `randomize()` al presionar Space
-- [ ] Prevenir scroll de página (e.preventDefault)
+- [ ✅] Crear hook `useShortcuts.ts` en `/hooks/`
+- [ ✅] Escuchar evento `keydown` con `Space`
+- [✅ ] Llamar a `randomize()` al presionar Space
+- [✅ ] Prevenir scroll de página (e.preventDefault)
 
 ### Lock buttons
 
-- [ ] Crear `LockButton.tsx` en `/components/palette/`
-- [ ] Icono de candado (locked/unlocked)
-- [ ] Llama a `toggleLock()` del store
-- [ ] Estado visual: locked = candado cerrado
+- [ ✅] Crear `LockButton.tsx` en `/components/palette/`
+- [ ✅] Icono de candado (locked/unlocked)
+- [✅ ] Llama a `toggleLock()` del store
+- [✅ ] Estado visual: locked = candado cerrado
 
 ### Randomize respeta locks
 
-- [ ] Modificar `randomizePalette()` para aceptar `locks` como param
-- [ ] Si color está locked → no cambia
-- [ ] Si todos están locked → no randomiza nada (edge case)
+- [✅ ] Modificar `randomizePalette()` para aceptar `locks` como param
+- [ ✅] Si color está locked → no cambia
+- [✅ ] Si todos están locked → no randomiza nada (edge case)
 
 **Commit:** `feat(state): add zustand store and randomization`
 
@@ -320,51 +300,50 @@ El **Toolbar** es el contenedor único de:
 
 ### Estructura de historial
 
-- [ ] Agregar al store:
+- [✅ ] Agregar al store:
   ```ts
   history: {
     past: PaletteSnapshot[],  // max 10
     future: PaletteSnapshot[]
   }
   ```
-- [ ] Definir type `PaletteSnapshot` (palette + locks + theme)
+- [ ✅] Definir type `PaletteSnapshot` (palette + locks + theme)
 
 ### Helper de snapshot
 
-- [ ] Crear `_saveSnapshot()` en el store
-- [ ] Guarda snapshot en `history.past`
-- [ ] Limita a 10 elementos (FIFO)
-- [ ] Limpia `history.future`
+- [ ✅] Crear `_saveSnapshot()` en el store
+- [ ✅] Guarda snapshot en `history.past`
+- [ ✅] Limita a 10 elementos (FIFO)
+- [ ✅] Limpia `history.future`
 
 ### Acción undo
 
-- [ ] Implementar `undo()` en el store
-- [ ] Si `past.length === 0` → no hace nada
-- [ ] Mueve `current` a `future`
-- [ ] Restaura último elemento de `past`
+- [ ✅] Implementar `undo()` en el store
+- [ ✅] Si `past.length === 0` → no hace nada
+- [ ✅] Mueve `current` a `future`
+- [ ✅] Restaura último elemento de `past`
 
 ### Acción redo
 
-- [ ] Implementar `redo()` en el store
-- [ ] Si `future.length === 0` → no hace nada
-- [ ] Mueve `current` a `past`
-- [ ] Restaura primer elemento de `future`
+- [ ✅] Implementar `redo()` en el store
+- [ ✅] Si `future.length === 0` → no hace nada
+- [ ✅] Mueve `current` a `past`
+- [ ✅] Restaura primer elemento de `future`
 
 ### Integrar snapshots
 
-- [ ] Llamar `_saveSnapshot()` antes de `randomize()`
-- [ ] Llamar `_saveSnapshot()` al cambiar color manualmente (con debounce)
-- [ ] Llamar `_saveSnapshot()` al hacer `toggleTheme()`
+- [ ✅] Llamar `_saveSnapshot()` antes de `randomize()`
+- [ ✅] Llamar `_saveSnapshot()` al cambiar color manualmente (con debounce)
 
 ### UI de undo/redo
 
-- [ ] Botones de undo/redo en la UI
-- [ ] Disabled cuando no hay historial
-- [ ] Shortcuts `Ctrl+Z` y `Ctrl+Shift+Z` (opcional)
+- [ ✅] Botones de undo/redo en la UI
+- [ ✅] Disabled cuando no hay historial
+- [ ✅] Shortcuts `Ctrl+Z` y `Ctrl+Shift+Z` (opcional)
 
 ### Edge case: cambio después de undo
 
-- [ ] Test: undo → cambio nuevo → future se limpia
+- [ ✅] Test: undo → cambio nuevo → future se limpia
 
 **Commit:** `feat(history): add undo/redo system`
 
@@ -382,30 +361,26 @@ El **Toolbar** es el contenedor único de:
 
 ### Middleware persist
 
-- [ ] Instalar (si no viene con Zustand): `npm install zustand`
-- [ ] Envolver store con `persist()`
-- [ ] Key: `'realtime-colors-state'`
-- [ ] Persistir: palette, locks, theme, history
+- [ ✅] Instalar (si no viene con Zustand): `npm install zustand`
+- [ ✅] Envolver store con `persist()`
+- [ ✅] Key: `'realtime-colors-state'`
+- [✅ ] Persistir: palette, locks, theme, history
 
 ### Debounce para auto-save
 
-- [ ] Crear `useDebounce.ts` en `/hooks/`
-- [ ] Configurar debounce de 500ms en persist middleware
-- [ ] Evitar guardado en cada keystroke
+- [ ✅] Crear `useDebounce.ts` en `/hooks/`
+- [ ✅] Configurar debounce de 500ms en persist middleware
+- [ ✅] Evitar guardado en cada keystroke
 
 ### Test de reload
 
-- [ ] Cambiar colores
-- [ ] Esperar 600ms
-- [ ] Recargar página (`F5`)
-- [ ] Verificar que el estado se restauró
+- [✅ ] Cambiar colores
+- [ ✅] Esperar 600ms
+- [ ✅] Recargar página (`F5`)
+- [ ✅] Verificar que el estado se restauró
 
 ### Botón Reset
 
-- [ ] Crear acción `reset()` en el store
-- [ ] Vuelve a valores default
-- [ ] Limpia localStorage
-- [ ] Botón en la UI (opcional, pero útil)
 
 **Commit:** `feat(persistence): add localStorage integration`
 
@@ -420,33 +395,19 @@ El **Toolbar** es el contenedor único de:
 
 **Objetivo:** WCAG AA completo.
 
-### Contrast checker
+<!-- ### Contrast checker
 
 - [ ] En /utils/color.ts:
 - [ ] calculateContrast(colorA, colorB) - usa tinycolor.readability()
 - [ ] Crear `ContrastIndicator.tsx` en `/components/palette/`
 - [ ] getContrastLevel() → fail | warn | passt
-- [ ] Tooltip con ratio exacto (ej: "4.8:1")
+- [ ] Tooltip con ratio exacto (ej: "4.8:1") -->
 
 ### ARIA labels
 
-- [ ] Todos los inputs tienen `aria-label`
-- [ ] Lock buttons tienen `aria-label` dinámico
-- [ ] Randomize button tiene `aria-label="Randomize colors (Space)"`
-- [ ] Theme toggle tiene `aria-label`
-
-### Navegación por teclado
-
-- [ ] Tab order lógico (inputs → locks → controles)
-- [ ] Todos los interactivos son focusables
-- [ ] Focus visible con outline claro
-
-### Live regions
-
-- [ ] Crear div con `aria-live="polite"` (sr-only)
-- [ ] Anunciar: "Palette randomized" al randomizar
-- [ ] Anunciar: "Primary color locked" al lockear
-- [ ] Anunciar: "Switched to dark mode" al cambiar theme
+- [✅ ] Todos los inputs tienen `aria-label`
+- [ ✅] Lock buttons tienen `aria-label` dinámico
+- [✅ ] Randomize button tiene `aria-label="Randomize colors (Space)"`
 
 ### Testing con axe
 

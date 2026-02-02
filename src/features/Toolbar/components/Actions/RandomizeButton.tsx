@@ -7,6 +7,7 @@ export const RandomizeButton = ({ className = "" }: { className?: string }) => {
 
   return (
     <button
+      aria-label="Randomize all colors"
       className={`flex flex-col items-center justify-center gap-1 px-5 h-full hover:bg-white/5 transition-colors ${className}`}
       onClick={randomize}
     >

@@ -8,6 +8,7 @@ interface ExportOptionProps {
 export const ExportOption = ({ label, isSelected, onClick }: ExportOptionProps) => {
   return (
     <button
+      aria-pressed={isSelected}
       onClick={onClick}
       className={`px-3 py-1 text-[10px] border border-white/20 font-bold rounded transition-all ${
         isSelected 
