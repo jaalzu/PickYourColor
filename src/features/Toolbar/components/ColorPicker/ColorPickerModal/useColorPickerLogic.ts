@@ -10,7 +10,6 @@ export const useColorPickerLogic = (colorKey: ColorKey) => {
   const [format, setFormat] = useState<'HEX' | 'RGB'>('HEX');
   
   const currentColorFromStore = colors[colorKey];
-  // Este estado local permite que el arrastre sea fluido sin llenar el historial
   const [localColor, setLocalColor] = useState(currentColorFromStore);
 
   // Animación de entrada
@@ -34,7 +33,6 @@ export const useColorPickerLogic = (colorKey: ColorKey) => {
     }
   }, [colorKey, localColor, colors, setColor]);
 
-  // Listener global para detectar cuando el usuario termina de arrastrar fuera del modal
   useEffect(() => {
     const handleGlobalUp = () => {
       commitColor();
@@ -50,7 +48,7 @@ export const useColorPickerLogic = (colorKey: ColorKey) => {
   }, [commitColor]);
 
   const handleColorChange = (newColor: string) => {
-    setLocalColor(newColor); // Cambio visual inmediato (60fps)
+    setLocalColor(newColor);
   };
   
   const getFormattedColor = () => {
@@ -60,7 +58,7 @@ export const useColorPickerLogic = (colorKey: ColorKey) => {
   };
 
   const startClosing = (onClose: () => void) => {
-    commitColor(); // Aseguramos el último cambio antes de cerrar
+    commitColor();
     setIsVisible(false);
     setTimeout(onClose, 200);
   };

@@ -24,13 +24,13 @@ export const ExportModal = ({ onClose }: ExportModalProps) => {
       onClick={onClose}
     >
       <div
-        className="fixed bottom-32 left-1/2 transform -translate-x-1/2 transition-all duration-200"
+        className="fixed bottom-38 left-1/2 transform -translate-x-1/2 transition-all duration-200"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="bg-[#1a1a2e] rounded-lg p-4 w-[520px]">
+        <div className="bg-[#1a1a2e] rounded-lg p-5 w-[550px]">
           
           {/* Header */}
-          <div className="flex justify-between items-center mb-4">
+          <div className="flex justify-between items-center mb-3">
             <h3 className="text-sm font-bold text-white uppercase tracking-wide">Export Palette</h3>
             <button
               onClick={onClose}
@@ -85,7 +85,7 @@ export const ExportModal = ({ onClose }: ExportModalProps) => {
 
           {/* Code Preview */}
           <div className="relative">
-            <pre className="bg-black/40 border border-white/20 rounded-lg p-4 overflow-x-auto text-[11px] text-gray-300 font-mono max-h-60">
+            <pre className="bg-black/40 border border-white/20 rounded-lg p-3 overflow-x-auto text-[14px] text-gray-300  max-h-70 scrollbar-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
               {exportCode}
             </pre>
             

@@ -21,8 +21,6 @@ export const ColorPickerModal = ({ colorKey, position, onClose }: ColorPickerMod
     startClosing,
   } = useColorPickerLogic(colorKey);
 
-  // Desktop: posicionado según botón
-  // Mobile: centrado
   const positionStyles = position
     ? {
         left: `${position.x}px`,
