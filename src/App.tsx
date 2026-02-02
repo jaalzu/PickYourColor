@@ -3,9 +3,12 @@ import { Toolbar } from './features/Toolbar/components/Toolbar';
 // import { Navbar } from './components/layout/Navbar';
 import { Hero } from './components/sections/HeroSection/Hero';
 import { useKeyboardShortcuts } from './hooks/useKeyboardShortcuts';
+import { useURLSync } from './hooks/useURLSync';
+
 function App() {
   useThemeSync();
-useKeyboardShortcuts(); // Activamos los shortcuts globalmente
+useKeyboardShortcuts(); 
+ useURLSync();
   return (
     <>
       {/* <Navbar /> */}

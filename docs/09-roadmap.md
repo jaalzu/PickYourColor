@@ -119,23 +119,23 @@ El toolbar concentra **todas las acciones operativas**:
 
 ### Export
 
-- [ ] Panel o modal de export
-- [ ] Opciones:
+- [ x] Panel o modal de export
+- [x ] Opciones:
   - CSS Variables
   - SCSS Variables
   - Tailwind Config
-- [ ] Botón “Copy to clipboard”
-- [ ] Feedback visual al copiar
+- [x ] Botón “Copy to clipboard”
+- [ x] Feedback visual al copiar
 
 ---
 
 ### Criterio de éxito
 
-- [ ] Puedo cambiar cualquier color desde el toolbar
-- [ ] Puedo randomizar y volver atrás sin errores
-- [ ] Puedo exportar la paleta y usarla en un proyecto real
-- [ ] El toolbar funciona igual de bien en desktop y mobile
-- [ ] El toolbar se siente como el centro del producto
+- [ x] Puedo cambiar cualquier color desde el toolbar
+- [ x] Puedo randomizar y volver atrás sin errores
+- [x ] Puedo exportar la paleta y usarla en un proyecto real
+- [x ] El toolbar funciona igual de bien en desktop y mobile
+- [ x] El toolbar se siente como el centro del producto
 
 **Commit sugerido:**  
 `feat(toolbar): add core toolbar system`
@@ -150,13 +150,13 @@ El toolbar concentra **todas las acciones operativas**:
 **Objetivo:** Integrar Zustand, hacer que randomize funcione.
 
 ### Tareas
-- [ ] Crear store de Zustand con shape de state
-- [ ] Implementar `setColor()`
-- [ ] Implementar `randomize()` básico (sin locks)
-- [ ] Conectar inputs al store
-- [ ] Shortcut `Space` para randomize
-- [ ] Implementar locks (UI + lógica)
-- [ ] Randomize respeta locks
+- [ x] Crear store de Zustand con shape de state
+- [x ] Implementar `setColor()`
+- [x ] Implementar `randomize()` básico (sin locks)
+- [x ] Conectar inputs al store
+- [ x] Shortcut `Space` para randomize
+- [ x] Implementar locks (UI + lógica)
+- [ x] Randomize respeta locks
 
 **Criterio de éxito:**
 - Presiono Space → colores cambian al azar
@@ -172,13 +172,13 @@ El toolbar concentra **todas las acciones operativas**:
 **Objetivo:** Historial confiable de 10 pasos.
 
 ### Tareas
-- [ ] Agregar `history` al store (past, future)
-- [ ] Implementar `_saveSnapshot()` helper
-- [ ] Implementar `undo()`
-- [ ] Implementar `redo()`
-- [ ] Botones UI para undo/redo (disabled cuando no aplica)
-- [ ] Límite de 10 snapshots en `past`
-- [ ] Limpiar `future` al hacer cambio después de undo
+- [x ] Agregar `history` al store (past, future)
+- [ x] Implementar `_saveSnapshot()` helper
+- [ x] Implementar `undo()`
+- [ x] Implementar `redo()`
+- [x ] Botones UI para undo/redo (disabled cuando no aplica)
+- [x ] Límite de 10 snapshots en `past`
+- [x ] Limpiar `future` al hacer cambio después de undo
 
 **Criterio de éxito:**
 - Hago 5 cambios → puedo volver 5 pasos atrás con undo
@@ -198,12 +198,10 @@ El toolbar concentra **todas las acciones operativas**:
 - [ ] Integrar middleware `persist` de Zustand
 - [ ] Configurar debounce de 500ms para auto-save
 - [ ] Testear reload de página → estado se restaura
-- [ ] Botón "Reset" para limpiar localStorage
 
 **Criterio de éxito:**
 - Cambio colores → recargo página → todo sigue igual
 - localStorage guarda: palette, locks, theme, history
-- Reset vuelve a valores default
 
 ---
 

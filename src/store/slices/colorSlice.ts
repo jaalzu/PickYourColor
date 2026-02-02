@@ -27,7 +27,6 @@ export const createColorSlice: StateCreator<
   setColor: (key, value) => {
     const { colors, saveHistory } = get();
     
-    // Solo guardamos si el color realmente cambió para no llenar el historial de basura
     if (colors[key] !== value) {
       saveHistory({ ...colors });
       set((state) => ({
