@@ -21,6 +21,7 @@ export const LockButton = ({ colorKey }: LockButtonProps) => {
     toggleLock(colorKey);
   }}
   aria-pressed={isLocked}
+  data-testid={`lock-${colorKey}`}
   aria-label={isLocked ? 'Unlock color' : 'Lock color'}
   className="text-gray-400 hover:text-white transition-all duration-200 cursor-pointer opacity-100 md:opacity-0 group-hover:opacity-100"
 >

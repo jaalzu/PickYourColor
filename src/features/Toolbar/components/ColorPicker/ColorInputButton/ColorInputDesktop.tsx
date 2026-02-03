@@ -37,6 +37,7 @@ export const ColorInputButton = ({
       onClick={handleClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      aria-label={`Select ${label} color`}
       className="group flex flex-col items-center w-full h-full px-2 py-2.5 gap-1.5 transition-all duration-200"
       style={{
         backgroundColor: isHovered ? `${color}18` : 'transparent',

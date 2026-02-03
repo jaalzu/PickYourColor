@@ -212,7 +212,7 @@ El toolbar concentra **todas las acciones operativas**:
 ### Tareas
 - [ ] Implementar cálculo de contrast ratio
 - [ ] Indicadores visuales (fail/warn/pass) en cada input
-- [ ] ARIA labels en todos los inputs y botones
+- [ x] ARIA labels en todos los inputs y botones
 - [x ] Focus visible en todos los interactivos
 
 **Criterio de éxito:**
@@ -228,10 +228,10 @@ El toolbar concentra **todas las acciones operativas**:
 **Objetivo:** Tests de lógica y E2E básicos.
 
 ### Tareas de lógica (Vitest)
-- [ ] Tests de color utils (validación, contrast)
-- [ ] Tests de randomizer con locks
-- [ ] Tests de undo/redo (todos los edge cases)
-- [ ] Tests del store (setColor, toggleLock, etc.)
+- [x ] Tests de color utils (validación, contrast)
+- [x ] Tests de randomizer con locks
+- [x ] Tests de undo/redo (todos los edge cases)
+- [x ] Tests del store (setColor, toggleLock, etc.)
 
 ### Tareas E2E (Playwright)
 - [ ] Setup de Playwright
