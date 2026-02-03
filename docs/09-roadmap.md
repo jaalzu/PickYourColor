@@ -234,13 +234,11 @@ El toolbar concentra **todas las acciones operativas**:
 - [x ] Tests del store (setColor, toggleLock, etc.)
 
 ### Tareas E2E (Playwright)
-- [ ] Setup de Playwright
-- [ ] Test: randomize con Space
-- [ ] Test: lock + randomize
-- [ ] Test: undo/redo
-- [ ] Test: persistencia en reload
-- [ ] Test: navegación con teclado
-- [ ] Test: accesibilidad (axe)
+- [ x] Setup de Playwright
+- [ x] Test: randomize con Space
+- [ x] Test: lock + randomize
+- [ x] Test: undo/redo
+- [ x] Test: persistencia en reload
 
 **Criterio de éxito:**
 - `npm test` pasa todos los tests

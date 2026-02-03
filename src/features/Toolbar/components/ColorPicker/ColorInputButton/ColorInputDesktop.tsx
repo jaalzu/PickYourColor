@@ -40,7 +40,7 @@ export const ColorInputButton = ({
       aria-label={`Select ${label} color`}
       className="group flex flex-col items-center w-full h-full px-2 py-2.5 gap-1.5 transition-all duration-200"
       style={{
-        backgroundColor: isHovered ? `${color}18` : 'transparent',
+        backgroundColor: isHovered ? `${color}23` : 'transparent',
       }}
     >
       <span className="text-[12.5px] font-medium text-white tracking-wider">

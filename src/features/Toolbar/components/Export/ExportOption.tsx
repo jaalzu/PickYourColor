@@ -10,7 +10,7 @@ export const ExportOption = ({ label, isSelected, onClick }: ExportOptionProps) 
     <button
       aria-pressed={isSelected}
       onClick={onClick}
-      className={`px-3 py-1 text-[10px] border border-white/20 font-bold rounded transition-all ${
+      className={`px-3 py-1 text-[12px] border border-white/20 font-bold rounded transition-all ${
         isSelected 
           ? 'bg-white text-black' 
           : 'bg-white/10 text-gray-400 hover:bg-white/20'

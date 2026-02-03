@@ -4,6 +4,7 @@ import { ColorPickerModal } from './ColorPicker/ColorPickerModal/ColorPickerModa
 import { RandomizeButton } from './Actions/RandomizeButton';
 import { UndoRedoButtons } from './Actions/UndoRedoButtons';
 import { ExportButton } from './Actions/ExportButton';
+import { ShareButton } from './Actions/ShareButton';
 import { COLOR_CONFIG } from '../constants/colorConfig';
 import { useToolbarLogic } from '../hooks/useToolbarLogic';
 
@@ -42,9 +43,16 @@ export const ToolbarDesktop = () => {
             <div className="w-px h-full bg-white/20"  />
           </div>
 
-          {/* Botón Exportar */}
+         {/* Botón Exportar */}
           <div className="flex h-full">
             <ExportButton />
+            {/* Línea divisora añadida aquí */}
+            <div className="w-px h-full bg-white/20" />
+          </div>
+
+          {/* Botón Share */}
+          <div className="flex h-full">
+            <ShareButton />
           </div>
 
         </div>
