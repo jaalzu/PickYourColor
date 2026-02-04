@@ -1,10 +1,12 @@
 import { Bars3Icon } from '@heroicons/react/24/outline';
-import { Button } from '../../ui/Button';
-import { PuzzlePiece } from '../../ui/PuzzlePiece';
+import { Button } from '../ui/Button';
+import { PuzzlePiece } from '../ui/PuzzlePiece';
+
+
 export const Hero = () => {
   return (
     <section
-      className="min-h-screen flex flex-col relative overflow-hidden"
+      className="min-h-screen lg:min-h-[90vh] flex flex-col relative overflow-hidden"
       style={{ backgroundColor: 'var(--color-background)' }}
     >
       {/* Navbar */}
@@ -14,11 +16,10 @@ export const Hero = () => {
     {/* SVG Icon */}
    <svg 
   viewBox="0 0 256 256" 
-  className="w-6 h-6 md:w-7 md:h-7"
+  className="w-7  h-7  md:w-8 md:h-8"
 >
   <defs>
     <linearGradient id="rainbow-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      {/* Usamos tus variables CSS para que el arcoíris sea "tu" arcoíris */}
       <stop offset="0%" style={{ stopColor: 'var(--color-primary)' }} />
       <stop offset="33%" style={{ stopColor: 'var(--color-secondary)' }} />
       <stop offset="66%" style={{ stopColor: 'var(--color-accent)' }} />
@@ -52,9 +53,8 @@ export const Hero = () => {
       {/* Contenedor principal*/}
       <div className="flex-1 flex items-start justify-center px-4 pt-15 md:pt-22 relative">
         
-        {/* Decorative puzzle pieces - Ajustamos el top para que acompañen la subida */}
        <div className="absolute 
-    left-6j bottom-20           
+    left-6 bottom-20           
     lg:left-8 lg:top-1/6 lg:bottom-auto   /* Desktop: Arriba a la izquierda */
     space-y-4 z-0 opacity-50 lg:opacity-100"
   >
@@ -62,7 +62,7 @@ export const Hero = () => {
     <PuzzlePiece colorVar="secondary" className="-rotate-6 lg:rotate-0" />
   </div>
 
-  {/* Bloque Derecho (Desktop) / Un poco más arriba que el anterior (Mobile) */}
+  {/* Bloque Derecho (Desktop)*/}
   <div className="absolute 
     right-4 bottom-30        
     lg:right-8 lg:top-1/4 lg:bottom-auto  /* Desktop: Arriba a la derecha */
@@ -93,7 +93,7 @@ export const Hero = () => {
           <div className="flex flex-row gap-5 justify-center items-center">
             <Button 
               variant="primary" 
-              padding="10px 47px" 
+              padding="13px 50px" 
               borderRadius="5px" 
               opacity={1}
             >
@@ -101,7 +101,7 @@ export const Hero = () => {
             </Button>
             <Button 
               variant="secondary" 
-              padding="10px 19px" 
+              padding="13px 19px" 
               borderRadius="5px" 
               opacity={0.9}
             >
