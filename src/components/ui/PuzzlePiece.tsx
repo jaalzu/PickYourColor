@@ -1,4 +1,3 @@
-// src/components/ui/PuzzlePiece.tsx
 import styles from './PuzzlePiece.module.css';
 
 interface PuzzlePieceProps {
@@ -9,7 +8,8 @@ interface PuzzlePieceProps {
 export const PuzzlePiece = ({ colorVar, className = '' }: PuzzlePieceProps) => {
   return (
     <div
-      className={`${styles.puzzlePiece} ${className}`}
+      // Usamos el nombre corregido
+      className={`${styles.puzzlePiece} ${className}`} 
       style={{ backgroundColor: `var(--color-${colorVar})` }}
     />
   );

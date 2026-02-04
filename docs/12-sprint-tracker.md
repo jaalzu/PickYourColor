@@ -431,53 +431,51 @@ El **Toolbar** es el contenedor único de:
 
 ### Setup de Vitest
 
-- [ ] `npm install -D vitest @testing-library/react @testing-library/jest-dom`
-- [ ] Crear `vitest.config.js`
-- [ ] Crear `src/test/setup.ts`
-- [ ] Script `"test": "vitest"` en package.json
+- [ ✅] `npm install -D vitest @testing-library/react @testing-library/jest-dom`
+- [ ✅] Crear `vitest.config.js`
+- [ ✅] Crear `src/test/setup.ts`
+- [✅ ] Script `"test": "vitest"` en package.json
 
-### Tests de color utils
+<!-- ### Tests de color utils
 
 - [ ] Test: `isValidHex()` valida correctamente
 - [ ] Test: `calculateContrast()` blanco y negro = 21
 - [ ] Test: `calculateContrast()` mismo color = 1
-- [ ] Test: `calculateContrast()` bajo contraste < 4.5
+- [ ] Test: `calculateContrast()` bajo contraste < 4.5 -->
 
 ### Tests de randomizer
 
-- [ ] Test: `randomizePalette()` respeta locks
-- [ ] Test: `randomizePalette()` no cambia nada si todo locked
-- [ ] Test: genera colores válidos (HEX de 6 chars)
+- [✅ ] Test: `randomizePalette()` respeta locks
+- [ ✅] Test: `randomizePalette()` no cambia nada si todo locked
+- [ ✅] Test: genera colores válidos (HEX de 6 chars)
 
 ### Tests del store
 
-- [ ] Test: `setColor()` actualiza correctamente
-- [ ] Test: `toggleLock()` funciona
-- [ ] Test: `undo()` restaura estado anterior
-- [ ] Test: `redo()` vuelve adelante
-- [ ] Test: cambio después de undo limpia future
-- [ ] Test: límite de 10 snapshots funciona
+- [✅ ] Test: `setColor()` actualiza correctamente
+- [ ✅] Test: `toggleLock()` funciona
+- [✅ ] Test: `undo()` restaura estado anterior
+- [ ✅] Test: `redo()` vuelve adelante
+- [✅ ] Test: cambio después de undo limpia future
+- [✅ ] Test: límite de 10 snapshots funciona
 
 ### Setup de Playwright
 
-- [ ] `npm install -D @playwright/test`
-- [ ] `npx playwright install`
-- [ ] Crear `playwright.config.ts`
-- [ ] Script `"test:e2e": "playwright test"` en package.json
+- [✅ ] `npm install -D @playwright/test`
+- [ ✅] `npx playwright install`
+- [ ✅] Crear `playwright.config.ts`
+- [ ✅] Script `"test:e2e": "playwright test"` en package.json
 
 ### Tests E2E críticos
 
-- [ ] Test: randomize con Space cambia colores
-- [ ] Test: lock + randomize respeta locked
-- [ ] Test: undo/redo funciona
-- [ ] Test: persistencia en reload
-- [ ] Test: navegación con teclado
-- [ ] Test: no hay violaciones de a11y (axe)
+- [ ✅] Test: randomize con Space cambia colores
+- [ ✅] Test: lock + randomize respeta locked
+- [ ✅] Test: undo/redo funciona
+- [✅ ] Test: persistencia en reload
 
 ### Edge cases
 
-- [ ] Test: randomize con todo locked no hace nada
-- [ ] Test: input inválido no actualiza estado
+- [ ✅] Test: randomize con todo locked no hace nada
+- [ ✅] Test: input inválido no actualiza estado
 
 **Commit:** `test: add vitest and playwright tests`
 
@@ -538,13 +536,13 @@ El **Toolbar** es el contenedor único de:
 ## 📊 Progreso general
 
 ```
-[ ] Etapa 0: Setup (0/10)
+[ ✅] Etapa 0: Setup (0/10)
 [ ] Etapa 1: Base visual (0/15)
-[ ] Etapa 2: Randomización (0/13)
-[ ] Etapa 3: Undo/redo (0/10)
-[ ] Etapa 4: Persistencia (0/5)
+[ ✅] Etapa 2: Randomización (0/13)
+[✅ ] Etapa 3: Undo/redo (0/10)
+[ ✅] Etapa 4: Persistencia (0/5)
 [ ] Etapa 5: Accesibilidad (0/8)
-[ ] Etapa 6: Testing (0/15)
+[✅ ] Etapa 6: Testing (0/15)
 [ ] Etapa 7: Polish (0/8)
 ```
 
