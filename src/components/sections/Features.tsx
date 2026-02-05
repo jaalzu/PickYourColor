@@ -51,7 +51,7 @@ export const Features = () => {
           className="absolute inset-0 rounded-[10px]" 
           style={{ 
             backgroundColor: bgColor, 
-            opacity: .6,
+            opacity: .550,
             zIndex: 0
           }}
         />
