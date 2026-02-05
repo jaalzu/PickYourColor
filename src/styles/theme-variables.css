@@ -5,3 +5,7 @@
   --color-secondary: #8b5cf6;
   --color-accent: #ec4899;
 }
+
+.primary-shadow {
+  box-shadow: 0 7px 20px color-mix(in srgb, var(--color-primary) 16%, transparent);
+}
