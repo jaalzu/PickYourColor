@@ -8,6 +8,7 @@ import { Pricing } from './components/sections/Pricing';
 import { Companies } from './components/sections/Companies';
 import { Testimonials } from './components/sections/Testimonials';
 import { CTA } from './components/sections/CTA';
+import { FAQ } from './components/sections/FAQ';
 import { useKeyboardShortcuts } from './hooks/useKeyboardShortcuts';
 import { useURLSync } from './hooks/useURLSync';
 
@@ -25,6 +26,7 @@ useKeyboardShortcuts();
       <Companies />
       <Testimonials />
       <CTA />
+      <FAQ />
       <Toolbar />
     </>
   );
