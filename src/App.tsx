@@ -5,6 +5,7 @@ import { Hero } from './components/sections/Hero';
 import { HowItWorks } from './components/sections/HowItWorks';
 import { Features } from './components/sections/Features';
 import { Pricing } from './components/sections/Pricing';
+import { Companies } from './components/sections/Companies';
 import { Testimonials } from './components/sections/Testimonials';
 import { useKeyboardShortcuts } from './hooks/useKeyboardShortcuts';
 import { useURLSync } from './hooks/useURLSync';
@@ -21,6 +22,7 @@ useKeyboardShortcuts();
       <Features />
       <Pricing />
       <Testimonials />
+      <Companies />
       <Toolbar />
     </>
   );

@@ -56,7 +56,7 @@ export const Testimonials = () => {
         <div 
           className="absolute inset-0 rounded-[10px]" 
 style={{ 
-  background: `linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0%, var(--color-primary) 50%)`,
+  background: `linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0%, var(--color-primary) 55%)`,
   opacity: 0.450,
   zIndex: 0
 }}
