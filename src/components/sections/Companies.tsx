@@ -26,7 +26,7 @@ export const Companies = () => {
   ];
 
   return (
-    <section className="py-11 pb-15" style={{ backgroundColor: 'var(--color-background)' }}>
+    <section className="py-9 " style={{ backgroundColor: 'var(--color-background)' }}>
       <div className="max-w-7xl mx-auto px-8">
         <h2
           className="text-2xl md:text-4xl font-bold text-center mb-6"
