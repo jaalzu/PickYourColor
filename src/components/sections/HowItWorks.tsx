@@ -39,7 +39,7 @@ const steps = [
           Get your color palette in 4 simple steps
         </p>
 
-        <div className="p-7 md:p-12 rounded-[10px] relative primary-shadow">
+        <div className="p-7 md:p-12 rounded-[10px] relative ">
           <div 
             className="absolute inset-0 rounded-[10px]" 
             style={{ 
