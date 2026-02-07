@@ -21,8 +21,8 @@ const steps = [
 
   return (
     <section
-      className="px-8  py-0 md:py-7 pb-20"
-      style={{ backgroundColor: 'var(--color-background)' }}
+      className="px-8  py-0 md:py-7 pb-20 -mb-px"
+      style={{ backgroundColor: 'var(--color-background) ' }}
     >
       <div className="max-w-7xl mx-auto">
         <h2
@@ -39,7 +39,7 @@ const steps = [
           Get your color palette in 4 simple steps
         </p>
 
-        <div className="p-7 md:p-12 rounded-[10px] relative">
+        <div className="p-7 md:p-12 rounded-[10px] relative primary-shadow">
           <div 
             className="absolute inset-0 rounded-[10px]" 
             style={{ 
@@ -49,8 +49,8 @@ const steps = [
             }}
           />
           
-          <div className="relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-x-12 md:gap-y-10">
+          <div className="relative z-10 ">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-x-12 md:gap-y-10 ">
                       {steps.map((step) => (
             <div key={step.number}>
               <div className="flex items-center gap-2 mb-2">

@@ -24,11 +24,11 @@ const gradientUnderlineStyle = {
 
   return (
     <section
-      className="py-10 px-8 "
+      className="py-22 px-8 "
       style={{ backgroundColor: 'var(--color-background)' }}
     >
       <div className="max-w-4xl mx-auto text-center">
-<h2 className="text-3xl md:text-5xl font-medium mb-8 md:mb-11" style={{ lineHeight: '1.2' }}>
+<h2 className="text-4xl md:text-5xl font-medium mb-8 md:mb-11" style={{ lineHeight: '1.2' }}>
           <span style={{ color: 'var(--color-text)' }}>
             Stop wasting your{' '}
             <span style={underlineStyle('var(--color-primary)')}>

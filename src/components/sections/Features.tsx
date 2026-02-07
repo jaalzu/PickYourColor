@@ -45,7 +45,7 @@ export const Features = () => {
     const bgColor = index % 2 === 0 ? 'var(--color-primary)' : 'var(--color-secondary)';
     
     return (
-      <div key={feature.title} className="h-[180px] md:h-[140px] rounded-[10px] relative p-4 md:px-9"
+      <div key={feature.title} className="h-[180px] md:h-[140px] rounded-[10px] relative p-4 md:px-9 primary-shadow"
 >
         <div 
           className="absolute inset-0 rounded-[10px]" 

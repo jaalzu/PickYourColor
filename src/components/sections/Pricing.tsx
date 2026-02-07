@@ -60,7 +60,7 @@ export const Pricing = () => {
             <div key={plan.title} className="rounded-[10px] relative">
               {/* Background  */}
               <div 
-                className="absolute inset-0 rounded-[10px]" 
+                className="absolute inset-0 rounded-[10px] primary-shadow" 
                 style={{ 
                   backgroundColor: plan.bgColor, 
                   opacity: 0.4,
@@ -115,7 +115,7 @@ export const Pricing = () => {
                 {/* Separador con "Features" */}
                 <div className="flex items-center gap-3 mb-6">
                   <div className="flex-1 h-[1px]" style={{ backgroundColor: 'var(--color-text)', opacity: 0.2 }} />
-                  <span className="text-sm font-medium" style={{ color: 'var(--color-text)', opacity: 0.6 }}>
+                  <span className="text-sm font-medium " style={{ color: 'var(--color-text)', opacity: 0.6 }}>
                     Features
                   </span>
                   <div className="flex-1 h-[1px]" style={{ backgroundColor: 'var(--color-text)', opacity: 0.2 }} />

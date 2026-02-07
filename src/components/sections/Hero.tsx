@@ -1,6 +1,7 @@
 import { Bars3Icon } from '@heroicons/react/24/outline';
 import { Button } from '../ui/Button';
 import { PuzzlePiece } from '../ui/PuzzlePiece';
+import { Logo } from '../ui/Logo';
 
 
 export const Hero = () => {
@@ -13,32 +14,8 @@ export const Hero = () => {
       <nav className="w-full flex justify-between items-center px-6 md:px-12 pt-4 z-20">
   {/* Logo Container */}
   <div className="flex items-center gap-2">
-    {/* SVG Icon */}
-   <svg 
-  viewBox="0 0 256 256" 
-  className="w-7  h-7  md:w-8 md:h-8"
->
-  <defs>
-    <linearGradient id="rainbow-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style={{ stopColor: 'var(--color-primary)' }} />
-      <stop offset="33%" style={{ stopColor: 'var(--color-secondary)' }} />
-      <stop offset="66%" style={{ stopColor: 'var(--color-accent)' }} />
-      <stop offset="100%" style={{ stopColor: 'var(--color-primary)' }} />
-    </linearGradient>
-  </defs>
-  
-  <path 
-    d="M 228 0 C 172.772 0 128 44.772 128 100 L 128 0 L 0 0 L 0 28 C 0 83.228 44.772 128 100 128 L 0 128 L 0 256 L 28 256 C 83.228 256 128 211.228 128 156 L 128 256 L 256 256 L 256 228 C 256 172.772 211.228 128 156 128 L 256 128 L 256 0 Z" 
-    fill="url(#rainbow-gradient)" 
-  />
-</svg>
+   <Logo size="md" />
 
-    <span 
-      className="text-lg md:text-xl font-black tracking-tighter"
-      style={{ color: 'var(--color-text)' }}
-    >
-      PICKYOURCOLOR
-    </span>
   </div>
 
   {/* Menu Icon */}

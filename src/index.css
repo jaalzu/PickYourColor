@@ -1,2 +1,4 @@
 @import './styles/theme-variables.css';
+@import './styles/global.css';
 @import "tailwindcss";
+
