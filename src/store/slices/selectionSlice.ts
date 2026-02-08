@@ -4,6 +4,7 @@ import tinycolor from 'tinycolor2';
 import type { ColorKey, ColorScheme } from '../../types';
 import type { ColorSlice } from './colorSlice';
 import type { HistorySlice } from './historySlice';
+import type { ThemeSlice } from './themeSlice';
 
 export interface SelectionSlice {
   lockedColors: ColorKey[];
@@ -11,52 +12,64 @@ export interface SelectionSlice {
   randomizeColors: () => void;
 }
 
-// Agregamos HistorySlice a la intersección del StateCreator
 export const createSelectionSlice: StateCreator<
-  ColorSlice & SelectionSlice & HistorySlice,
+  ColorSlice & SelectionSlice & HistorySlice & ThemeSlice,
   [],
   [],
   SelectionSlice
 > = (set, get) => ({
   lockedColors: [],
 
-  toggleLock: (key) => {
+  toggleLock: (key: ColorKey) => {
     const { lockedColors } = get();
     const isLocked = lockedColors.includes(key);
     set({
       lockedColors: isLocked 
-        ? lockedColors.filter((k) => k !== key) 
+        ? lockedColors.filter((k: ColorKey) => k !== key) 
         : [...lockedColors, key]
     });
   },
 
   randomizeColors: () => {
-    // Traemos saveHistory del store
-    const { colors, lockedColors, saveHistory } = get();
+    const { colors, lockedColors, saveHistory, themeMode } = get();
     
-    // 1. Guardamos el estado actual en el historial ANTES de cambiar nada
     saveHistory({ ...colors });
 
-    // 2. Creamos una copia de los colores para trabajar
     const newColors: ColorScheme = { ...colors };
 
-    (Object.keys(colors) as ColorKey[]).forEach((key) => {
+    (Object.keys(colors) as ColorKey[]).forEach((key: ColorKey) => {
       if (!lockedColors.includes(key)) {
         let finalColor: string;
 
         if (key === 'background') {
-          finalColor = tinycolor({
-            h: Math.random() * 360,
-            s: Math.random() * 10 + 10, 
-            l: Math.random() * 5 + 85,  
-          }).toHexString();
+          if (themeMode === 'light') {
+            finalColor = tinycolor({
+              h: Math.random() * 360,
+              s: Math.random() * 15 + 5,
+              l: Math.random() * 10 + 85,
+            }).toHexString();
+          } else {
+            finalColor = tinycolor({
+              h: Math.random() * 360,
+              s: Math.random() * 20 + 10,
+              l: Math.random() * 15 + 10,
+            }).toHexString();
+          }
         } 
         else if (key === 'text') {
-          finalColor = tinycolor({
-            h: Math.random() * 360,
-            s: Math.random() * 10,      
-            l: Math.random() * 15 + 10, 
-          }).toHexString();
+          if (themeMode === 'light') {
+            finalColor = tinycolor({
+              h: Math.random() * 360,
+              s: Math.random() * 20,
+              l: Math.random() * 20 + 10,
+            }).toHexString();
+          } else {
+            finalColor = tinycolor({
+              h: Math.random() * 360,
+              s: Math.random() * 15,
+              l: Math.random() * 15 + 80,
+            }).toHexString();
+          }
         } 
         else {
           const tempColor = tinycolor.random();
@@ -67,12 +80,10 @@ export const createSelectionSlice: StateCreator<
           }
         }
 
-        // 3. Actualizamos la copia local, NO el store todavía
         newColors[key] = finalColor;
       }
     });
 
-    // 4. Aplicamos todos los colores de una vez
     set({ colors: newColors });
   },
 });

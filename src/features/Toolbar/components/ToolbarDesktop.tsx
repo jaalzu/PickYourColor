@@ -5,6 +5,8 @@ import { RandomizeButton } from './Actions/RandomizeButton';
 import { UndoRedoButtons } from './Actions/UndoRedoButtons';
 import { ExportButton } from './Actions/ExportButton';
 import { ShareButton } from './Actions/ShareButton';
+import { ThemeToggleButton } from './Actions/ThemeToggleButton';
+
 import { COLOR_CONFIG } from '../constants/colorConfig';
 import { useToolbarLogic } from '../hooks/useToolbarLogic';
 
@@ -49,6 +51,13 @@ export const ToolbarDesktop = () => {
             {/* Línea divisora añadida aquí */}
             <div className="w-px h-full bg-white/20" />
           </div>
+
+
+{/* Botón Theme Toggle */}
+<div className="flex h-full">
+  <ThemeToggleButton />
+  <div className="w-px h-full bg-white/20" />
+</div>
 
           {/* Botón Share */}
           <div className="flex h-full">

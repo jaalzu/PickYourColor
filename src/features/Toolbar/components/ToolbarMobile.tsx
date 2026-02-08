@@ -3,6 +3,8 @@ import { ColorInputMobile } from './ColorPicker/ColorInputButton/ColorInputMobil
 import { ColorPickerModal } from './ColorPicker/ColorPickerModal/ColorPickerModal';
 import { RandomizeButton } from './Actions/RandomizeButton';
 import { UndoRedoButtons } from './Actions/UndoRedoButtons';
+import { ThemeToggleButton } from './Actions/ThemeToggleButton';
+
 import { ExportButton } from './Actions/ExportButton';
 import { ShareButton } from './Actions/ShareButton';
 import { useToolbarLogic } from '../hooks/useToolbarLogic';
@@ -53,9 +55,13 @@ export const ToolbarMobile = () => {
           <div className="flex flex-col"> 
             
             {/* Fila Undo/Redo */}
-            <div className="w-full border-b border-white/10">
-              <UndoRedoButtons className="w-full py-4" />
-            </div>
+          // En ToolbarMobile.tsx, en la fila de Undo/Redo, cambiá:
+
+{/* Fila Undo/Redo y Theme */}
+<div className="grid grid-cols-2 divide-x divide-white/10 border-b border-white/10">
+  <UndoRedoButtons className="w-full py-4" />
+  <ThemeToggleButton className="w-full py-4" />
+</div>
 
             {/* Fila Exportar y Compartir */}
             <div className="grid grid-cols-2 divide-x divide-white/10">

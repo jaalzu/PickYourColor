@@ -63,7 +63,7 @@ export const Pricing = () => {
                 className="absolute inset-0 rounded-[10px] primary-shadow" 
                 style={{ 
                   backgroundColor: plan.bgColor, 
-                  opacity: 0.4,
+                  opacity: 0.5,
                   zIndex: 0
                 }}
               />
@@ -94,7 +94,7 @@ export const Pricing = () => {
 </p>
 
 {/* Precio */}
-<div className="text-2xl font-medium mb-2" style={{ color: 'var(--color-text)' }}>
+<div className="text-2xl font-medium mb-3" style={{ color: 'var(--color-text)' }}>
   {plan.price}
   <span className="text-base font-normal opacity-80">/month</span>
 </div>
@@ -115,7 +115,7 @@ export const Pricing = () => {
                 {/* Separador con "Features" */}
                 <div className="flex items-center gap-3 mb-3">
                   <div className="flex-1 h-[1px]" style={{ backgroundColor: 'var(--color-text)', opacity: 0.2 }} />
-                  <span className="font-mono text-sm font-medium " style={{ color: 'var(--color-text)', opacity: 0.6 }}>
+                  <span className="font-mono text-sm font-medium " style={{ color: 'var(--color-text)', opacity: 0.5 }}>
                     Features
                   </span>
                   <div className="flex-1 h-[1px]" style={{ backgroundColor: 'var(--color-text)', opacity: 0.2 }} />
