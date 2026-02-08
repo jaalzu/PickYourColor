@@ -52,14 +52,14 @@ export const Hero = () => {
         {/* Content */}
         <div className="max-w-sm md:max-w-2xl text-center z-10">
           <h1
-            className="text-5xl md:text-5xl lg:text-[67px] leading-[1.150] md:leading-[1.2] font-bold mb-6 px-4 md:px-0"
+            className="font-mono text-5xl md:text-5xl lg:text-[67px] leading-[1.150] md:leading-[1.2] font-bold mb-6 px-4 md:px-0"
             style={{ color: 'var(--color-text)' }}
           >
             Visualizá tus colores en un sitio web de verdad.
           </h1>
 
           <p
-            className="text-xl md:text-2xl mb-10 max-w-sm mx-auto px-5 md:max-w-lg md:px-5 "
+            className="font-sans text-xl md:text-2xl mb-10 max-w-sm mx-auto px-5 md:max-w-lg md:px-5 "
             style={{ color: 'var(--color-text)', opacity: 1 }}
           >
             ¿No estás seguro de qué colores elegir? Usá la toolbar y probalos al

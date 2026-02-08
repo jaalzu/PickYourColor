@@ -1,5 +1,14 @@
+/* // añadi esto para evitar un error visual que hace que cada sección al final tenga una linea blanca..  */
 section {
   margin-bottom: -1px;
 }
 
-/* // añadi esto para evitar un error visual que hace que cada sección al final tenga una linea blanca..  */
+
+
+.company-icon svg path {
+  fill: currentColor;
+}
+
+.company-icon:hover svg path {
+  fill: var(--color-primary);
+}

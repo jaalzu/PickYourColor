@@ -1,89 +1,76 @@
-import figma from '../../assets/svg/figma.svg';
-import insta from '../../assets/svg/insta.svg';
-import react from '../../assets/svg/react.svg';
-import steam from '../../assets/svg/steam.svg';
-import vite from '../../assets/svg/vite.svg';
-import yt from '../../assets/svg/yt.svg';
+import { useColorStore } from '../../store/useColorStore';
+import tinycolor from 'tinycolor2';
 
 export const Companies = () => {
-
-
+  const bgColor = useColorStore((state) => state.colors.background);
+  const isDark = tinycolor(bgColor).isDark();
+  const iconColor = isDark ? '#FFFFFF' : '#000000';
+  
   const companies = [
-    { icon: figma },
-    { icon: insta },
-    { icon: react },
-    { icon: steam },
-    { icon: vite },
-    { icon: yt }
+    {
+      name: "Figma",
+      svg: (
+       <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Figma</title><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></svg>
+      )
+    },
+    {
+      name: "GitHub", 
+      svg: (
+        
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.237 1.838 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+        </svg>
+      )
+    },
+    {
+      name: "Steam", 
+      svg: ( 
+        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Steam</title><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/></svg>
+        )
+    },
+    {
+      name: "Anthropic", 
+      svg: ( 
+      <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Anthropic</title><path d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z"/></svg>
+        )
+    },
+    {
+      name: "Tesla", 
+      svg: ( 
+       <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Tesla</title><path d="M12 5.362l2.475-3.026s4.245.09 8.471 2.054c-1.082 1.636-3.231 2.438-3.231 2.438-.146-1.439-1.154-1.79-4.354-1.79L12 24 8.619 5.034c-3.18 0-4.188.354-4.335 1.792 0 0-2.146-.795-3.229-2.43C5.28 2.431 9.525 2.34 9.525 2.34L12 5.362l-.004.002H12v-.002zm0-3.899c3.415-.03 7.326.528 11.328 2.28.535-.968.672-1.395.672-1.395C19.625.612 15.528.015 12 0 8.472.015 4.375.61 0 2.349c0 0 .195.525.672 1.396C4.674 1.989 8.585 1.435 12 1.46v.003z"/></svg>
+        )
+    },
+    {
+      name: "Meta", 
+      svg: ( 
+      <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Meta</title><path d="M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.358-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.63-4.535 1.66-6.088.454-.687.964-1.226 1.533-1.533a2.264 2.264 0 0 1 1.088-.285z"/></svg>
+        )
+    },
   ];
 
   return (
-    <section className="py-13 " style={{ backgroundColor: 'var(--color-background)' }}>
+    <section className="py-13" style={{ backgroundColor: 'var(--color-background)' }}>
       <div className="max-w-7xl mx-auto px-2">
-        <h2
-          className="text-2xl md:text-4xl font-bold text-center mb-6"
+        <h2 
+          className="text-2xl md:text-4xl font-mono font-bold text-center mb-10" 
           style={{ color: 'var(--color-text)' }}
         >
           Thanks to all these small companies for supporting us!
         </h2>
       </div>
-
-      <div 
-        className="py-8  relative overflow-hidden"
-      >
-<div 
-  className="absolute inset-0 z-0 opacity-[0.03]"
-/>
-
-    {/* Logos en pirámide mobile, fila en desktop */}
-    <div className="relative z-30 max-w-7xl px-9 mx-auto md:max-w-full md:px-23  ">
-      {/* Desktop: una fila */}
-{/* Desktop: una fila */}
-<div className="hidden md:flex justify-between items-center">
-  {companies.map((company, index) => (
-    <img 
-      key={index}
-      src={company.icon} 
-      alt="Company logo"
-      className="h-14 w-auto"
-    />
-  ))}
-</div>
-
-{/* Mobile: pirámide 3-2-1 */}
-<div className="md:hidden space-y-6">
-  <div className="flex justify-between">
-    {companies.slice(0, 3).map((company, index) => (
-      <img 
-        key={index}
-        src={company.icon} 
-        alt="Company logo"
-        className="h-13 w-auto"
-      />
-    ))}
+      <div className="relative z-30 max-w-7xl px-9 mx-auto md:max-w-full md:px-23">
+        <div className="flex flex-wrap justify-center gap-10 md:justify-between items-center">
+          {companies.map((company, index) => (
+  <div 
+    key={index} 
+    className="w-12 h-12 md:w-16 md:h-16 transition-all duration-300 cursor-pointer group company-icon"
+    style={{ color: iconColor }}
+  >
+    {company.svg}
   </div>
-
-  <div className="flex justify-around px-12">
-    {companies.slice(3, 5).map((company, index) => (
-      <img 
-        key={index}
-        src={company.icon} 
-        alt="Company logo"
-        className="h-13 w-auto"
-      />
-    ))}
-  </div>
-
-  <div className="flex justify-center">
-    <img 
-      src={companies[5].icon} 
-      alt="Company logo"
-      className="h-13 w-auto"
-    />
-  </div>
-</div>
-    </div>
-  </div>
-</section>
+))}
+        </div>
+      </div>
+    </section>
   );
 };
