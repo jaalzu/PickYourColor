@@ -34,11 +34,11 @@ export const FAQ = () => {
       style={{ backgroundColor: 'var(--color-background)' }}
     >
       <div className="max-w-3xl mx-auto">
-        <p className="text-md text-center" style={{ color: 'var(--color-text)', opacity: 0.6 }}>
+        <p className="text-md text-center font-mono" style={{ color: 'var(--color-text)', opacity: 0.6 }}>
           FAQ
         </p>
         <h2
-          className="text-4xl md:text-5xl font-medium text-center mb-5"
+          className="font-mono text-4xl md:text-5xl font-medium text-center mb-5"
           style={{ color: 'var(--color-text)' }}
         >
           Got Questions? We've Got Answers
@@ -70,7 +70,7 @@ export const FAQ = () => {
   onClick={() => setOpenIndex(isOpen ? null : index)}
   className="w-full px-5 py-4 flex justify-between items-center text-left relative z-10"
 >
-  <h3 className="text-lg md:text-xl font-bold" style={{ color: textColor }}>
+  <h3 className="text-2xl  font-bold" style={{ color: textColor }}>
     {faq.question}
   </h3>
   <div
@@ -93,8 +93,8 @@ export const FAQ = () => {
                     opacity: isOpen ? 1 : 0
                   }}
                 >
-                  <div className="px-4 pb-5 relative z-10">
-                    <p className="text-base md:text-lg" style={{ color: textColor }}>
+                  <div className="px-4 pb-6 relative z-10">
+                    <p className="text-xl " style={{ color: textColor }}>
   {faq.answer}
 </p>
                   </div>

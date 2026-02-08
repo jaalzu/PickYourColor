@@ -26,14 +26,14 @@ const steps = [
     >
       <div className="max-w-7xl mx-auto">
         <h2
-          className="text-4xl md:text-5xl font-bold text-center mb-2"
+          className="font-mono text-4xl md:text-5xl font-bold text-center mb-2"
           style={{ color: 'var(--color-text)' }}
         >
           How Does it Work?
         </h2>
 
         <p
-          className="text-xl md:text-2xl text-center mb-6"
+          className="  text-xl md:text-2xl text-center mb-6"
           style={{ color: 'var(--color-text)', opacity: 0.8 }}
         >
           Get your color palette in 4 simple steps
@@ -54,7 +54,7 @@ const steps = [
                       {steps.map((step) => (
             <div key={step.number}>
               <div className="flex items-center gap-2 mb-2">
-                <h3 className="text-3xl font-bold" style={{ color: 'var(--color-accent)' }}>
+                <h3 className="font-mono text-3xl font-bold" style={{ color: 'var(--color-accent)' }}>
                   {step.number}
                 </h3>
               </div>

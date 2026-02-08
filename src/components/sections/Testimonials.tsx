@@ -40,7 +40,7 @@ export const Testimonials = () => {
     >
       <div className="max-w-7xl mx-auto">
         <h2
-          className="text-4xl md:text-5xl font-bold text-center mb-12"
+          className="font-mono text-4xl md:text-5xl font-bold text-center mb-12"
           style={{ color: 'var(--color-text)' }}
         >
          100% Real No Fake User Experiences
@@ -69,13 +69,13 @@ style={{
             <img 
               src={testimonial.image} 
               alt={testimonial.name}
-              className="w-11 h-11 rounded-full"
+              className="w-12 h-12 rounded-full"
             />
             <div className="flex-1">
-              <h3 className="font-bold text-base" style={{ color: 'var(--color-text)' }}>
+              <h3 className="font-mono font-bold text-lg" style={{ color: 'var(--color-text)' }}>
                 {testimonial.name}
               </h3>
-              <p className="text-sm" style={{ color: 'var(--color-text)', opacity: 0.7 }}>
+              <p className="text-sm font-mono text-lg" style={{ color: 'var(--color-text)', opacity: 0.7 }}>
                 {testimonial.role}
               </p>
             </div>

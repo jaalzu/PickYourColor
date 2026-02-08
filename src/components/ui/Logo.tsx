@@ -5,8 +5,8 @@ interface LogoProps {
 
 export const Logo = ({ size = 'md', showText = true }: LogoProps) => {
   const sizes = {
-    sm: { svg: 'w-6 h-6', text: 'text-lg' },
-    md: { svg: 'w-7 h-7 md:w-8 md:h-8', text: 'text-lg md:text-xl' },
+    sm: { svg: 'w-6 h-6', text: 'text-2xl' },
+    md: { svg: 'w-8 h-8 md:w-8 md:h-8', text: 'text-xl lg:text-2xl' },
     lg: { svg: 'w-10 h-10 md:w-12 md:h-12', text: 'text-2xl md:text-3xl' }
   };
 
@@ -33,7 +33,7 @@ export const Logo = ({ size = 'md', showText = true }: LogoProps) => {
 
       {showText && (
         <span 
-          className={`${sizes[size].text} font-black tracking-tighter`}
+          className={`${sizes[size].text} font-mono font-bold tracking-tighter`}
           style={{ color: 'var(--color-text)' }}
         >
           PICKYOURCOLOR

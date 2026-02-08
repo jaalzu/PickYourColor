@@ -28,20 +28,20 @@ export const ToolbarMobile = () => {
         `}>
           
           {/* 1. Contenedor de Colores y Randomize (Con Padding y Gap) */}
-          <div className="grid grid-cols-2 gap-[8px] p-2">
-            <div className="border border-white/10">
+          <div className="grid grid-cols-2  ">
+            <div className="">
               <ColorInputMobile colorKey="text" label="Text" color={colors.text} onClick={() => handleColorSelect('text')} />
             </div>
-            <div className="border border-white/10">
+            <div className="">
               <ColorInputMobile colorKey="background" label="Background" color={colors.background} onClick={() => handleColorSelect('background')} />
             </div>
-            <div className="border border-white/10">
+            <div className="">
               <ColorInputMobile colorKey="primary" label="Primary" color={colors.primary} onClick={() => handleColorSelect('primary')} />
             </div>
-            <div className="border border-white/10">
+            <div className="">
               <ColorInputMobile colorKey="secondary" label="Secondary" color={colors.secondary} onClick={() => handleColorSelect('secondary')} />
             </div>
-            <div className="border border-white/10">
+            <div className="">
               <ColorInputMobile colorKey="accent" label="Accent" color={colors.accent} onClick={() => handleColorSelect('accent')} />
             </div>
             <div className="flex flex-col border border-white/10">
@@ -67,7 +67,7 @@ export const ToolbarMobile = () => {
 
         <button 
           onClick={toggleToolbar}
-          className="pointer-events-auto w-full bg-[#1a1a2e] text-white py-6 font-bold text-[18px] tracking-widest border-t border-white/10"
+          className="font-mono pointer-events-auto w-full bg-[#1a1a2e] text-white py-4 font-bold text-[27px] tracking-widest border-t border-white/10"
         >
           TOOLBAR
         </button>

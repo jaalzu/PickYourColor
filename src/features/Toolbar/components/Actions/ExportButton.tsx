@@ -18,7 +18,7 @@ export const ExportButton = ({ className = "" }: ExportButtonProps) => {
         aria-label="Export color palette"
       >
         <ArrowDownTrayIcon className="w-6 h-6 text-white" />
-        <span className="text-[12px] text-white tracking-wide">Exportar</span>
+        <span className="font-mono text-[16px] md:text-[12.5px] text-white ">Exportar</span>
       </button>
 
       {isModalOpen && <ExportModal onClose={() => setIsModalOpen(false)} />}

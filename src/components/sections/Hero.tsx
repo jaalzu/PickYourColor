@@ -52,7 +52,7 @@ export const Hero = () => {
         {/* Content */}
         <div className="max-w-sm md:max-w-2xl text-center z-10">
           <h1
-            className="font-mono text-5xl md:text-5xl lg:text-[67px] leading-[1.150] md:leading-[1.2] font-bold mb-6 px-4 md:px-0"
+            className="font-mono text-5xl md:text-5xl lg:text-[67px] leading-[1] md:leading-[1] font-bold mb-6 px-4 md:px-0"
             style={{ color: 'var(--color-text)' }}
           >
             Visualizá tus colores en un sitio web de verdad.

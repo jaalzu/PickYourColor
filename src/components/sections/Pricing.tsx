@@ -49,7 +49,7 @@ export const Pricing = () => {
     >
       <div className="max-w-7xl mx-auto">
         <h2
-          className="text-4xl md:text-5xl font-bold text-center mb-12"
+          className="font-mono  text-4xl md:text-5xl font-bold text-center mb-7"
           style={{ color: 'var(--color-text)' }}
         >
           Our Pricing
@@ -77,30 +77,30 @@ export const Pricing = () => {
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256" fill="none">
       <path d="M 128 0 C 147.68 0 164.04 14.213 167.377 32.934 C 182.974 22.055 204.594 23.574 218.51 37.49 C 232.426 51.406 233.944 73.025 223.066 88.622 C 241.787 91.96 256 108.32 256 128 C 256 147.68 241.787 164.04 223.065 167.377 C 233.944 182.974 232.426 204.594 218.51 218.51 C 204.594 232.426 182.974 233.944 167.377 223.065 C 164.04 241.787 147.68 256 128 256 C 108.32 256 91.959 241.787 88.622 223.065 C 73.025 233.944 51.406 232.426 37.49 218.51 C 23.574 204.594 22.055 182.974 32.934 167.377 C 14.213 164.04 0 147.68 0 128 C 0 108.32 14.213 91.96 32.934 88.622 C 22.056 73.025 23.574 51.406 37.49 37.49 C 51.406 23.574 73.025 22.055 88.622 32.934 C 91.96 14.213 108.32 0 128 0 Z" fill="var(--color-primary)"></path>
     </svg>
-    <span className="text-sm font-bold" style={{ color: 'var(--color-text)' }}>
+    <span className="font-mono text-sm font-bold" style={{ color: 'var(--color-text)' }}>
       Best Option
     </span>
   </div>
 )}
 
 {/* Título */}
-<h3 className="text-3xl font-bold mb-3 pt-5" style={{ color: 'var(--color-text)' }}>
+<h3 className="font-mono  text-3xl font-bold mb-3 pt-5" style={{ color: 'var(--color-text)' }}>
   {plan.title}
 </h3>
 
 {/* Descripción */}
-<p className="text-lg mb-9" style={{ color: 'var(--color-text)', opacity: 0.8 }}>
+<p className="text-xl mb-9" style={{ color: 'var(--color-text)', opacity: 0.8 }}>
   {plan.description}
 </p>
 
 {/* Precio */}
-<div className="text-2xl font-medium mb-3" style={{ color: 'var(--color-text)' }}>
+<div className="text-2xl font-medium mb-2" style={{ color: 'var(--color-text)' }}>
   {plan.price}
   <span className="text-base font-normal opacity-80">/month</span>
 </div>
 
 {/* Botón */}
-<div className="mb-7">
+<div className="mb-10">
   <Button 
     variant="primary" 
     padding="6px 0" 
@@ -113,9 +113,9 @@ export const Pricing = () => {
 </div>
 
                 {/* Separador con "Features" */}
-                <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center gap-3 mb-3">
                   <div className="flex-1 h-[1px]" style={{ backgroundColor: 'var(--color-text)', opacity: 0.2 }} />
-                  <span className="text-sm font-medium " style={{ color: 'var(--color-text)', opacity: 0.6 }}>
+                  <span className="font-mono text-sm font-medium " style={{ color: 'var(--color-text)', opacity: 0.6 }}>
                     Features
                   </span>
                   <div className="flex-1 h-[1px]" style={{ backgroundColor: 'var(--color-text)', opacity: 0.2 }} />
@@ -126,7 +126,7 @@ export const Pricing = () => {
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3">
                     <CheckIcon className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-accent' }} />  
-                    <span className="text-base" style={{ color: 'var(--color-text)' }}>
+                    <span className="md:text-md text-lg" style={{ color: 'var(--color-text)' }}>
                         {feature}
                       </span>
                     </li>

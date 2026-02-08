@@ -28,7 +28,7 @@ export const Button = ({
   return (
     <button
       onClick={onClick}
-      className={`font-medium transition hover:brightness-110 active:scale-95 ${className}`}
+      className={`font-mono font-bold transition hover:brightness-110 active:scale-95 ${className}`}
       style={{ 
         backgroundColor: bgColor,
         color: textColor,

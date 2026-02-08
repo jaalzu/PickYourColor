@@ -31,7 +31,7 @@ export const ShareButton = ({ className = "" }: { className?: string }) => {
       ) : (
         <LinkIcon className="w-6 h-6 text-white" />
       )}
-      <span className={`text-[12px] tracking-wide  ${copied ? 'text-green-500' : 'text-white'}`}>
+      <span className={`text-[16px] md:text-[12.5px] font-mono  ${copied ? 'text-green-500' : 'text-white'}`}>
         {copied ? 'Copiado' : 'Copiar URL'}
       </span>
     </button>

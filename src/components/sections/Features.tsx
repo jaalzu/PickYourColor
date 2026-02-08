@@ -28,12 +28,12 @@ export const Features = () => {
 
   return (
     <section
-      className="px-8 py-10 md:py-28"
+      className="px-8 py-15 md:py-34"
       style={{ backgroundColor: 'var(--color-background)' }}
     >
       <div className="max-w-7xl mx-auto">
         <h2
-          className="text-4xl md:text-4xl font-medium text-start mb-6"
+          className="font-mono text-4xl md:text-4xl font-medium text-start mb-6"
           style={{ color: 'var(--color-text)' }}
         >
           Some Cool Features
@@ -58,7 +58,7 @@ export const Features = () => {
         
         <div className={`relative z-10 h-full flex flex-col ${isEven ? 'items-end text-right' : 'items-start text-left'}`}>
           <div className={`flex items-center justify-between w-full mb-2 ${isEven ? 'flex-row-reverse' : ''}`}>
-            <h3 className="text-2xl font-bold" style={{ color: 'var(--color-text)' }}>
+            <h3 className="font-mono text-2xl font-bold" style={{ color: 'var(--color-text)' }}>
               {feature.title}
             </h3>
             <feature.Icon className="w-9.5 h-9.5" style={{ color: 'var(--color-accent)' }} />

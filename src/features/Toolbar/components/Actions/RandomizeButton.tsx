@@ -12,7 +12,7 @@ export const RandomizeButton = ({ className = "" }: { className?: string }) => {
       onClick={randomize}
     >
       <Squares2X2Icon className="w-6 h-6 text-white" />
-      <span className="text-[12px] text-white tracking-wide">
+      <span className="font-mono text-[16px] md:text-[12.5px] text-white ">
         Aleatorio
       </span>
     </button>

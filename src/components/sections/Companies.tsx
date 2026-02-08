@@ -58,8 +58,8 @@ export const Companies = () => {
           Thanks to all these small companies for supporting us!
         </h2>
       </div>
-      <div className="relative z-30 max-w-7xl px-9 mx-auto md:max-w-full md:px-23">
-        <div className="flex flex-wrap justify-center gap-10 md:justify-between items-center">
+      <div className="relative z-30 max-w-7xl px-1 mx-auto md:max-w-full md:px-23">
+        <div className="flex flex-wrap justify-center gap-10 md:justify-between ">
           {companies.map((company, index) => (
   <div 
     key={index} 
@@ -71,6 +71,7 @@ export const Companies = () => {
 ))}
         </div>
       </div>
+      
     </section>
   );
 };

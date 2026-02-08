@@ -43,7 +43,7 @@ export const ColorInputButton = ({
         backgroundColor: isHovered ? `${color}23` : 'transparent',
       }}
     >
-      <span className="text-[12.5px] font-medium text-white tracking-wider">
+      <span className="text-[12.5px] font-mono font-medium text-white tracking-wider">
         {label}
       </span>
 

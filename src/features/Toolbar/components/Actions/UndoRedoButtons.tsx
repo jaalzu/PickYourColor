@@ -17,7 +17,7 @@ export const UndoRedoButtons = ({ className = "" }: UndoRedoButtonsProps) => {
         aria-label="Undo last change"
       >
         <ArrowUturnLeftIcon className="w-6 h-6 text-white" />
-        <span className="text-[12px]  text-white">Undo</span>
+        <span className="text-[16px] md:text-[12.5px] text-white font-mono ">Undo</span>
       </button>
       
       {/* SEPARADOR CORREGIDO */}
@@ -25,13 +25,13 @@ export const UndoRedoButtons = ({ className = "" }: UndoRedoButtonsProps) => {
       <div className="w-px self-stretch md:self-auto md:h-10 bg-white/20" />
 
       <button
-        className="flex flex-col items-center justify-center gap-1 px-3 h-full hover:bg-white/5 transition-colors flex-1 disabled:opacity-25 disabled:cursor-not-allowed"
+        className=" flex flex-col items-center justify-center gap-1 px-3 h-full hover:bg-white/5 transition-colors flex-1 disabled:opacity-25 disabled:cursor-not-allowed"
         onClick={redo}
         disabled={future.length === 0}
         aria-label="Redo last change"
       >
         <ArrowUturnRightIcon className="w-6 h-6 text-white" />
-        <span className="text-[12px] text-white tracking-wide">Redo</span>
+        <span className="font-mono text-[16px] md:text-[12.5px] text-white ">Redo</span>
       </button>
     </div>
   );
