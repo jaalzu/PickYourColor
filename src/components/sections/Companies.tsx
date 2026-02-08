@@ -4,17 +4,9 @@ import react from '../../assets/svg/react.svg';
 import steam from '../../assets/svg/steam.svg';
 import vite from '../../assets/svg/vite.svg';
 import yt from '../../assets/svg/yt.svg';
-import tinycolor from 'tinycolor2';
-import { useColorStore } from '../../store/useColorStore';
 
 export const Companies = () => {
-  const bgColor = useColorStore((state) => state.colors.background);
-  const textColor = useColorStore((state) => state.colors.text);
-  
-  const isLightBg = tinycolor(bgColor).isLight();
-  const borderColor = isLightBg 
-    ? tinycolor(textColor).setAlpha(0.25).toRgbString()
-    : tinycolor(textColor).setAlpha(0.25).toRgbString();
+
 
   const companies = [
     { icon: figma },
@@ -26,8 +18,8 @@ export const Companies = () => {
   ];
 
   return (
-    <section className="py-9 " style={{ backgroundColor: 'var(--color-background)' }}>
-      <div className="max-w-7xl mx-auto px-8">
+    <section className="py-13 " style={{ backgroundColor: 'var(--color-background)' }}>
+      <div className="max-w-7xl mx-auto px-2">
         <h2
           className="text-2xl md:text-4xl font-bold text-center mb-6"
           style={{ color: 'var(--color-text)' }}
@@ -37,22 +29,10 @@ export const Companies = () => {
       </div>
 
       <div 
-        className="py-8 border-t border-b relative overflow-hidden"
-        style={{ borderColor: borderColor }}
+        className="py-8  relative overflow-hidden"
       >
 <div 
   className="absolute inset-0 z-0 opacity-[0.03]"
-  style={{
-    backgroundImage: `
-      repeating-linear-gradient(
-        70deg,
-        var(--color-secondary),
-        var(--color-secondary) 3px,
-        transparent 2px,
-        transparent 12px
-      )
-    `
-  }}
 />
 
     {/* Logos en pirámide mobile, fila en desktop */}
@@ -71,7 +51,7 @@ export const Companies = () => {
 </div>
 
 {/* Mobile: pirámide 3-2-1 */}
-<div className="md:hidden space-y-8">
+<div className="md:hidden space-y-6">
   <div className="flex justify-between">
     {companies.slice(0, 3).map((company, index) => (
       <img 

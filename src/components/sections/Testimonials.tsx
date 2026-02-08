@@ -52,7 +52,7 @@ export const Testimonials = () => {
       key={testimonial.name}
       className={index === 3 ? "md:col-start-2" : ""}
     >
-<div className="p-6 rounded-[10px] relative primary-shadow border" style={{ borderColor: 'rgba(255, 255, 255, 0.250)' }}>        {/* Background con opacidad */}
+<div className="p-6 rounded-[10px] relative  border" style={{ borderColor: 'rgba(255, 255, 255, 0.250)' }}>        {/* Background con opacidad */}
         <div 
           className="absolute inset-0 rounded-[10px]" 
 style={{ 
