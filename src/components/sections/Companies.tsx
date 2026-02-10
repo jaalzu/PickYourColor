@@ -49,7 +49,11 @@ export const Companies = () => {
   ];
 
   return (
-    <section className="py-13" style={{ backgroundColor: 'var(--color-background)' }}>
+    <section 
+    id='Companies'
+
+    className="py-13" 
+    style={{ backgroundColor: 'var(--color-background)' }}>
       <div className="max-w-7xl mx-auto px-2">
         <h2 
           className="text-2xl md:text-4xl font-mono font-bold text-center mb-10" 

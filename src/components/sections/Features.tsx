@@ -28,6 +28,7 @@ export const Features = () => {
 
   return (
     <section
+    id='features'
       className="px-8 py-15 md:py-34"
       style={{ backgroundColor: 'var(--color-background)' }}
     >

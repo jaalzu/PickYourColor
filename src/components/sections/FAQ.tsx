@@ -16,7 +16,11 @@ export const FAQ = () => {
   ];
 
   return (
-    <section className="py-20 px-8" style={{ backgroundColor: 'var(--color-background)' }}>
+    <section 
+    id='FAQ'
+
+    className="py-20 px-8" 
+    style={{ backgroundColor: 'var(--color-background)' }}>
       <div className="max-w-3xl mx-auto">
         <p className="text-md text-center font-mono" style={{ color: 'var(--color-text)', opacity: 0.6 }}>FAQ</p>
         <h2 className="font-mono text-4xl md:text-5xl font-medium text-center mb-5" style={{ color: 'var(--color-text)' }}>

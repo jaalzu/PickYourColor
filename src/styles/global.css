@@ -3,6 +3,13 @@ section {
   margin-bottom: -1px;
 }
 
+html{
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+}
+
+
+
 body{
   font-family: 'DM Sans', sans-serif;
 }

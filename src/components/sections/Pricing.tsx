@@ -44,6 +44,7 @@ export const Pricing = () => {
 
   return (
     <section
+    id='pricing'
       className="px-8 py-15"
       style={{ backgroundColor: 'var(--color-background)' }}
     >
