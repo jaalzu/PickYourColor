@@ -17,12 +17,18 @@ export const ColorInputMobile = ({ colorKey, label, color, onClick }: ColorInput
 
   return (
     <div className="flex flex-col w-full h-full">
-      <button
-      
-        onClick={onClick}
-        className="group relative flex flex-col items-center justify-between px-3 py-1 h-25 w-full"
-        style={{ backgroundColor: color }}
-      >
+      <div 
+  onClick={onClick}
+  className="group relative flex flex-col items-center justify-between px-3 py-1 h-25 w-full cursor-pointer"
+  style={{backgroundColor: color}}
+  role="button"
+  tabIndex={0}
+  onKeyDown={(e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      onClick();
+    }
+  }}
+>
         <div className="flex-1 flex items-center justify-center">
           <span className="text-[18px] font-medium text-white tracking-wider">
             {label}
@@ -37,7 +43,7 @@ export const ColorInputMobile = ({ colorKey, label, color, onClick }: ColorInput
           
           {/* <AccessibilityBadge level={accessibilityLevel} /> */}
         </div>
-      </button>
+      </div>
     </div>
   );
 };

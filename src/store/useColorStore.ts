@@ -5,8 +5,9 @@ import { createColorSlice, type ColorSlice } from './slices/colorSlice';
 import { createSelectionSlice, type SelectionSlice } from './slices/selectionSlice';
 import { createHistorySlice, type HistorySlice } from './slices/historySlice';
 import { createThemeSlice, type ThemeSlice } from './slices/themeSlice';
+import { createUISlice, type UISlice } from './slices/uiSlice';
 
-type ColorStore = ColorSlice & SelectionSlice & HistorySlice & ThemeSlice;
+type ColorStore = ColorSlice & SelectionSlice & HistorySlice & ThemeSlice & UISlice;
 
 export const useColorStore = create<ColorStore>()(
   persist(
@@ -15,6 +16,7 @@ export const useColorStore = create<ColorStore>()(
       ...createSelectionSlice(...a),
       ...createHistorySlice(...a),
       ...createThemeSlice(...a),
+      ...createUISlice(...a),
     }),
     {
       name: 'pickyourcolor-storage',

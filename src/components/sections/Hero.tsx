@@ -1,5 +1,5 @@
 import { Bars3Icon } from '@heroicons/react/24/outline';
-import { Button } from '../ui/Button';
+import { Button } from '../ui/button/Button';
 import { PuzzlePiece } from '../ui/PuzzlePiece';
 import { Logo } from '../ui/Logo';
 

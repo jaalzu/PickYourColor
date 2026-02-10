@@ -5,7 +5,21 @@
   --color-secondary: #8b5cf6;
   --color-accent: #ec4899;
 }
-
+/* sombra que no estoy usando por elmomento ..  */
 .primary-shadow {
   box-shadow: 0 7px 18px color-mix(in srgb, var(--color-primary) 20%, transparent);
+}
+/* para que el toolbar brille  */
+@keyframes toolbar-glow {
+  0%, 100% { 
+    box-shadow: 0 0 0 rgba(59, 130, 246, 0); 
+  }
+  50% { 
+    box-shadow: 0 0 30px var(--color-primary), 
+                0 0 60px var(--color-primary); 
+  }
+}
+
+body.toolbar-pulse .toolbar-container {
+  animation: toolbar-glow 600ms ease-out;
 }

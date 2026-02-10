@@ -11,11 +11,13 @@ import { COLOR_CONFIG } from '../constants/colorConfig';
 import { useToolbarLogic } from '../hooks/useToolbarLogic';
 
 export const ToolbarDesktop = () => {
-  const { colors, selectedColor, modalPosition, handleColorSelect, handleCloseModal } = useToolbarLogic();
+   const { colors, selectedColor, modalPosition, handleColorSelect, handleCloseModal } = useToolbarLogic();
+
+
 
   return (
     <>
-      <div className="fixed bottom-3 left-1/2 transform -translate-x-1/2 z-50 w-[99vw] max-w-[1150px]">
+      <div className="toolbar-container fixed bottom-3 left-1/2 transform -translate-x-1/2 z-50 w-[99vw] max-w-[1150px]">
         <div className="bg-[#131322] border border-white/20 rounded-[6px] h-23 flex items-center overflow-hidden">
           
           {/* Colores */}

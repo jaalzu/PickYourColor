@@ -1,7 +1,7 @@
 // tests/components/Button.test.tsx
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, beforeEach } from 'vitest';
-import { Button } from '../../src/components/ui/Button';
+import { Button } from '../../src/components/ui/button/Button';
 import { useColorStore } from '../../src/store/useColorStore';
 
 
