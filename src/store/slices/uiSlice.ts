@@ -2,15 +2,15 @@
 import type { StateCreator } from 'zustand';
 
 export interface UISlice {
-  showToolbarPulse: boolean;
-  triggerToolbarPulse: () => void;
+  isToolbarShaking: boolean;
+  triggerToolbarFeedback: () => void;
 }
 
 export const createUISlice: StateCreator<UISlice> = (set) => ({
-  showToolbarPulse: false,
+  isToolbarShaking: false,
   
-  triggerToolbarPulse: () => {
-    set({ showToolbarPulse: true });
-    setTimeout(() => set({ showToolbarPulse: false }), 600);
+  triggerToolbarFeedback: () => {
+    set({ isToolbarShaking: true });
+    setTimeout(() => set({ isToolbarShaking: false }), 400);
   },
 });

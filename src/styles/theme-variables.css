@@ -5,21 +5,31 @@
   --color-secondary: #8b5cf6;
   --color-accent: #ec4899;
 }
-/* sombra que no estoy usando por elmomento ..  */
-.primary-shadow {
-  box-shadow: 0 7px 18px color-mix(in srgb, var(--color-primary) 20%, transparent);
-}
-/* para que el toolbar brille  */
-@keyframes toolbar-glow {
-  0%, 100% { 
-    box-shadow: 0 0 0 rgba(59, 130, 246, 0); 
-  }
-  50% { 
-    box-shadow: 0 0 30px var(--color-primary), 
-                0 0 60px var(--color-primary); 
-  }
+
+
+/* animacion para el toolbar en desktop  */
+@keyframes simple-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(7px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(2px); }
 }
 
-body.toolbar-pulse .toolbar-container {
-  animation: toolbar-glow 600ms ease-out;
+.animate-simple-shake {
+  animation: simple-shake 0.4s ease-in-out;
+}
+
+
+/* animacion para el toolbar en mobile  */
+
+@keyframes shake-vertical-impact {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-15px); } 
+  50% { transform: translateY(0); }      
+  75% { transform: translateY(-7px); }  
+}
+
+.animate-feedback-mobile {
+  animation: shake-vertical-impact 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }

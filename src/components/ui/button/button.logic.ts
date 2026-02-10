@@ -1,4 +1,5 @@
 import tinycolor from 'tinycolor2';
+import { useColorStore } from '../../../store/useColorStore';
 
 export type ButtonVariant = 'primary' | 'secondary';
 
@@ -8,7 +9,12 @@ export function getTextColor(bgColor: string) {
 
 export function triggerPrimaryEffect(variant: ButtonVariant) {
   if (variant === 'primary') {
-    document.body.classList.add('toolbar-pulse');
-    setTimeout(() => document.body.classList.remove('toolbar-pulse'), 600);
+    const triggerFeedback = useColorStore.getState().triggerToolbarFeedback;
+    
+    if (triggerFeedback) {
+      triggerFeedback(); 
+    } else {
+      console.error("No se encontró triggerToolbarFeedback en el store");
+    }
   }
 }

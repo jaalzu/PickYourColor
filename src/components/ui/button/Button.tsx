@@ -29,7 +29,7 @@ export const Button = ({
   const textColor = getTextColor(bgColor);
 
   const handleClick = () => {
-    triggerPrimaryEffect(variant); // 👈 delegación limpia
+    triggerPrimaryEffect(variant); 
     onClick?.();
   };
 
