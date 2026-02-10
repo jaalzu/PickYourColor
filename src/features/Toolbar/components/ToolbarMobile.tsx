@@ -13,10 +13,10 @@ export const ToolbarMobile = () => {
   const { 
     colors, 
     selectedColor,
-    modalPosition,
     isToolbarOpen,
     handleColorSelect,
     handleCloseModal,
+    triggerElement,
     toggleToolbar 
   } = useToolbarLogic();
 
@@ -80,13 +80,14 @@ export const ToolbarMobile = () => {
       </div>
 
       {/* Modal - centrado en mobile */}
-      {selectedColor && (
-        <ColorPickerModal
-          colorKey={selectedColor}
-          position={modalPosition}
-          onClose={handleCloseModal}
-        />
-      )}
+     {selectedColor && (
+  <ColorPickerModal
+  colorKey={selectedColor}
+  open={!!selectedColor}
+  onClose={handleCloseModal}
+  triggerElement={triggerElement}
+/>
+)}
     </>
   );
 };

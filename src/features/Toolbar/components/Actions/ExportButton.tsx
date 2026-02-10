@@ -21,7 +21,7 @@ export const ExportButton = ({ className = "" }: ExportButtonProps) => {
         <span className="font-mono text-[16px] md:text-[12.5px] text-white ">Exportar</span>
       </button>
 
-      {isModalOpen && <ExportModal onClose={() => setIsModalOpen(false)} />}
+<ExportModal open={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 };

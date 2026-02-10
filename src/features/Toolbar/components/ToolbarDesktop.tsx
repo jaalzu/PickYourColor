@@ -11,7 +11,7 @@ import { COLOR_CONFIG } from '../constants/colorConfig';
 import { useToolbarLogic } from '../hooks/useToolbarLogic';
 
 export const ToolbarDesktop = () => {
-   const { colors, selectedColor, modalPosition, handleColorSelect, handleCloseModal } = useToolbarLogic();
+ const { colors, selectedColor, triggerElement, handleColorSelect, handleCloseModal } = useToolbarLogic();
 
 
 
@@ -69,11 +69,12 @@ export const ToolbarDesktop = () => {
         </div>
       </div>
 
-      {selectedColor && modalPosition && (
-        <ColorPickerModal
+      {selectedColor  && (
+     <ColorPickerModal
           colorKey={selectedColor}
-          position={modalPosition}
+          open={!!selectedColor}
           onClose={handleCloseModal}
+          triggerElement={triggerElement}
         />
       )}
     </>

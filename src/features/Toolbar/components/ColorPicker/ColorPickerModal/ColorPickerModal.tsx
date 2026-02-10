@@ -1,61 +1,48 @@
-// src/features/Toolbar/components/ColorPicker/ColorPickerModal/ColorPickerModal.tsx
+import * as Popover from '@radix-ui/react-popover';
 import { ColorPickerContent } from './ColorPickerContent';
 import { useColorPickerLogic } from './useColorPickerLogic';
 import type { ColorKey } from '../../../../../types';
 
 interface ColorPickerModalProps {
   colorKey: ColorKey;
-  position: { x: number; y: number } | null;
+  open: boolean;
   onClose: () => void;
+  triggerElement?: HTMLElement | null;
 }
 
-export const ColorPickerModal = ({ colorKey, position, onClose }: ColorPickerModalProps) => {
+export const ColorPickerModal = ({ colorKey, open, onClose, triggerElement }: ColorPickerModalProps) => {
   const {
     currentColor,
-    isVisible,
     format,
     formattedColor,
     handleColorChange,
     handleCopy,
     toggleFormat,
-    startClosing,
   } = useColorPickerLogic(colorKey);
 
-  const positionStyles = position
-    ? {
-        left: `${position.x}px`,
-        transform: 'translateX(-50%)',
-        bottom: '120px',
-      }
-    : {
-        left: '50%',
-        top: '50%',
-        transform: 'translate(-50%, -50%)',
-      };
-
   return (
-    <div
-      className="fixed inset-0 z-60"
-      onClick={() => startClosing(onClose)}
-    >
-      <div
-        className="fixed transition-all duration-200"
-        style={{
-          ...positionStyles,
-          opacity: isVisible ? 1 : 0,
-        }}
-      >
-        <ColorPickerContent
-          colorKey={colorKey}
-          currentColor={currentColor}
-          formattedColor={formattedColor}
-          format={format}
-          onColorChange={handleColorChange}
-          onCopy={handleCopy}
-          onToggleFormat={toggleFormat}
-          onClose={() => startClosing(onClose)}
-        />
-      </div>
-    </div>
+    <Popover.Root open={open} onOpenChange={(isOpen) => !isOpen && onClose()}>
+      {triggerElement && <Popover.Anchor virtualRef={{ current: triggerElement }} />}
+      
+      <Popover.Portal>
+        <Popover.Content
+          side="top"
+          sideOffset={10}
+          align="center"
+          className="z-60 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95"
+        >
+          <ColorPickerContent
+            colorKey={colorKey}
+            currentColor={currentColor}
+            formattedColor={formattedColor}
+            format={format}
+            onColorChange={handleColorChange}
+            onCopy={handleCopy}
+            onToggleFormat={toggleFormat}
+            onClose={onClose}
+          />
+        </Popover.Content>
+      </Popover.Portal>
+    </Popover.Root>
   );
 };

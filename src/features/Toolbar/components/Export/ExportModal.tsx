@@ -1,13 +1,14 @@
-// src/features/Toolbar/components/Export/ExportModal.tsx
+import * as Dialog from '@radix-ui/react-dialog';
 import { XMarkIcon, ClipboardDocumentIcon, ClipboardDocumentCheckIcon } from '@heroicons/react/24/outline';
 import { ExportOption } from './ExportOption';
 import { useExportLogic } from './useExportLogic';
 
-
 interface ExportModalProps {
+  open: boolean;
   onClose: () => void;
 }
-export const ExportModal = ({ onClose }: ExportModalProps) => {
+
+export const ExportModal = ({ open, onClose }: ExportModalProps) => {
   const { 
     selectedFormat, 
     setSelectedFormat, 
@@ -19,20 +20,22 @@ export const ExportModal = ({ onClose }: ExportModalProps) => {
   } = useExportLogic();
 
   return (
-    <div className="fixed inset-0 z-40 bg-black/20" onClick={onClose}>
-      <div
-        className="fixed bottom-24 md:bottom-38 left-1/2 transform -translate-x-1/2 transition-all duration-200"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Responsive width: 92vw en mobile, 550px en desktop */}
-        <div className="bg-[#1a1a2e] rounded-lg p-5 w-[95vw] md:w-[550px] border border-white/10 ">
+    <Dialog.Root open={open} onOpenChange={onClose}>
+      <Dialog.Portal>
+        <Dialog.Overlay className="fixed inset-0 z-40 bg-black/20 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
+        
+        <Dialog.Content className="fixed bottom-24 md:bottom-38 left-1/2 -translate-x-1/2 z-50 bg-[#1a1a2e] rounded-lg p-5 w-[95vw] md:w-[550px] border border-white/10 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95">
           
           {/* Header */}
           <div className="flex justify-between items-center mb-3">
-            <h3 className="text-sm font-bold text-white uppercase tracking-wide">Export Palette</h3>
-            <button onClick={onClose} className="text-gray-400 hover:text-white transition">
-              <XMarkIcon className="w-5 h-5" />
-            </button>
+            <Dialog.Title className="text-sm font-bold text-white uppercase tracking-wide">
+              Export Palette
+            </Dialog.Title>
+            <Dialog.Close asChild>
+              <button className="text-gray-400 hover:text-white transition">
+                <XMarkIcon className="w-5 h-5" />
+              </button>
+            </Dialog.Close>
           </div>
 
           {/* Format Options */}
@@ -58,7 +61,7 @@ export const ExportModal = ({ onClose }: ExportModalProps) => {
           </div>
 
           <div className="relative">
-            <pre className="bg-black/40 border border-white/20 rounded-lg p-3 overflow-x-auto text-[14px] text-gray-300 max-h-[65vh] md:max-h-70 scrollbar-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            <pre className="bg-black/40 border border-white/20 rounded-lg p-3 overflow-x-auto text-[14px] text-gray-300 max-h-[65vh] md:max-h-70 scrollbar-none">
               {exportCode}
             </pre>
             
@@ -74,8 +77,8 @@ export const ExportModal = ({ onClose }: ExportModalProps) => {
               )}
             </button>
           </div>
-        </div>
-      </div>
-    </div>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
   );
 };

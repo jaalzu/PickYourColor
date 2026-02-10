@@ -6,26 +6,14 @@ import type { ColorKey } from '../../../types';
 export const useToolbarLogic = () => {
   const colors = useColorStore((state) => state.colors);
   const [selectedColor, setSelectedColor] = useState<ColorKey | null>(null);
-  const [modalPosition, setModalPosition] = useState<{ x: number; y: number } | null>(null);
+  const [triggerElement, setTriggerElement] = useState<HTMLElement | null>(null);
   const [isToolbarOpen, setIsToolbarOpen] = useState(false);
 
-  // Para desktop: con posición del botón
   const handleColorSelect = (key: ColorKey, buttonElement?: HTMLElement) => {
-    if (buttonElement) {
-      const rect = buttonElement.getBoundingClientRect();
-      setModalPosition({
-        x: rect.left + rect.width / 2,
-        y: rect.top,
-      });
-    } else {
-      // Mobile: modal centrado
-      setModalPosition(null);
-    }
-    
+    setTriggerElement(buttonElement || null);
     setSelectedColor(key);
   };
 
-  // Para mobile: seleccionar y cerrar toolbar
   const handleColorSelectAndClose = (key: ColorKey) => {
     handleColorSelect(key); 
     setIsToolbarOpen(false);
@@ -33,7 +21,7 @@ export const useToolbarLogic = () => {
 
   const handleCloseModal = () => {
     setSelectedColor(null);
-    setModalPosition(null);
+    setTriggerElement(null);
   };
 
   const toggleToolbar = () => {
@@ -43,7 +31,7 @@ export const useToolbarLogic = () => {
   return {
     colors,
     selectedColor,
-    modalPosition,
+    triggerElement,
     isToolbarOpen,
     handleColorSelect,
     handleColorSelectAndClose,
