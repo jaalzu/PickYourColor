@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { ArrowDownTrayIcon } from '@heroicons/react/24/outline';
 import { ExportModal } from '../Export/ExportModal';
+import { Tooltip } from '../../../../components/ui/Tooltip';
 
 interface ExportButtonProps {
   className?: string;
@@ -12,6 +13,8 @@ export const ExportButton = ({ className = "" }: ExportButtonProps) => {
 
   return (
     <>
+        <Tooltip content="Export palette">
+
       <button
         className={`flex flex-col items-center justify-center gap-1 px-4 h-full hover:bg-white/5 transition-colors ${className}`}
         onClick={() => setIsModalOpen(true)}
@@ -20,8 +23,9 @@ export const ExportButton = ({ className = "" }: ExportButtonProps) => {
         <ArrowDownTrayIcon className="w-6 h-6 text-white" />
         <span className="font-mono text-[16px] md:text-[12.5px] text-white ">Exportar</span>
       </button>
+        </Tooltip>
 
-<ExportModal open={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    <ExportModal open={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 };

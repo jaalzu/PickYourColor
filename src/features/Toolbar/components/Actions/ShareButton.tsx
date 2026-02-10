@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { LinkIcon, CheckIcon } from '@heroicons/react/24/outline';
+import { Tooltip } from '../../../../components/ui/Tooltip';
 
 export const ShareButton = ({ className = "" }: { className?: string }) => {
   const [copied, setCopied] = useState(false);
@@ -21,6 +22,8 @@ export const ShareButton = ({ className = "" }: { className?: string }) => {
   }, [copied]);
 
   return (
+        <Tooltip content="Copy shareable URL">
+
     <button
   aria-label="Copy page URL"
   className={`flex flex-col items-center justify-center gap-1 w-22 h-full hover:bg-white/5 transition-colors ${className}`}
@@ -35,5 +38,7 @@ export const ShareButton = ({ className = "" }: { className?: string }) => {
         {copied ? 'Copiado' : 'Copiar URL'}
       </span>
     </button>
+        </Tooltip>
+
   );
 };

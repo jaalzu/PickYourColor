@@ -1,6 +1,7 @@
 // src/features/Toolbar/components/Actions/UndoRedoButtons.tsx
 import { ArrowUturnLeftIcon, ArrowUturnRightIcon } from '@heroicons/react/24/outline';
 import { useColorStore } from '../../../../store/useColorStore';
+import { Tooltip } from '../../../../components/ui/Tooltip';
 
 interface UndoRedoButtonsProps {
   className?: string;
@@ -9,7 +10,9 @@ export const UndoRedoButtons = ({ className = "" }: UndoRedoButtonsProps) => {
   const { undo, redo, past, future } = useColorStore();
 
   return (
+        <Tooltip content="Undo/Redo changes">
     <div className={`flex items-center h-full ${className}`}>
+
       <button
         className="flex flex-col items-center justify-center gap-1 px-3 h-full hover:bg-white/5 transition-colors flex-1 disabled:opacity-25 disabled:cursor-not-allowed"
         onClick={undo}
@@ -33,6 +36,8 @@ export const UndoRedoButtons = ({ className = "" }: UndoRedoButtonsProps) => {
         <ArrowUturnRightIcon className="w-6 h-6 text-white" />
         <span className="font-mono text-[16px] md:text-[12.5px] text-white ">Redo</span>
       </button>
+
     </div>
+        </Tooltip>
   );
 };

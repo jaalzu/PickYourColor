@@ -1,6 +1,8 @@
 import { SunIcon, MoonIcon } from '@heroicons/react/24/outline';
 import { useColorStore } from '../../../../store/useColorStore';
 import { useEffect } from 'react';
+import { Tooltip } from '../../../../components/ui/Tooltip';
+
 
 interface ThemeToggleButtonProps {
   className?: string;
@@ -22,6 +24,7 @@ export const ThemeToggleButton = ({ className = "" }: ThemeToggleButtonProps) =>
   }, [themeMode, setColor]);
 
   return (
+        <Tooltip content="Toggle dark/light mode">
     <button
       className={`flex flex-col items-center justify-center gap-1 px-4 h-full hover:bg-white/5 transition-colors ${className}`}
       onClick={toggleTheme}
@@ -36,5 +39,6 @@ export const ThemeToggleButton = ({ className = "" }: ThemeToggleButtonProps) =>
         {themeMode === 'light' ? 'Dark' : 'Light'}
       </span>
     </button>
+        </Tooltip>
   );
 };

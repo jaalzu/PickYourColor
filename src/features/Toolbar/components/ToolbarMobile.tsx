@@ -55,7 +55,6 @@ export const ToolbarMobile = () => {
           <div className="flex flex-col"> 
             
             {/* Fila Undo/Redo */}
-          // En ToolbarMobile.tsx, en la fila de Undo/Redo, cambiá:
 
 {/* Fila Undo/Redo y Theme */}
 <div className="grid grid-cols-2 divide-x divide-white/10 border-b border-white/10">

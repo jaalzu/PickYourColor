@@ -5,6 +5,8 @@ import { LockButton } from './LockButton';
 // import { useColorAccessibility } from '../../../hooks/useColorAccessibility';
 import type { ColorKey } from '../../../../../types';
 // import { AccessibilityBadge } from './AccessibilityBadge';
+import { Tooltip } from '../../../../../components/ui/Tooltip';
+
 
 interface ColorInputButtonProps {
   colorKey: ColorKey;
@@ -31,6 +33,8 @@ export const ColorInputButton = ({
   };
 
   return (
+        <Tooltip content={`${label}: ${color.toUpperCase()}`} side="top">
+
     <button
     
       ref={buttonRef}
@@ -55,5 +59,7 @@ export const ColorInputButton = ({
         {/* <AccessibilityBadge level={accessibilityLevel}/> */}
       </div>
     </button>
+        </Tooltip>
+
   );
 };

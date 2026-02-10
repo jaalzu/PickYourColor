@@ -3,6 +3,7 @@ import { LockButton } from './LockButton';
 import type { ColorKey } from '../../../../../types';
 // import { useColorAccessibility } from '../../../hooks/useColorAccessibility';
 // import { AccessibilityBadge } from './AccessibilityBadge';
+import { Tooltip } from '../../../../../components/ui/Tooltip';
 
 interface ColorInputMobileProps {
   colorKey: ColorKey;
@@ -16,6 +17,7 @@ export const ColorInputMobile = ({ colorKey, label, color, onClick }: ColorInput
   // const accessibilityLevel = useColorAccessibility(colorKey);
 
   return (
+        <Tooltip content={`${label}: ${color.toUpperCase()}`} side="top">
     <div className="flex flex-col w-full h-full">
       <div 
   onClick={onClick}
@@ -45,5 +47,7 @@ export const ColorInputMobile = ({ colorKey, label, color, onClick }: ColorInput
         </div>
       </div>
     </div>
+        </Tooltip>
+
   );
 };
