@@ -62,7 +62,7 @@ export const Features = () => {
             <h3 className="font-mono text-2xl font-bold" style={{ color: 'var(--color-text)' }}>
               {feature.title}
             </h3>
-            <feature.Icon className="w-9.5 h-9.5" style={{ color: 'var(--color-accent)' }}
+            <feature.Icon className="w-10 h-10" style={{ color: 'var(--color-accent)' }}
             aria-hidden="true" />
           </div>
           
