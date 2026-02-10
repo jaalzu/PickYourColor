@@ -31,21 +31,27 @@ const gradientUnderlineStyle = {
 <h2 className=" text-4xl md:text-5xl mb-8 md:mb-11" style={{ lineHeight: '1.2' }}>
           <span style={{ color: 'var(--color-text)' }}>
             Stop wasting your{' '}
-            <span style={underlineStyle('var(--color-primary)')}>
+            <span style={underlineStyle('var(--color-primary)')}
+            className='hover-underline'>
               precious time.
             </span>
           </span>
           <br />
-          <span style={{ color: 'var(--color-text)' }}>
+          <span style={{ color: 'var(--color-text)' }}
+                
+          >
             Start creating your{' '}
-            <span style={underlineStyle('var(--color-secondary)')}>
+            <span style={underlineStyle('var(--color-secondary)')}
+            className='hover-underline'
+            >
               next big idea.
             </span>
           </span>
           <br />
           <span style={{ color: 'var(--color-text)' }}>
             And start{' '}
-            <span style={gradientUnderlineStyle}>
+            <span style={gradientUnderlineStyle}
+            className='hover-underline'>
               right here and now.
             </span>
           </span>

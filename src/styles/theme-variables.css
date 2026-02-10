@@ -34,8 +34,15 @@
   animation: shake-vertical-impact 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
 
+/* hover del cta  */
+.hover-underline {
+  transition: background-size 0.3s ease-in-out;
+  cursor: pointer;
+}
 
-
+.hover-underline:hover {
+  background-size: 100% 100% !important; /* Crece hacia arriba */
+}
 
 
 /* EFECTO HOVER DE LOS BOTONES  */

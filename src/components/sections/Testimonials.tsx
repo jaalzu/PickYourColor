@@ -6,28 +6,28 @@ export const Testimonials = () => {
     {
       name: "Linus Torvalds",
       role: "Creator of Linux and Git",
-      comment: "By far one of the best websites I ever see. Everything works and the code it's really well executed.",
+      comment: "Eficiencia pura. La interfaz es directa y la lógica de navegación es impecable. Han logrado que lo complejo parezca ridículamente simple.",
          image: avtrImage
 
     },
     {
       name: "Mark Zuckerberg",
       role: "Meta CEO",
-      comment: "The idea is so clear it hurts not having thought of it before. Simple , addictive and visual. Honestly , it could have come out of a hackaton in Palo Alto.",
+      comment: "Días de trabajo y dolores de cabeza eliminados en tan solo minutos. Simplemente sin palabras.",
           image: avtrImage
 
     },
     {
-      name: "Marcus Rodriguez",
-      role: "Frontend Developer at Meta",
-      comment: "Behind the simplicity , there is control and structure. It feels precise: every interaction responds exactly as it should, with no waste.",
+      name: "Guillermo Rauch",
+      role: "Vercel CEO & Next.js Creator",
+      comment: "Por error presioné el espacio y cuando me di cuenta ya tenía la paleta de colores para mi sitio web, increíble!",
           image: avtrImage
 
     },
     {
-      name: "Emma Watson",
+      name: "Evan You",
       role: "UX Designer at Apple",
-      comment: "A really simple , direct tool with no noise. The site does one thing - show colors in real time- and does it surprisingly well.",
+      comment: "Una herramienta directa, simple y sin ruido. Hace una sola cosa —mostrar colores en tiempo real— y la ejecución es sorprendentemente limpia.",
           image: avtrImage
 
     }
@@ -89,6 +89,7 @@ style={{
       </div>
     </div>
   ))}
+  
 </div>
 
       </div>

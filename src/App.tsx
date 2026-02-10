@@ -23,8 +23,8 @@ useKeyboardShortcuts();
       <Hero />
       <HowItWorks />
       <Features />
-      <Pricing />
       <Companies />
+      <Pricing />
       <Testimonials />
       <CTA />
       <FAQ />

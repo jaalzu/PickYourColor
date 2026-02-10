@@ -4,7 +4,7 @@ import tinycolor from 'tinycolor2';
 export const Companies = () => {
   const bgColor = useColorStore((state) => state.colors.background);
   const isDark = tinycolor(bgColor).isDark();
-  const iconColor = isDark ? '#FFFFFF' : '#000000';
+  const iconColor = isDark ? '#ffffffd7' : '#000000d6';
   
   const companies = [
     {
@@ -52,9 +52,9 @@ export const Companies = () => {
     <section 
     id='Companies'
 
-    className="py-13" 
+    className="py-14" 
     style={{ backgroundColor: 'var(--color-background)' }}>
-      <div className="max-w-7xl mx-auto px-2">
+      <div className="max-w-7xl mx-auto ">
         <h2 
           className="text-2xl md:text-4xl font-mono font-bold text-center mb-10" 
           style={{ color: 'var(--color-text)' }}
@@ -62,11 +62,11 @@ export const Companies = () => {
           Thanks to all these small companies for supporting us!
         </h2>
       </div>
-      <div className="relative z-30 max-w-7xl px-1 mx-auto md:max-w-full md:px-23">
+      <div className="relative z-30 max-w-7xl  mx-auto md:max-w-full md:px-23">
         <div className="flex flex-wrap justify-center gap-10 md:justify-between ">
-        {companies.map((company, index) => (
+        {companies.map((company) => (
   <div 
-    key={index} 
+   key={company.name}
     className="w-12 h-12 md:w-16 md:h-16 company-icon"
     style={{ color: iconColor }}
   >
