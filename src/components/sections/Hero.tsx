@@ -3,6 +3,20 @@ import { Button } from '../ui/button/Button';
 import { PuzzlePiece } from '../ui/PuzzlePiece';
 import { Logo } from '../ui/Logo';
 
+const scrollToHowItWorks = () => {
+  const element = document.getElementById('how-it-works');
+  if (element) {
+    // Calculamos la posición del elemento
+    const offsetTop = element.offsetTop;
+    
+    // Si querés que baje con una velocidad específica 
+    // y no de golpe, usamos scrollTo con behavior: 'smooth'
+    window.scrollTo({
+      top: offsetTop - 50, // El -20 es para que no quede pegado al techo
+      behavior: 'smooth'
+    });
+  }
+};
 
 export const Hero = () => {
   return (
@@ -76,14 +90,15 @@ export const Hero = () => {
             >
               Get Started
             </Button>
-            <Button 
-              variant="secondary" 
-              padding="13px 19px" 
-              borderRadius="5px" 
-              opacity={0.9}
-            >
-              Learn More
-            </Button>
+          <Button 
+  variant="secondary" 
+  padding="13px 19px" 
+  borderRadius="5px" 
+  opacity={0.9}
+  onClick={scrollToHowItWorks}
+>
+  Learn More
+</Button>
           </div>
         </div>
       </div>

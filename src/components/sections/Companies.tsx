@@ -60,12 +60,13 @@ export const Companies = () => {
       </div>
       <div className="relative z-30 max-w-7xl px-1 mx-auto md:max-w-full md:px-23">
         <div className="flex flex-wrap justify-center gap-10 md:justify-between ">
-          {companies.map((company, index) => (
+        {companies.map((company, index) => (
   <div 
     key={index} 
-    className="w-12 h-12 md:w-16 md:h-16 transition-all duration-300 cursor-pointer group company-icon"
+    className="w-12 h-12 md:w-16 md:h-16 company-icon"
     style={{ color: iconColor }}
   >
+    {/* El SVG ahora recibirá el filtro drop-shadow */}
     {company.svg}
   </div>
 ))}

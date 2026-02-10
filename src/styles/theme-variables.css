@@ -33,3 +33,101 @@
 .animate-feedback-mobile {
   animation: shake-vertical-impact 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
+
+
+
+
+
+
+
+.btn-glow-effect {
+  transition: all 0.4s ease-in-out;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-glow-effect:hover {
+  box-shadow: 7px 5px 56px -14px var(--shadow-color, #C3D900);
+}
+
+.btn-glow-effect:active {
+  transform: scale(0.97);
+  box-shadow: 7px 5px 56px -10px var(--shadow-color, #C3D900);
+}
+
+
+
+
+
+
+
+
+.btn-github-uiverse {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+  background-color: var(--color-text) !important; /* El botón es del color del texto */
+  color: var(--color-background) !important;     /* El texto es del color de fondo */
+}
+
+.btn-github-uiverse:hover {
+  filter: brightness(1.2);
+  box-shadow: 0 0 20px rgba(var(--color-primary-rgb), 0.3);
+}
+
+/* El reflejo blanco que cruza */
+.shine-effect {
+  position: absolute;
+  right: 0;
+  margin-top: -3rem;
+  height: 8rem;
+  width: 2rem;
+  transform: translateX(3rem) rotate(12deg);
+  background-color: white;
+  opacity: 0.15;
+  transition: all 1000ms ease-out;
+  pointer-events: none;
+}
+
+.btn-github-uiverse:hover .shine-effect {
+  transform: translateX(-15rem) rotate(12deg);
+}
+
+
+
+
+
+
+
+
+
+
+/* Hamburguesa animada */
+.hamburger-svg {
+  height: 3em;
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line {
+  fill: none;
+  stroke: currentColor; /* Usa el color que le pases por style o clase */
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+              stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line-top-bottom {
+  stroke-dasharray: 12 63;
+}
+
+/* Estado Activo (cuando el menú está abierto) */
+.hamburger-active .hamburger-svg {
+  transform: rotate(-45deg);
+}
+
+.hamburger-active .line-top-bottom {
+  stroke-dasharray: 20 300;
+  stroke-dashoffset: -32.42;
+}
