@@ -1,6 +1,6 @@
 import { Button } from '../ui/button/Button';
-import { PuzzlePiece } from '../ui/PuzzlePiece';
-import { Navbar } from '../layout/Navbar'; // Importamos el nuevo componente
+import { Navbar } from '../layout/Navbar';
+import { Gradient } from '../ui/Gradient';
 
 export const Hero = () => {
   const scrollToHowItWorks = () => {
@@ -15,27 +15,15 @@ export const Hero = () => {
 
   return (
     <section
-      className="min-h-screen lg:min-h-[90vh] flex flex-col relative overflow-hidden"
+      className="min-h-screen lg:min-h-[90vh] flex flex-col relative"
       style={{ backgroundColor: 'var(--color-background)' }}
     >
-      {/* Navbar Separado */}
       <Navbar />
+      
+      <Gradient />
 
-      {/* Contenedor principal */}
-      <div className="flex-1 flex items-start justify-center px-4 pt-15 md:pt-22 relative">
-        {/* ... Piezas de puzzle ... */}
-        <div className="absolute left-6 bottom-20 lg:left-8 lg:top-1/6 lg:bottom-auto space-y-4 z-0 opacity-50 lg:opacity-100">
-          <PuzzlePiece colorVar="primary" className="rotate-12 lg:rotate-0" />
-          <PuzzlePiece colorVar="secondary" className="-rotate-6 lg:rotate-0" />
-        </div>
-
-        <div className="absolute right-4 bottom-30 lg:right-8 lg:top-1/4 lg:bottom-auto space-y-4 z-0 opacity-50 lg:opacity-100">
-          <PuzzlePiece colorVar="accent" className="-rotate-12 lg:rotate-0" />
-          <PuzzlePiece colorVar="primary" className="rotate-6 lg:rotate-0" />
-        </div>
-
-        {/* Content */}
-        <div className="max-w-sm md:max-w-2xl text-center z-10">
+      <div className="flex-1 flex items-start justify-center px-4 pt-15 md:pt-2 relative z-10">
+        <div className="max-w-sm md:max-w-2xl text-center">
           <h1 className="font-mono text-5xl md:text-5xl lg:text-[67px] leading-[1] font-bold mb-6" style={{ color: 'var(--color-text)' }}>
             Visualizá tus colores en un sitio web de verdad.
           </h1>

@@ -42,31 +42,31 @@ export const createSelectionSlice: StateCreator<
         let finalColor: string;
 
         if (key === 'background') {
-          if (themeMode === 'light') {
-            finalColor = tinycolor({
-              h: Math.random() * 360,
-              s: Math.random() * 15 + 5,
-              l: Math.random() * 10 + 85,
-            }).toHexString();
-          } else {
-            finalColor = tinycolor({
-              h: Math.random() * 360,
-              s: Math.random() * 20 + 10,
-              l: Math.random() * 15 + 10,
-            }).toHexString();
-          }
-        } 
+  if (themeMode === 'light') {
+    finalColor = tinycolor({
+      h: Math.random() * 360,
+      s: Math.random() * 3 + 1,
+      l: Math.random() * 10 + 85,
+    }).toHexString();
+  } else {
+    finalColor = tinycolor({
+      h: Math.random() * 360,
+      s: Math.random() * 2,  // 👈 0-2% (casi negro puro)
+      l: Math.random() * 15 + 10,
+    }).toHexString();
+  }
+}
         else if (key === 'text') {
           if (themeMode === 'light') {
             finalColor = tinycolor({
               h: Math.random() * 360,
-              s: Math.random() * 20,
+              s: Math.random() * 12,
               l: Math.random() * 20 + 10,
             }).toHexString();
           } else {
             finalColor = tinycolor({
               h: Math.random() * 360,
-              s: Math.random() * 15,
+              s: Math.random() * 12,
               l: Math.random() * 15 + 80,
             }).toHexString();
           }
