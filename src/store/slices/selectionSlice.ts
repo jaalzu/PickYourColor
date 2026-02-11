@@ -51,7 +51,7 @@ export const createSelectionSlice: StateCreator<
   } else {
     finalColor = tinycolor({
       h: Math.random() * 360,
-      s: Math.random() * 2,  // 👈 0-2% (casi negro puro)
+      s: Math.random() * 3 + 1,  
       l: Math.random() * 15 + 10,
     }).toHexString();
   }

@@ -8,11 +8,14 @@ html{
   scroll-behavior: smooth;
 }
 
-
-
-body{
-  font-family: 'DM Sans', sans-serif;
+body {
+  font-family: 'Figtree', sans-serif;
 }
+
+body * {
+  font-family: inherit;
+}
+
 
 ::selection {
   background-color: var(--color-primary);
@@ -44,3 +47,7 @@ body{
   /* El brillo nace de la silueta del SVG usando tu color primario */
   filter: drop-shadow(0px 0px 15px var(--color-primary));
 }
+
+
+
+

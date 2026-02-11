@@ -1,10 +1,11 @@
+/** @type {import('tailwindcss').Config} */
 export default {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    fontFamily: {
+      sans: ['Figtree', 'sans-serif'],
+    },
     extend: {
-      fontFamily: {
-        sans: ['DM Sans', 'sans-serif'],
-        mono: ['DM Mono', 'monospace'],
-      },
       keyframes: {
         slideDown: {
           from: { height: '0px', opacity: '0' },

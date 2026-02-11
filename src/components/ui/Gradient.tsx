@@ -17,7 +17,7 @@ export const Gradient = () => {
     >
       <defs>
         <filter id="blur-desktop" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="15" />
+          <feGaussianBlur stdDeviation="25" />
         </filter>
         <filter id="blur-mobile" x="-50%" y="-50%" width="200%" height="200%">
           <feGaussianBlur stdDeviation="15" />
@@ -34,9 +34,9 @@ export const Gradient = () => {
 
       {/* DESKTOP - Curva tipo montaña */}
       <g className="hidden md:block" transform="translate(0, 600)">
-        <path d={curvePathDesktop} stroke="var(--color-accent)" strokeWidth="14" strokeOpacity="0.75" strokeLinecap="round" fill="none" filter="url(#blur-desktop)" />
-        <path d={curvePathDesktop} transform="translate(0, 40)" stroke="var(--color-secondary)" strokeWidth="14" strokeOpacity="0.75" strokeLinecap="round" fill="none" filter="url(#blur-desktop)" />
-        <path d={curvePathDesktop} transform="translate(0, 80)" stroke="var(--color-primary)" strokeWidth="14" strokeOpacity="0.75" strokeLinecap="round" fill="none" filter="url(#blur-desktop)" />
+        <path d={curvePathDesktop} stroke="var(--color-accent)" strokeWidth="17" strokeOpacity="1" strokeLinecap="round" fill="none" filter="url(#blur-desktop)" />
+        <path d={curvePathDesktop} transform="translate(0, 60)" stroke="var(--color-secondary)" strokeWidth="17" strokeOpacity="1" strokeLinecap="round" fill="none" filter="url(#blur-desktop)" />
+        <path d={curvePathDesktop} transform="translate(0, 120)" stroke="var(--color-primary)" strokeWidth="17" strokeOpacity="1" strokeLinecap="round" fill="none" filter="url(#blur-desktop)" />
       </g>
     </svg>
   );
