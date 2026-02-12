@@ -6,7 +6,7 @@ const underlineStyle = (color: string) => ({
   display: 'inline',
   backgroundImage: `linear-gradient(color-mix(in srgb, ${color} 80%, transparent), color-mix(in srgb, ${color} 65%, transparent))`,
   backgroundPosition: '0 calc(100% - 1px)',
-  backgroundSize: '100% 6px',
+  backgroundSize: '100% 5px',
   backgroundRepeat: 'no-repeat',
   whiteSpace: 'nowrap'
 });
@@ -16,7 +16,7 @@ const gradientUnderlineStyle = {
   display: 'inline',
   backgroundImage: `linear-gradient(90deg, color-mix(in srgb, var(--color-primary) 100%, transparent) 0%, color-mix(in srgb, var(--color-secondary) 100%, transparent) 100%)`,
   backgroundPosition: '0 calc(100% - 1px)',
-  backgroundSize: '100% 6px',
+  backgroundSize: '100% 5px',
   backgroundRepeat: 'no-repeat',
   whiteSpace: 'nowrap'
 };

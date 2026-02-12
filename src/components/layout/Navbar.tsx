@@ -32,7 +32,7 @@ export const Navbar = () => {
   return (
     <Dialog.Root open={isOpen} onOpenChange={setIsOpen} modal={!isDesktop}>
       <nav className="w-full flex justify-between items-center px-6 md:px-12 pt-4 z-[100] relative">
-        <Logo size="md" />
+        <Logo size="md"/>
 
         <div className="flex flex-row-reverse items-center gap-4">
           {/* TRIGGER (Solo abre o togglea en desktop) */}

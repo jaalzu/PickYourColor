@@ -22,7 +22,7 @@ export const Hero = () => {
       
       <Gradient />
 
-      <div className="flex-1 flex items-start justify-center px-4 pt-15 md:pt-2 relative z-10">
+      <div className="flex-1 flex items-start justify-center px-4 pt-15 md:pt-15 relative z-10">
         <div className="max-w-sm md:max-w-2xl text-center">
           <h1 className="font-mono text-5xl md:text-5xl lg:text-[67px] leading-[1] font-bold mb-6" style={{ color: 'var(--color-text)' }}>
             Visualizá tus colores en un sitio web de verdad.
@@ -35,7 +35,7 @@ export const Hero = () => {
             <Button variant="primary" padding="13px 50px" borderRadius="5px">
               Get Started
             </Button>
-            <Button variant="secondary" padding="13px 19px" borderRadius="5px" opacity={0.9} onClick={scrollToHowItWorks}>
+            <Button variant="secondary" padding="13px 19px" borderRadius="5px" opacity={0.7} onClick={scrollToHowItWorks}>
               Learn More
             </Button>
           </div>
