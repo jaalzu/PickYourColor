@@ -3,28 +3,74 @@ import tinycolor from 'tinycolor2';
 import { useColorStore } from '../../store/useColorStore';
 
 export const FAQ = () => {
+  const lang = useColorStore((state) => state.lang);
   const bgColor = useColorStore((state) => state.colors.background);
+  
   const isLightBg = tinycolor(bgColor).isLight();
   const borderColor = isLightBg ? 'rgba(0, 0, 0, 1)' : 'rgba(255, 255, 255, 1)';
   const textColor = isLightBg ? '#000000' : '#ffffff';
 
-  const faqs = [
-    { question: "How do I choose a nice palette?", answer: "Start with your brand colors or use our randomize feature to discover new combinations." },
-    { question: "Can I export my color palette?", answer: "Yes! You can export your palette in CSS, SCSS, or Tailwind format." },
-    { question: "Is there a dark mode?", answer: "Absolutely! Switch between dark and light mode." },
-    { question: "What are the accessibility features?", answer: "We provide WCAG compliance checking." }
-  ];
+  const content = {
+    es: {
+      title: "Preguntas Frecuentes",
+      subtitle: "¿Tenés preguntas? Tenemos respuestas",
+      faqs: [
+        { 
+          question: "¿Cómo elijo una buena paleta?", 
+          answer: "Empezá con los colores de tu marca o usá nuestra función de aleatorizar para descubrir nuevas combinaciones." 
+        },
+        { 
+          question: "¿Puedo exportar mi paleta de colores?", 
+          answer: "¡Sí! Podés exportar tu paleta en formato CSS, SCSS o Tailwind." 
+        },
+        { 
+          question: "¿Hay un modo oscuro?", 
+          answer: "¡Absolutamente! Podés cambiar entre modo oscuro y claro para probar el contraste." 
+        },
+        { 
+          question: "¿Qué funciones de accesibilidad tiene?", 
+          answer: "Proporcionamos verificación de cumplimiento de las normas WCAG para asegurar que tus colores sean legibles." 
+        }
+      ]
+    },
+    en: {
+      title: "FAQ",
+      subtitle: "Got Questions? We've Got Answers",
+      faqs: [
+        { 
+          question: "How do I choose a nice palette?", 
+          answer: "Start with your brand colors or use our randomize feature to discover new combinations." 
+        },
+        { 
+          question: "Can I export my color palette?", 
+          answer: "Yes! You can export your palette in CSS, SCSS, or Tailwind format." 
+        },
+        { 
+          question: "Is there a dark mode?", 
+          answer: "Absolutely! Switch between dark and light mode." 
+        },
+        { 
+          question: "What are the accessibility features?", 
+          answer: "We provide WCAG compliance checking to ensure your colors are readable." 
+        }
+      ]
+    }
+  };
+
+  const { title, subtitle, faqs } = content[lang];
 
   return (
     <section 
-    id='FAQ'
-
-    className="py-20 px-8" 
-    style={{ backgroundColor: 'var(--color-background)' }}>
+      id='FAQ'
+      className="py-20 px-8" 
+      style={{ backgroundColor: 'var(--color-background)' }}
+    >
       <div className="max-w-3xl mx-auto">
-        <p className="text-md text-center font-mono" style={{ color: 'var(--color-text)', opacity: 0.6 }}>FAQ</p>
+        <p className="text-md text-center font-mono" style={{ color: 'var(--color-text)', opacity: 0.6 }}>
+          {title}
+        </p>
         <h2 className="font-mono text-4xl md:text-5xl font-medium text-center mb-5" style={{ color: 'var(--color-text)' }}>
-          Got Questions? We've Got Answers
+          {subtitle}
         </h2>
 
         <Accordion.Root type="single" collapsible className="space-y-4">

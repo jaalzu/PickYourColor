@@ -1,7 +1,25 @@
 import { Logo } from '../ui/Logo';
 import { BackToTopButton } from '../ui/BackToTopButton';
+import { useColorStore } from '../../store/useColorStore';
 
 export const Footer = () => {
+  const lang = useColorStore((state) => state.lang);
+
+  const content = {
+    es: {
+      starMessage: "Ya que llegaste hasta acá, tu estrellita me ayudaría un montón. ¡Gracias!",
+      githubBtn: "ir a GitHub",
+      copyright: "Cualquier parecido con una web real es pura coincidencia."
+    },
+    en: {
+      starMessage: "Since you made it this far, a star would help me a lot. Thanks!",
+      githubBtn: "go to GitHub",
+      copyright: "Any resemblance to a real website is purely coincidental."
+    }
+  };
+
+  const { starMessage, githubBtn, copyright } = content[lang];
+
   return (
     <footer
       className="relative pt-20 pb-32 px-8"
@@ -25,10 +43,10 @@ export const Footer = () => {
           className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t"
           style={{ borderColor: 'rgba(var(--color-text-rgb), 0.1)' }}
         >
-          <div className="flex flex-col items-start gap-2">
+          <div className="flex flex-col items-center md:items-start gap-2">
             {/* Texto invitación estrella */}
             <p className="text-xs" style={{ color: 'var(--color-text)', opacity: 0.8 }}>
-              Ya que llegaste hasta acá, tu estrellita me ayudaría un montón. Gracias!
+              {starMessage}
             </p>
 
             {/* BOTÓN GITHUB */}
@@ -53,7 +71,7 @@ export const Footer = () => {
                 <path d="M9 18c-4.51 2-5-2-7-2" />
               </svg>
 
-              <span className="text-white">ir a GitHub</span>
+              <span className="text-white">{githubBtn}</span>
 
               <span className="flex items-center ml-4 group-hover:text-yellow-500 transition-colors duration-200 ease-in-out">
                 <svg
@@ -74,12 +92,12 @@ export const Footer = () => {
             </a>
           </div>
 
-<span 
-  className="text-[14px]  opacity-60   cursor-default" 
-  style={{ color: 'var(--color-text)' }}
->
-       © {new Date().getFullYear()} Javalzu - Cualquier parecido con una web real es pura coincidencia.
-</span>
+          <span 
+            className="text-[14px] opacity-60 cursor-default text-center md:text-right" 
+            style={{ color: 'var(--color-text)' }}
+          >
+            © {new Date().getFullYear()} Javalzu - {copyright}
+          </span>
         </div>
       </div>
     </footer>

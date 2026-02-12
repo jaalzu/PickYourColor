@@ -1,10 +1,15 @@
 import * as Dialog from '@radix-ui/react-dialog';
 import { useState, useEffect } from 'react';
 import { Logo } from '../ui/Logo';
+import { useColorStore } from '../../store/useColorStore'; 
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
+  
+  // Consumimos el idioma y la función del store real
+  const lang = useColorStore((state) => state.lang);
+  const setLang = useColorStore((state) => state.setLang);
 
   useEffect(() => {
     const checkSize = () => setIsDesktop(window.innerWidth >= 768);
@@ -13,13 +18,25 @@ export const Navbar = () => {
     return () => window.removeEventListener('resize', checkSize);
   }, []);
 
-  const menuItems = [
-    { name: 'How it works', id: 'how-it-works' },
-    { name: 'Features', id: 'features' },
-    { name: 'Pricing', id: 'pricing' },
-    { name: 'Testimonials', id: 'testimonials' },
-    { name: 'FAQS', id: 'FAQ' },
-  ];
+  // Textos del menú según idioma - Estilo Astro (Colocated)
+  const menuContent = {
+    es: [
+      { name: 'Cómo funciona', id: 'how-it-works' },
+      { name: 'Funciones', id: 'features' },
+      { name: 'Precios', id: 'pricing' },
+      { name: 'Testimonios', id: 'testimonials' },
+      { name: 'Preguntas', id: 'FAQ' },
+    ],
+    en: [
+      { name: 'How it works', id: 'how-it-works' },
+      { name: 'Features', id: 'features' },
+      { name: 'Pricing', id: 'pricing' },
+      { name: 'Testimonials', id: 'testimonials' },
+      { name: 'FAQS', id: 'FAQ' },
+    ]
+  };
+
+  const menuItems = menuContent[lang];
 
   const handleScroll = (id: string) => {
     setIsOpen(false);
@@ -35,7 +52,7 @@ export const Navbar = () => {
         <Logo size="md"/>
 
         <div className="flex flex-row-reverse items-center gap-4">
-          {/* TRIGGER (Solo abre o togglea en desktop) */}
+          {/* TRIGGER HAMBURGUESA */}
           <Dialog.Trigger asChild>
             <button 
               className={`p-1 z-[110] relative focus:outline-none ${isOpen ? 'hamburger-active' : ''}`}
@@ -47,6 +64,25 @@ export const Navbar = () => {
               </svg>
             </button>
           </Dialog.Trigger>
+
+          {/* SELECTOR DE IDIOMA - Sutil al lado del menú */}
+          <div className="flex gap-2 mr-2 font-mono text-xs font-bold select-none">
+            <button 
+              onClick={() => setLang('es')}
+              className={`transition-all duration-300 ${lang === 'es' ? 'opacity-100 underline decoration-2 underline-offset-4' : 'opacity-40 hover:opacity-100'}`}
+              style={{ color: 'var(--color-text)' }}
+            >
+              ES
+            </button>
+            <span style={{ color: 'var(--color-text)', opacity: 0.3 }}>|</span>
+            <button 
+              onClick={() => setLang('en')}
+              className={`transition-all duration-300 ${lang === 'en' ? 'opacity-100 underline decoration-2 underline-offset-4' : 'opacity-40 hover:opacity-100'}`}
+              style={{ color: 'var(--color-text)' }}
+            >
+              EN
+            </button>
+          </div>
 
           {/* DESKTOP MENU */}
           <div className={`hidden md:flex items-center gap-6 overflow-hidden transition-all duration-500 ${isOpen ? 'max-w-[800px] opacity-100' : 'max-w-0 opacity-0 pointer-events-none'}`}>
@@ -63,40 +99,35 @@ export const Navbar = () => {
         {/* MOBILE PORTAL */}
         <Dialog.Portal>
           <Dialog.Overlay className="md:hidden fixed inset-0 z-[120] bg-black/20 backdrop-blur-sm" />
-          
           <Dialog.Content 
-            className="md:hidden fixed left-0 top-0 bottom-0 z-[130] w-[280px] p-6 pt-6 shadow-2xl focus:outline-none transition-transform duration-300 data-[state=closed]:-translate-x-full data-[state=open]:translate-x-0"
+            className="md:hidden fixed left-0 top-0 bottom-0 z-[130] w-[280px] p-6 pt-6 shadow-2xl focus:outline-none transition-transform duration-300 data-[state=closed]:-translate-x-full data-[state=open]:translate-x-0" 
             style={{ backgroundColor: 'var(--color-background)' }}
           >
-            {/* Header del Panel Mobile */}
-            <div className="flex justify-between items-center mb-12">
-              <Logo size="sm" />
-              <Dialog.Close asChild>
-                <button 
-                  className="p-1 text-[var(--color-text)] hamburger-active"
-                  aria-label="Cerrar menú"
-                >
-                  <svg className="hamburger-svg w-10 h-10" viewBox="0 0 32 32">
-                    <path className="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22" />
-                    <path className="line" d="M7 16 27 16" />
-                  </svg>
-                </button>
-              </Dialog.Close>
-            </div>
+             <div className="flex justify-between items-center mb-12">
+               <Logo size="sm" />
+               <Dialog.Close asChild>
+                 <button className="p-1 text-[var(--color-text)] hamburger-active">
+                    <svg className="hamburger-svg w-10 h-10" viewBox="0 0 32 32">
+                        <path className="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22" />
+                        <path className="line" d="M7 16 27 16" />
+                    </svg>
+                 </button>
+               </Dialog.Close>
+             </div>
+             
+             <Dialog.Title className="sr-only">Menu</Dialog.Title>
 
-            <Dialog.Title className="sr-only">Menu</Dialog.Title>
-            
-            <div className="flex flex-col gap-8">
-              {menuItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => handleScroll(item.id)}
-                  className="text-left text-2xl font-mono font-bold nav-link-effect w-fit"
-                >
-                  {item.name}
-                </button>
-              ))}
-            </div>
+             <div className="flex flex-col gap-8">
+               {menuItems.map((item) => (
+                 <button 
+                   key={item.id} 
+                   onClick={() => handleScroll(item.id)} 
+                   className="text-left text-2xl font-mono font-bold nav-link-effect w-fit"
+                 >
+                   {item.name}
+                 </button>
+               ))}
+             </div>
           </Dialog.Content>
         </Dialog.Portal>
       </nav>
