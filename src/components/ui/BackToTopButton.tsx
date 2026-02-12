@@ -8,13 +8,12 @@ export const BackToTopButton = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const buttonText = lang === 'es' ? '"Volver arriba"' : '"Back to Top"';
+  const buttonText = lang === 'es' ? '"Ir al inicio"' : '"Back to Top"';
 
   return (
     <button 
       onClick={scrollToTop} 
       className={styles.button}
-      /* Pasamos el texto como variable de CSS */
       style={{ '--btn-text': buttonText } as React.CSSProperties}
     >
       <svg className={styles.svgIcon} viewBox="0 0 384 512">
