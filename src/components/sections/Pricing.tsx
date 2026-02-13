@@ -140,7 +140,7 @@ export const Pricing = () => {
                   className="absolute inset-0 rounded-[10px] primary-shadow" 
                   style={{ 
                     backgroundColor: planBg, 
-                    opacity: 0.5,
+                    opacity: 0.420,
                     zIndex: 0
                   }}
                 />
@@ -160,15 +160,15 @@ export const Pricing = () => {
 </div>
 
                   <div className="mb-10 ">
-                    <Button 
-                      variant="secondary" 
-                      padding="8px 0" 
-                      borderRadius="25px" 
-                      opacity={1}
-                      className="w-full"
-                    >
-                      {current.button}
-                    </Button>
+                   <Button 
+  variant={isSenior ? "primary" : "secondary"}
+  padding="8px 0" 
+  borderRadius="25px" 
+  opacity={1}
+  className="w-full"
+>
+  {current.button}
+</Button>
                   </div>
 
                   <div className="flex items-center gap-3 mb-5">

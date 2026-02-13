@@ -39,17 +39,17 @@ export const Button = ({
 
   return (
     <Comp
-      onClick={handleClick}
-      className={`font-mono font-bold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 btn-glow-effect ${className}`}
-     style={{ 
-  backgroundColor: `${bgColor}${alphaHex}`,
-  color: textColor,
-  padding: padding || '16px 33px', 
-  borderRadius: borderRadius || '9px',
-  ...(variant === 'primary' && { '--shadow-color': bgColor }),
-} as React.CSSProperties}
-    >
-      {children}
-    </Comp>
+  onClick={handleClick}
+  className={`font-mono font-bold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 btn-glow-effect ${className}`}
+  style={{ 
+    backgroundColor: `${bgColor}${alphaHex}`,
+    color: textColor,
+    padding: padding || '16px 33px', 
+    borderRadius: borderRadius || '9px',
+    '--shadow-color': bgColor,
+  } as React.CSSProperties}
+>
+  {children}
+</Comp>
   );
 };
