@@ -14,7 +14,6 @@ export const BackToTopButton = () => {
     <button 
       onClick={scrollToTop} 
       className={styles.button}
-      /* Pasamos el texto como variable de CSS */
       style={{ '--btn-text': buttonText } as React.CSSProperties}
     >
       <svg className={styles.svgIcon} viewBox="0 0 384 512">

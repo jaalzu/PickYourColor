@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { LinkIcon, CheckIcon } from '@heroicons/react/24/outline';
 import { Tooltip } from '../../../../components/ui/Tooltip';
+import { useToolbarTextContent } from '../../hooks/useToolbarTextContent';
 
 export const ShareButton = ({ className = "" }: { className?: string }) => {
   const [copied, setCopied] = useState(false);
+  const t = useToolbarTextContent().copyUrl;
 
   const handleCopy = async () => {
     try {
@@ -22,10 +24,10 @@ export const ShareButton = ({ className = "" }: { className?: string }) => {
   }, [copied]);
 
   return (
-        <Tooltip content="Copy shareable URL">
+        <Tooltip content={t.tooltip}>
 
     <button
-  aria-label="Copy page URL"
+  aria-label={t.aria}
   className={`flex flex-col items-center justify-center gap-1 w-22 h-full hover:bg-white/5 transition-colors ${className}`}
   onClick={handleCopy}
 >
@@ -35,10 +37,9 @@ export const ShareButton = ({ className = "" }: { className?: string }) => {
         <LinkIcon className="w-6 h-6 text-white" />
       )}
       <span className={`text-[16px] md:text-[12.5px] font-mono  ${copied ? 'text-green-500' : 'text-white'}`}>
-        {copied ? 'Copiado' : 'Copiar URL'}
+        {t.label}
       </span>
     </button>
         </Tooltip>
-
   );
 };

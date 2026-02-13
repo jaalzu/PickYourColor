@@ -6,6 +6,7 @@ import { useColorStore } from '../../store/useColorStore'; // Importamos el stor
 export const Hero = () => {
   // Consumimos el idioma del store
   const lang = useColorStore((state) => state.lang);
+  const primaryColor = useColorStore((state) => state.colors.primary);
 
   const scrollToHowItWorks = () => {
     const element = document.getElementById('how-it-works');
@@ -20,14 +21,14 @@ export const Hero = () => {
   // Diccionario de textos
   const content = {
     es: {
-      title: 'Visualizá tus colores en un sitio web de verdad.',
-      subtitle: '¿No estás seguro de qué colores elegir? Usá la toolbar y probalos al instante.',
+      title: 'Probá tus colores en segundos, no horas.',
+      subtitle: 'Elegí tus colores sobre una web real. Usá la toolbar para aplicar y visualizar tus elecciones en tiempo real.',
       primaryBtn: 'Comenzar',
       secondaryBtn: 'Saber más'
     },
     en: {
-      title: 'Visualize your colors on a real website.',
-      subtitle: "Not sure which colors to choose? Use the toolbar and test them instantly.",
+      title: 'Visualize your colors in seconds, not hours.',
+      subtitle: 'Choose your colors on a real website. Use the toolbar to apply and preview your choices in real time.',
       primaryBtn: 'Get Started',
       secondaryBtn: 'Learn More'
     }
@@ -41,26 +42,42 @@ export const Hero = () => {
       style={{ backgroundColor: 'var(--color-background)' }}
     >
       <Navbar />
-      
       <Gradient />
 
       <div className="flex-1 flex items-start justify-center px-4 pt-15 md:pt-17 relative z-10">
         <div className="max-w-sm md:max-w-2xl text-center">
-          <h1 className="font-mono text-5xl md:text-5xl lg:text-[67px] leading-[1] font-bold mb-6" style={{ color: 'var(--color-text)' }}>
+          
+          <h1
+            className="font-mono text-5xl md:text-5xl lg:text-[67px] leading-[1] font-bold mb-6"
+            style={{ color: 'var(--color-text)' }}
+          >
             {title}
           </h1>
-          <p className="font-sans text-xl md:text-2xl mb-10 max-w-sm mx-auto md:max-w-lg" style={{ color: 'var(--color-text)' }}>
+
+          <p
+            className=" text-lg md:text-xl mb-10 max-w-sm mx-auto md:max-w-lg"
+            style={{ color: 'var(--color-text)' }}
+          >
             {subtitle}
           </p>
 
-          <div className="flex flex-row gap-5 justify-center items-center">
-            <Button variant="primary" padding="13px 50px" borderRadius="5px">
+          <div className="flex flex-col gap-3 justify-center items-center">
+            <Button variant="primary" padding="16px 60px" borderRadius="5px">
               {primaryBtn}
             </Button>
-            <Button variant="secondary" padding="13px 19px" borderRadius="5px" opacity={0.7} onClick={scrollToHowItWorks}>
+
+            <span
+              onClick={scrollToHowItWorks}
+              className="hero-learn-more font-mono text-sm cursor-pointer"
+              style={{
+                color: 'var(--color-text)',
+                '--primary-color': primaryColor,
+              } as React.CSSProperties}
+            >
               {secondaryBtn}
-            </Button>
+            </span>
           </div>
+
         </div>
       </div>
     </section>

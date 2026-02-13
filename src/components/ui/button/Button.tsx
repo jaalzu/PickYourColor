@@ -28,31 +28,26 @@ export const Button = ({
   const bgColor = useColorStore((state) => state.colors[variant]);
   const textColor = getTextColor(bgColor);
 
+  const alphaHex = Math.round((opacity ?? 1) * 255).toString(16).padStart(2, '0');
+
   const handleClick = () => {
-    // Esto activará el shake de la toolbar si es primary
     triggerPrimaryEffect(variant); 
     onClick?.();
   };
 
   const Comp = asChild ? Slot : 'button';
 
-  // Ahora TODOS los botones tienen la clase del efecto glow
-  const effectClass = 'btn-glow-effect';
-
   return (
     <Comp
       onClick={handleClick}
-      className={`font-mono font-bold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${effectClass} ${className}`}
-      style={{ 
-        backgroundColor: bgColor,
-        color: textColor,
-        // Si pasás padding por props (como en tu Learn More), se usa ese.
-        padding: padding || '16px 33px', 
-        opacity: opacity ?? 1,
-        borderRadius: borderRadius || '9px',
-        // Variable CSS para que el glow sea del color del botón (sea primary o secondary)
-        '--shadow-color': bgColor 
-      } as React.CSSProperties}
+      className={`font-mono font-bold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 btn-glow-effect ${className}`}
+     style={{ 
+  backgroundColor: `${bgColor}${alphaHex}`,
+  color: textColor,
+  padding: padding || '16px 33px', 
+  borderRadius: borderRadius || '9px',
+  ...(variant === 'primary' && { '--shadow-color': bgColor }),
+} as React.CSSProperties}
     >
       {children}
     </Comp>
