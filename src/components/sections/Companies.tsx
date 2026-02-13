@@ -66,18 +66,18 @@ export const Companies = () => {
     >
       <div className="max-w-7xl mx-auto">
         <h2 
-          className="text-2xl md:text-4xl font-mono font-bold text-center mb-10 px-4" 
+          className="text-2xl md:text-2xl font-mono font-bold text-center mb-10 px-2" 
           style={{ color: 'var(--color-text)' }}
         >
           {content[lang].title}
         </h2>
       </div>
-      <div className="relative z-30 max-w-7xl mx-auto md:max-w-full md:px-23">
+      <div className="relative z-30  mx-auto md:max-w-full md:px-8">
         <div className="flex flex-wrap justify-center gap-10 md:justify-between px-8">
           {companies.map((company) => (
             <div 
               key={company.name}
-              className="w-12 h-12 md:w-16 md:h-16 company-icon"
+              className="w-12 h-12 md:w-12 md:h-12 company-icon"
               style={{ color: iconColor }}
             >
               {company.svg}

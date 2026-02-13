@@ -113,7 +113,7 @@ export const Pricing = () => {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {current.plans.map((plan, index) => {
+          {current.plans.map((plan) => {
             // Mantenemos tus lógicas de estilo originales
             const isSenior = plan.title === "Senior"; 
             const planBg = isSenior ? 'var(--color-primary)' : 'var(--color-secondary)';

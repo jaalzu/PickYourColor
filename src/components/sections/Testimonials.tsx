@@ -6,7 +6,7 @@ export const Testimonials = () => {
 
   const content = {
     es: {
-      title: "Experiencias de Usuarios 100% Reales No Fake",
+      title: "Experiencias Reales De Usuarios Reales",
       testimonials: [
         {
           name: "Linus Torvalds",
@@ -61,10 +61,10 @@ export const Testimonials = () => {
 
   return (
     <section
-      className="px-8 py-15"
+      className="px-48 py-15"
       style={{ backgroundColor: 'var(--color-background)' }}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-8xl mx-auto">
         <h2
           className="font-mono text-4xl md:text-5xl font-bold text-center mb-12"
           style={{ color: 'var(--color-text)' }}
@@ -72,19 +72,19 @@ export const Testimonials = () => {
           {title}
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {testimonials.map((testimonial, index) => (
             <div 
               key={testimonial.name}
               className={index === 3 ? "md:col-start-2" : ""}
             >
-              <div className="p-6 rounded-[10px] relative border h-full" style={{ borderColor: 'rgba(255, 255, 255, 0.250)' }}>
+              <div className="p-6 rounded-[10px] relative h-full">
                 {/* Background con opacidad */}
                 <div 
                   className="absolute inset-0 rounded-[10px]" 
                   style={{ 
-                    background: `linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0%, var(--color-primary) 55%)`,
-                    opacity: 0.4,
+                    background: `var(--color-secondary)`,
+                    opacity: 0.3,
                     zIndex: 0
                   }}
                 />
