@@ -6,45 +6,45 @@ export const HowItWorks = () => {
   const content = {
     es: {
       title: '¿Cómo funciona?',
-      subtitle: 'Obtené tu paleta de colores en 4 simples pasos',
+      subtitle: 'Obtené un sistema de color funcional en 4 pasos simples',
       steps: [
         {
-          number: "1",
-          description: "Empezá con dos colores neutros para el texto y el fondo."
+          number: "1. Base neutral",
+          description: "Empezá con dos colores neutros para el texto y el fondo. Definen la legibilidad, el contraste y el confort visual de toda la interfaz."
         },
         {
-          number: "2",
-          description: "Elegí tus colores primario y secundario. El primario es para CTAs principales y el secundario para botones menos importantes."
+          number: "2. Roles Primary y Secondary",
+          description: "Primary se usa para acciones principales, secciones clave y elementos centrales de la UI. Secondary acompaña acciones secundarias y elementos de menor jerarquía."
         },
         {
-          number: "3",
-          description: "El color de acento es adicional. Aparece en imágenes, resaltados, hipervínculos, iconos, etc."
+          number: "3. Color Accent",
+          description: "Agregá un color Accent para énfasis visual.Se usa en highlights, iconos, indicadores, estados de foco y micro-interacciones."
         },
         {
-          number: "4",
-          description: "Exportá tus colores en CSS, SCSS o Tailwind, ¡o compartí el link para que todos vean tu paleta!"
+          number: "4. Exportación e integración",
+          description: "Exportá tu sistema en variables CSS, tokens SCSS o configuración Tailwind,o compartí el link de la paleta para presentarla en cualquier momento!"
         }
       ]
     },
     en: {
       title: 'How Does it Work?',
-      subtitle: 'Get your color palette in 4 simple steps',
-      steps: [
+      subtitle: 'Build a functional color system in 4 simple steps',
+      steps: [ 
         {
-          number: "1",
-          description: "Start with two neutral colors for the text and the background."
+          number: "1. Neutral base",
+          description: "Start with two neutral colors: one for text and one for background.These define readability, contrast, and visual comfort across the entire interface."
         },
         {
-          number: "2",
-          description: "Choose your primary and secondary colors. Primary is for main CTAs and sections, and Secondary is for less important buttons."
+          number: "2. Primary & Secondary roles",
+          description: "Choose your Primary and Secondary colors.Primary is used for main actions, key sections, and core UI elements.Secondary supports secondary actions and less critical interactions."
         },
         {
-          number: "3",
-          description: "Accent color is an additional color. It appears in images, highlights, hyperlinks, boxes, icons, etc."
+          number: "3. Accent color",
+          description: "Add an Accent color for emphasis.Used for highlights, links, icons, visual indicators, focus states, and micro-interactions."
         },
         {
-          number: "4",
-          description: "Export your favorite colors in CSS, SCSS, or Tailwind format, or share the link so everyone can see your palette!"
+          number: "4. Export & integration",
+          description: "Export your system as CSS variables, SCSS tokens, or Tailwind config, or share the palette link to present it anytime!"
         }
       ]
     }
@@ -78,7 +78,7 @@ export const HowItWorks = () => {
             className="absolute inset-0 rounded-[10px]" 
             style={{ 
               backgroundColor: 'var(--color-secondary)', 
-              opacity: 0.3,
+              opacity: 0.350,
               zIndex: 0
             }}
           />
@@ -88,11 +88,11 @@ export const HowItWorks = () => {
               {steps.map((step) => (
                 <div key={step.number}>
                   <div className="flex items-center gap-2 mb-2">
-                    <h3 className="font-mono text-3xl font-bold" style={{ color: 'var(--color-accent)' }}>
+                    <h3 className="font-mono text-2xl font-bold" style={{ color: 'var(--color-accent)' }}>
                       {step.number}
                     </h3>
                   </div>
-                  <p className="text-xl text-left" style={{ color: 'var(--color-text)' }}>
+                  <p className="text-lg text-left font-light" style={{ color: 'var(--color-text)' }}>
                     {step.description}
                   </p>
                 </div>

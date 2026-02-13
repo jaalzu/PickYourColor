@@ -19,10 +19,11 @@ export const Features = () => {
           Icon: ArrowUturnLeftIcon
         },
         {
-          title: "Accesibilidad",
-          description: "¡Revisá si tus colores cumplen con los estándares de accesibilidad WCAG!",
-          Icon: EyeIcon
-        },
+  title: "Sistema de colores",
+  description: "Exportá tu paleta en variables CSS, tokens SCSS o configuración Tailwind, o compartí el link del sitio web para presentaciones.",
+  Icon: EyeIcon
+},
+
         {
           title: "Claro/Oscuro",
           description: "Cambiá entre modo claro y oscuro para ver cómo se comporta tu paleta en ambos entornos.",
@@ -44,10 +45,10 @@ export const Features = () => {
           Icon: ArrowUturnLeftIcon
         },
         {
-          title: "Accessibility",
-          description: "Can also check for accessibility to see if your colors match the WCAG accessibility standards!!",
-          Icon: EyeIcon
-        },
+  title: "Color system",
+  description: "Export your palette as CSS variables, SCSS tokens, or Tailwind config, or share the website link for presentations.",
+  Icon: EyeIcon
+},
         {
           title: "Dark/Light",
           description: "You can switch to dark/light mode to match your palette both in dark and light.",
@@ -62,7 +63,7 @@ export const Features = () => {
   return (
     <section
       id='features'
-      className="px-8 py-15 md:py-34"
+      className="px-8 py-10 md:py-20"
       style={{ backgroundColor: 'var(--color-background)' }}
     >
       <div className="max-w-7xl mx-auto">
@@ -81,30 +82,30 @@ export const Features = () => {
             return (
               <div 
                 key={index} 
-                className="h-[180px] md:h-[140px] rounded-[10px] relative p-4 md:px-9"
+                className="h-[200px] md:h-[145px] rounded-[10px] relative p-4 md:px-9"
               >
                 <div 
                   className="absolute inset-0 rounded-[10px]" 
                   style={{ 
                     backgroundColor: bgColor, 
-                    opacity: .550,
+                    opacity: .5,
                     zIndex: 0
                   }}
                 />
                 
                 <div className={`relative z-10 h-full flex flex-col ${isEven ? 'items-end text-right' : 'items-start text-left'}`}>
-                  <div className={`flex items-center justify-between w-full mb-2 ${isEven ? 'flex-row-reverse' : ''}`}>
+                  <div className={`flex items-center justify-between w-full mb-1 ${isEven ? 'flex-row-reverse' : ''}`}>
                     <h3 className="font-mono text-2xl font-bold" style={{ color: 'var(--color-text)' }}>
                       {feature.title}
                     </h3>
                     <feature.Icon 
-                      className="w-10 h-10" 
+                      className="w-11 h-11" 
                       style={{ color: 'var(--color-accent)' }}
                       aria-hidden="true" 
                     />
                   </div>
                   
-                  <p className="text-xl md:text-2xl" style={{ color: 'var(--color-text)' }}>
+                  <p className="text-xl md:text-xl font-light" style={{ color: 'var(--color-text)' }}>
                     {feature.description}
                   </p>
                 </div>
