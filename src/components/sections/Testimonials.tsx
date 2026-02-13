@@ -31,7 +31,7 @@ export const Testimonials = () => {
       ]
     },
     en: {
-      title: "100% Real No Fake User Experiences",
+      title: "Real experiences from Real Users.",
       testimonials: [
         {
           name: "Linus Torvalds",
@@ -61,18 +61,18 @@ export const Testimonials = () => {
 
   return (
     <section
-      className="px-48 py-15"
+      className="px-10 md:px-48 py-15"
       style={{ backgroundColor: 'var(--color-background)' }}
     >
       <div className="max-w-8xl mx-auto">
         <h2
-          className="font-mono text-4xl md:text-5xl font-bold text-center mb-12"
+          className=" text-4xl md:text-5xl font-bold text-center mb-12"
           style={{ color: 'var(--color-text)' }}
         >
           {title}
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {testimonials.map((testimonial, index) => (
             <div 
               key={testimonial.name}

@@ -9,81 +9,81 @@ export const Pricing = () => {
 
   const content = {
     es: {
-      title: "Nuestros Precios",
+      title: "Nuestros Planes",
       monthly: "/mes",
-      button: "Get Started",
+        free: "Gratis",
+      button: "Elegir Plan",
       features: "Características",
       best: "Mejor\nOpción",
       plans: [
         {
-          title: "Newbie",
-          description: "Este paquete ofrece el plan gratuito, solo la herramienta de cambio de color.",
-          price: "$0.00",
+          title: "Entusiasta",
+          description: "Para aquellos que desean empezar a explorar el mundo del diseño UI.",
+          price: "Gratis",
           features: [
-            "Acceso a funciones gratuitas",
-            "3hs/día de herramientas gratis",
-            "Nada más. Es gratis, ¿qué más esperabas?",
+            "Acceso a todas las funciones gratuitas",
+            "Eso es todo, es gratis. Qué más esperabas??",
           ]
         },
         {
-          title: "Senior",
-          description: "Este paquete ofrece acceso completo a todas las funciones premium.",
+          title: "Da Vinci",
+          description: "Para maestros artesanos de UI/UX de nivel Dios.",
           price: "$0.02",
           features: [
-            "Incluye todas las funciones Pro",
-            "IA tools para mejorar tu paleta",
-            "Soporte técnico 24/7 con prioridad",
-            "Más de +1000 plantillas listas para usar",
+            "IA super avanzada",
+            "Soporte técnico 24/7 con prioridad alta",
+            "Más de +1000 plantillas de colores listas para usar",
+            "Título Certificado y otorgado por Leonardo",,
           ]
         },
         {
-          title: "Pro",
-          description: "Este paquete ofrece las funciones básicas que necesitás para arrancar.",
+          title: "Alquimista",
+          description: "Para usuarios con un conocimiento sólido que desean experimentar y construir diseños de sistemas completos.",
           price: "$0.01",
           features: [
-            "Acceso a funciones geniales",
-            "Soporte técnico 24/7",
-            "Guía de ayuda para crear tu paleta perfecta",
-          ]
+  "Pre-Acceso a nuevas funciones",
+  "Soporte técnico 24/7",
+  "Guía de ayuda para empezar a crear tu sistema de diseño perfecto",
+]
         }
       ]
     },
     en: {
-      title: "Our Pricing",
+      title: "Our Plans",
       monthly: "/month",
-      button: "Get Started",
+      button: "Choose Plan",
+        free: "Free",
       features: "Features",
       best: "Best\nOption",
       plans: [
         {
-          title: "Newbie",
-          description: "This package offers the free plan,only the change color tool.",
-          price: "$0.00",
+          title: "Enthusiast",
+          description: "For those who want to start exploring the world of UI design and color systems.",
+          price: "Free",
           features: [
-            "Access to all free features",
-            "3hs/day of free tools",
+            "Access to all features",
             "nothing more. It's free what more you expect??",
           ]
         },
         {
-          title: "Senior",
-          description: "This package provides full access to al premium features",
+          title: "Da Vinci",
+          description: "For god-tier UI/UX master crafters.",
           price: "$0.02",
           features: [
-            "Includes all Pro features",
-            "IA tools to improve your palette",
-            "24/7 technical support priority to you",
-            "More than +1000 templates ready to use",
-          ]
+  "Super advanced AI",
+  "24/7 technical support with high priority",
+  "More than +1000 color templates ready to use",
+  "Certificate issued and granted by Leonardo",
+]
         },
         {
-          title: "Pro",
-          description: "This package offers the basic features you need to get started",
+          title: "Alchemist",
+          description: "For users with solid design knowledge who want to experiment and build structured color systems.",
           price: "$0.01",
           features: [
-            "Access to all cool features",
+            "Pre-Access to new features",
             "24/7 technical support",
-            "A help guide to start creating your perfect palette",
+            "A help guide to start creating your perfect design system",
           ]
         }
       ]
@@ -112,14 +112,14 @@ export const Pricing = () => {
           {current.title}
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {current.plans.map((plan) => {
+<div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-stretch">          {current.plans.map((plan) => {
             // Mantenemos tus lógicas de estilo originales
-            const isSenior = plan.title === "Senior"; 
+            const isSenior = plan.title === "Da Vinci"; 
             const planBg = isSenior ? 'var(--color-primary)' : 'var(--color-secondary)';
 
             return (
-              <div key={plan.title} className="rounded-[10px] relative overflow-visible">
+              <div key={plan.title} className="rounded-[10px] relative overflow-visible h-full flex flex-col">
+
                 {isSenior && (
                   <div className="absolute -top-8 -right-6 z-20" style={{ width: '100px', height: '100px' }}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 256 256" fill="none">
@@ -145,24 +145,24 @@ export const Pricing = () => {
                   }}
                 />
 
-                <div className="relative z-10 py-7 px-7">
-                  <h3 className="font-mono text-3xl font-bold mb-3 pt-5" style={{ color: 'var(--color-text)' }}>
+<div className="relative z-10 py-7 px-7 flex flex-col h-full">
+                  <h3 className=" text-3xl font-bold mb-3 pt-5" style={{ color: 'var(--color-text)' }}>
                     {plan.title}
                   </h3>
 
-                  <p className="text-xl mb-11" style={{ color: 'var(--color-text)' }}>
-                    {plan.description}
-                  </p>
+                 <p className="text-xl font-light mb-11 min-h-[80px]" style={{ color: 'var(--color-text)' }}>
+  {plan.description}
+</p>
 
-                  <div className="text-2xl font-medium mb-3" style={{ color: 'var(--color-text)' }}>
-                    {plan.price}
-                    <span className="text-base font-normal opacity-80">{current.monthly}</span>
-                  </div>
+           <div className="text-2xl font-medium mb-3" style={{ color: 'var(--color-text)' }}>
+  {plan.price}
+  {plan.price !== current.free && <span className="text-base font-normal opacity-80">{current.monthly}</span>}
+</div>
 
-                  <div className="mb-10">
+                  <div className="mb-10 ">
                     <Button 
                       variant="secondary" 
-                      padding="6px 0" 
+                      padding="8px 0" 
                       borderRadius="25px" 
                       opacity={1}
                       className="w-full"
@@ -173,7 +173,7 @@ export const Pricing = () => {
 
                   <div className="flex items-center gap-3 mb-5">
                     <div className="flex-1 h-[1px]" style={{ backgroundColor: 'var(--color-text)', opacity: 0.2 }} />
-                    <span className="font-mono text-sm font-medium" style={{ color: 'var(--color-text)', opacity: 0.5 }}>
+                    <span className="text-sm font-light" style={{ color: 'var(--color-text)', opacity: 0.5 }}>
                       {current.features}
                     </span>
                     <div className="flex-1 h-[1px]" style={{ backgroundColor: 'var(--color-text)', opacity: 0.2 }} />
@@ -183,7 +183,7 @@ export const Pricing = () => {
                     {plan.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-3">
                         <CheckIcon className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-accent)' }} />  
-                        <span className="md:text-md text-md" style={{ color: 'var(--color-text)' }}>
+                        <span className="md:text-md text-md font-light" style={{ color: 'var(--color-text)' }}>
                           {feature}
                         </span>
                       </li>

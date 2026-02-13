@@ -61,12 +61,12 @@ export const Companies = () => {
   return (
     <section 
       id='Companies'
-      className="py-14" 
+      className="py-11" 
       style={{ backgroundColor: 'var(--color-background)' }}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-3">
         <h2 
-          className="text-2xl md:text-2xl font-mono font-bold text-center mb-10 px-2" 
+          className="text-xl md:text-2xl  font-regular text-center mb-6 px-2" 
           style={{ color: 'var(--color-text)' }}
         >
           {content[lang].title}
