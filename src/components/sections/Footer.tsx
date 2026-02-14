@@ -8,12 +8,12 @@ export const Footer = () => {
   const content = {
     es: {
       starMessage: "Ya que llegaste hasta acá, tu estrellita me ayudaría un montón. ¡Gracias!",
-      githubBtn: "ir a GitHub",
+      githubBtn: "Ir a GitHub",
       copyright: "Cualquier parecido con una web real es pura coincidencia."
     },
     en: {
       starMessage: "Since you made it this far, a star would help me a lot. Thanks!",
-      githubBtn: "go to GitHub",
+      githubBtn: "Go to GitHub",
       copyright: "Any resemblance to a real website is purely coincidental."
     }
   };
@@ -22,7 +22,7 @@ export const Footer = () => {
 
   return (
     <footer
-      className="relative pt-20 pb-32 px-8"
+      className="relative pt-20 pb-42 px-8"
       style={{
         background: `linear-gradient(to top, var(--color-primary) 0%, var(--color-background) 80%)`
       }}
@@ -34,13 +34,13 @@ export const Footer = () => {
         </div>
 
         {/* Botón Back to Top */}
-        <div className="flex justify-center mb-32">
+        <div className="flex justify-center mb-22">
           <BackToTopButton />
         </div>
 
         {/* Bottom Section */}
         <div
-          className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t"
+          className="flex flex-col md:flex-row justify-between items-center gap-5 pt-5 border-t"
           style={{ borderColor: 'rgba(var(--color-text-rgb), 0.1)' }}
         >
           <div className="flex flex-col items-center md:items-start gap-2">
@@ -87,7 +87,6 @@ export const Footer = () => {
                 >
                   <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                 </svg>
-                <span className="text-white ml-2">12</span>
               </span>
             </a>
           </div>
