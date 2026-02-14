@@ -14,46 +14,62 @@ export const FAQ = () => {
     es: {
       title: "Preguntas Frecuentes",
       subtitle: "¿Tenés preguntas? Tenemos respuestas",
-      faqs: [
-        { 
-          question: "¿Cómo elijo una buena paleta?", 
-          answer: "Empezá con los colores de tu marca o usá nuestra función de aleatorizar para descubrir nuevas combinaciones." 
-        },
-        { 
-          question: "¿Puedo exportar mi paleta de colores?", 
-          answer: "¡Sí! Podés exportar tu paleta en formato CSS, SCSS o Tailwind." 
-        },
-        { 
-          question: "¿Hay un modo oscuro?", 
-          answer: "¡Absolutamente! Podés cambiar entre modo oscuro y claro para probar el contraste." 
-        },
-        { 
-          question: "¿Qué funciones de accesibilidad tiene?", 
-          answer: "Proporcionamos verificación de cumplimiento de las normas WCAG para asegurar que tus colores sean legibles." 
-        }
-      ]
+     faqs: [
+      { 
+        question: "¿Por dónde empiezo al crear una paleta?", 
+        answer: "Empezá definiendo un color principal (primary) que represente la identidad del proyecto. Desde ahí se construyen los secundarios, acentos y neutros. Una buena paleta no nace del azar: nace de una intención clara."
+      },
+      { 
+        question: "¿Cómo sé si mis colores combinan bien?", 
+        answer: "La armonía viene de relaciones, no de gustos. Usá esquemas como complementarios, análogos o triádicos y mantené coherencia en saturación y contraste."
+      },
+      { 
+        question: "¿Por qué es tan importante el contraste?", 
+        answer: "Porque el color no es decoración: es información. El contraste define jerarquía visual, legibilidad y enfoque. Sin contraste no hay estructura, solo ruido visual."
+      },
+      { 
+        question: "¿Qué rol juegan los colores neutros?", 
+        answer: "Son la estructura invisible del diseño. Permiten que los colores principales respiren y que la interfaz no se sature visualmente."
+      },
+      { 
+        question: "¿Cómo influye el contexto en la elección de colores?", 
+        answer: "Un color no significa lo mismo en una app médica que en un juego. El significado del color depende del entorno cultural, funcional y emocional."
+      },
+      { 
+        question: "¿Qué es más importante: estética o usabilidad?", 
+        answer: "No compiten: se equilibran. Un sistema de color correcto hace que la interfaz sea bella porque funciona, no al revés."
+      },
+    ]
     },
     en: {
       title: "FAQ",
       subtitle: "Got Questions? We've Got Answers",
-      faqs: [
-        { 
-          question: "How do I choose a nice palette?", 
-          answer: "Start with your brand colors or use our randomize feature to discover new combinations." 
-        },
-        { 
-          question: "Can I export my color palette?", 
-          answer: "Yes! You can export your palette in CSS, SCSS, or Tailwind format." 
-        },
-        { 
-          question: "Is there a dark mode?", 
-          answer: "Absolutely! Switch between dark and light mode." 
-        },
-        { 
-          question: "What are the accessibility features?", 
-          answer: "We provide WCAG compliance checking to ensure your colors are readable." 
-        }
-      ]
+       faqs: [
+      { 
+        question: "Where should I start when creating a palette?", 
+        answer: "Start with a primary color that represents the identity of the product. Everything else grows from that intention. Good palettes are designed, not discovered randomly."
+      },
+      { 
+        question: "How do I know if my colors work well together?", 
+        answer: "Harmony comes from relationships, not preference. Use complementary, analogous, or triadic schemes and keep saturation and contrast consistent."
+      },
+      { 
+        question: "Why is contrast so important?", 
+        answer: "Because color is information, not decoration. Contrast creates hierarchy, readability, and focus. Without it, there is only visual noise."
+      },
+      { 
+        question: "What role do neutral colors play?", 
+        answer: "They are the invisible structure of the interface. Neutrals create space, balance, and clarity."
+      },
+      { 
+        question: "How does context affect color choice?", 
+        answer: "Colors change meaning based on culture, function, and emotion. A color never exists in isolation."
+      },
+      { 
+        question: "Which matters more: beauty or usability?", 
+        answer: "They don’t compete. Real beauty emerges from function, clarity, and structure."
+      },
+    ]
     }
   };
 
