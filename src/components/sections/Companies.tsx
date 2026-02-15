@@ -7,7 +7,7 @@ export const Companies = () => {
   const bgColor = useColorStore((state) => state.colors.background);
   
   const isDark = tinycolor(bgColor).isDark();
-  const iconColor = isDark ? '#ffffffd7' : '#000000d6';
+  const iconColor = isDark ? '#ffffffbe' : '#000000b9';
 
   const content = {
     es: { title: "¡Gracias a todas estas pequeñas empresas por apoyarnos!" },
@@ -39,7 +39,7 @@ export const Companies = () => {
           {companies.map((company) => (
             <div 
               key={company.id}
-              className="w-10 h-10 flex items-center justify-center company-icon"
+              className="w-9 h-9 flex items-center justify-center company-icon"
               style={{ color: iconColor }}
             >
               {/* Centralización total: una sola línea para todos los iconos */}
