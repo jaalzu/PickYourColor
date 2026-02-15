@@ -119,7 +119,7 @@ useEffect(() => {
               style={{
                 width: '20.2rem',
                 maxWidth: '72svw',
-                minHeight: '27.5rem',
+                minHeight: '24rem',
                 padding: '2rem',
                 borderRadius: '1.5rem',
               }}
@@ -145,20 +145,19 @@ useEffect(() => {
   <span className="font-black text-lg tracking-tight uppercase">{t.brand}</span>
 </div>
 
-                <p className="text-lg md:text-xl leading-[1.3] italic font-medium" style={{ color: textColor }}>
+                <p className="text-xl md:text-xl leading-[1.3] italic font-medium" style={{ color: textColor }}>
                   "{t.comment}"
                 </p>
               </div>
 
               <div className="relative z-10 flex items-center gap-3 mt-8">
-                <div className="w-10 h-10 rounded-full overflow-hidden shrink-0"
-                  style={{ border: `2px solid ${bgColor}` }}>
-                  <img src={avtrImage} alt={t.name} className="w-full h-full object-cover grayscale" />
-                </div>
+               <div className="w-10 h-10 rounded-full overflow-hidden shrink-0">  {/* ← sin border */}
+  <img src={avtrImage} alt={t.name} className="w-full h-full object-cover grayscale" />
+</div>
                 <div style={{ color: textColor }}>
-                  <h4 className="font-bold text-sm leading-none mb-1">{t.name}</h4>
-                  <p className="text-[11px] uppercase tracking-[0.08em] font-bold">{t.role}</p>
-                </div>
+  <h4 className="font-bold text-base leading-none mb-1">{t.name}</h4>      {/* ← text-base */}
+  <p className="text-xs uppercase tracking-[0.08em] font-bold">{t.role}</p> {/* ← text-xs */}
+</div>
               </div>
             </div>
           );
