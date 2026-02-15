@@ -1,32 +1,56 @@
 import { Hero } from '../sections/Hero';
 import { HowItWorks } from '../sections/HowItWorks';
-import { Gradient } from '../ui/Gradient';
-
-// src/components/LayoutGradient.tsx
 export const LayoutGradient = () => {
   return (
-    <div className="relative overflow-hidden"> {/* El overflow-hidden evita scrolls raros por los gradientes */}
+    <div className="relative overflow-hidden">
       
-      {/* El Fondo que conecta ambos */}
+      {/* blob primary — izquierda */}
       <div
-        className="absolute w-full pointer-events-none"
+        className="absolute pointer-events-none rounded-full"
         style={{
-          // Lo posicionamos cerca de donde termina el Hero (100vh o 90vh)
-          top: '80vh', 
-          height: '1300px', // Una altura fija grande para que cubra parte de arriba y parte de abajo
-          left: 0,
-          transform: 'translateY(-50%)', // Lo centramos justo en la línea divisoria
-          background: `
-            radial-gradient(ellipse 80% 40% at 20% 50%, var(--color-primary) 0%, transparent 60%),
-            radial-gradient(ellipse 60% 40% at 80% 50%, var(--color-secondary) 0%, transparent 60%),
-            radial-gradient(ellipse 50% 30% at 50% 50%, var(--color-accent) 0%, transparent 70%)
-          `,
+          background: 'var(--color-primary)',
+          width: '700px',
+          height: '700px',
+          top: '200px',
+          left: '-150px',
+          filter: 'blur(120px)',
+          opacity: 0.5,
+          zIndex: 0,
+          animation: 'fadeIn 1.5s ease-in',
+        }}
+      />
+
+      {/* blob secondary — centro abajo */}
+      <div
+        className="absolute pointer-events-none rounded-full"
+        style={{
+          background: 'var(--color-secondary)',
+          width: '700px',
+          height: '700px',
+          top: '350px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          filter: 'blur(120px)',
           opacity: 0.5,
           zIndex: 0,
         }}
       />
 
-      {/* Las secciones arriba del gradiente */}
+      {/* blob accent — derecha */}
+      <div
+        className="absolute pointer-events-none rounded-full"
+        style={{
+          background: 'var(--color-accent)',
+          width: '700px',
+          height: '700px',
+          top: '200px',
+          right: '-150px',
+          filter: 'blur(120px)',
+          opacity: 0.5,
+          zIndex: 0,
+        }}
+      />
+
       <div className="relative z-10">
         <Hero />
         <HowItWorks />

@@ -1,6 +1,6 @@
 import avtrImage from '../../assets/avtr.webp';
 import { useColorStore } from '../../store/useColorStore';
-import tinycolor from 'tinycolor2';
+import { CompanyIcon, type IconName } from '../icons/MainIcons'; // Asegúrate de la ruta correcta
 import { useRef, useEffect } from 'react';
 
 export const Testimonials = () => {
@@ -8,38 +8,40 @@ export const Testimonials = () => {
   const { primary, secondary, accent } = useColorStore((state) => state.colors);
   const scrollRef = useRef<HTMLDivElement>(null);
   const isPaused = useRef(false);
+const themeMode = useColorStore((state) => state.themeMode);
+const textColor = themeMode === 'dark' ? '#ffffff' : '#000000';
 
   const cardColors = [primary, secondary, accent, primary, secondary, accent, primary];
 
   const content = {
     es: {
       title: "Experiencias reales de usuarios reales",
-      testimonials: [
-        { brand: "LINUX OS", logo: null, name: "Linus Torvalds", role: "Creator", comment: "Eficiencia pura. La interfaz es directa, sin fricciones, y la lógica de navegación es completamente impecable." },
-        { brand: "META", logo: null, name: "Mark Zuckerberg", role: "CEO", comment: "Días enteros de trabajo y dolores de cabeza eliminados en tan solo unos pocos minutos de uso." },
-        { brand: "VERCEL", logo: null, name: "Guillermo Rauch", role: "CEO", comment: "Por error presioné el espacio y de repente ya tenía la paleta de colores perfecta para mi sitio." },
-        { brand: "VUE.JS", logo: null, name: "Evan You", role: "Creator", comment: "Una herramienta directa, simple y completamente sin ruido. La ejecución es impecable desde el primer uso." },
-        { brand: "GITHUB", logo: null, name: "Nat Friedman", role: "Ex CEO", comment: "La velocidad con la que logré armar una paleta coherente y funcional me dejó absolutamente sin palabras." },
-        { brand: "FIGMA", logo: null, name: "Dylan Field", role: "CEO", comment: "Nunca pensé que elegir colores para un proyecto podía ser algo tan rápido, claro e intuitivo." },
-        { brand: "TAILWIND", logo: null, name: "Adam Wathan", role: "Creator", comment: "Ver los colores aplicados en una web real en tiempo real cambia completamente cómo uno trabaja con paletas." },
+     testimonials: [
+        { brand: "LINUX OS", iconId: "linux" as IconName, name: "Linus Torvalds", role: "Creator", comment: "Eficiencia pura. La interfaz es directa, sin fricciones, y la lógica de navegación es completamente impecable." },
+        { brand: "META", iconId: "meta" as IconName, name: "Mark Zuckerberg", role: "CEO", comment: "Días enteros de trabajo y dolores de cabeza eliminados en tan solo unos pocos minutos de uso." },
+        { brand: "VERCEL", iconId: "vercel" as IconName, name: "Guillermo Rauch", role: "CEO", comment: "Por error presioné el espacio y de repente ya tenía la paleta de colores perfecta para mi sitio." },
+        { brand: "VUE.JS", iconId: "vue" as IconName, name: "Evan You", role: "Creator", comment: "Una herramienta directa, simple y completamente sin ruido. La ejecución es impecable desde el primer uso." },
+        { brand: "GITHUB", iconId: "github" as IconName, name: "Nat Friedman", role: "Ex CEO", comment: "La velocidad con la que logré armar una paleta coherente y funcional me dejó absolutamente sin palabras." },
+        { brand: "FIGMA", iconId: "figma" as IconName, name: "Dylan Field", role: "CEO", comment: "Nunca pensé que elegir colores para un proyecto podía ser algo tan rápido, claro e intuitivo." },
+        { brand: "TAILWIND", iconId: "tailwind" as IconName, name: "Adam Wathan", role: "Creator", comment: "Ver los colores aplicados en una web real en tiempo real cambia completamente cómo uno trabaja con paletas." },
       ]
+
     },
     en: {
       title: "Real experiences from real users",
-      testimonials: [
-        { brand: "LINUX OS", logo: null, name: "Linus Torvalds", role: "Creator", comment: "Pure efficiency. Direct interface with zero friction, and impeccable navigation logic from start to finish." },
-        { brand: "META", logo: null, name: "Mark Zuckerberg", role: "CEO", comment: "Entire days of work and headaches completely eliminated in just a few minutes of actual use." },
-        { brand: "VERCEL", logo: null, name: "Guillermo Rauch", role: "CEO", comment: "I accidentally pressed space and suddenly I already had the perfect color palette for my site." },
-        { brand: "VUE.JS", logo: null, name: "Evan You", role: "Creator", comment: "A direct, simple tool with absolutely no noise. Impeccable execution from the very first interaction." },
-        { brand: "GITHUB", logo: null, name: "Nat Friedman", role: "Ex CEO", comment: "The speed at which I built a coherent and functional palette left me completely speechless." },
-        { brand: "FIGMA", logo: null, name: "Dylan Field", role: "CEO", comment: "Never thought choosing colors for a project could be this fast, clear, and genuinely intuitive." },
-        { brand: "TAILWIND", logo: null, name: "Adam Wathan", role: "Creator", comment: "Seeing colors applied on a real website in real time completely changes how you work with palettes." },
+     testimonials: [
+        { brand: "LINUX OS", iconId: "linux" as IconName, name: "Linus Torvalds", role: "Creator", comment: "Pure efficiency. Direct interface with zero friction, and impeccable navigation logic from start to finish." },
+        { brand: "META", iconId: "meta" as IconName, name: "Mark Zuckerberg", role: "CEO", comment: "Entire days of work and headaches completely eliminated in just a few minutes of actual use." },
+        { brand: "VERCEL", iconId: "vercel" as IconName, name: "Guillermo Rauch", role: "CEO", comment: "I accidentally pressed space and suddenly I already had the perfect color palette for my site." },
+        { brand: "VUE.JS", iconId: "vue" as IconName, name: "Evan You", role: "Creator", comment: "A direct, simple tool with absolutely no noise. Impeccable execution from the very first interaction." },
+        { brand: "GITHUB", iconId: "github" as IconName, name: "Nat Friedman", role: "Ex CEO", comment: "The speed at which I built a coherent and functional palette left me completely speechless." },
+        { brand: "FIGMA", iconId: "figma" as IconName, name: "Dylan Field", role: "CEO", comment: "Never thought choosing colors for a project could be this fast, clear, and genuinely intuitive." },
+        { brand: "TAILWIND", iconId: "tailwind" as IconName, name: "Adam Wathan", role: "Creator", comment: "Seeing colors applied on a real website in real time completely changes how you work with palettes." },
       ]
     }
   };
 
   const current = content[lang] || content.en;
-  // duplicamos para el loop infinito
   const doubled = [...current.testimonials, ...current.testimonials];
 
   const position = useRef(0);
@@ -70,19 +72,20 @@ useEffect(() => {
   return () => cancelAnimationFrame(animId);
 }, []);
 
-  return (
-    <section className="py-12 w-full overflow-hidden relative">
+ return (
+    <section className="py-19 w-full overflow-hidden relative">
       <h2
-        className="text-sm font-bold uppercase tracking-[0.4em] mb-10 px-6 md:px-12 text-center"
+        className="font-mono text-4xl md:text-5xl font-bold text-center mb-12"
         style={{ color: 'var(--color-text)' }}
       >
         {current.title}
       </h2>
 
-<div className="hidden md:block absolute left-0 top-0 h-full w-44 z-20 pointer-events-none"
-  style={{ background: 'linear-gradient(to right, var(--color-background) 40%, transparent)' }} />
-<div className="hidden md:block absolute right-0 top-0 h-full w-44 z-20 pointer-events-none"
-  style={{ background: 'linear-gradient(to left, var(--color-background) 40%, transparent)' }} />
+      {/* Gradients para el desvanecido lateral */}
+      <div className="hidden md:block absolute left-0 top-0 h-full w-44 z-20 pointer-events-none"
+        style={{ background: 'linear-gradient(to right, var(--color-background) 40%, transparent)' }} />
+      <div className="hidden md:block absolute right-0 top-0 h-full w-44 z-20 pointer-events-none"
+        style={{ background: 'linear-gradient(to left, var(--color-background) 40%, transparent)' }} />
 
       <div
         ref={scrollRef}
@@ -109,8 +112,6 @@ useEffect(() => {
       >
         {doubled.map((t, i) => {
           const bgColor = cardColors[i % cardColors.length];
-          const isDark = tinycolor(bgColor).isDark();
-          const textColor = isDark ? '#ffffff' : '#000000';
 
           return (
             <div
@@ -128,22 +129,18 @@ useEffect(() => {
                 className="absolute inset-0"
                 style={{
                   backgroundColor: bgColor,
-                  opacity: 0.35,
+                  opacity: 0.320,
                   borderRadius: '1.5rem',
                   zIndex: 0,
                 }}
               />
 
               <div className="relative z-10 flex flex-col gap-6">
-                {/* logo SVG — reemplazá este SVG por el de cada brand */}
                 <div className="flex items-center gap-3" style={{ color: textColor }}>
-  {t.logo ?? (
-    <svg width="28" height="28" viewBox="0 0 32 32" fill="currentColor">
-      <rect width="32" height="32" rx="6" />
-    </svg>
-  )}
-  <span className="font-black text-lg tracking-tight uppercase">{t.brand}</span>
-</div>
+                  {/* Aquí usamos nuestro componente centralizado */}
+                  <CompanyIcon name={t.iconId} size={28} />
+                  <span className="font-black text-lg tracking-tight uppercase">{t.brand}</span>
+                </div>
 
                 <p className="text-xl md:text-xl leading-[1.3] italic font-medium" style={{ color: textColor }}>
                   "{t.comment}"
@@ -151,13 +148,13 @@ useEffect(() => {
               </div>
 
               <div className="relative z-10 flex items-center gap-3 mt-8">
-               <div className="w-10 h-10 rounded-full overflow-hidden shrink-0">  {/* ← sin border */}
-  <img src={avtrImage} alt={t.name} className="w-full h-full object-cover grayscale" />
-</div>
+                <div className="w-10 h-10 rounded-full overflow-hidden shrink-0">
+                  <img src={avtrImage} alt={t.name} className="w-full h-full object-cover grayscale" />
+                </div>
                 <div style={{ color: textColor }}>
-  <h4 className="font-bold text-base leading-none mb-1">{t.name}</h4>      {/* ← text-base */}
-  <p className="text-xs uppercase tracking-[0.08em] font-bold">{t.role}</p> {/* ← text-xs */}
-</div>
+                  <h4 className="font-bold text-base leading-none mb-1">{t.name}</h4>
+                  <p className="text-xs uppercase tracking-[0.08em] font-bold">{t.role}</p>
+                </div>
               </div>
             </div>
           );
