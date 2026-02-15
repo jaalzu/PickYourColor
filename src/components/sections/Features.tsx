@@ -76,7 +76,7 @@ export const Features = () => {
         <div className="flex flex-col gap-6">
           {features.map((feature, index) => {
             const isEven = index % 2 === 1;
-            const bgColor = index % 2 === 0 ? 'var(--color-primary)' : 'var(--color-secondary)';
+            const bgColor = index % 2 === 0 ? 'var(--color-accent)' : 'var(--color-secondary)';
             
             return (
               <div 
@@ -87,7 +87,7 @@ export const Features = () => {
                   className="absolute inset-0 rounded-[10px]" 
                   style={{ 
                     backgroundColor: bgColor, 
-                    opacity: .5,
+                    opacity: .4,
                     zIndex: 0
                   }}
                 />

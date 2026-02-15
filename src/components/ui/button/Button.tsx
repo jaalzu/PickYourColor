@@ -5,7 +5,7 @@ import { getTextColor, triggerPrimaryEffect } from './button.logic';
 
 interface ButtonProps {
   children: React.ReactNode;
-  variant: 'primary' | 'secondary';
+  variant: 'primary' | 'secondary' | 'accent';
   onClick?: () => void;
   padding?: string;
   opacity?: number;

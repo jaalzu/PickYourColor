@@ -1,50 +1,75 @@
-import { useColorStore } from '../../store/useColorStore'; 
+import vistaImg from '../../assets/resource1.png'; 
+import { Button } from '../ui/button/Button';
+import { useColorStore } from '../../store/useColorStore';
 
 export const Resources = () => {
   const lang = useColorStore((state) => state.lang);
 
   const content = {
     es: { 
-      title: 'Level Up your design skills', 
-      subtitle: 'Mejorá tus habilidades de diseño.',
+      title: 'Mejora tus habilidades con recursos gratuitos',
+      btnText: 'Ver todos los artículos',
       cards: [
-        { text: 'Elegí colores que conviertan.', img: 'imagen1.jpg' },
-        { text: 'Exportá tu paleta en un click.', img: 'imagen2.jpg' },
-        { text: 'Visualización en tiempo real.', img: 'imagen3.jpg' },
+        { text: 'Psicología del color aplicada.', link: 'https://www.colorpsychology.org/' },
+        { text: 'Material Design color system.', link: 'https://m2.material.io/design/color' },
+        { text: 'Accesibilidad en el diseño web.', link: 'https://webaim.org/' },
+        { text: 'Teoría del contraste moderno.', link: 'https://color.adobe.com/' },
       ]
     },
     en: { 
-      title: 'Level Up your design skills', 
-      subtitle: 'Improve your design skills.',
+      title: 'Level Up your skills with free resources',
+      btnText: 'View all articles',
       cards: [
-        { text: 'Choose colors that convert.', img: 'imagen1.jpg' },
-        { text: 'Export your palette in one click.', img: 'imagen2.jpg' },
-        { text: 'Real-time visualization.', img: 'imagen3.jpg' },
+        { text: 'Color psychology in design.', link: 'https://www.colorpsychology.org/' },
+        { text: 'Material Design color system.', link: 'https://m2.material.io/design/color' },
+        { text: 'Web accessibility standards.', link: 'https://webaim.org/' },
+        { text: 'Modern contrast theory.', link: 'https://color.adobe.com/' },
       ]
     }
   };
 
-  const { title, subtitle, cards } = content[lang];
+  const current = content[lang as keyof typeof content] || content.en;
 
   return (
-    <section className="py-24 md:py-40 px-4 max-w-7xl mx-auto text-center">
-      <h2 className="font-mono text-3xl md:text-6xl font-bold mb-6" style={{ color: 'var(--color-text)' }}>
-        {title}
-      </h2>
-      <p className="text-xl md:text-2xl mb-20 opacity-60" style={{ color: 'var(--color-text)' }}>
-        {subtitle}
-      </p>
+    <section className="py-18 px-6 md:px-8 max-w-7xl mx-auto">
+      {/* Header: Centrado en mobile, justify-between en desktop */}
+      <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left mb-10 gap-3">
+        <h2
+          className="text-2xl md:text-3xl font-medium opacity-70 max-w-md" 
+          style={{ color: 'var(--color-text)' }}
+        >
+          {current.title}
+        </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
-        {cards.map((card, i) => (
-          <div key={i} className="flex flex-col items-center group">
-            <div className="w-full aspect-square bg-gray-100 rounded-[13px] mb-8 overflow-hidden transition-transform group-hover:scale-[1.02]">
-               <img src={`/assets/${card.img}`} alt="Level Up" className="w-full h-full object-cover" />
+        <Button variant="primary" padding="10px 20px" borderRadius="5px">
+          {current.btnText}
+        </Button>
+      </div>
+
+      {/* Grid: Ahora mantiene 2 columnas en mobile (grid-cols-2) y salta a 4 en desktop */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+        {current.cards.map((card, i) => (
+          <a 
+            key={i}
+            href={card.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col group"
+          >
+            <div className="w-full aspect-video rounded-[10px] mb-3 overflow-hidden bg-zinc-800">
+              <img
+                src={vistaImg} 
+                alt={card.text}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.05]"
+              />
             </div>
-            <p className="text-xl font-light leading-snug" style={{ color: 'var(--color-text)' }}>
+            <p
+              className="text-sm md:text-lg  group-hover:opacity-70 transition-opacity"
+              style={{ color: 'var(--color-text)' }}
+            >
               {card.text}
             </p>
-          </div>
+          </a>
         ))}
       </div>
     </section>
