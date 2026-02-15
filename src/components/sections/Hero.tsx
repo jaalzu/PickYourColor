@@ -38,13 +38,11 @@ export const Hero = () => {
 
   return (
     <section
-      className="min-h-screen lg:min-h-[90vh] flex flex-col relative"
-      style={{ backgroundColor: 'var(--color-background)' }}
+      className="min-h-screen lg:min-h-[90vh] flex flex-col relative overflow-visible"
     >
       <Navbar />
-      <Gradient />
 
-      <div className="flex-1 flex items-start justify-center px-4 pt-15 md:pt-17 relative z-10">
+      <div className="flex-1 flex items-start justify-center px-4 pt-15 md:pt-25 relative z-10">
         <div className="max-w-sm md:max-w-2xl text-center">
           
           <h1

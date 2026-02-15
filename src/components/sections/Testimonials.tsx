@@ -1,120 +1,168 @@
 import avtrImage from '../../assets/avtr.webp';
 import { useColorStore } from '../../store/useColorStore';
+import tinycolor from 'tinycolor2';
+import { useRef, useEffect } from 'react';
 
 export const Testimonials = () => {
   const lang = useColorStore((state) => state.lang);
+  const { primary, secondary, accent } = useColorStore((state) => state.colors);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const isPaused = useRef(false);
+
+  const cardColors = [primary, secondary, accent, primary, secondary, accent, primary];
 
   const content = {
     es: {
-      title: "Experiencias Reales De Usuarios Reales",
+      title: "Experiencias reales de usuarios reales",
       testimonials: [
-        {
-          name: "Linus Torvalds",
-          role: "Creador de Linux y Git",
-          comment: "Eficiencia pura. La interfaz es directa y la lógica de navegación es impecable. Han logrado que lo complejo parezca ridículamente simple."
-        },
-        {
-          name: "Mark Zuckerberg",
-          role: "CEO de Meta",
-          comment: "Días de trabajo y dolores de cabeza eliminados en tan solo minutos. Simplemente sin palabras."
-        },
-        {
-          name: "Guillermo Rauch",
-          role: "CEO de Vercel & Creador de Next.js",
-          comment: "Por error presioné el espacio y cuando me di cuenta ya tenía la paleta de colores para mi sitio web, ¡increíble!"
-        },
-        {
-          name: "Evan You",
-          role: "Creador de Vue.js", // Pequeño ajuste de rol para el chiste
-          comment: "Una herramienta directa, simple y sin ruido. Hace una sola cosa —mostrar colores en tiempo real— y la ejecución es sorprendentemente limpia."
-        }
+        { brand: "LINUX OS", logo: null, name: "Linus Torvalds", role: "Creator", comment: "Eficiencia pura. La interfaz es directa, sin fricciones, y la lógica de navegación es completamente impecable." },
+        { brand: "META", logo: null, name: "Mark Zuckerberg", role: "CEO", comment: "Días enteros de trabajo y dolores de cabeza eliminados en tan solo unos pocos minutos de uso." },
+        { brand: "VERCEL", logo: null, name: "Guillermo Rauch", role: "CEO", comment: "Por error presioné el espacio y de repente ya tenía la paleta de colores perfecta para mi sitio." },
+        { brand: "VUE.JS", logo: null, name: "Evan You", role: "Creator", comment: "Una herramienta directa, simple y completamente sin ruido. La ejecución es impecable desde el primer uso." },
+        { brand: "GITHUB", logo: null, name: "Nat Friedman", role: "Ex CEO", comment: "La velocidad con la que logré armar una paleta coherente y funcional me dejó absolutamente sin palabras." },
+        { brand: "FIGMA", logo: null, name: "Dylan Field", role: "CEO", comment: "Nunca pensé que elegir colores para un proyecto podía ser algo tan rápido, claro e intuitivo." },
+        { brand: "TAILWIND", logo: null, name: "Adam Wathan", role: "Creator", comment: "Ver los colores aplicados en una web real en tiempo real cambia completamente cómo uno trabaja con paletas." },
       ]
     },
     en: {
-      title: "Real experiences from Real Users.",
+      title: "Real experiences from real users",
       testimonials: [
-        {
-          name: "Linus Torvalds",
-          role: "Creator of Linux and Git",
-          comment: "Pure efficiency. The interface is direct and the navigation logic is impeccable. They've made the complex look ridiculously simple."
-        },
-        {
-          name: "Mark Zuckerberg",
-          role: "Meta CEO",
-          comment: "Days of work and headaches eliminated in just minutes. Simply speechless."
-        },
-        {
-          name: "Guillermo Rauch",
-          role: "Vercel CEO & Next.js Creator",
-          comment: "I accidentally pressed space and by the time I realized it, I already had the color palette for my website, incredible!"
-        },
-        {
-          name: "Evan You",
-          role: "Creator of Vue.js",
-          comment: "A direct, simple tool with no noise. It does one thing —show colors in real-time— and the execution is surprisingly clean."
-        }
+        { brand: "LINUX OS", logo: null, name: "Linus Torvalds", role: "Creator", comment: "Pure efficiency. Direct interface with zero friction, and impeccable navigation logic from start to finish." },
+        { brand: "META", logo: null, name: "Mark Zuckerberg", role: "CEO", comment: "Entire days of work and headaches completely eliminated in just a few minutes of actual use." },
+        { brand: "VERCEL", logo: null, name: "Guillermo Rauch", role: "CEO", comment: "I accidentally pressed space and suddenly I already had the perfect color palette for my site." },
+        { brand: "VUE.JS", logo: null, name: "Evan You", role: "Creator", comment: "A direct, simple tool with absolutely no noise. Impeccable execution from the very first interaction." },
+        { brand: "GITHUB", logo: null, name: "Nat Friedman", role: "Ex CEO", comment: "The speed at which I built a coherent and functional palette left me completely speechless." },
+        { brand: "FIGMA", logo: null, name: "Dylan Field", role: "CEO", comment: "Never thought choosing colors for a project could be this fast, clear, and genuinely intuitive." },
+        { brand: "TAILWIND", logo: null, name: "Adam Wathan", role: "Creator", comment: "Seeing colors applied on a real website in real time completely changes how you work with palettes." },
       ]
     }
   };
 
-  const { title, testimonials } = content[lang];
+  const current = content[lang] || content.en;
+  // duplicamos para el loop infinito
+  const doubled = [...current.testimonials, ...current.testimonials];
+
+  const position = useRef(0);
+
+useEffect(() => {
+  const el = scrollRef.current;
+  if (!el) return;
+  let animId: number;
+
+  setTimeout(() => {
+    position.current = el.scrollWidth / 2;
+    el.scrollLeft = position.current;
+  }, 50);
+
+  const scroll = () => {
+    if (!isPaused.current && el) {
+      position.current += 0.6;
+      el.scrollLeft = Math.floor(position.current);
+      if (position.current >= el.scrollWidth) {
+        position.current = el.scrollWidth / 2;
+        el.scrollLeft = position.current;
+      }
+    }
+    animId = requestAnimationFrame(scroll);
+  };
+
+  animId = requestAnimationFrame(scroll);
+  return () => cancelAnimationFrame(animId);
+}, []);
 
   return (
-    <section
-      className="px-10 md:px-48 py-15"
-      style={{ backgroundColor: 'var(--color-background)' }}
-    >
-      <div className="max-w-8xl mx-auto">
-        <h2
-          className=" text-4xl md:text-5xl font-bold text-center mb-12"
-          style={{ color: 'var(--color-text)' }}
-        >
-          {title}
-        </h2>
+    <section className="py-12 w-full overflow-hidden relative">
+      <h2
+        className="text-sm font-bold uppercase tracking-[0.4em] mb-10 px-6 md:px-12 text-center"
+        style={{ color: 'var(--color-text)' }}
+      >
+        {current.title}
+      </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-          {testimonials.map((testimonial, index) => (
-            <div 
-              key={testimonial.name}
-              className={index === 3 ? "md:col-start-2" : ""}
+<div className="hidden md:block absolute left-0 top-0 h-full w-44 z-20 pointer-events-none"
+  style={{ background: 'linear-gradient(to right, var(--color-background) 40%, transparent)' }} />
+<div className="hidden md:block absolute right-0 top-0 h-full w-44 z-20 pointer-events-none"
+  style={{ background: 'linear-gradient(to left, var(--color-background) 40%, transparent)' }} />
+
+      <div
+        ref={scrollRef}
+        className="flex gap-4 md:gap-6 overflow-x-auto no-scrollbar px-6 md:px-24"
+        style={{ cursor: 'grab' }}
+        onMouseEnter={() => { isPaused.current = true; }}
+        onMouseLeave={() => { isPaused.current = false; }}
+        onMouseDown={(e) => {
+          const el = scrollRef.current;
+          if (!el) return;
+          isPaused.current = true;
+          const startX = e.pageX - el.offsetLeft;
+          const startScroll = el.scrollLeft;
+          const onMove = (ev: MouseEvent) => {
+            el.scrollLeft = startScroll - (ev.pageX - el.offsetLeft - startX);
+          };
+          const onUp = () => {
+            window.removeEventListener('mousemove', onMove);
+            window.removeEventListener('mouseup', onUp);
+          };
+          window.addEventListener('mousemove', onMove);
+          window.addEventListener('mouseup', onUp);
+        }}
+      >
+        {doubled.map((t, i) => {
+          const bgColor = cardColors[i % cardColors.length];
+          const isDark = tinycolor(bgColor).isDark();
+          const textColor = isDark ? '#ffffff' : '#000000';
+
+          return (
+            <div
+              key={i}
+              className="relative flex flex-col justify-between flex-shrink-0"
+              style={{
+                width: '20.2rem',
+                maxWidth: '72svw',
+                minHeight: '27.5rem',
+                padding: '2rem',
+                borderRadius: '1.5rem',
+              }}
             >
-              <div className="p-6 rounded-[10px] relative h-full">
-                {/* Background con opacidad */}
-                <div 
-                  className="absolute inset-0 rounded-[10px]" 
-                  style={{ 
-                    background: `var(--color-secondary)`,
-                    opacity: 0.3,
-                    zIndex: 0
-                  }}
-                />
-                
-                {/* Contenido */}
-                <div className="relative z-10">
-                  <div className="flex items-center gap-2 mb-5">
-                    <img 
-                      src={avtrImage} // Usamos la misma imagen importada
-                      alt={testimonial.name}
-                      className="w-12 h-12 rounded-full"
-                    />
-                    <div className="flex-1">
-                      <h3 className="font-mono font-bold text-lg" style={{ color: 'var(--color-text)' }}>
-                        {testimonial.name}
-                      </h3>
-                      <p className="text-sm font-mono" style={{ color: 'var(--color-text)', opacity: 0.7 }}>
-                        {testimonial.role}
-                      </p>
-                    </div>
-                  </div>
+              <div
+                className="absolute inset-0"
+                style={{
+                  backgroundColor: bgColor,
+                  opacity: 0.35,
+                  borderRadius: '1.5rem',
+                  zIndex: 0,
+                }}
+              />
 
-                  <p className="text-base leading-relaxed" style={{ color: 'var(--color-text)' }}>
-                    "{testimonial.comment}"
-                  </p>
+              <div className="relative z-10 flex flex-col gap-6">
+                {/* logo SVG — reemplazá este SVG por el de cada brand */}
+                <div className="flex items-center gap-3" style={{ color: textColor }}>
+  {t.logo ?? (
+    <svg width="28" height="28" viewBox="0 0 32 32" fill="currentColor">
+      <rect width="32" height="32" rx="6" />
+    </svg>
+  )}
+  <span className="font-black text-lg tracking-tight uppercase">{t.brand}</span>
+</div>
+
+                <p className="text-lg md:text-xl leading-[1.3] italic font-medium" style={{ color: textColor }}>
+                  "{t.comment}"
+                </p>
+              </div>
+
+              <div className="relative z-10 flex items-center gap-3 mt-8">
+                <div className="w-10 h-10 rounded-full overflow-hidden shrink-0"
+                  style={{ border: `2px solid ${bgColor}` }}>
+                  <img src={avtrImage} alt={t.name} className="w-full h-full object-cover grayscale" />
+                </div>
+                <div style={{ color: textColor }}>
+                  <h4 className="font-bold text-sm leading-none mb-1">{t.name}</h4>
+                  <p className="text-[11px] uppercase tracking-[0.08em] font-bold">{t.role}</p>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
+          );
+        })}
       </div>
     </section>
   );

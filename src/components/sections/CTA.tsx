@@ -35,7 +35,6 @@ export const CTA = () => {
   return (
     <section
       className="py-23 px-8 "
-      style={{ backgroundColor: 'var(--color-background)' }}
     >
       <div className="max-w-7xl mx-auto text-center">
       <h2 className="text-5xl md:text-6xl mb-8 md:mb-11" style={{ lineHeight: '1.2' }}>
