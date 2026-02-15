@@ -101,7 +101,6 @@ export const Navbar = () => {
           <Dialog.Overlay className="md:hidden fixed inset-0 z-[120] bg-black/20 backdrop-blur-sm" />
           <Dialog.Content 
             className="md:hidden fixed left-0 top-0 bottom-0 z-[130] w-[280px] p-6 pt-6 shadow-2xl focus:outline-none transition-transform duration-300 data-[state=closed]:-translate-x-full data-[state=open]:translate-x-0" 
-            style={{ backgroundColor: 'var(--color-background)' }}
           >
              <div className="flex justify-between items-center mb-12">
                <Logo size="sm" />

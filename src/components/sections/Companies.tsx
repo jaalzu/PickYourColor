@@ -62,7 +62,6 @@ export const Companies = () => {
     <section 
       id='Companies'
       className="py-11" 
-      style={{ backgroundColor: 'var(--color-background)' }}
     >
       <div className="max-w-7xl mx-auto px-3">
         <h2 

@@ -1,8 +1,3 @@
-/* // añadi esto para evitar un error visual que hace que cada sección al final tenga una linea blanca..  */
-section {
-  margin-bottom: -1px;
-}
-
 html{
   scrollbar-gutter: stable;
   scroll-behavior: smooth;
@@ -10,6 +5,7 @@ html{
 
 body {
   font-family: 'Figtree', sans-serif;
+  background-color: var(--color-background);
 }
 
 body * {
@@ -25,6 +21,15 @@ body * {
 ::-moz-selection {
   background-color: var(--color-primary);
   color: var(--color-background);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 

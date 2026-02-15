@@ -6,7 +6,6 @@ import { createSelectionSlice, type SelectionSlice } from './slices/selectionSli
 import { createHistorySlice, type HistorySlice } from './slices/historySlice';
 import { createThemeSlice, type ThemeSlice } from './slices/themeSlice';
 import { createUISlice, type UISlice } from './slices/uiSlice';
-// 1. Importá el nuevo slice
 import { createLangSlice, type LangSlice } from './slices/LangSlice'; 
 
 // 2. Agregalo al tipo del Store

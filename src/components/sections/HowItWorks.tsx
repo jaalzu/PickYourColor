@@ -55,8 +55,7 @@ export const HowItWorks = () => {
   return (
     <section
       id="how-it-works"
-      className="px-8 py-0 md:py-7 pb-20 -mb-px"
-      style={{ backgroundColor: 'var(--color-background)' }}
+      className="px-8 py-0 md:pt-20 pb-20 -mb-px"
     >
       <div className="max-w-7xl mx-auto">
         <h2

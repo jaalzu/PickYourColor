@@ -102,7 +102,6 @@ export const Pricing = () => {
     <section
       id='pricing'
       className="px-8 py-19"
-      style={{ backgroundColor: 'var(--color-background)' }}
     >
       <div className="max-w-[1550px] mx-auto">
         <h2
@@ -137,7 +136,7 @@ export const Pricing = () => {
                 )}
 
                 <div 
-                  className="absolute inset-0 rounded-[10px] primary-shadow" 
+                  className="absolute inset-0 rounded-[14px] " 
                   style={{ 
                     backgroundColor: planBg, 
                     opacity: 0.420,
