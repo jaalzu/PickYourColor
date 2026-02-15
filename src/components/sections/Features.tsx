@@ -1,4 +1,8 @@
-import { ArrowPathIcon, ArrowUturnLeftIcon, EyeIcon, SunIcon } from '@heroicons/react/24/outline';
+import DiceIcon from '../../assets/features/dice.svg?react';
+import ExportIcon from '../../assets/features/export.svg?react';
+import FlowIcon from '../../assets/features/flow.svg?react';
+import PaletteIcon from '../../assets/features/palette.svg?react';
+import ThemeIcon from '../../assets/features/theme.svg?react';
 import { useColorStore } from '../../store/useColorStore';
 
 export const Features = () => {
@@ -6,53 +10,62 @@ export const Features = () => {
 
   const content = {
     es: {
-      sectionTitle: "Funciones Geniales",
+      sectionTitle: "Todo lo que necesitás para diseñar un sistema de colores perfecto.",
       features: [
         {
           title: "Aleatorizar",
-          description: "Podés generar colores aleatorios para encontrar la combinación perfecta para tu paleta.",
-          Icon: ArrowPathIcon
+          description: "Generá combinaciones aleatorias hasta encontrar la paleta ideal.",
+          Icon: DiceIcon
         },
         {
           title: "Deshacer/Rehacer",
-          description: "¿Hiciste un clic por error? No te preocupes, podés deshacer tus cambios para volver atrás.",
-          Icon: ArrowUturnLeftIcon
+          description: "¿Cambio por error? Volvé atrás con un click.",
+          Icon: FlowIcon
         },
         {
-  title: "Sistema de colores",
-  description: "Exportá tu paleta en variables CSS, tokens SCSS o configuración Tailwind, o compartí el link del sitio web para presentaciones.",
-  Icon: EyeIcon
-},
-
+          title: "Color input",
+          description: "Cambiá cualquier color de tu paleta al instante desde la toolbar.",
+          Icon: PaletteIcon
+        },
+        {
+          title: "Exportar sistema",
+          description: "CSS variables, SCSS tokens o Tailwind config. Listo para usar.",
+          Icon: ExportIcon
+        },
         {
           title: "Claro/Oscuro",
-          description: "Cambiá entre modo claro y oscuro para ver cómo se comporta tu paleta en ambos entornos.",
-          Icon: SunIcon
+          description: "Probá tu paleta en ambos modos para asegurarte que funciona.",
+          Icon: ThemeIcon
         }
       ]
     },
     en: {
-      sectionTitle: "Some Cool Features",
+      sectionTitle: "Everything you need to design a perfect color system.",
       features: [
         {
           title: "Randomize",
-          description: "You can randomize your colors to find a nice color for your palette.",
-          Icon: ArrowPathIcon
+          description: "Generate random combinations until you find the perfect palette.",
+          Icon: DiceIcon
         },
         {
           title: "Undo/Redo",
-          description: "If you misclick and now you lost some color you like, you can undo your changes to come back!",
-          Icon: ArrowUturnLeftIcon
+          description: "Made a mistake? Go back with a single click.",
+          Icon: FlowIcon
         },
         {
-  title: "Color system",
-  description: "Export your palette as CSS variables, SCSS tokens, or Tailwind config, or share the website link for presentations.",
-  Icon: EyeIcon
-},
+          title: "Color input",
+          description: "Change any color in your palette instantly from the toolbar.",
+          Icon: PaletteIcon
+        },
+        {
+          title: "Export system",
+          description: "CSS variables, SCSS tokens or Tailwind config. Ready to use.",
+          Icon: ExportIcon
+        },
         {
           title: "Dark/Light",
-          description: "You can switch to dark/light mode to match your palette both in dark and light.",
-          Icon: SunIcon
+          description: "Test your palette in both modes to make sure it works.",
+          Icon: ThemeIcon
         }
       ]
     }
@@ -61,57 +74,59 @@ export const Features = () => {
   const { sectionTitle, features } = content[lang];
 
   return (
-    <section
-      id='features'
-      className="px-8 py-10 md:py-20"
-    >
+    <section id="features" className="px-8 py-10 md:py-20">
       <div className="max-w-7xl mx-auto">
-        <h2
-          className="font-mono text-4xl md:text-4xl font-medium text-start mb-6"
-          style={{ color: 'var(--color-text)' }}
-        >
-          {sectionTitle}
-        </h2>
+        <ul className="grid grid-cols-1 md:grid-cols-3 gap-5">
 
-        <div className="flex flex-col gap-6">
-          {features.map((feature, index) => {
-            const isEven = index % 2 === 1;
-            const bgColor = index % 2 === 0 ? 'var(--color-accent)' : 'var(--color-secondary)';
-            
-            return (
-              <div 
-                key={index} 
-                className="h-[200px] md:h-[145px] rounded-[10px] relative p-4 md:px-9"
-              >
-                <div 
-                  className="absolute inset-0 rounded-[10px]" 
-                  style={{ 
-                    backgroundColor: bgColor, 
-                    opacity: .4,
-                    zIndex: 0
-                  }}
+          {/* primer item — texto */}
+          <li className="flex flex-col justify-center py-8 md:p-6">
+            <h2
+              className="font-mono text-3xl md:text-4xl font-medium"
+              style={{ color: 'var(--color-text)' }}
+            >
+              {sectionTitle}
+            </h2>
+          </li>
+
+          {/* features */}
+          {features.map((feature, index) => (
+            <li
+              key={index}
+              className="group flex flex-row mdk:flex-col gap-6 items-center md:items-start md:justify-between rounded-[13px] p-5 md:px-8 md:pt-6 relative "
+            >
+              <div
+                className="absolute inset-0 rounded-[13px]"
+                style={{
+                  backgroundColor: 'var(--color-secondary)',
+                  opacity: 0.060,
+                  zIndex: 0
+                }}
+              />
+
+<div className="relative z-10 flex flex-col md:flex-col  items-start w-full md:h-full md:justify-between">                <feature.Icon
+                  className="w-10 h-10 md:w-13 md:h-13 shrink-0 mb-8 "
+                  style={{ color: 'var(--color-accent)' }}
                 />
-                
-                <div className={`relative z-10 h-full flex flex-col ${isEven ? 'items-end text-right' : 'items-start text-left'}`}>
-                  <div className={`flex items-center justify-between w-full mb-1 ${isEven ? 'flex-row-reverse' : ''}`}>
-                    <h3 className="font-mono text-2xl font-bold" style={{ color: 'var(--color-text)' }}>
-                      {feature.title}
-                    </h3>
-                    <feature.Icon 
-                      className="w-11 h-11" 
-                      style={{ color: 'var(--color-accent)' }}
-                      aria-hidden="true" 
-                    />
-                  </div>
-                  
-                  <p className="text-xl md:text-xl font-light" style={{ color: 'var(--color-text)' }}>
+
+                <div>
+                  <h3
+                    className=" text-xl  font-bold mb-3 "
+                    style={{ color: 'var(--color-text)' }}
+                  >
+                    {feature.title}
+                  </h3>
+                  <p
+                    className="text-md font-light leading-snug"
+                    style={{ color: 'var(--color-text)' }}
+                  >
                     {feature.description}
                   </p>
                 </div>
               </div>
-            );
-          })}
-        </div>
+            </li>
+          ))}
+
+        </ul>
       </div>
     </section>
   );

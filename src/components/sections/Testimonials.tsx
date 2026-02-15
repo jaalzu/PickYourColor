@@ -129,7 +129,7 @@ useEffect(() => {
                 className="absolute inset-0"
                 style={{
                   backgroundColor: bgColor,
-                  opacity: 0.320,
+                  opacity: 0.2,
                   borderRadius: '1.5rem',
                   zIndex: 0,
                 }}

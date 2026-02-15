@@ -139,7 +139,7 @@ export const Pricing = () => {
                   className="absolute inset-0 rounded-[14px] " 
                   style={{ 
                     backgroundColor: planBg, 
-                    opacity: 0.420,
+                    opacity: 0.2,
                     zIndex: 0
                   }}
                 />
@@ -149,7 +149,7 @@ export const Pricing = () => {
                     {plan.title}
                   </h3>
 
-                 <p className="text-xl font-light mb-11 min-h-[80px]" style={{ color: 'var(--color-text)' }}>
+                 <p className="text-xl font-medium mb-11 min-h-[80px]" style={{ color: 'var(--color-text)' }}>
   {plan.description}
 </p>
 
@@ -163,7 +163,8 @@ export const Pricing = () => {
   variant={isSenior ? "primary" : "secondary"}
   padding="8px 0" 
   borderRadius="25px" 
-  opacity={1}
+  opacity={isSenior ? 0.9 : 0.350}
+
   className="w-full"
 >
   {current.button}

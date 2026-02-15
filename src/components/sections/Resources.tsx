@@ -1,4 +1,4 @@
-import vistaImg from '../../assets/resource1.png'; 
+import vistaImg from '../../assets/windows_vista_50.jpg'; 
 import { Button } from '../ui/button/Button';
 import { useColorStore } from '../../store/useColorStore';
 

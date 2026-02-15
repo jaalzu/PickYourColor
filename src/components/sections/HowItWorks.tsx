@@ -58,9 +58,9 @@ export const HowItWorks = () => {
       className="px-6 md:pt-10 pb-20"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="p-9 md:px-12 md:pt-12 md:pb-20 rounded-[10px] relative">
+        <div className="p-9 md:px-12 md:pt-12 md:pb-20 rounded-[13px] relative">
           <div
-            className="absolute inset-0 rounded-[10px]"
+            className="absolute inset-0 rounded-[13px]"
             style={{
               backgroundColor: 'var(--color-primary)',
               opacity: .8,

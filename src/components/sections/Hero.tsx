@@ -42,10 +42,10 @@ export const Hero = () => {
       <Navbar />
 
       <div className="flex-1 flex items-start justify-center px-4 pt-15 md:pt-20 relative z-10">
-        <div className="max-w-sm md:max-w-2xl text-center">
+        <div className="max-w-sm md:max-w-4xl text-center">
           
           <h1
-            className="font-mono text-5xl md:text-5xl lg:text-[77px] leading-[1] font-bold mb-6"
+            className=" text-5xl md:text-5xl lg:text-[77px] leading-[1] font-bold mb-8"
             style={{ color: 'var(--color-text)' }}
           >
             {title}
