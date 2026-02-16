@@ -78,7 +78,7 @@ export const FAQ = () => {
   return (
     <section 
       id='FAQ'
-      className="py-20 px-8" 
+      className="py-3 md:py-17  px-8" 
     >
       <div className="max-w-3xl mx-auto">
         <p className="text-md text-center font-mono" style={{ color: 'var(--color-text)', opacity: 0.6 }}>
