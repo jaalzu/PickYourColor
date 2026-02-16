@@ -54,9 +54,10 @@ export const CTA = () => {
 
         <Button 
           variant="primary" 
-          padding="15px 60px" 
+          padding="12px 60px" 
           borderRadius="5px" 
           opacity={1}
+          effect="stars"
         >
           {button}
         </Button>

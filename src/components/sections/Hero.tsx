@@ -59,7 +59,7 @@ export const Hero = () => {
           </p>
 
           <div className="flex flex-col gap-3 justify-center items-center">
-            <Button variant="primary" padding="16px 60px" borderRadius="5px">
+            <Button variant="primary" padding="12px 60px" borderRadius="5px" effect="stars">
               {primaryBtn}
             </Button>
 
