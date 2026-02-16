@@ -46,22 +46,6 @@
 }
 
 
-/* EFECTO HOVER DE LOS BOTONES  */
- 
-.btn-glow-effect {
-  transition: all 0.3s ease-in-out;
-  border: none;
-  cursor: pointer;
-}
-
-.btn-glow-effect:hover {
-  box-shadow: 2px 3px 30px -6px var(--shadow-color);
-}
-
-.btn-glow-effect:active {
-  transform: scale(0.97);
-  box-shadow: 3px 3px 28px -8px var(--shadow-color);
-}
 
 
 
@@ -267,12 +251,29 @@
 
 
 
+/*//////////////////////////// BUTTON EFFECTS  ///////////////////////////*/
 
 
 
+/* EFECTO GLOW DE LOS BOTONES  */
+ 
+.btn-glow-effect {
+  transition: all 0.3s ease-in-out;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-glow-effect:hover {
+  box-shadow: 2px 3px 30px -6px var(--shadow-color);
+}
+
+.btn-glow-effect:active {
+  transform: scale(0.97);
+  box-shadow: 3px 3px 28px -8px var(--shadow-color);
+}
 
 
-
+/* EFECTO STARTS DE LOS BOTONES  */
 
 .button-stars {
   position: relative;

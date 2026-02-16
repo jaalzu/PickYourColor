@@ -73,7 +73,7 @@ useEffect(() => {
 }, []);
 
  return (
-    <section className="py-19 w-full overflow-hidden relative">
+    <section className="py-10 md:py-19 w-full overflow-hidden relative">
       <h2
         className="font-mono text-4xl md:text-5xl font-bold text-center mb-12"
         style={{ color: 'var(--color-text)' }}
