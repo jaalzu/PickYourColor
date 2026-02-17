@@ -67,7 +67,7 @@ export const createSelectionSlice: StateCreator<
     finalColor = tinycolor({
       h: Math.random() * 360,
       s: Math.random() * 15,
-      l: Math.random() * 20 + 75, 
+      l: Math.random() * 15 + 85, 
     }).toHexString();
   }
 }

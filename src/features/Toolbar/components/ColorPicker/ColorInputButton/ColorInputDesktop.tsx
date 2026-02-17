@@ -1,10 +1,7 @@
-// src/features/Toolbar/components/ColorPicker/ColorInputButton/ColorInputDesktop.tsx
 import { useState, useRef } from 'react';
 import { ColorCircle } from './ColorCircle';
 import { LockButton } from './LockButton';
-// import { useColorAccessibility } from '../../../hooks/useColorAccessibility';
 import type { ColorKey } from '../../../../../types';
-// import { AccessibilityBadge } from './AccessibilityBadge';
 import { Tooltip } from '../../../../../components/ui/Tooltip';
 
 
@@ -23,7 +20,6 @@ export const ColorInputButton = ({
   onClick,
 }: ColorInputButtonProps) => {
   const [isHovered, setIsHovered] = useState(false);
-  // const accessibilityLevel = useColorAccessibility(colorKey);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const handleClick = () => {
@@ -47,7 +43,7 @@ export const ColorInputButton = ({
         backgroundColor: isHovered ? `${color}23` : 'transparent',
       }}
     >
-      <span className="text-[12.5px] font-mono font-medium text-white tracking-wider">
+      <span className="text-[12.5px]  font-medium text-white tracking-wider">
         {label}
       </span>
 
@@ -55,8 +51,6 @@ export const ColorInputButton = ({
       
       <div className="flex w-full items-center justify-between px-0.5">
         <LockButton colorKey={colorKey} />
-        
-        {/* <AccessibilityBadge level={accessibilityLevel}/> */}
       </div>
     </button>
         </Tooltip>

@@ -7,7 +7,6 @@ export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
   
-  // Consumimos el idioma y la función del store real
   const lang = useColorStore((state) => state.lang);
   const setLang = useColorStore((state) => state.setLang);
 
@@ -18,7 +17,6 @@ export const Navbar = () => {
     return () => window.removeEventListener('resize', checkSize);
   }, []);
 
-  // Textos del menú según idioma - Estilo Astro (Colocated)
   const menuContent = {
     es: [
       { name: 'Cómo funciona', id: 'how-it-works' },
@@ -65,7 +63,7 @@ export const Navbar = () => {
             </button>
           </Dialog.Trigger>
 
-          {/* SELECTOR DE IDIOMA - Sutil al lado del menú */}
+          {/* SELECTOR DE IDIOMA */}
           <div className="flex gap-2 mr-2 font-mono text-xs font-bold select-none">
             <button 
               onClick={() => setLang('es')}
@@ -96,37 +94,41 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* MOBILE PORTAL */}
+        {/* MOBILE PORTAL — pantalla completa */}
         <Dialog.Portal>
-          <Dialog.Overlay className="md:hidden fixed inset-0 z-[120] bg-black/20 backdrop-blur-sm" />
-          <Dialog.Content 
-            className="md:hidden fixed left-0 top-0 bottom-0 z-[130] w-[280px] p-6 pt-6 shadow-2xl focus:outline-none transition-transform duration-300 data-[state=closed]:-translate-x-full data-[state=open]:translate-x-0" 
+          <Dialog.Overlay className="md:hidden fixed inset-0 z-[120]" />
+          <Dialog.Content
+            className="md:hidden fixed inset-0 z-[130] flex flex-col p-8 focus:outline-none data-[state=closed]:opacity-0 data-[state=open]:opacity-100 transition-opacity duration-300"
+            style={{ backgroundColor: 'var(--color-background)' }}
           >
-             <div className="flex justify-between items-center mb-12">
-               <Logo size="sm" />
-               <Dialog.Close asChild>
-                 <button className="p-1 text-[var(--color-text)] hamburger-active">
-                    <svg className="hamburger-svg w-10 h-10" viewBox="0 0 32 32">
-                        <path className="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22" />
-                        <path className="line" d="M7 16 27 16" />
-                    </svg>
-                 </button>
-               </Dialog.Close>
-             </div>
-             
-             <Dialog.Title className="sr-only">Menu</Dialog.Title>
+            {/* Header */}
+            <div className="flex justify-between items-center mb-16">
+              <Logo size="sm" />
+              <Dialog.Close asChild>
+                <button className="p-1 hamburger-active" style={{ color: 'var(--color-text)' }}>
+                  <svg className="hamburger-svg w-10 h-10" viewBox="0 0 32 32">
+                    <path className="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22" />
+                    <path className="line" d="M7 16 27 16" />
+                  </svg>
+                </button>
+              </Dialog.Close>
+            </div>
 
-             <div className="flex flex-col gap-8">
-               {menuItems.map((item) => (
-                 <button 
-                   key={item.id} 
-                   onClick={() => handleScroll(item.id)} 
-                   className="text-left text-2xl font-mono font-bold nav-link-effect w-fit"
-                 >
-                   {item.name}
-                 </button>
-               ))}
-             </div>
+            <Dialog.Title className="sr-only">Menu</Dialog.Title>
+
+            {/* Items centrados verticalmente */}
+            <div className="flex flex-col items-center justify-center flex-1 gap-10">
+              {menuItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => handleScroll(item.id)}
+                  className="text-3xl font-mono font-bold nav-link-effect"
+                  style={{ color: 'var(--color-text)' }}
+                >
+                  {item.name}
+                </button>
+              ))}
+            </div>
           </Dialog.Content>
         </Dialog.Portal>
       </nav>
