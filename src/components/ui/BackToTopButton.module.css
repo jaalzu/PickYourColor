@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0px 0px 0px 4px color-mix(in srgb, var(--color-primary) 25%, transparent);
+  box-shadow: 0px 0px 0px 4px color-mix(in srgb, var(--color-accent) 25%, transparent);
   cursor: pointer;
   transition-duration: 0.3s;
   overflow: hidden;
@@ -28,7 +28,7 @@
   width: 140px;
   border-radius: 8px;
   transition-duration: 0.3s;
-  background-color: var(--color-secondary);
+  background-color: rgb(20, 20, 20);
   align-items: center;
 }
 
@@ -40,7 +40,7 @@
 .button::before {
   position: absolute;
   bottom: -20px;
-  content: var(--btn-text); 
+  content: var(--btn-text);
   color: white;
   font-size: 0px;
 }

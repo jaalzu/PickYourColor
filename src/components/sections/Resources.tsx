@@ -35,7 +35,7 @@ export const Resources = () => {
       {/* Header: Centrado en mobile, justify-between en desktop */}
       <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left mb-10 gap-3">
         <h2
-          className="text-2xl md:text-3xl font-medium opacity-70 max-w-md" 
+          className="text-2xl md:text-3xl font-medium max-w-md" 
           style={{ color: 'var(--color-text)' }}
         >
           {current.title}

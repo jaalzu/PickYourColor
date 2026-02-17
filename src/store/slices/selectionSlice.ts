@@ -41,7 +41,7 @@ export const createSelectionSlice: StateCreator<
       if (!lockedColors.includes(key)) {
         let finalColor: string;
 
-        if (key === 'background') {
+     if (key === 'background') {
   if (themeMode === 'light') {
     finalColor = tinycolor({
       h: Math.random() * 360,
@@ -51,26 +51,26 @@ export const createSelectionSlice: StateCreator<
   } else {
     finalColor = tinycolor({
       h: Math.random() * 360,
-      s: Math.random() * 3 + 1,  
-      l: Math.random() * 15 + 10,
+      s: Math.random() * 5 + 1,  
+      l: Math.random() * 8 + 3,  
     }).toHexString();
   }
 }
-        else if (key === 'text') {
-          if (themeMode === 'light') {
-            finalColor = tinycolor({
-              h: Math.random() * 360,
-              s: Math.random() * 12,
-              l: Math.random() * 20 + 10,
-            }).toHexString();
-          } else {
-            finalColor = tinycolor({
-              h: Math.random() * 360,
-              s: Math.random() * 12,
-              l: Math.random() * 15 + 80,
-            }).toHexString();
-          }
-        } 
+    else if (key === 'text') {
+  if (themeMode === 'light') {
+    finalColor = tinycolor({
+      h: Math.random() * 360,
+      s: Math.random() * 15,
+      l: Math.random() * 25 + 5,  
+    }).toHexString();
+  } else {
+    finalColor = tinycolor({
+      h: Math.random() * 360,
+      s: Math.random() * 15,
+      l: Math.random() * 20 + 75, 
+    }).toHexString();
+  }
+}
         else {
           const tempColor = tinycolor.random();
           if (tempColor.getBrightness() > 230) {

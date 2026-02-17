@@ -51,7 +51,7 @@ export const Footer = () => {
 
       {/* derecha — star message + github */}
       <div className="flex flex-col items-center md:items-end gap-2 flex-1 order-3">
-        <p className="text-xs text-center md:text-right" style={{ color: 'var(--color-text)', opacity: 0.9 }}>
+        <p className="text-md text-center md:text-right" style={{ color: 'var(--color-text)', opacity: 0.9 }}>
           {starMessage}
         </p>
         
