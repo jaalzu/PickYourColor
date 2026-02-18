@@ -18,22 +18,25 @@ export const CTA = () => {
   });
 
   return (
-    <section className="pt-30 pb-10 md:py-23 px-8 relative overflow-hidden">
+    <section className="pt-24 pb-5 md:py-23 px-6 relative overflow-hidden">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-5xl md:text-6xl mb-8 md:mb-11 font-bold" style={{ lineHeight: '1.1' }}>
+        <h2 className="text-5xl md:text-7xl mb-12 md:mb-11 font-bold  leading-[1.1]" >
           <span style={{ color: 'var(--color-text)' }}>
             {line1}
           </span>
+          
           <span className="hidden lg:inline"><br /></span>
           {' '}
           <span style={{ color: 'var(--color-text)' }}>
             {line2}
           </span>
           <br />
-          <span style={{ color: 'var(--color-text)', fontFamily: 'Caveat,cursive', fontWeight: 700, fontSize: '5rem' }}>
+          <span style={{ color: 'var(--color-text)', fontFamily: 'Caveat,cursive', fontWeight: 700, fontSize: '4.8rem' }}>
             {line3}
           </span>
         </h2>
+
+         
 
         <Button 
           variant="primary" 

@@ -70,14 +70,14 @@ export const Features = () => {
   });
 
   return (
-    <section id="features" className="px-8 py-10 md:py-20">
+    <section id="features" className="px-8 py-13 md:py-20">
       <div className="max-w-7xl mx-auto">
         <ul className="grid grid-cols-1 md:grid-cols-3 gap-5">
 
           {/* primer item — texto */}
-          <li className="flex flex-col justify-center py-8 md:p-6">
+          <li className="flex flex-col justify-center py-2 md:p-6">
             <h2
-              className="font-mono text-3xl md:text-4xl font-medium"
+              className=" text-3xl md:text-4xl font-bold"
               style={{ color: 'var(--color-text)' }}
             >
               {sectionTitle}
@@ -101,19 +101,19 @@ export const Features = () => {
 
               <div className="relative z-10 flex flex-col md:flex-col  items-start w-full md:h-full md:justify-between">
                 <feature.Icon
-                  className="w-10 h-10 md:w-13 md:h-13 shrink-0 mb-8 "
+                  className="w-10 h-10 md:w-13 md:h-13 shrink-0 mb-9 "
                   style={{ color: 'var(--color-accent)' }}
                 />
 
                 <div>
                   <h3
-                    className=" text-xl  font-bold mb-3 "
+                    className=" text-2xl  font-bold mb-3 "
                     style={{ color: 'var(--color-text)' }}
                   >
                     {feature.title}
                   </h3>
                   <p
-                    className="text-md font-light leading-snug"
+                    className="text-lg font-light "
                     style={{ color: 'var(--color-text)' }}
                   >
                     {feature.description}

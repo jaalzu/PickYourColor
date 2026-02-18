@@ -99,17 +99,17 @@ export const Pricing = () => {
   return (
     <section
       id='pricing'
-      className="px-8 py-19"
+      className="px-8 py-12"
     >
 <div className="max-w-lg md:max-w-2xl lg:max-w-[1550px] mx-auto">
         <h2
-          className="font-mono text-4xl md:text-5xl font-bold text-center mb-12"
+          className=" text-4xl md:text-5xl font-bold text-center mb-8"
           style={{ color: 'var(--color-text)' }}
         >
           {current.title}
         </h2>
 
-<div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+<div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-stretch">
           {current.plans.map((plan) => {
             const isSenior = plan.title === "Da Vinci";
             const planBg = isSenior ? 'var(--color-primary)' : 'var(--color-secondary)';

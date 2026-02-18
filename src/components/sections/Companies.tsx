@@ -23,13 +23,12 @@ export const Companies = () => {
   ];
 
   return (
-    <section id='Companies' className="py-2">
+    <section id='Companies' className="py-5">
       <div className="max-w-7xl mx-auto px-3">
         <h2 
           className="text-xl  font-regular text-center mb-6 px-2" 
           style={{ color: 'var(--color-text)' }}
         >
-          {/* Implementación del hook */}
           {content.title}
         </h2>
       </div>

@@ -44,7 +44,7 @@ export const Testimonials = () => {
   return (
     <section className="py-10 md:py-19 w-full overflow-hidden relative">
      <h2
-  className="font-mono text-4xl md:text-5xl font-bold text-center mb-12 max-w-xs md:max-w-md lg:max-w-2xl mx-auto"
+  className="text-4xl md:text-5xl font-bold text-center mb-8 max-w-xs md:max-w-md lg:max-w-2xl mx-auto"
   style={{ color: 'var(--color-text)' }}
 >
   {title}
