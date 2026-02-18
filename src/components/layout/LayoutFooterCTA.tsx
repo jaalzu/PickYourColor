@@ -1,7 +1,7 @@
 import { CTA } from '../sections/CTA';
 import { Footer } from '../sections/Footer';
 
-export const LayoutGradientCTA = () => {
+export const LayoutFooterCTA = () => {
   return (
     <div 
       className="relative overflow-hidden"

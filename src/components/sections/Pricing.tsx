@@ -2,16 +2,16 @@ import { CheckIcon } from '@heroicons/react/24/outline';
 import { Button } from '../ui/button/Button';
 import tinycolor from 'tinycolor2';
 import { useColorStore } from '../../store/useColorStore';
+import { useLang } from '../../hooks/useLang';
 
 export const Pricing = () => {
-  const lang = useColorStore((state) => state.lang);
   const colors = useColorStore((state) => state.colors);
 
-  const content = {
+  const current = useLang({
     es: {
       title: "Nuestros Planes",
       monthly: "/mes",
-        free: "Gratis",
+      free: "Gratis",
       button: "Elegir Plan",
       features: "Características",
       best: "Mejor\nOpción",
@@ -33,7 +33,7 @@ export const Pricing = () => {
             "IA super avanzada",
             "Soporte técnico 24/7 con prioridad alta",
             "Más de +1000 plantillas de colores listas para usar",
-            "Título Certificado y otorgado por Leonardo",,
+            "Título Certificado y otorgado por Leonardo",
           ]
         },
         {
@@ -41,10 +41,10 @@ export const Pricing = () => {
           description: "Para usuarios con un conocimiento sólido que desean experimentar y construir diseños de sistemas completos.",
           price: "$0.01",
           features: [
-  "Pre-Acceso a nuevas funciones",
-  "Soporte técnico 24/7",
-  "Guía de ayuda para empezar a crear tu sistema de diseño perfecto",
-]
+            "Pre-Acceso a nuevas funciones",
+            "Soporte técnico 24/7",
+            "Guía de ayuda para empezar a crear tu sistema de diseño perfecto",
+          ]
         }
       ]
     },
@@ -52,7 +52,7 @@ export const Pricing = () => {
       title: "Our Plans",
       monthly: "/month",
       button: "Choose Plan",
-        free: "Free",
+      free: "Free",
       features: "Features",
       best: "Best\nOption",
       plans: [
@@ -70,11 +70,11 @@ export const Pricing = () => {
           description: "For god-tier UI/UX master crafters.",
           price: "$0.02",
           features: [
-  "Super advanced AI",
-  "24/7 technical support with high priority",
-  "More than +1000 color templates ready to use",
-  "Certificate issued and granted by Leonardo",
-]
+            "Super advanced AI",
+            "24/7 technical support with high priority",
+            "More than +1000 color templates ready to use",
+            "Certificate issued and granted by Leonardo",
+          ]
         },
         {
           title: "Alchemist",
@@ -88,9 +88,7 @@ export const Pricing = () => {
         }
       ]
     }
-  };
-
-  const current = content[lang];
+  });
 
   const getBadgeTextColor = () => {
     const accentColor = colors.accent || '#000000';
@@ -111,9 +109,9 @@ export const Pricing = () => {
           {current.title}
         </h2>
 
-<div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-stretch">          {current.plans.map((plan) => {
-            // Mantenemos tus lógicas de estilo originales
-            const isSenior = plan.title === "Da Vinci"; 
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-stretch">
+          {current.plans.map((plan) => {
+            const isSenior = plan.title === "Da Vinci";
             const planBg = isSenior ? 'var(--color-primary)' : 'var(--color-secondary)';
 
             return (
@@ -125,8 +123,8 @@ export const Pricing = () => {
                       <path d="M 128 0 C 147.68 0 164.04 14.213 167.377 32.934 C 182.974 22.055 204.594 23.574 218.51 37.49 C 232.426 51.406 233.944 73.025 223.066 88.622 C 241.787 91.96 256 108.32 256 128 C 256 147.68 241.787 164.04 223.065 167.377 C 233.944 182.974 232.426 204.594 218.51 218.51 C 204.594 232.426 182.974 233.944 167.377 223.065 C 164.04 241.787 147.68 256 128 256 C 108.32 256 91.959 241.787 88.622 223.065 C 73.025 233.944 51.406 232.426 37.49 218.51 C 23.574 204.594 22.055 182.974 32.934 167.377 C 14.213 164.04 0 147.68 0 128 C 0 108.32 14.213 91.96 32.934 88.622 C 22.056 73.025 23.574 51.406 37.49 37.49 C 51.406 23.574 73.025 22.055 88.622 32.934 C 91.96 14.213 108.32 0 128 0 Z" fill="var(--color-accent)"></path>
                     </svg>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span 
-                        className="font-mono text-md font-bold text-center px-2 leading-tight whitespace-pre-line" 
+                      <span
+                        className="font-mono text-md font-bold text-center px-2 leading-tight whitespace-pre-line"
                         style={{ color: getBadgeTextColor() }}
                       >
                         {current.best}
@@ -135,40 +133,39 @@ export const Pricing = () => {
                   </div>
                 )}
 
-                <div 
-                  className="absolute inset-0 rounded-[14px] " 
-                  style={{ 
-                    backgroundColor: planBg, 
+                <div
+                  className="absolute inset-0 rounded-[14px] "
+                  style={{
+                    backgroundColor: planBg,
                     opacity: 0.2,
                     zIndex: 0
                   }}
                 />
 
-<div className="relative z-10 py-7 px-7 flex flex-col h-full">
+                <div className="relative z-10 py-7 px-7 flex flex-col h-full">
                   <h3 className=" text-3xl font-bold mb-3 pt-5" style={{ color: 'var(--color-text)' }}>
                     {plan.title}
                   </h3>
 
-                 <p className="text-xl font-medium mb-11 min-h-[80px]" style={{ color: 'var(--color-text)' }}>
-  {plan.description}
-</p>
+                  <p className="text-xl font-medium mb-11 min-h-[80px]" style={{ color: 'var(--color-text)' }}>
+                    {plan.description}
+                  </p>
 
-           <div className="text-2xl font-medium mb-3" style={{ color: 'var(--color-text)' }}>
-  {plan.price}
-  {plan.price !== current.free && <span className="text-base font-normal opacity-80">{current.monthly}</span>}
-</div>
+                  <div className="text-2xl font-medium mb-3" style={{ color: 'var(--color-text)' }}>
+                    {plan.price}
+                    {plan.price !== current.free && <span className="text-base font-normal opacity-80">{current.monthly}</span>}
+                  </div>
 
                   <div className="mb-10 ">
-                   <Button 
-  variant={isSenior ? "primary" : "secondary"}
-  padding="8px 0" 
-  borderRadius="25px" 
-  opacity={isSenior ? 0.9 : 0.350}
-
-  className="w-full"
->
-  {current.button}
-</Button>
+                    <Button
+                      variant={isSenior ? "primary" : "secondary"}
+                      padding="8px 0"
+                      borderRadius="25px"
+                      opacity={isSenior ? 0.9 : 0.350}
+                      className="w-full"
+                    >
+                      {current.button}
+                    </Button>
                   </div>
 
                   <div className="flex items-center gap-3 mb-5">
@@ -182,7 +179,7 @@ export const Pricing = () => {
                   <ul className="space-y-5 mb-6">
                     {plan.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-3">
-                        <CheckIcon className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-accent)' }} />  
+                        <CheckIcon className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-accent)' }} />
                         <span className="md:text-md text-md font-light" style={{ color: 'var(--color-text)' }}>
                           {feature}
                         </span>

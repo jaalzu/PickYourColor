@@ -8,8 +8,8 @@ import { Testimonials } from './components/sections/Testimonials';
 import { FAQ } from './components/sections/FAQ';
 import { useKeyboardShortcuts } from './hooks/useKeyboardShortcuts';
 import { useURLSync } from './hooks/useURLSync';
-import { LayoutGradient } from './components/layout/LayoutGradient';
-import { LayoutGradientCTA } from './components/layout/LayoutGradientCTA';
+import { LayoutHeroHowItWorks } from './components/layout/LayoutHeroHowItWorks';
+import { LayoutFooterCTA } from './components/layout/LayoutFooterCTA';
 
 
 function App() {
@@ -18,14 +18,14 @@ function App() {
   useURLSync();
   return (
     <>
-      <LayoutGradient />
+      <LayoutHeroHowItWorks />
       <Companies />
       <Features />
       <Pricing />
       <Testimonials />
       <Resources />
       <FAQ />
-      <LayoutGradientCTA />
+      <LayoutFooterCTA />
       <Toolbar />
     </>
   );

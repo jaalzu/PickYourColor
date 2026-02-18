@@ -3,12 +3,10 @@ import ExportIcon from '../../assets/features/export.svg?react';
 import FlowIcon from '../../assets/features/flow.svg?react';
 import PaletteIcon from '../../assets/features/palette.svg?react';
 import ThemeIcon from '../../assets/features/theme.svg?react';
-import { useColorStore } from '../../store/useColorStore';
+import { useLang } from '../../hooks/useLang';
 
 export const Features = () => {
-  const lang = useColorStore((state) => state.lang);
-
-  const content = {
+  const { sectionTitle, features } = useLang({
     es: {
       sectionTitle: "Todo lo que necesitás para diseñar un sistema de colores perfecto.",
       features: [
@@ -69,9 +67,7 @@ export const Features = () => {
         }
       ]
     }
-  };
-
-  const { sectionTitle, features } = content[lang];
+  });
 
   return (
     <section id="features" className="px-8 py-10 md:py-20">
@@ -103,7 +99,8 @@ export const Features = () => {
                 }}
               />
 
-<div className="relative z-10 flex flex-col md:flex-col  items-start w-full md:h-full md:justify-between">                <feature.Icon
+              <div className="relative z-10 flex flex-col md:flex-col  items-start w-full md:h-full md:justify-between">
+                <feature.Icon
                   className="w-10 h-10 md:w-13 md:h-13 shrink-0 mb-8 "
                   style={{ color: 'var(--color-accent)' }}
                 />

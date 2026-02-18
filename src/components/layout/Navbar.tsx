@@ -2,6 +2,7 @@ import * as Dialog from '@radix-ui/react-dialog';
 import { useState, useEffect } from 'react';
 import { Logo } from '../ui/Logo';
 import { useColorStore } from '../../store/useColorStore'; 
+import { useLang } from '../../hooks/useLang';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,14 +11,8 @@ export const Navbar = () => {
   const lang = useColorStore((state) => state.lang);
   const setLang = useColorStore((state) => state.setLang);
 
-  useEffect(() => {
-    const checkSize = () => setIsDesktop(window.innerWidth >= 768);
-    checkSize();
-    window.addEventListener('resize', checkSize);
-    return () => window.removeEventListener('resize', checkSize);
-  }, []);
-
-  const menuContent = {
+  // Traducciones
+  const menuItems = useLang({
     es: [
       { name: 'Cómo funciona', id: 'how-it-works' },
       { name: 'Funciones', id: 'features' },
@@ -32,9 +27,14 @@ export const Navbar = () => {
       { name: 'Testimonials', id: 'testimonials' },
       { name: 'FAQS', id: 'FAQ' },
     ]
-  };
+  });
 
-  const menuItems = menuContent[lang];
+  useEffect(() => {
+    const checkSize = () => setIsDesktop(window.innerWidth >= 768);
+    checkSize();
+    window.addEventListener('resize', checkSize);
+    return () => window.removeEventListener('resize', checkSize);
+  }, []);
 
   const handleScroll = (id: string) => {
     setIsOpen(false);
@@ -86,7 +86,11 @@ export const Navbar = () => {
           <div className={`hidden md:flex items-center gap-6 overflow-hidden transition-all duration-500 ${isOpen ? 'max-w-[800px] opacity-100' : 'max-w-0 opacity-0 pointer-events-none'}`}>
             <div className="flex gap-6 pr-4">
               {menuItems.map((item) => (
-                <button key={item.id} onClick={() => handleScroll(item.id)} className="whitespace-nowrap font-mono font-bold text-base nav-link-effect">
+                <button 
+                  key={item.id} 
+                  onClick={() => handleScroll(item.id)} 
+                  className="whitespace-nowrap font-mono font-bold text-base nav-link-effect"
+                >
                   {item.name}
                 </button>
               ))}

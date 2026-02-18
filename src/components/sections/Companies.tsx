@@ -1,20 +1,18 @@
 import { useColorStore } from '../../store/useColorStore';
+import { useLang } from '../../hooks/useLang'; 
 import tinycolor from 'tinycolor2';
-import { CompanyIcon, type IconName } from '../icons/MainIcons'; // Ajusta la ruta
+import { CompanyIcon, type IconName } from '../icons/MainIcons';
 
 export const Companies = () => {
-  const lang = useColorStore((state) => state.lang);
-  const bgColor = useColorStore((state) => state.colors.background);
-  
-  const isDark = tinycolor(bgColor).isDark();
-  const iconColor = isDark ? '#ffffffbe' : '#000000b9';
-
-  const content = {
+  const content = useLang({
     es: { title: "¡Gracias a todas estas pequeñas empresas por apoyarnos!" },
     en: { title: "Thanks to all these small companies for supporting us!" }
-  };
+  });
 
-  // Solo guardamos los IDs, TypeScript nos ayudará a que no nos equivoquemos
+  const bgColor = useColorStore((state) => state.colors.background);
+  const isDark = tinycolor(bgColor).isDark();
+  const iconColor = isDark ? '#ffffffd5' : '#000000b9';
+
   const companies: { name: string; id: IconName }[] = [
     { name: "Figma", id: "figma" },
     { name: "GitHub", id: "github" },
@@ -31,7 +29,8 @@ export const Companies = () => {
           className="text-xl  font-regular text-center mb-6 px-2" 
           style={{ color: 'var(--color-text)' }}
         >
-          {content[lang].title}
+          {/* Implementación del hook */}
+          {content.title}
         </h2>
       </div>
       <div className="relative z-30 mx-auto md:max-w-full md:px-8">
@@ -42,7 +41,6 @@ export const Companies = () => {
               className="w-9 h-9 flex items-center justify-center company-icon"
               style={{ color: iconColor }}
             >
-              {/* Centralización total: una sola línea para todos los iconos */}
               <CompanyIcon name={company.id} size={48} />
             </div>
           ))}

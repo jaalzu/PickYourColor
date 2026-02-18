@@ -6,14 +6,13 @@ export const useKeyboardShortcuts = () => {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // 1. Evitamos que se dispare si el usuario está escribiendo en un input o textarea
       const isTyping = 
         document.activeElement instanceof HTMLInputElement || 
         document.activeElement instanceof HTMLTextAreaElement;
 
       // --- RANDOMIZE (Espacio) ---
       if (e.code === 'Space' && !isTyping) {
-        e.preventDefault(); // Evitamos el scroll de la página con espacio
+        e.preventDefault(); 
         randomizeColors();
       }
 

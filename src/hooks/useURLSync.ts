@@ -32,7 +32,7 @@ const decodeColorsFromURL = (encoded: string): Partial<Record<ColorKey, string>>
 export const useURLSync = () => {
   const { colors, setColor } = useColorStore();
 
-  // Cargar desde URL al montar (solo una vez)
+  // Cargar desde URL al montar 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const encoded = params.get('colors');

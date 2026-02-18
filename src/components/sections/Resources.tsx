@@ -1,11 +1,9 @@
 import vistaImg from '../../assets/windows_vista_50.jpg'; 
 import { Button } from '../ui/button/Button';
-import { useColorStore } from '../../store/useColorStore';
+import { useLang } from '../../hooks/useLang';
 
 export const Resources = () => {
-  const lang = useColorStore((state) => state.lang);
-
-  const content = {
+  const current = useLang({
     es: { 
       title: 'Mejora tus habilidades con recursos gratuitos',
       btnText: 'Ver todos los artículos',
@@ -26,9 +24,7 @@ export const Resources = () => {
         { text: 'Modern contrast theory.', link: 'https://color.adobe.com/' },
       ]
     }
-  };
-
-  const current = content[lang as keyof typeof content] || content.en;
+  });
 
   return (
     <section className="py-18 px-6 md:px-8 max-w-7xl mx-auto">

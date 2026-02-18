@@ -1,9 +1,7 @@
-import { useColorStore } from '../../store/useColorStore';
+import { useLang } from '../../hooks/useLang';
 
 export const HowItWorks = () => {
-  const lang = useColorStore((state) => state.lang);
-
-  const content = {
+  const { title, subtitle, steps } = useLang({
     es: {
       title: '¿Cómo funciona?',
       subtitle: 'Obtené un sistema de color funcional en 4 pasos simples',
@@ -48,9 +46,7 @@ export const HowItWorks = () => {
         }
       ]
     }
-  };
-
-  const { title, subtitle, steps } = content[lang];
+  });
 
   return (
     <section

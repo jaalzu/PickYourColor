@@ -1,7 +1,7 @@
 import { Hero } from '../sections/Hero';
 import { HowItWorks } from '../sections/HowItWorks';
 
-export const LayoutGradient = () => {
+export const LayoutHeroHowItWorks = () => {
   return (
     <div className="relative overflow-hidden">
       

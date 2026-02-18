@@ -1,24 +1,12 @@
 import { Button } from '../ui/button/Button';
 import { Navbar } from '../layout/Navbar';
-import { useColorStore } from '../../store/useColorStore'; // Importamos el store
+import { useColorStore } from '../../store/useColorStore';
+import { useLang } from '../../hooks/useLang';
 
 export const Hero = () => {
-  // Consumimos el idioma del store
-  const lang = useColorStore((state) => state.lang);
   const primaryColor = useColorStore((state) => state.colors.primary);
 
-  const scrollToHowItWorks = () => {
-    const element = document.getElementById('how-it-works');
-    if (element) {
-      window.scrollTo({
-        top: element.offsetTop - 50,
-        behavior: 'smooth'
-      });
-    }
-  };
-
-  // Diccionario de textos
-  const content = {
+  const { title, subtitle, primaryBtn, secondaryBtn } = useLang({
     es: {
       title: 'Obten los colores de tu marca en segundos, no horas.',
       subtitle: 'Elegí tus colores sobre una web real. Usá la toolbar para aplicar y visualizar tus elecciones en tiempo real.',
@@ -31,9 +19,17 @@ export const Hero = () => {
       primaryBtn: 'Get Started',
       secondaryBtn: 'Learn More'
     }
-  };
+  });
 
-  const { title, subtitle, primaryBtn, secondaryBtn } = content[lang];
+  const scrollToHowItWorks = () => {
+    const element = document.getElementById('how-it-works');
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 50,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
     <section
