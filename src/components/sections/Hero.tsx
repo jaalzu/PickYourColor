@@ -33,7 +33,7 @@ export const Hero = () => {
 
   return (
     <section
-      className="min-h-[82vh] lg:min-h-[90vh] flex flex-col relative overflow-visible"
+      className="min-h-[92vh] lg:min-h-[90vh] flex flex-col relative overflow-visible"
     >
       <Navbar />
 
