@@ -82,7 +82,7 @@ export const ToolbarMobile = () => {
 
           <button 
             onClick={toggleToolbar}
-            className="font-mono w-full bg-[#1a1a2e] text-white py-4 font-bold text-[27px] tracking-widest border-t border-white/10"
+            className="font-mono w-full bg-[#1a1a2e] text-white py-3 font-bold text-[24px] tracking-widest border-t border-white/10"
           >
             TOOLBAR
           </button>
