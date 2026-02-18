@@ -29,19 +29,19 @@ export const HowItWorks = () => {
       subtitle: 'Build a functional color system in 4 simple steps',
       steps: [
         {
-          number: "1. Neutral base",
+          number: "1. Base",
           description: "Start with two neutral colors: one for text and one for background. These define readability, contrast, and visual comfort across the entire interface."
         },
         {
-          number: "2. Primary & Secondary roles",
+          number: "2. Primary & Secondary ",
           description: "Choose your Primary and Secondary colors. Primary is used for main actions, key sections, and core UI elements. Secondary supports secondary actions and less critical interactions."
         },
         {
-          number: "3. Accent color",
+          number: "3. Accent",
           description: "Add an Accent color for emphasis. Used for highlights, links, icons, visual indicators, focus states, and micro-interactions."
         },
         {
-          number: "4. Export & integration",
+          number: "4. Export",
           description: "Export your system as CSS variables, SCSS tokens, or Tailwind config, or share the palette link to present it anytime!"
         }
       ]
@@ -51,7 +51,7 @@ export const HowItWorks = () => {
   return (
     <section
       id="how-it-works"
-      className="px-6 md:pt-10 pb-20"
+      className="px-5 md:pt-10 pb-15"
     >
       <div className="max-w-7xl mx-auto">
         <div className="p-9 md:px-12 md:pt-12 md:pb-20 rounded-[13px] relative">
@@ -66,30 +66,33 @@ export const HowItWorks = () => {
 
           <div className="relative z-10">
             <h2
-              className="font-mono text-4xl md:text-5xl font-bold text-center mb-2"
-              style={{ color: 'var(--color-text)' }}
+              className=" text-4xl md:text-5xl font-bold text-center mb-3"
+              style={{ color: 'var(--color-text)',
+               }}
             >
               {title}
             </h2>
 
             <p
-              className="text-xl md:text-2xl text-center mb-15"
-              style={{ color: 'var(--color-text)' }}
+              className="text-xl md:text-2xl text-center font-regular mb-10"
+              style={{ color: 'var(--color-text)' ,
+                opacity: .8,
+              }}
             >
               {subtitle}
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-x-12 md:gap-y-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-x-12 md:gap-y-9">
               {steps.map((step) => (
                 <div key={step.number}>
                   <h3
-                    className=" text-xl font-bold mb-2"
+                    className=" text-xl font-bold mb-4"
                     style={{ color: 'var(--color-accent)' }}
                   >
                     {step.number}
                   </h3>
                   <p
-                    className="text-lg text-left font-light"
+                    className="text-lg text-left font-regular"
                     style={{ color: 'var(--color-text)' }}
                   >
                     {step.description}

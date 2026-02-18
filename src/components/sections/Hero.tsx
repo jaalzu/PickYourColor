@@ -33,22 +33,22 @@ export const Hero = () => {
 
   return (
     <section
-      className="min-h-[92vh] lg:min-h-[90vh] flex flex-col relative overflow-visible"
+      className="min-h-[92vh] lg:min-h-[89vh] flex flex-col relative overflow-visible"
     >
       <Navbar />
 
-     <div className="flex-1 flex items-start md:items-center justify-center px-4 pt-10 md:pt-0 relative z-10">
+     <div className="flex-1 flex items-start md:items-center justify-center px-4 pt-13 md:pt-0 relative z-10">
   <div className="max-w-sm md:max-w-2xl lg:max-w-4xl text-center">
           
           <h1
-            className=" text-5xl md:text-5xl lg:text-[77px] leading-[1] font-bold mb-8"
+            className=" text-5xl md:text-5xl lg:text-[77px] leading-[1.1] font-bold mb-4"
             style={{ color: 'var(--color-text)' }}
           >
             {title}
           </h1>
 
           <p
-            className=" text-lg md:text-xl mb-10 max-w-sm mx-auto md:max-w-lg"
+            className=" text-lg md:text-xl mb-12 max-w-sm mx-auto md:max-w-lg"
             style={{ color: 'var(--color-text)' }}
           >
             {subtitle}
