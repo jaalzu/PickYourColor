@@ -46,7 +46,7 @@ export const Navbar = () => {
 
   return (
     <Dialog.Root open={isOpen} onOpenChange={setIsOpen} modal={!isDesktop}>
-      <nav className="w-full flex justify-between items-center px-3 md:px-12 pt-4 z-[100] relative">
+      <nav className="w-full flex justify-between items-center px-3 md:px-12 pt-1 z-[100] relative">
         <Logo size="md"/>
 
         <div className="flex flex-row-reverse items-center gap-4">

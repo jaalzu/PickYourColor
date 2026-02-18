@@ -37,7 +37,7 @@ export const Hero = () => {
     >
       <Navbar />
 
-      <div className="flex-1 flex items-start justify-center px-4 pt-8 md:pt-20 relative z-10">
+      <div className="flex-1 flex items-start justify-center px-4 pt-10 md:pt-20 relative z-10">
         <div className="max-w-sm md:max-w-4xl text-center">
           
           <h1
