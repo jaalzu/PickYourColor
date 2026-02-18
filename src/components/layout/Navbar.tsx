@@ -46,7 +46,7 @@ export const Navbar = () => {
 
   return (
     <Dialog.Root open={isOpen} onOpenChange={setIsOpen} modal={!isDesktop}>
-      <nav className="w-full flex justify-between items-center px-6 md:px-12 pt-4 z-[100] relative">
+      <nav className="w-full flex justify-between items-center px-3 md:px-12 pt-4 z-[100] relative">
         <Logo size="md"/>
 
         <div className="flex flex-row-reverse items-center gap-4">
@@ -64,7 +64,7 @@ export const Navbar = () => {
           </Dialog.Trigger>
 
           {/* SELECTOR DE IDIOMA */}
-          <div className="flex gap-2 mr-2 font-mono text-xs font-bold select-none">
+          <div className="flex gap-1.5 mr-2 font-mono text-xs font-bold select-none">
             <button 
               onClick={() => setLang('es')}
               className={`transition-all duration-300 ${lang === 'es' ? 'opacity-100 underline decoration-2 underline-offset-4' : 'opacity-40 hover:opacity-100'}`}
