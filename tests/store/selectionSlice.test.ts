@@ -5,7 +5,6 @@ import { useColorStore } from '../../src/store/useColorStore';
 describe('Selection Slice - Randomize Logic', () => {
   beforeEach(() => {
     // Reseteamos el store manualmente si es necesario o nos aseguramos de un estado inicial
-    const { colors } = useColorStore.getState();
     useColorStore.setState({
       lockedColors: [],
       colors: {
