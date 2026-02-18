@@ -4,7 +4,6 @@ import { ColorPickerModal } from './ColorPicker/ColorPickerModal/ColorPickerModa
 import { RandomizeButton } from './Actions/RandomizeButton';
 import { UndoRedoButtons } from './Actions/UndoRedoButtons';
 import { ThemeToggleButton } from './Actions/ThemeToggleButton';
-
 import { ExportButton } from './Actions/ExportButton';
 import { ShareButton } from './Actions/ShareButton';
 import { useToolbarLogic } from '../hooks/useToolbarLogic';
@@ -21,11 +20,11 @@ export const ToolbarMobile = () => {
     toggleToolbar 
   } = useToolbarLogic();
 
-const isShaking = useColorStore((state) => state.isToolbarShaking);
+  const isShaking = useColorStore((state) => state.isToolbarShaking);
+
   return (
     <>
-     <div className="fixed inset-x-0 bottom-0 z-50 flex flex-col pointer-events-none">
-        
+      <div className="fixed inset-x-0 bottom-0 z-50 flex flex-col pointer-events-none">
         <div className={`flex flex-col w-full pointer-events-auto ${isShaking ? 'animate-feedback-mobile' : ''}`}>
           
           <div className={`
@@ -34,16 +33,36 @@ const isShaking = useColorStore((state) => state.isToolbarShaking);
             ${isToolbarOpen ? 'max-h-[95vh] opacity-100' : 'max-h-0 opacity-0'}
           `}>
             <div className="grid grid-cols-2">
-              <ColorInputMobile colorKey="text" label="Text" color={colors.text} onClick={() =>   handleColorSelect('text')} />
-              
-              <ColorInputMobile colorKey="background" label="Background" color={colors.background} onClick={() => handleColorSelect('background')} />
-
-              <ColorInputMobile colorKey="primary" label="Primary" color={colors.primary} onClick={() => handleColorSelect('primary')} />
-
-              <ColorInputMobile colorKey="secondary" label="Secondary" color={colors.secondary} onClick={() => handleColorSelect('secondary')} />
-
-              <ColorInputMobile colorKey="accent" label="Accent" color={colors.accent} onClick={() => handleColorSelect('accent')} />
-
+              <ColorInputMobile
+                colorKey="text"
+                label="Text"
+                color={colors.text}
+                onClick={(el) => handleColorSelect('text', el)}
+              />
+              <ColorInputMobile
+                colorKey="background"
+                label="Background"
+                color={colors.background}
+                onClick={(el) => handleColorSelect('background', el)}
+              />
+              <ColorInputMobile
+                colorKey="primary"
+                label="Primary"
+                color={colors.primary}
+                onClick={(el) => handleColorSelect('primary', el)}
+              />
+              <ColorInputMobile
+                colorKey="secondary"
+                label="Secondary"
+                color={colors.secondary}
+                onClick={(el) => handleColorSelect('secondary', el)}
+              />
+              <ColorInputMobile
+                colorKey="accent"
+                label="Accent"
+                color={colors.accent}
+                onClick={(el) => handleColorSelect('accent', el)}
+              />
               <div className="flex flex-col border border-white/10">
                 <RandomizeButton />
               </div>

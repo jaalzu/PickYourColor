@@ -9,7 +9,6 @@ interface ColorInputButtonProps {
   colorKey: ColorKey;
   label: string;
   color: string;
-  isSelected: boolean;
   onClick: (buttonElement: HTMLElement) => void; 
 }
 

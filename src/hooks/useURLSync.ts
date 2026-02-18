@@ -57,7 +57,7 @@ export const useURLSync = () => {
       const url = new URL(window.location.href);
       url.searchParams.set('colors', encoded);
       window.history.replaceState({}, '', url);
-    }, 1000);
+    }, 0);
 
     return () => clearTimeout(timer);
   }, [colors]);

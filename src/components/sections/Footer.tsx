@@ -1,8 +1,4 @@
 
-
-
-
-
 import { Logo } from '../ui/Logo';
 import { BackToTopButton } from '../ui/BackToTopButton';
 import { useColorStore } from '../../store/useColorStore';

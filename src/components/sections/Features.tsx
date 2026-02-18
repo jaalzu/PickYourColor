@@ -98,7 +98,7 @@ export const Features = () => {
                 className="absolute inset-0 rounded-[13px]"
                 style={{
                   backgroundColor: 'var(--color-secondary)',
-                  opacity: 0.060,
+                  opacity: 0.2,
                   zIndex: 0
                 }}
               />

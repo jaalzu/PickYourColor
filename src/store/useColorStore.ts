@@ -6,7 +6,7 @@ import { createSelectionSlice, type SelectionSlice } from './slices/selectionSli
 import { createHistorySlice, type HistorySlice } from './slices/historySlice';
 import { createThemeSlice, type ThemeSlice } from './slices/themeSlice';
 import { createUISlice, type UISlice } from './slices/uiSlice';
-import { createLangSlice, type LangSlice } from './slices/LangSlice'; 
+import { createLangSlice, type LangSlice } from './slices/langSlice'; 
 
 // 2. Agregalo al tipo del Store
 type ColorStore = ColorSlice & SelectionSlice & HistorySlice & ThemeSlice & UISlice & LangSlice;

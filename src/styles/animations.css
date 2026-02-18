@@ -1,0 +1,30 @@
+/* animacion para el toolbar en desktop  */
+@keyframes simple-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(7px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(2px); }
+}
+
+.animate-simple-shake {
+  animation: simple-shake 0.4s ease-in-out;
+}
+
+
+
+
+
+
+/* animacion para el toolbar en mobile  */
+
+@keyframes shake-vertical-impact {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-15px); } 
+  50% { transform: translateY(0); }      
+  75% { transform: translateY(-7px); }  
+}
+
+.animate-feedback-mobile {
+  animation: shake-vertical-impact 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}

@@ -18,7 +18,7 @@ export const ColorCircle = ({ color }: ColorCircleProps) => {
       className="w-full h-8 rounded-full border border-white/20"
       style={{ 
         backgroundColor: color,
-boxShadow: `0 4px 12px ${hexToRgba(color, 0.43)}`
+        boxShadow: `0 4px 12px ${hexToRgba(color, 0.43)}`
       }}
     />
   );
