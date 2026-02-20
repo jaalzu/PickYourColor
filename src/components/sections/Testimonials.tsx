@@ -101,7 +101,8 @@ export const Testimonials = () => {
 
             <div className="relative z-10 flex items-center gap-3 mt-8">
               <div className="w-10 h-10 rounded-full overflow-hidden shrink-0">
-                <img src={avtrImage} alt={t.name} className="w-full h-full object-cover grayscale" />
+                <img   loading="lazy"
+ src={avtrImage} alt={t.name} className="w-full h-full object-cover grayscale" />
               </div>
               <div style={{ color: 'var(--color-text)' }}>
                 <h3 className="font-bold text-base leading-none mb-1">{t.name}</h3>

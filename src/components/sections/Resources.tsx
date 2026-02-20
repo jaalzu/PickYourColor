@@ -54,6 +54,8 @@ export const Resources = () => {
           >
             <div className="w-full aspect-video rounded-[10px] mb-3 overflow-hidden bg-zinc-800">
               <img
+                loading="lazy"
+                decoding="async"
                 src={card.img}
                 alt={card.text}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.05]"
