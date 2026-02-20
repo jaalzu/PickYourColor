@@ -27,7 +27,7 @@ export const createHistorySlice: StateCreator<
   const newPast = [...past, currentState].slice(-10);
   set({ 
     past: newPast, 
-    future: [] // Importante: limpiar el futuro al hacer un cambio manual
+    future: [] 
   });
 },
 

@@ -8,7 +8,6 @@ import { createThemeSlice, type ThemeSlice } from './slices/themeSlice';
 import { createUISlice, type UISlice } from './slices/uiSlice';
 import { createLangSlice, type LangSlice } from './slices/langSlice'; 
 
-// 2. Agregalo al tipo del Store
 type ColorStore = ColorSlice & SelectionSlice & HistorySlice & ThemeSlice & UISlice & LangSlice;
 
 export const useColorStore = create<ColorStore>()(
@@ -19,14 +18,14 @@ export const useColorStore = create<ColorStore>()(
       ...createHistorySlice(...a),
       ...createThemeSlice(...a),
       ...createUISlice(...a),
-      ...createLangSlice(...a), // 3. Inyectalo acá
+      ...createLangSlice(...a), // 
     }),
     {
       name: 'pickyourcolor-storage',
       partialize: (state) => ({
         colors: state.colors,
         themeMode: state.themeMode,
-        lang: state.lang, // 4. Agregalo al partialize para que persista el idioma
+        lang: state.lang, // 4. Agrego al partialize para que persista el idioma
       }),
     }
   )

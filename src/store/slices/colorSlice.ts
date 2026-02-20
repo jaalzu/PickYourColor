@@ -18,12 +18,12 @@ export const createColorSlice: StateCreator<
   ColorSlice
 > = (set, get) => ({
   colors: {
-    background: '#ffffff',
-    text: '#000000',
-    primary: '#3b82f6',
-    secondary: '#8b5cf6',
-    accent: '#ec4899',
-  },
+  background: '#f8fef9',
+  text: '#000000',
+  primary: '#f63b3b',
+  secondary: '#4c00fd',
+  accent: '#1aff00',
+},
   setColor: (key, value) => {
     const { colors, saveHistory } = get();
     
