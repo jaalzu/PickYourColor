@@ -18,6 +18,7 @@ function App() {
   useURLSync();
   return (
     <>
+        <main>
       <LayoutHeroHowItWorks />
       <Companies />
       <Features />
@@ -25,6 +26,7 @@ function App() {
       <Testimonials />
       <Resources />
       <FAQ />
+          </main>
       <LayoutFooterCTA />
       <Toolbar />
     </>

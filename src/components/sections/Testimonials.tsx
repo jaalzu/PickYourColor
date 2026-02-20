@@ -104,7 +104,7 @@ export const Testimonials = () => {
                 <img src={avtrImage} alt={t.name} className="w-full h-full object-cover grayscale" />
               </div>
               <div style={{ color: 'var(--color-text)' }}>
-                <h4 className="font-bold text-base leading-none mb-1">{t.name}</h4>
+                <h3 className="font-bold text-base leading-none mb-1">{t.name}</h3>
                 <p className="text-xs uppercase tracking-[0.08em] font-bold">{t.role}</p>
               </div>
             </div>
