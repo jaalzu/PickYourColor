@@ -10,7 +10,7 @@ import { useKeyboardShortcuts } from './hooks/useKeyboardShortcuts';
 import { useURLSync } from './hooks/useURLSync';
 import { LayoutHeroHowItWorks } from './components/layout/LayoutHeroHowItWorks';
 import { LayoutFooterCTA } from './components/layout/LayoutFooterCTA';
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 function App() {
   useThemeSync();
@@ -19,6 +19,7 @@ function App() {
   return (
     <>
         <main>
+    <SpeedInsights/>
       <LayoutHeroHowItWorks />
       <Companies />
       <Features />
