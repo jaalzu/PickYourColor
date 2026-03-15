@@ -1,73 +1,118 @@
-# React + TypeScript + Vite
+# PickYourColor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![PickYourColor Preview](src/assets/home.webp)
 
-Currently, two official plugins are available:
+Visualizador interactivo de paletas de color que permite modificar y probar combinaciones en tiempo real sobre componentes de UI.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+La aplicación está pensada para explorar contraste, armonía visual y comportamiento de un pequeño sistema de diseño modificando colores dinámicamente.
 
-## React Compiler
+---
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+## Demo
 
-## Expanding the ESLint configuration
+https://pick-your-color-fi6u5v9bm-javier-alzus-projects.vercel.app/
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Las paletas pueden compartirse mediante URL:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+?colors=FFFFFF-1a1a2e-d1763c-86c350-4af27a
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Esto permite guardar o enviar combinaciones de color fácilmente.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Características
+
+- Visualización de paleta aplicada a componentes de interfaz
+- Modificación de colores en tiempo real
+- Serialización de colores en la URL para compartir configuraciones
+- Cálculo dinámico de contraste para mejorar legibilidad
+- Componentes reutilizables con variantes visuales
+
+---
+
+## Stack
+
+**Core**
+
+- React
+- Vite
+- TypeScript
+
+**UI**
+
+- Tailwind CSS
+- Radix UI primitives
+
+**Estado**
+
+- Zustand
+
+**Testing**
+
+- Vitest
+- Testing Library
+
+**Otros**
+
+- tinycolor2 — manipulación y validación de colores
+- react-colorful — color picker
+- Sentry — monitoreo de errores
+- Vercel Speed Insights — métricas de performance
+
+---
+
+## Desarrollo
+
+Instalar dependencias
+
+```bash
+npm install
 ```
+
+Correr el proyecto
+
+```bash
+npm run dev
+```
+
+Build de producción
+
+```bash
+npm run build
+```
+
+Preview del build
+
+```bash
+npm run preview
+```
+
+---
+
+## Testing
+
+```bash
+npm run test
+```
+
+UI de tests
+
+```bash
+npm run test:ui
+```
+
+Coverage
+
+```bash
+npm run test:coverage
+```
+
+---
+
+## Idea del proyecto
+
+PickYourColor nació como una herramienta para experimentar rápidamente con combinaciones de color y ver cómo afectan a componentes reales de interfaz.
+
+El objetivo es explorar paletas, contraste y jerarquía visual en tiempo real, simulando el comportamiento de un pequeño sistema de diseño.

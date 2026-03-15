@@ -1,23 +1,29 @@
 interface LogoProps {
-  size?: 'sm' | 'md' | 'lg';
+  size?: "sm" | "md" | "lg";
   showText?: boolean;
 }
 
-export const Logo = ({ size = 'md', showText = true }: LogoProps) => {
+export const Logo = ({ size = "md", showText = true }: LogoProps) => {
   const sizes = {
-    sm: { svg: 'w-6 h-6', text: 'text-2xl' },
-    md: { svg: 'w-8 h-8 md:w-8 md:h-8', text: 'text-xl lg:text-2xl' },
-    lg: { svg: 'w-10 h-10 md:w-12 md:h-12', text: 'text-2xl md:text-3xl' }
+    sm: { svg: "w-6 h-6", text: "text-2xl" },
+    md: { svg: "w-8 h-8 md:w-8 md:h-8", text: "text-xl lg:text-2xl" },
+    lg: { svg: "w-10 h-10 md:w-12 md:h-12", text: "text-2xl md:text-3xl" },
   };
 
   return (
     <div className="flex items-center gap-2">
       <svg viewBox="0 0 256 256" className={sizes[size].svg}>
         <defs>
-          <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="25%"  style={{ stopColor: '#ff2200' }} />
-            <stop offset="50%"  style={{ stopColor: '#00da49' }} />
-            <stop offset="75%"  style={{ stopColor: '#0044ff' }} />
+          <linearGradient
+            id="logo-gradient"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="100%"
+          >
+            <stop offset="25%" style={{ stopColor: "#ff2200" }} />
+            <stop offset="50%" style={{ stopColor: "#00da49" }} />
+            <stop offset="75%" style={{ stopColor: "#0044ff" }} />
           </linearGradient>
         </defs>
         <path
@@ -29,7 +35,7 @@ export const Logo = ({ size = 'md', showText = true }: LogoProps) => {
       {showText && (
         <span
           className={`${sizes[size].text} font-mono font-bold tracking-tighter`}
-          style={{ color: 'var(--color-text)' }}
+          style={{ color: "var(--color-text)" }}
         >
           PICKYOURCOLOR
         </span>
