@@ -78,7 +78,7 @@ export const Features = () => {
   });
 
   return (
-    <section id="features" className="px-8 py-13 md:py-20">
+    <section id="features" className="px-8 py-16 md:py-25">
       <div className="max-w-7xl mx-auto">
         <ul className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {/* primer item — texto */}
