@@ -1,15 +1,30 @@
-// src/hooks/useTestimonialsScroll.ts
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect } from "react";
 
 export const useTestimonialsScroll = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const isPaused = useRef(false);
+  const isVisible = useRef(false);
   const position = useRef(0);
 
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
     let animId: number;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          isVisible.current = entry.isIntersecting;
+        });
+      },
+      {
+        root: null,
+        rootMargin: "100px 0px 0px 0px",
+        threshold: 0,
+      },
+    );
+
+    observer.observe(el);
 
     const init = () => {
       position.current = el.scrollWidth / 2;
@@ -19,11 +34,10 @@ export const useTestimonialsScroll = () => {
     setTimeout(init, 50);
 
     const scroll = () => {
-      if (!isPaused.current && el) {
+      if (!isPaused.current && isVisible.current && el) {
         position.current += 0.6;
 
-        // Reset seamless: vuelve al medio sin salto visible
-        if (position.current >= (el.scrollWidth / 2) + el.clientWidth * 2) {
+        if (position.current >= el.scrollWidth / 2 + el.clientWidth * 2) {
           position.current = el.scrollWidth / 2;
         }
 
@@ -33,11 +47,19 @@ export const useTestimonialsScroll = () => {
     };
 
     animId = requestAnimationFrame(scroll);
-    return () => cancelAnimationFrame(animId);
+
+    return () => {
+      cancelAnimationFrame(animId);
+      observer.disconnect();
+    };
   }, []);
 
-  const handleMouseEnter = () => { isPaused.current = true; };
-  const handleMouseLeave = () => { isPaused.current = false; };
+  const handleMouseEnter = () => {
+    isPaused.current = true;
+  };
+  const handleMouseLeave = () => {
+    isPaused.current = false;
+  };
 
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     const el = scrollRef.current;
@@ -54,14 +76,13 @@ export const useTestimonialsScroll = () => {
     };
 
     const onUp = () => {
-      // Reactiva el auto-scroll al soltar
       isPaused.current = false;
-      window.removeEventListener('mousemove', onMove);
-      window.removeEventListener('mouseup', onUp);
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("mouseup", onUp);
     };
 
-    window.addEventListener('mousemove', onMove);
-    window.addEventListener('mouseup', onUp);
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("mouseup", onUp);
   };
 
   return {
