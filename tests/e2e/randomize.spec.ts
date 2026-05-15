@@ -18,7 +18,6 @@ test.describe('Randomize Feature', () => {
       window.getComputedStyle(el).backgroundColor
     );
 
-    console.log('Color inicial:', initialBg);
 
     // Presionar Space
     await page.keyboard.press('Space');
@@ -29,7 +28,6 @@ test.describe('Randomize Feature', () => {
       window.getComputedStyle(el).backgroundColor
     );
 
-    console.log('Color nuevo:', newBg);
     expect(newBg).not.toBe(initialBg);
   });
 });
