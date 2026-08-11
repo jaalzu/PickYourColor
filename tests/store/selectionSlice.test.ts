@@ -13,7 +13,14 @@ describe('Selection Slice - Randomize Logic', () => {
         primary: '#3b82f6',
         secondary: '#8b5cf6',
         accent: '#ec4899',
-      }
+      },
+      typography: {
+        headingFont: 'figtree',
+        bodyFont: 'figtree',
+        typeScale: 1,
+      },
+      past: [],
+      future: [],
     });
   });
 

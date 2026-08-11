@@ -1,19 +1,20 @@
 // src/store/slices/historySlice.ts
 import type { StateCreator } from 'zustand';
-import type { ColorScheme } from '../../types';
+import type { VisualState } from '../../types';
 import type { ColorSlice } from './colorSlice';
 import type { SelectionSlice } from './selectionSlice';
+import type { TypographySlice } from './typographySlice';
 
 export interface HistorySlice {
-  past: ColorScheme[];
-  future: ColorScheme[];
+  past: VisualState[];
+  future: VisualState[];
   undo: () => void;
   redo: () => void;
-  saveHistory: (currentState: ColorScheme) => void;
+  saveHistory: (currentState: VisualState) => void;
 }
 
 export const createHistorySlice: StateCreator<
-  ColorSlice & SelectionSlice & HistorySlice,
+  ColorSlice & SelectionSlice & TypographySlice & HistorySlice,
   [],
   [],
   HistorySlice
@@ -32,29 +33,33 @@ export const createHistorySlice: StateCreator<
 },
 
   undo: () => {
-    const { past, colors, future } = get();
+    const { past, colors, typography, future } = get();
     if (past.length === 0) return;
 
     const previous = past[past.length - 1];
+    if (!previous) return;
     const newPast = past.slice(0, past.length - 1);
 
     set({
       past: newPast,
-      colors: previous,
-      future: [colors, ...future]
+      colors: previous.colors,
+      typography: previous.typography,
+      future: [{ colors, typography }, ...future]
     });
   },
 
   redo: () => {
-    const { past, colors, future } = get();
+    const { past, colors, typography, future } = get();
     if (future.length === 0) return;
 
     const next = future[0];
+    if (!next) return;
     const newFuture = future.slice(1);
 
     set({
-      past: [...past, colors],
-      colors: next,
+      past: [...past, { colors, typography }],
+      colors: next.colors,
+      typography: next.typography,
       future: newFuture
     });
   },

@@ -7,3 +7,27 @@ export interface ColorScheme {
   secondary: string;
   accent: string;
 }
+
+export type FontKey =
+  | 'figtree'
+  | 'inter'
+  | 'spaceGrotesk'
+  | 'montserrat'
+  | 'playfair'
+  | 'merriweather'
+  | 'lora'
+  | 'caveat'
+  | 'georgia'
+  | 'system'
+  | 'mono';
+
+export interface TypographySettings {
+  headingFont: FontKey;
+  bodyFont: FontKey;
+  typeScale: number;
+}
+
+export interface VisualState {
+  colors: ColorScheme;
+  typography: TypographySettings;
+}

@@ -3,13 +3,14 @@ import type { StateCreator } from 'zustand';
 import type { ColorScheme, ColorKey } from '../../types';
 import type { SelectionSlice } from './selectionSlice';
 import type { HistorySlice } from './historySlice';
+import type { TypographySlice } from './typographySlice';
 
 export interface ColorSlice {
   colors: ColorScheme;
   setColor: (key: ColorKey, value: string) => void;
 }
 
-type CombinedState = ColorSlice & SelectionSlice & HistorySlice;
+type CombinedState = ColorSlice & SelectionSlice & TypographySlice & HistorySlice;
 
 export const createColorSlice: StateCreator<
   CombinedState,
@@ -25,10 +26,10 @@ export const createColorSlice: StateCreator<
   accent: '#1aff00',
 },
   setColor: (key, value) => {
-    const { colors, saveHistory } = get();
+    const { colors, typography, saveHistory } = get();
     
     if (colors[key] !== value) {
-      saveHistory({ ...colors });
+      saveHistory({ colors: { ...colors }, typography: { ...typography } });
       set((state) => ({
         colors: { ...state.colors, [key]: value },
       }));

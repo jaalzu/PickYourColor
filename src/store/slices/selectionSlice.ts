@@ -5,6 +5,7 @@ import type { ColorKey, ColorScheme } from '../../types';
 import type { ColorSlice } from './colorSlice';
 import type { HistorySlice } from './historySlice';
 import type { ThemeSlice } from './themeSlice';
+import type { TypographySlice } from './typographySlice';
 
 export interface SelectionSlice {
   lockedColors: ColorKey[];
@@ -13,7 +14,7 @@ export interface SelectionSlice {
 }
 
 export const createSelectionSlice: StateCreator<
-  ColorSlice & SelectionSlice & HistorySlice & ThemeSlice,
+  ColorSlice & SelectionSlice & HistorySlice & ThemeSlice & TypographySlice,
   [],
   [],
   SelectionSlice
@@ -31,9 +32,9 @@ export const createSelectionSlice: StateCreator<
   },
 
   randomizeColors: () => {
-    const { colors, lockedColors, saveHistory, themeMode } = get();
+    const { colors, lockedColors, saveHistory, themeMode, typography } = get();
     
-    saveHistory({ ...colors });
+    saveHistory({ colors: { ...colors }, typography: { ...typography } });
 
     const newColors: ColorScheme = { ...colors };
 

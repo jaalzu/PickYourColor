@@ -17,7 +17,7 @@ function App() {
   useURLSync();
   return (
     <>
-        <main>
+        <main className="type-scope">
       <LayoutHeroHowItWorks />
       <Companies />
       <Features />
@@ -26,7 +26,9 @@ function App() {
       <Resources />
       <FAQ />
           </main>
-      <LayoutFooterCTA />
+      <div className="type-scope">
+        <LayoutFooterCTA />
+      </div>
       <Toolbar />
     </>
   );
