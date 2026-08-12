@@ -22,6 +22,15 @@ export const GOOGLE_FONTS_MAP: Record<string, string> = {
   pacifico: 'Pacifico',
   Cinzel: 'Cinzel:wght@400..900',
   BebasNeue: 'Bebas+Neue',
+  sourceSans3: 'Source+Sans+3:ital,wght@0,200..900;1,200..900',
+  workSans: 'Work+Sans:ital,wght@0,100..900;1,100..900',
+  ptSans: 'PT+Sans:ital,wght@0,400;0,700;1,400;1,700',
+  mulish: 'Mulish:ital,wght@0,200..1000;1,200..1000',
+  firaCode: 'Fira+Code:wght@300..700',
+  jetBrainsMono: 'JetBrains+Mono:ital,wght@0,100..800;1,100..800',
+  crimsonPro: 'Crimson+Pro:ital,wght@0,200..900;1,200..900',
+  cardo: 'Cardo:ital,wght@0,400;0,700;1,400',
+  ebGaramond: 'EB+Garamond:ital,wght@0,400..800;1,400..800',
 };
 
 export const loadGoogleFont = (fontKey: string) => {

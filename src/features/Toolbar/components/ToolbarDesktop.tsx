@@ -24,7 +24,7 @@ const t = useToolbarTextContent();
   return (
     <>
       {/* CONTENEDOR POSICIONADOR */}
-      <div className="fixed bottom-3 left-1/2 -translate-x-1/2 z-50 w-[99vw] max-w-[1150px]">
+      <div className="fixed bottom-3 left-1/2 -translate-x-1/2 z-50 w-[99vw] max-w-[1450px]">
         
         {/* CONTENEDOR ANIMADO  */}
         <div 

@@ -39,7 +39,7 @@ export const TypographyToolbarPanel = ({ onBack, compact = false }: TypographyTo
 
   const fieldClass = compact
     ? 'flex flex-col gap-2 border border-white/10 p-4'
-    : 'flex h-full min-w-[190px] flex-col justify-center gap-1.5 px-4';
+    : 'flex h-full flex-1 min-w-0 flex-col justify-center gap-1.5 px-3';
 
   return (
     <div className={compact ? 'flex flex-col' : 'flex h-full w-full items-center'}>
@@ -135,7 +135,7 @@ export const TypographyToolbarPanel = ({ onBack, compact = false }: TypographyTo
         </button>
       </Tooltip>
 
-      <div className={compact ? '' : 'w-px h-full bg-white/20'} />
+      <div className={compact ? 'border-t border-white/10 my-1' : 'w-px h-full bg-white/20'} />
 
       <Tooltip content={t.randomTooltip}>
         <button
