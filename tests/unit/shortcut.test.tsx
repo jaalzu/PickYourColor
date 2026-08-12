@@ -16,6 +16,12 @@ describe('Keyboard Shortcuts Hook', () => {
         secondary: '#8b5cf6',
         accent: '#ec4899',
       },
+      typography: {
+        headingFont: 'figtree',
+        bodyFont: 'figtree',
+        headingScale: 1.25,
+        bodyScale: 1.0,
+      },
       past: [],
       future: [],
     });

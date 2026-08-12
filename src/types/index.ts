@@ -7,3 +7,52 @@ export interface ColorScheme {
   secondary: string;
   accent: string;
 }
+
+export type FontKey =
+  | 'figtree'
+  | 'inter'
+  | 'spaceGrotesk'
+  | 'montserrat'
+  | 'playfair'
+  | 'merriweather'
+  | 'lora'
+  | 'caveat'
+  | 'roboto'
+  | 'openSans'
+  | 'lato'
+  | 'poppins'
+  | 'raleway'
+  | 'nunito'
+  | 'ubuntu'
+  | 'oswald'
+  | 'playpenSans'
+  | 'rubik'
+  | 'quicksand'
+  | 'dancingScript'
+  | 'pacifico'
+  | 'Cinzel'
+  | 'BebasNeue'
+  | 'sourceSans3'
+  | 'workSans'
+  | 'ptSans'
+  | 'mulish'
+  | 'firaCode'
+  | 'jetBrainsMono'
+  | 'crimsonPro'
+  | 'cardo'
+  | 'ebGaramond'
+  | 'georgia'
+  | 'system'
+  | 'mono';
+
+export interface TypographySettings {
+  headingFont: FontKey;
+  bodyFont: FontKey;
+  headingScale: number;
+  bodyScale: number;
+}
+
+export interface VisualState {
+  colors: ColorScheme;
+  typography: TypographySettings;
+}

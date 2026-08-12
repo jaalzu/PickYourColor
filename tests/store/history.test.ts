@@ -13,6 +13,12 @@ describe('History Logic (Undo/Redo)', () => {
         secondary: '#8b5cf6',
         accent: '#ec4899',
       },
+      typography: {
+        headingFont: 'figtree',
+        bodyFont: 'figtree',
+        headingScale: 1.25,
+        bodyScale: 1.0,
+      },
       past: [],
       future: [],
       lockedColors: []
@@ -27,7 +33,7 @@ describe('History Logic (Undo/Redo)', () => {
 
     const state = useColorStore.getState();
     expect(state.past.length).toBe(1);
-    expect(state.past[0].primary).toBe(initialPrimary);
+    expect(state.past[0]?.colors.primary).toBe(initialPrimary);
     expect(state.colors.primary).toBe('#000000');
   });
 
@@ -39,6 +45,18 @@ describe('History Logic (Undo/Redo)', () => {
 
     expect(useColorStore.getState().colors.primary).toBe(initialPrimary);
     expect(useColorStore.getState().future.length).toBe(1); // El #111111 se fue al futuro
+  });
+
+  it('debe revertir cambios de tipografia al ejecutar undo', () => {
+    useColorStore.getState().setHeadingFont('georgia');
+    useColorStore.getState().setHeadingScale(1.333);
+    useColorStore.getState().undo();
+
+    expect(useColorStore.getState().typography.headingFont).toBe('georgia');
+    expect(useColorStore.getState().typography.headingScale).toBe(1.25);
+
+    useColorStore.getState().undo();
+    expect(useColorStore.getState().typography.headingFont).toBe('figtree');
   });
 
   it('no debe permitir más de 10 estados en el historial (Límite)', () => {

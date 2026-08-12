@@ -4,4 +4,7 @@
   --color-primary: #f63b3b;
   --color-secondary: #4c00fd;
   --color-accent: #1aff00;
+  --font-heading: 'Figtree', sans-serif;
+  --font-body: 'Figtree', sans-serif;
+  --type-scale: 1;
 }

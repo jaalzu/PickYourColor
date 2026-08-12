@@ -51,6 +51,17 @@ vi.mock('../../src/features/Toolbar/hooks/useToolbarTextContent', () => ({
       tooltip: 'Generate random colors (Space)',
       aria: 'Randomize all colors',
     },
+    typography: {
+      openLabel: 'Fonts',
+      backLabel: 'Colors',
+      headingLabel: 'Headings',
+      bodyLabel: 'Body',
+      scaleLabel: 'Type scale',
+      randomLabel: 'Random',
+      randomTooltip: 'Generate random fonts',
+      openAria: 'Open font controls',
+      backAria: 'Back to color controls',
+    },
     copyUrl: {
       label: 'Copy URL',
       labelCopied: 'Copied',

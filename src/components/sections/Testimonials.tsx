@@ -232,12 +232,10 @@ export const Testimonials = () => {
                 />
               </div>
               <div style={{ color: "var(--color-text)" }}>
-                <h3 className="font-bold text-base leading-none mb-1">
+                <span className="font-bold text-base leading-none mb-1">
                   {t.name}
-                </h3>
-                <p className="text-xs uppercase tracking-[0.08em] font-bold">
-                  {t.role}
-                </p>
+                </span>
+                <p className="text-xs  tracking-[0.08em] font-bold">{t.role}</p>
               </div>
             </div>
           </div>

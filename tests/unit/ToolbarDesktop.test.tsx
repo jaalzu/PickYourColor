@@ -3,6 +3,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ToolbarDesktop } from '../../src/features/Toolbar/components/ToolbarDesktop';
+import { useColorStore } from '../../src/store/useColorStore';
 
 const mockHandleColorSelect = vi.fn();
 const mockHandleCloseModal = vi.fn();
@@ -31,6 +32,7 @@ describe('ToolbarDesktop', () => {
   beforeEach(() => {
     mockHandleColorSelect.mockClear();
     mockHandleCloseModal.mockClear();
+    useColorStore.setState({ lang: 'en' });
     
     // Mock de getBoundingClientRect
     Element.prototype.getBoundingClientRect = vi.fn(() => ({
