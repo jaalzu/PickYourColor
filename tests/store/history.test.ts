@@ -16,7 +16,8 @@ describe('History Logic (Undo/Redo)', () => {
       typography: {
         headingFont: 'figtree',
         bodyFont: 'figtree',
-        typeScale: 1,
+        headingScale: 1.25,
+        bodyScale: 1.0,
       },
       past: [],
       future: [],
@@ -48,11 +49,11 @@ describe('History Logic (Undo/Redo)', () => {
 
   it('debe revertir cambios de tipografia al ejecutar undo', () => {
     useColorStore.getState().setHeadingFont('georgia');
-    useColorStore.getState().setTypeScale(1.15);
+    useColorStore.getState().setHeadingScale(1.333);
     useColorStore.getState().undo();
 
     expect(useColorStore.getState().typography.headingFont).toBe('georgia');
-    expect(useColorStore.getState().typography.typeScale).toBe(1);
+    expect(useColorStore.getState().typography.headingScale).toBe(1.25);
 
     useColorStore.getState().undo();
     expect(useColorStore.getState().typography.headingFont).toBe('figtree');

@@ -12,6 +12,21 @@ export const FONT_STACKS: Record<FontKey, string> = {
   merriweather: "'Merriweather', serif",
   lora: "'Lora', serif",
   caveat: "'Caveat', cursive",
+  roboto: "'Roboto', sans-serif",
+  openSans: "'Open Sans', sans-serif",
+  lato: "'Lato', sans-serif",
+  poppins: "'Poppins', sans-serif",
+  raleway: "'Raleway', sans-serif",
+  nunito: "'Nunito', sans-serif",
+  ubuntu: "'Ubuntu', sans-serif",
+  oswald: "'Oswald', sans-serif",
+  playpenSans: "'Playpen Sans', cursive",
+  rubik: "'Rubik', sans-serif",
+  quicksand: "'Quicksand', sans-serif",
+  dancingScript: "'Dancing Script', cursive",
+  pacifico: "'Pacifico', cursive",
+  Cinzel: "'Cinzel', serif",
+  BebasNeue: "'Bebas Neue', sans-serif",
   georgia: "Georgia, 'Times New Roman', serif",
   system: "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
   mono: "'Courier New', Courier, monospace",
@@ -26,34 +41,54 @@ export const TYPOGRAPHY_OPTIONS: Array<{ key: FontKey; label: string }> = [
   { key: 'merriweather', label: 'Merriweather' },
   { key: 'lora', label: 'Lora' },
   { key: 'caveat', label: 'Caveat' },
+  { key: 'roboto', label: 'Roboto' },
+  { key: 'openSans', label: 'Open Sans' },
+  { key: 'lato', label: 'Lato' },
+  { key: 'poppins', label: 'Poppins' },
+  { key: 'raleway', label: 'Raleway' },
+  { key: 'nunito', label: 'Nunito' },
+  { key: 'ubuntu', label: 'Ubuntu' },
+  { key: 'oswald', label: 'Oswald' },
+  { key: 'playpenSans', label: 'Playpen Sans' },
+  { key: 'rubik', label: 'Rubik' },
+  { key: 'quicksand', label: 'Quicksand' },
+  { key: 'dancingScript', label: 'Dancing Script' },
+  { key: 'pacifico', label: 'Pacifico' },
+  { key: 'Cinzel', label: 'Cinzel' },
+  { key: 'BebasNeue', label: 'Bebas Neue' },
   { key: 'georgia', label: 'Georgia' },
   { key: 'system', label: 'System' },
   { key: 'mono', label: 'Mono' },
 ];
 
 export const BODY_TYPOGRAPHY_OPTIONS = TYPOGRAPHY_OPTIONS.filter(
-  (option) => option.key !== 'caveat'
+  (option) => option.key !== 'caveat' && option.key !== 'dancingScript' && option.key !== 'pacifico' && option.key !== 'BebasNeue'
 );
 
 export const TYPE_SCALE_OPTIONS = [
-  { value: 1.06, label: '1.060 - Compact' },
-  { value: 1.18, label: '1.180 - Balanced' },
-  { value: 1.3, label: '1.300 - Editorial' },
-  { value: 1.42, label: '1.420 - Display' },
-  { value: 1.55, label: '1.550 - Dramatic' },
+  { value: 1.065, label: 'Minor Third (1.065)' },
+  { value: 1.125, label: 'Major Second (1.125)' },
+  { value: 1.200, label: 'Minor Third (1.200)' },
+  { value: 1.250, label: 'Major Third (1.250)' },
+  { value: 1.333, label: 'Perfect Fourth (1.333)' },
+  { value: 1.414, label: 'Augmented Fourth (1.414)' },
+  { value: 1.500, label: 'Perfect Fifth (1.500)' },
+  { value: 1.618, label: 'Golden Ratio (1.618)' },
 ];
 
 export const DEFAULT_TYPOGRAPHY: TypographySettings = {
   headingFont: 'figtree',
   bodyFont: 'figtree',
-  typeScale: 1.06,
+  headingScale: 1.25,
+  bodyScale: 1.0,
 };
 
 export interface TypographySlice {
   typography: TypographySettings;
   setHeadingFont: (font: FontKey) => void;
   setBodyFont: (font: FontKey) => void;
-  setTypeScale: (scale: number) => void;
+  setHeadingScale: (scale: number) => void;
+  setBodyScale: (scale: number) => void;
   randomizeTypography: () => void;
 }
 
@@ -97,14 +132,25 @@ export const createTypographySlice: StateCreator<
     }));
   },
 
-  setTypeScale: (scale) => {
+  setHeadingScale: (scale) => {
     const nextScale = Number(scale.toFixed(3));
     const { colors, typography, saveHistory } = get();
-    if (typography.typeScale === nextScale) return;
+    if (typography.headingScale === nextScale) return;
 
     saveHistory({ colors: { ...colors }, typography: { ...typography } });
     set((state) => ({
-      typography: { ...state.typography, typeScale: nextScale },
+      typography: { ...state.typography, headingScale: nextScale },
+    }));
+  },
+
+  setBodyScale: (scale) => {
+    const nextScale = Number(scale.toFixed(3));
+    const { colors, typography, saveHistory } = get();
+    if (typography.bodyScale === nextScale) return;
+
+    saveHistory({ colors: { ...colors }, typography: { ...typography } });
+    set((state) => ({
+      typography: { ...state.typography, bodyScale: nextScale },
     }));
   },
 
@@ -116,7 +162,8 @@ export const createTypographySlice: StateCreator<
     const nextTypography: TypographySettings = {
       headingFont: randomOption(fontKeys, typography.headingFont),
       bodyFont: randomOption(bodyFontKeys, typography.bodyFont),
-      typeScale: randomOption(typeScales, typography.typeScale),
+      headingScale: randomOption(typeScales, typography.headingScale),
+      bodyScale: randomOption(typeScales, typography.bodyScale),
     };
 
     saveHistory({ colors: { ...colors }, typography: { ...typography } });

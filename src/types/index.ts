@@ -17,6 +17,21 @@ export type FontKey =
   | 'merriweather'
   | 'lora'
   | 'caveat'
+  | 'roboto'
+  | 'openSans'
+  | 'lato'
+  | 'poppins'
+  | 'raleway'
+  | 'nunito'
+  | 'ubuntu'
+  | 'oswald'
+  | 'playpenSans'
+  | 'rubik'
+  | 'quicksand'
+  | 'dancingScript'
+  | 'pacifico'
+  | 'Cinzel'
+  | 'BebasNeue'
   | 'georgia'
   | 'system'
   | 'mono';
@@ -24,7 +39,8 @@ export type FontKey =
 export interface TypographySettings {
   headingFont: FontKey;
   bodyFont: FontKey;
-  typeScale: number;
+  headingScale: number;
+  bodyScale: number;
 }
 
 export interface VisualState {

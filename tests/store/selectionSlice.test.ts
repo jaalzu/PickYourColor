@@ -17,7 +17,8 @@ describe('Selection Slice - Randomize Logic', () => {
       typography: {
         headingFont: 'figtree',
         bodyFont: 'figtree',
-        typeScale: 1,
+        headingScale: 1.25,
+        bodyScale: 1.0,
       },
       past: [],
       future: [],
