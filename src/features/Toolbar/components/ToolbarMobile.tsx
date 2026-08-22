@@ -76,6 +76,9 @@ export const ToolbarMobile = () => {
                   <div className="flex flex-col border border-white/10">
                     <RandomizeButton />
                   </div>
+                  <div className="flex flex-col border border-white/10">
+                    <RandomizeButton />
+                  </div>
                   <button
                     className="col-span-2 flex flex-col items-center justify-center gap-1 border border-white/10 py-4 hover:bg-white/5 transition-colors"
                     onClick={() => {

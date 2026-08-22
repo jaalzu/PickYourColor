@@ -1,31 +1,31 @@
-import { useThemeSync } from './hooks/useThemeSync';
-import { Toolbar } from './features/Toolbar/components/Toolbar';
-import { Resources } from './components/sections/Resources';
-import { Features } from './components/sections/Features';
-import { Pricing } from './components/sections/Pricing';
-import { Companies } from './components/sections/Companies';
-import { Testimonials } from './components/sections/Testimonials';
-import { FAQ } from './components/sections/FAQ';
-import { useKeyboardShortcuts } from './hooks/useKeyboardShortcuts';
-import { useURLSync } from './hooks/useURLSync';
-import { LayoutHeroHowItWorks } from './components/layout/LayoutHeroHowItWorks';
-import { LayoutFooterCTA } from './components/layout/LayoutFooterCTA';
+import { useThemeSync } from "./hooks/useThemeSync";
+import { Toolbar } from "./features/Toolbar/components/Toolbar";
+import { Resources } from "./components/sections/Resources";
+import { Features } from "./components/sections/Features";
+import { Pricing } from "./components/sections/Pricing";
+import { Testimonials } from "./components/sections/Testimonials";
+import { FAQ } from "./components/sections/FAQ";
+import { useKeyboardShortcuts } from "./hooks/useKeyboardShortcuts";
+import { useURLSync } from "./hooks/useURLSync";
+import { Hero } from "./components/sections/Hero";
+import { LayoutHowItWorks } from "./components/layout/LayoutHowItWorks";
+import { LayoutFooterCTA } from "./components/layout/LayoutFooterCTA";
 
 function App() {
   useThemeSync();
-  useKeyboardShortcuts(); 
+  useKeyboardShortcuts();
   useURLSync();
   return (
     <>
-        <main className="type-scope">
-      <LayoutHeroHowItWorks />
-      <Companies />
-      <Features />
-      <Pricing />
-      <Testimonials />
-      <Resources />
-      <FAQ />
-          </main>
+      <main className="type-scope">
+        <Hero />
+        <LayoutHowItWorks />
+        <Features />
+        <Pricing />
+        <Testimonials />
+        <Resources />
+        <FAQ />
+      </main>
       <div className="type-scope">
         <LayoutFooterCTA />
       </div>

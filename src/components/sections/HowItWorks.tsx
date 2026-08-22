@@ -7,22 +7,26 @@ export const HowItWorks = () => {
       subtitle: "Obtené un sistema de color funcional en 4 pasos simples",
       steps: [
         {
-          number: "1. Base neutral",
+          number: "1.",
+          title: "Base neutral",
           description:
             "Empezá con dos colores neutros para el texto y el fondo. Definen la legibilidad, el contraste y el confort visual de toda la interfaz.",
         },
         {
-          number: "2. Roles Primary y Secondary",
+          number: "2.",
+          title: "Roles Primary y Secondary",
           description:
             "Primary se usa para acciones principales, secciones clave y elementos centrales de la UI. Secondary acompaña acciones secundarias y elementos de menor jerarquía.",
         },
         {
-          number: "3. Color Accent",
+          number: "3.",
+          title: "Color Accent",
           description:
             "Agregá un color Accent para énfasis visual. Se usa en highlights, iconos, indicadores, estados de foco y micro-interacciones.",
         },
         {
-          number: "4. Exportación e integración",
+          number: "4.",
+          title: "Exportación e integración",
           description:
             "Exportá tu sistema en variables CSS, tokens SCSS o configuración Tailwind, o compartí el link de la paleta para presentarla en cualquier momento!",
         },
@@ -33,22 +37,26 @@ export const HowItWorks = () => {
       subtitle: "Build a functional color system in 4 simple steps",
       steps: [
         {
-          number: "1. Base",
+          number: "1.",
+          title: "Base",
           description:
             "Start with two neutral colors: one for text and one for background. These define readability, contrast, and visual comfort across the entire interface.",
         },
         {
-          number: "2. Primary & Secondary ",
+          number: "2.",
+          title: "Primary & Secondary",
           description:
             "Choose your Primary and Secondary colors. Primary is used for main actions, key sections, and core UI elements. Secondary supports secondary actions and less critical interactions.",
         },
         {
-          number: "3. Accent",
+          number: "3.",
+          title: "Accent",
           description:
             "Add an Accent color for emphasis. Used for highlights, links, icons, visual indicators, focus states, and micro-interactions.",
         },
         {
-          number: "4. Export",
+          number: "4.",
+          title: "Export",
           description:
             "Export your system as CSS variables, SCSS tokens, or Tailwind config, or share the palette link to present it anytime!",
         },
@@ -86,12 +94,14 @@ export const HowItWorks = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-x-12 md:gap-y-9">
               {steps.map((step) => (
-                <div key={step.number}>
-                  <h3
-                    className=" text-xl font-bold mb-4"
-                    style={{ color: "var(--color-accent)" }}
-                  >
-                    {step.number}
+                <div key={step.title}>
+                  <h3 className="text-xl font-bold mb-4">
+                    <span style={{ color: "var(--color-accent)" }}>
+                      {step.number}
+                    </span>{" "}
+                    <span style={{ color: "var(--color-text)" }}>
+                      {step.title}
+                    </span>
                   </h3>
                   <p
                     className="text-lg text-left font-regular"

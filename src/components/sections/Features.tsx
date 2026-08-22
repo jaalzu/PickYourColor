@@ -8,8 +8,7 @@ import { useLang } from "../../hooks/useLang";
 export const Features = () => {
   const { sectionTitle, features } = useLang({
     es: {
-      sectionTitle:
-        "Todo lo que necesitás para diseñar un sistema de colores perfecto.",
+      sectionTitle: "Explora la toolbar",
       features: [
         {
           title: "Aleatorizar",
@@ -43,7 +42,7 @@ export const Features = () => {
       ],
     },
     en: {
-      sectionTitle: "Everything you need to design a perfect color system.",
+      sectionTitle: "Explore the Toolbar",
       features: [
         {
           title: "Randomize",
@@ -84,7 +83,7 @@ export const Features = () => {
           {/* primer item — texto */}
           <li className="flex flex-col justify-center py-2 md:p-6">
             <h2
-              className=" text-3xl md:text-4xl font-bold"
+              className=" text-2xl md:text-6xl font-bold"
               style={{ color: "var(--color-text)" }}
             >
               {sectionTitle}

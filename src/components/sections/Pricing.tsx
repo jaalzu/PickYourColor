@@ -6,15 +6,17 @@ import { useLang } from "../../hooks/useLang";
 
 export const Pricing = () => {
   const colors = useColorStore((state) => state.colors);
+  const isDark = tinycolor(colors.background).isDark();
 
   const current = useLang({
     es: {
       title: "Nuestros Planes",
       monthly: "/mes",
       free: "Gratis",
+      custom: "Personalizado",
       button: "Elegir Plan",
       features: "Características",
-      best: "Mejor\nOpción",
+      mostPopular: "Más Popular",
       plans: [
         {
           title: "Entusiasta",
@@ -27,20 +29,9 @@ export const Pricing = () => {
           ],
         },
         {
-          title: "Da Vinci",
-          description: "Para maestros artesanos de UI/UX de nivel Dios.",
-          price: "$0.02",
-          features: [
-            "IA super avanzada",
-            "Soporte técnico 24/7 con prioridad alta",
-            "Más de +1000 plantillas de colores listas para usar",
-            "Título Certificado y otorgado por Leonardo",
-          ],
-        },
-        {
           title: "Alquimista",
           description:
-            "Para usuarios con un conocimiento sólido que desean experimentar y construir diseños de sistemas completos.",
+            "Para usuarios con un conocimiento sólido que buscan construir diseños de sistemas completos.",
           price: "$0.01",
           features: [
             "Pre-Acceso a nuevas funciones",
@@ -48,15 +39,27 @@ export const Pricing = () => {
             "Guía de ayuda para empezar a crear tu sistema de diseño perfecto",
           ],
         },
+        {
+          title: "Da Vinci",
+          description: "Para maestros artesanos de UI/UX de nivel Dios.",
+          price: "Personalizado",
+          features: [
+            "IA super avanzada",
+            "Soporte técnico 24/7 con prioridad alta",
+            "Más de +1000 plantillas de colores listas para usar",
+            "Título Certificado y otorgado por Leonardo",
+          ],
+        },
       ],
     },
     en: {
       title: "Our Plans",
       monthly: "/month",
-      button: "Choose Plan",
       free: "Free",
+      custom: "Custom",
+      button: "Choose Plan",
       features: "Features",
-      best: "Best\nOption",
+      mostPopular: "Most Popular",
       plans: [
         {
           title: "Enthusiast",
@@ -66,17 +69,6 @@ export const Pricing = () => {
           features: [
             "Access to all features",
             "nothing more. It's free what more you expect??",
-          ],
-        },
-        {
-          title: "Da Vinci",
-          description: "For god-tier UI/UX master crafters.",
-          price: "$0.02",
-          features: [
-            "Super advanced AI",
-            "24/7 technical support with high priority",
-            "More than +1000 color templates ready to use",
-            "Certificate issued and granted by Leonardo",
           ],
         },
         {
@@ -90,147 +82,193 @@ export const Pricing = () => {
             "A help guide to start creating your perfect design system",
           ],
         },
+        {
+          title: "Da Vinci",
+          description: "For god-tier UI/UX master crafters.",
+          price: "Custom",
+          features: [
+            "Super advanced AI",
+            "24/7 technical support with high priority",
+            "More than +1000 color templates ready to use",
+            "Certificate issued and granted by Leonardo",
+          ],
+        },
       ],
     },
   });
 
-  const getBadgeTextColor = () => {
-    const accentColor = colors.accent || "#000000";
-    const color = tinycolor(accentColor);
-    return color.isDark() ? "#ffffff" : "#000000";
-  };
+  const featuredBg = tinycolor.mix(colors.primary, "#000000", 65).toHexString();
+  const featuredTextColor = tinycolor(featuredBg).isDark()
+    ? "#ffffff"
+    : "#000000";
 
   return (
     <section id="pricing" className="px-8 py-20">
       <div className="max-w-lg md:max-w-2xl lg:max-w-[1550px] mx-auto">
         <h2
-          className=" text-4xl md:text-5xl font-bold text-center mb-8"
+          className="text-4xl md:text-5xl font-bold text-center mb-16"
           style={{ color: "var(--color-text)" }}
         >
           {current.title}
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-stretch">
-          {current.plans.map((plan) => {
-            const isSenior = plan.title === "Da Vinci";
-            const planBg = isSenior
-              ? "var(--color-primary)"
-              : "var(--color-secondary)";
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 items-stretch pt-6">
+          {current.plans.map((plan, index) => {
+            const isFeatured = index === 1;
+            const isCustom = plan.price === current.custom;
+
+            const neutralBg = isDark ? "#12121c" : "#f4f4f8";
+            const neutralBorder = isDark
+              ? "rgba(255,255,255,0.22)"
+              : "rgba(0,0,0,0.1)";
 
             return (
               <div
                 key={plan.title}
-                className="rounded-[10px] relative overflow-visible h-full flex flex-col"
+                className={`rounded-[16px] relative overflow-visible h-full flex flex-col border transition-all duration-300 ${
+                  index === 2 ? "md:col-span-2 lg:col-span-1" : ""
+                }`}
+                style={{
+                  backgroundColor: isFeatured ? featuredBg : neutralBg,
+                  borderColor: isFeatured ? "transparent" : neutralBorder,
+                  boxShadow: isFeatured
+                    ? isDark
+                      ? "0 8px 20px -4px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.15)"
+                      : "0 8px 20px -4px rgba(0,0,0,0.12)"
+                    : isDark
+                      ? "0 0 0 1px rgba(255,255,255,0.06)"
+                      : undefined,
+                }}
               >
-                {isSenior && (
-                  <div
-                    className="absolute -top-8 -right-6 z-20"
-                    style={{ width: "100px", height: "100px" }}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="100"
-                      height="100"
-                      viewBox="0 0 256 256"
-                      fill="none"
+                {isFeatured && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-30">
+                    <span
+                      className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap shadow-md"
+                      style={{
+                        backgroundColor: "var(--color-primary)",
+                        color: tinycolor(colors.primary).isDark()
+                          ? "#ffffff"
+                          : "#000000",
+                      }}
                     >
-                      <path
-                        d="M 128 0 C 147.68 0 164.04 14.213 167.377 32.934 C 182.974 22.055 204.594 23.574 218.51 37.49 C 232.426 51.406 233.944 73.025 223.066 88.622 C 241.787 91.96 256 108.32 256 128 C 256 147.68 241.787 164.04 223.065 167.377 C 233.944 182.974 232.426 204.594 218.51 218.51 C 204.594 232.426 182.974 233.944 167.377 223.065 C 164.04 241.787 147.68 256 128 256 C 108.32 256 91.959 241.787 88.622 223.065 C 73.025 233.944 51.406 232.426 37.49 218.51 C 23.574 204.594 22.055 182.974 32.934 167.377 C 14.213 164.04 0 147.68 0 128 C 0 108.32 14.213 91.96 32.934 88.622 C 22.056 73.025 23.574 51.406 37.49 37.49 C 51.406 23.574 73.025 22.055 88.622 32.934 C 91.96 14.213 108.32 0 128 0 Z"
-                        fill="var(--color-accent)"
-                      ></path>
-                    </svg>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span
-                        className="font-mono text-md font-bold text-center px-2 leading-tight whitespace-pre-line"
-                        style={{ color: getBadgeTextColor() }}
-                      >
-                        {current.best}
-                      </span>
-                    </div>
+                      {current.mostPopular}
+                    </span>
                   </div>
                 )}
 
-                <div
-                  className="absolute inset-0 rounded-[14px] "
-                  style={{
-                    backgroundColor: planBg,
-                    opacity: 0.2,
-                    zIndex: 0,
-                  }}
-                />
+                {!isFeatured && (
+                  <div
+                    className="absolute top-0 left-0 right-0 h-[180px] pointer-events-none rounded-t-[16px]"
+                    style={{
+                      background:
+                        "radial-gradient(ellipse at top, var(--color-primary) 0%, transparent 70%)",
+                      opacity: 0.1,
+                      filter: "blur(20px)",
+                    }}
+                  />
+                )}
 
-                <div className="relative z-10 py-7 px-7 flex flex-col h-full">
+                <div className="relative z-10 px-8 pt-8 pb-8 flex flex-col h-full">
                   <h3
-                    className=" text-3xl font-bold mb-3 pt-5"
-                    style={{ color: "var(--color-text)" }}
+                    className="text-3xl font-bold mb-3"
+                    style={{
+                      color: isFeatured
+                        ? featuredTextColor
+                        : "var(--color-text)",
+                    }}
                   >
                     {plan.title}
                   </h3>
 
                   <p
-                    className="text-xl font-medium mb-11 min-h-[80px]"
-                    style={{ color: "var(--color-text)" }}
+                    className="text-lg font-medium mb-10 min-h-[70px]"
+                    style={{
+                      color: isFeatured
+                        ? featuredTextColor
+                        : "var(--color-text)",
+                      opacity: 0.8,
+                    }}
                   >
                     {plan.description}
                   </p>
 
                   <div
-                    className="text-2xl font-medium mb-3"
-                    style={{ color: "var(--color-text)" }}
+                    className="text-3xl font-bold mb-6"
+                    style={{
+                      color: isFeatured
+                        ? featuredTextColor
+                        : "var(--color-text)",
+                    }}
                   >
                     {plan.price}
-                    {plan.price !== current.free && (
-                      <span className="text-base font-normal opacity-80">
+                    {plan.price !== current.free && !isCustom && (
+                      <span className="text-base font-normal opacity-70 ml-1">
                         {current.monthly}
                       </span>
                     )}
                   </div>
 
-                  <div className="mb-10 ">
+                  <div className="mb-10">
                     <Button
-                      variant={isSenior ? "primary" : "secondary"}
-                      padding="8px 0"
-                      borderRadius="25px"
-                      opacity={isSenior ? 0.9 : 0.35}
-                      className="w-full"
+                      variant="primary"
+                      padding="10px 0"
+                      borderRadius="10px"
+                      className="w-full shadow-md"
                     >
                       {current.button}
                     </Button>
                   </div>
 
-                  <div className="flex items-center gap-3 mb-5">
+                  <div className="flex items-center gap-3 mb-6">
                     <div
                       className="flex-1 h-[1px]"
                       style={{
-                        backgroundColor: "var(--color-text)",
+                        backgroundColor: isFeatured
+                          ? featuredTextColor
+                          : "var(--color-text)",
                         opacity: 0.2,
                       }}
                     />
                     <span
-                      className="text-sm font-light"
-                      style={{ color: "var(--color-text)", opacity: 0.5 }}
+                      className="text-xs font-mono uppercase tracking-wider"
+                      style={{
+                        color: isFeatured
+                          ? featuredTextColor
+                          : "var(--color-text)",
+                        opacity: 0.6,
+                      }}
                     >
                       {current.features}
                     </span>
                     <div
                       className="flex-1 h-[1px]"
                       style={{
-                        backgroundColor: "var(--color-text)",
+                        backgroundColor: isFeatured
+                          ? featuredTextColor
+                          : "var(--color-text)",
                         opacity: 0.2,
                       }}
                     />
                   </div>
 
-                  <ul className="space-y-5 mb-6">
+                  <ul className="space-y-4 mb-6">
                     {plan.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-3">
                         <CheckIcon
                           className="w-5 h-5 flex-shrink-0 mt-0.5"
-                          style={{ color: "var(--color-accent)" }}
+                          style={{
+                            color: isFeatured
+                              ? featuredTextColor
+                              : "var(--color-accent)",
+                          }}
                         />
                         <span
-                          className="md:text-md text-md font-light"
-                          style={{ color: "var(--color-text)" }}
+                          className="text-base font-light"
+                          style={{
+                            color: isFeatured
+                              ? featuredTextColor
+                              : "var(--color-text)",
+                          }}
                         >
                           {feature}
                         </span>
