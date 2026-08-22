@@ -1,4 +1,3 @@
-
 /* EFECTO STARTS DE LOS BOTONES  */
 
 .button-stars {
@@ -111,12 +110,8 @@
   fill: var(--color-primary);
 }
 
-
-
-
-
 /* EFECTO GLOW DE LOS BOTONES  */
- 
+
 .btn-glow-effect {
   transition: all 0.3s ease-in-out;
   border: none;
@@ -132,22 +127,17 @@
   box-shadow: 3px 3px 28px -8px var(--shadow-color);
 }
 
-
-
-
-
-
-
-
-
-
 /* BOTON DE GITHUB DEL FOOTER  */
 .btn-github-uiverse {
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease-out;
-  background-color: var(--color-text) !important; /* El botón es del color del texto */
-  color: var(--color-background) !important;     /* El texto es del color de fondo */
+  background-color: var(
+    --color-text
+  ) !important; /* El botón es del color del texto */
+  color: var(
+    --color-background
+  ) !important; /* El texto es del color de fondo */
 }
 
 .btn-github-uiverse:hover {
@@ -171,4 +161,18 @@
 
 .btn-github-uiverse:hover .shine-effect {
   transform: translateX(-15rem) rotate(12deg);
+}
+
+.button-ghost {
+  cursor: pointer;
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.button-ghost:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--shadow-color, currentColor) 10%,
+    transparent
+  );
 }
