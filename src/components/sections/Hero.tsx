@@ -7,23 +7,20 @@ import { ColorMixArt } from "../art/ColorMixArt";
 import { loadGoogleFont } from "../../utils/googleFonts";
 
 export const Hero = () => {
-  const primaryColor = useColorStore((state) => state.colors.primary);
   const headingFont = useColorStore((state) => state.typography.headingFont);
 
   useEffect(() => {
     loadGoogleFont(headingFont);
   }, [headingFont]);
 
-  const { title, subtitle, primaryBtn, secondaryBtn } = useLang({
+  const { subtitle, primaryBtn, secondaryBtn } = useLang({
     es: {
-      title: "Obten los colores de tu marca en segundos, no horas.",
       subtitle:
         "Elegí tus colores sobre una web real. Usá la toolbar para aplicar y visualizar tus elecciones en tiempo real.",
       primaryBtn: "Comenzar",
       secondaryBtn: "Saber más",
     },
     en: {
-      title: "Build a brand identity with Color & Font—fast.",
       subtitle:
         "Choose your colors on a real website. Use the toolbar to apply and preview your choices in real time.",
       primaryBtn: "Get Started",
@@ -45,7 +42,7 @@ export const Hero = () => {
     <section className="min-h-[92vh] lg:min-h-[89vh] flex flex-col relative overflow-visible">
       <Navbar />
 
-      <div className="flex-1 grid grid-cols-1 md:grid-cols-2 items-center md:items-start gap-10 md:gap-8 lg:gap-14 pt-4 md:pt-24 pb-16 md:pb-0 relative z-10 max-w-7xl mx-auto w-full">
+      <div className="flex-1 grid grid-cols-1 md:grid-cols-2 items-center md:items-start gap-4 md:gap-8 lg:gap-14 pt-2 md:pt-24 pb-16 md:pb-0 relative z-10 max-w-7xl mx-auto w-full">
         {/* texto — columna izquierda en desktop, segundo en mobile */}
         <div className="order-2 md:order-1 justify-self-center md:justify-self-start px-6 md:pl-4 lg:pl-6 md:pr-0 max-w-lg md:max-w-xl lg:max-w-2xl text-center md:text-left md:-translate-x-2">
           <h1 className="text-4xl sm:text-5xl md:text-4xl lg:text-6xl leading-[1.05] font-extrabold mb-5">
@@ -118,8 +115,8 @@ export const Hero = () => {
           </div>
         </div>
 
-        {/* obra de arte — columna derecha en desktop, primero en mobile */}
-        <div className="order-1 md:order-2 justify-self-center md:justify-self-end pr-4 md:pr-4 lg:pr-6 w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl">
+        {/* obra de arte — columna derecha en desktop, primero en mobile pero chico */}
+        <div className="order-1 md:order-2 justify-self-center md:justify-self-end pr-4 md:pr-4 lg:pr-6 w-full max-w-[220px] sm:max-w-xs md:max-w-xl lg:max-w-2xl -mb-4 md:mb-0">
           <ColorMixArt />
         </div>
       </div>
