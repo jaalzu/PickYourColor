@@ -257,9 +257,7 @@ export const Pricing = () => {
                         <CheckIcon
                           className="w-5 h-5 flex-shrink-0 mt-0.5"
                           style={{
-                            color: isFeatured
-                              ? featuredTextColor
-                              : "var(--color-accent)",
+                            color: "var(--color-accent)",
                           }}
                         />
                         <span

@@ -65,7 +65,7 @@ export const HowItWorks = () => {
   });
 
   return (
-    <section id="how-it-works" className="px-5 md:pt-15 pb-15">
+    <section id="how-it-works" className="px-5 pt-25 md:pt-15 pb-15">
       <div className="max-w-7xl mx-auto">
         <div className="p-9 md:px-12 md:pt-12 md:pb-20 rounded-[13px] relative">
           <div

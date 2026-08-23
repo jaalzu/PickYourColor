@@ -1,5 +1,5 @@
 // src/features/Toolbar/components/Actions/RandomizeButton.tsx
-import { Squares2X2Icon } from '@heroicons/react/24/outline';
+import DiceIcon from '../../../../assets/features/dice.svg?react';
 import { useColorStore } from '../../../../store/useColorStore';
 import { Tooltip } from '../../../../components/ui/Tooltip';
 import { useToolbarTextContent } from '../../hooks/useToolbarTextContent';
@@ -16,7 +16,7 @@ export const RandomizeButton = ({ className = "" }: { className?: string }) => {
       onClick={randomize}
       aria-label={t.aria}
     >
-      <Squares2X2Icon className="w-6 h-6 text-white" />
+      <DiceIcon className="w-6 h-6 text-white" />
      <span className="font-mono text-[16px] md:text-[12.5px] text-white">
   {t.label}
 </span>

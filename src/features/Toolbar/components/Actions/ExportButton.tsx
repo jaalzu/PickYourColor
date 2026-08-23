@@ -1,6 +1,6 @@
 // src/features/Toolbar/components/Actions/ExportButton.tsx
 import { useState } from 'react';
-import { ArrowDownTrayIcon } from '@heroicons/react/24/outline';
+import ExportIcon from '../../../../assets/features/export.svg?react';
 import { ExportModal } from '../Export/ExportModal';
 import { Tooltip } from '../../../../components/ui/Tooltip';
 import { useToolbarTextContent } from '../../hooks/useToolbarTextContent';
@@ -24,7 +24,7 @@ export const ExportButton = ({ className = "" }: ExportButtonProps) => {
           onClick={() => setIsModalOpen(true)}
           aria-label={t.aria}
         >
-          <ArrowDownTrayIcon className="w-6 h-6 text-white" />
+          <ExportIcon className="w-6 h-6 text-white" />
           <span className="font-mono text-[16px] md:text-[12.5px] text-white">{t.label}</span>
         </button>
       </Tooltip>

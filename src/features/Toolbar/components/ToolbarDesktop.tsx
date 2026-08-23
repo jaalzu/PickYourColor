@@ -50,23 +50,6 @@ const t = useToolbarTextContent();
               ))}
 
               <div className="flex h-full">
-                <Tooltip content={t.typography.openLabel}>
-                  <button
-                    className="flex flex-col items-center justify-center gap-1 px-5 h-full hover:bg-white/5 transition-colors"
-                    onClick={() => {
-                      handleCloseModal();
-                      setToolbarMode('typography');
-                    }}
-                    aria-label={t.typography.openAria}
-                  >
-                    <LanguageIcon className="w-6 h-6 text-white" />
-                    <span className="font-mono text-[16px] md:text-[12.5px] text-white">{t.typography.openLabel}</span>
-                  </button>
-                </Tooltip>
-                <div className="w-px h-full bg-white/20" />
-              </div>
-
-              <div className="flex h-full">
                 <RandomizeButton />
                 <div className="w-px h-full bg-white/20" />
               </div>
@@ -88,6 +71,28 @@ const t = useToolbarTextContent();
 
               <div className="flex h-full">
                 <ShareButton />
+              </div>
+
+              {/* double divider + font at the end */}
+              <div className="flex items-center h-full gap-1 px-1">
+                <div className="w-px h-full bg-white/20" />
+                <div className="w-px h-full bg-white/20" />
+              </div>
+
+              <div className="flex h-full">
+                <Tooltip content={t.typography.openLabel}>
+                  <button
+                    className="flex flex-col items-center justify-center gap-1 px-5 h-full hover:bg-white/5 transition-colors"
+                    onClick={() => {
+                      handleCloseModal();
+                      setToolbarMode('typography');
+                    }}
+                    aria-label={t.typography.openAria}
+                  >
+                    <LanguageIcon className="w-6 h-6 text-white" />
+                    <span className="font-mono text-[16px] md:text-[12.5px] text-white">{t.typography.openLabel}</span>
+                  </button>
+                </Tooltip>
               </div>
             </>
           )}

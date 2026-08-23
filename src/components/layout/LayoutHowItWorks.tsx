@@ -1,9 +1,9 @@
-import { HowItWorks } from "../sections/HowItWorks";
+// import { HowItWorks } from "../sections/HowItWorks";
 
-export const LayoutHowItWorks = () => {
-  return (
-    <div className="relative overflow-hidden">
-      <HowItWorks />
-    </div>
-  );
-};
+// export const LayoutHowItWorks = () => {
+//   return (
+//     <div className="relative overflow-hidden">
+//       <HowItWorks />
+//     </div>
+//   );
+// };
