@@ -33,6 +33,7 @@ export const useToolbarLogic = () => {
     selectedColor,
     triggerElement,
     isToolbarOpen,
+    setIsToolbarOpen,
     handleColorSelect,
     handleColorSelectAndClose,
     handleCloseModal,

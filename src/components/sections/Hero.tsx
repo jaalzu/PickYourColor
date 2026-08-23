@@ -13,14 +13,30 @@ export const Hero = () => {
     loadGoogleFont(headingFont);
   }, [headingFont]);
 
-  const { subtitle, primaryBtn, secondaryBtn } = useLang({
+  const {
+    titleLine1,
+    titleColors,
+    titleAnd,
+    titleFonts,
+    subtitle,
+    primaryBtn,
+    secondaryBtn,
+  } = useLang({
     es: {
+      titleLine1: "Obtené tus",
+      titleColors: "Colores",
+      titleAnd: " y ",
+      titleFonts: "Fuentes",
       subtitle:
         "Elegí tus colores sobre una web real. Usá la toolbar para aplicar y visualizar tus elecciones en tiempo real.",
       primaryBtn: "Comenzar",
       secondaryBtn: "Saber más",
     },
     en: {
+      titleLine1: "Get your brand",
+      titleColors: "Colors",
+      titleAnd: " & ",
+      titleFonts: "Fonts",
       subtitle:
         "Choose your colors on a real website. Use the toolbar to apply and preview your choices in real time.",
       primaryBtn: "Get Started",
@@ -42,12 +58,14 @@ export const Hero = () => {
     <section className="min-h-[92vh] lg:min-h-[89vh] flex flex-col relative overflow-visible">
       <Navbar />
 
-      <div className="flex-1 grid grid-cols-1 md:grid-cols-2 items-center md:items-start gap-4 md:gap-8 lg:gap-14 pt-2 md:pt-24 pb-16 md:pb-0 relative z-10 max-w-7xl mx-auto w-full">
+      <div className="flex-1 grid grid-cols-1 md:grid-cols-2 items-center md:items-start gap-0 md:gap-8 lg:gap-14 md:px-8 md:pt-16 pb-4 md:pb-0 relative z-10 max-w-7xl mx-auto w-full">
         {/* texto — columna izquierda en desktop, segundo en mobile */}
-        <div className="order-2 md:order-1 justify-self-center md:justify-self-start px-6 md:pl-4 lg:pl-6 md:pr-0 max-w-lg md:max-w-xl lg:max-w-2xl text-center md:text-left md:-translate-x-2">
-          <h1 className="text-4xl sm:text-5xl md:text-4xl lg:text-6xl leading-[1.05] font-extrabold mb-5">
+        <div className="order-2 md:order-1 justify-self-start px-6 md:pl-10 lg:pl-16 md:pr-0 max-w-lg md:max-w-xl lg:max-w-2xl text-left md:-translate-x-2">
+          <h1
+            className="hero-title leading-[1.2] font-extrabold mt-12 sm:mt-6 mb-8 sm:mb-5"
+          >
             <span className="block" style={{ color: "var(--color-text)" }}>
-              Get your brand
+              {titleLine1}
             </span>
 
             <span className="block">
@@ -55,7 +73,7 @@ export const Hero = () => {
                 className="relative inline-block pb-0.5"
                 style={{ color: "var(--color-primary)" }}
               >
-                Colors
+                {titleColors}
                 <svg
                   aria-hidden
                   viewBox="0 0 120 10"
@@ -72,32 +90,32 @@ export const Hero = () => {
                 </svg>
               </span>
 
-              <span style={{ color: "var(--color-text)" }}> & </span>
+              <span style={{ color: "var(--color-text)" }}>{titleAnd}</span>
 
               <span
-                className="italic tracking-wide"
+                className="italic "
                 style={{
                   fontFamily: `"${headingFont}", Georgia, serif`,
-                  WebkitTextStroke: "1px var(--color-text)",
+                  WebkitTextStroke: "2px var(--color-text)",
                   color: "transparent",
                 }}
               >
-                Fonts
+                {titleFonts}
               </span>
             </span>
           </h1>
 
           <p
-            className="text-lg md:text-xl mb-12 max-w-sm mx-auto md:mx-0 md:max-w-md"
+            className="hero-subtitle text-[13px] sm:text-base md:text-lg mb-6 sm:mb-12 max-w-sm md:max-w-md leading-relaxed"
             style={{ color: "var(--color-text)" }}
           >
             {subtitle}
           </p>
 
-          <div className="flex gap-4 justify-center md:justify-start items-center">
+          <div className="flex gap-3 sm:gap-4 justify-start items-center">
             <Button
               variant="primary"
-              padding="12px 40px"
+              padding="12px 32px"
               borderRadius="5px"
               effect="stars"
             >
@@ -106,7 +124,7 @@ export const Hero = () => {
 
             <Button
               variant="ghost"
-              padding="12px 40px"
+              padding="12px 28px"
               borderRadius="5px"
               onClick={scrollToHowItWorks}
             >
@@ -115,8 +133,8 @@ export const Hero = () => {
           </div>
         </div>
 
-        {/* obra de arte — columna derecha en desktop, primero en mobile pero chico */}
-        <div className="order-1 md:order-2 justify-self-center md:justify-self-end pr-4 md:pr-4 lg:pr-6 w-full max-w-[220px] sm:max-w-xs md:max-w-xl lg:max-w-2xl -mb-4 md:mb-0">
+        {/* obra de arte — columna derecha en desktop, primero en mobile */}
+        <div className="order-1 md:order-2 justify-self-center md:justify-self-end md:pr-4 lg:pr-6 w-full flex justify-center max-w-[250px] sm:max-w-[310px] md:max-w-[320px] lg:max-w-[380px] mt-8 mb-4 md:mb-0 mx-auto px-4">
           <ColorMixArt />
         </div>
       </div>

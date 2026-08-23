@@ -8,7 +8,7 @@ import { FAQ } from "./components/sections/FAQ";
 import { useKeyboardShortcuts } from "./hooks/useKeyboardShortcuts";
 import { useURLSync } from "./hooks/useURLSync";
 import { Hero } from "./components/sections/Hero";
-import { LayoutHowItWorks } from "./components/layout/LayoutHowItWorks";
+import { HowItWorks } from "./components/sections/HowItWorks";
 import { LayoutFooterCTA } from "./components/layout/LayoutFooterCTA";
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
     <>
       <main className="type-scope">
         <Hero />
-        <LayoutHowItWorks />
+        <HowItWorks />
         <Features />
         <Pricing />
         <Testimonials />

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { ArrowLeftIcon, ClipboardIcon, CheckIcon, Squares2X2Icon } from '@heroicons/react/24/outline';
+import { ClipboardIcon, CheckIcon } from '@heroicons/react/24/outline';
+import DiceIcon from '../../../../assets/features/dice.svg?react';
 import { Tooltip } from '../../../../components/ui/Tooltip';
 import { useColorStore } from '../../../../store/useColorStore';
 import { TYPOGRAPHY_OPTIONS, TYPE_SCALE_OPTIONS } from '../../../../store/slices/typographySlice';
@@ -9,11 +10,11 @@ import { UndoRedoButtons } from '../Actions/UndoRedoButtons';
 import { useToolbarTextContent } from '../../hooks/useToolbarTextContent';
 
 interface TypographyToolbarPanelProps {
-  onBack: () => void;
+  onBack?: () => void;
   compact?: boolean;
 }
 
-export const TypographyToolbarPanel = ({ onBack, compact = false }: TypographyToolbarPanelProps) => {
+export const TypographyToolbarPanel = ({ compact = false }: TypographyToolbarPanelProps) => {
   const {
     typography,
     setHeadingFont,
@@ -43,19 +44,6 @@ export const TypographyToolbarPanel = ({ onBack, compact = false }: TypographyTo
 
   return (
     <div className={compact ? 'flex flex-col' : 'flex h-full w-full items-center'}>
-      <Tooltip content={t.backLabel}>
-        <button
-          className={`${compact ? 'py-4' : 'h-full px-4'} flex items-center justify-center gap-2 hover:bg-white/5 transition-colors`}
-          onClick={onBack}
-          aria-label={t.backAria}
-        >
-          <ArrowLeftIcon className="h-6 w-6 text-white" />
-          <span className="font-mono text-[16px] md:text-[12.5px] text-white">{t.backLabel}</span>
-        </button>
-      </Tooltip>
-
-      <div className={compact ? 'grid grid-cols-1' : 'w-px h-full bg-white/20'} />
-
       <label className={fieldClass}>
         <span className="font-mono text-[10px] uppercase text-white/55">Heading Font</span>
         <select
@@ -143,7 +131,7 @@ export const TypographyToolbarPanel = ({ onBack, compact = false }: TypographyTo
           onClick={randomizeTypography}
           aria-label={t.randomTooltip}
         >
-          <Squares2X2Icon className="h-5 w-5 text-white" />
+          <DiceIcon className="h-5 w-5 text-white" />
           <span className="font-mono text-[14px] md:text-[11.5px] text-white">{t.randomLabel}</span>
         </button>
       </Tooltip>

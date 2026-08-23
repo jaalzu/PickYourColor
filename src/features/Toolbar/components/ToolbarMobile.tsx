@@ -1,6 +1,5 @@
 // src/features/Toolbar/components/ToolbarMobile.tsx
 import { useState } from 'react';
-import { LanguageIcon } from '@heroicons/react/24/outline';
 import { ColorInputMobile } from './ColorPicker/ColorInputButton/ColorInputMobile';
 import { ColorPickerModal } from './ColorPicker/ColorPickerModal/ColorPickerModal';
 import { RandomizeButton } from './Actions/RandomizeButton';
@@ -18,15 +17,35 @@ export const ToolbarMobile = () => {
     colors, 
     selectedColor,
     isToolbarOpen,
+    setIsToolbarOpen,
     handleColorSelect,
     handleCloseModal,
     triggerElement,
-    toggleToolbar 
   } = useToolbarLogic();
 
   const isShaking = useColorStore((state) => state.isToolbarShaking);
   const [toolbarMode, setToolbarMode] = useState<'colors' | 'typography'>('colors');
   const t = useToolbarTextContent();
+
+  const handleColorsTab = () => {
+    if (isToolbarOpen && toolbarMode === 'colors') {
+      setIsToolbarOpen(false);
+    } else {
+      handleCloseModal();
+      setToolbarMode('colors');
+      setIsToolbarOpen(true);
+    }
+  };
+
+  const handleFontsTab = () => {
+    if (isToolbarOpen && toolbarMode === 'typography') {
+      setIsToolbarOpen(false);
+    } else {
+      handleCloseModal();
+      setToolbarMode('typography');
+      setIsToolbarOpen(true);
+    }
+  };
 
   return (
     <>
@@ -76,29 +95,18 @@ export const ToolbarMobile = () => {
                   <div className="flex flex-col border border-white/10">
                     <RandomizeButton />
                   </div>
-                  <div className="flex flex-col border border-white/10">
-                    <RandomizeButton />
-                  </div>
-                  <button
-                    className="col-span-2 flex flex-col items-center justify-center gap-1 border border-white/10 py-4 hover:bg-white/5 transition-colors"
-                    onClick={() => {
-                      handleCloseModal();
-                      setToolbarMode('typography');
-                    }}
-                    aria-label={t.typography.openAria}
-                  >
-                    <LanguageIcon className="w-6 h-6 text-white" />
-                    <span className="font-mono text-[16px] text-white">{t.typography.openLabel}</span>
-                  </button>
                 </div>
 
                 <div className="flex flex-col">
-                  <div className="grid grid-cols-2 divide-x divide-white/10 border-b border-white/10">
+                  {/* Deshacer/Rehacer - full width */}
+                  <div className="border-t border-white/10">
                     <UndoRedoButtons className="w-full py-4" />
-                    <ThemeToggleButton className="w-full py-4" />
                   </div>
-                  <div className="grid grid-cols-2 divide-x divide-white/10">
+                  <div className="grid grid-cols-2 divide-x divide-white/10 border-t border-white/10">
+                    <ThemeToggleButton className="w-full py-4" />
                     <ExportButton className="w-full py-4" />
+                  </div>
+                  <div className="border-t border-white/10">
                     <ShareButton className="w-full py-4" />
                   </div>
                 </div>
@@ -106,12 +114,25 @@ export const ToolbarMobile = () => {
             )}
           </div>
 
-          <button 
-            onClick={toggleToolbar}
-            className="font-mono w-full bg-[#1a1a2e] text-white py-3 font-bold text-[24px] tracking-widest border-t border-white/10"
-          >
-            TOOLBAR
-          </button>
+          {/* Colors | Fonts tabs - replaces TOOLBAR */}
+          <div className="grid grid-cols-2 divide-x divide-white/10 bg-[#1a1a2e] border-t border-white/10">
+            <button
+              onClick={handleColorsTab}
+              aria-label={t.typography.backLabel}
+              className={`font-mono py-3 font-extrabold text-[16px] tracking-widest transition-colors ${isToolbarOpen && toolbarMode === 'colors' ? 'bg-white/10 text-white' : 'text-white hover:bg-white/5'}`}
+              style={{ color: '#ffffff' }}
+            >
+              {t.typography.backLabel.toUpperCase()}
+            </button>
+            <button
+              onClick={handleFontsTab}
+              aria-label={t.typography.openLabel}
+              className={`font-mono py-3 font-extrabold text-[16px] tracking-widest transition-colors ${isToolbarOpen && toolbarMode === 'typography' ? 'bg-white/10 text-white' : 'text-white hover:bg-white/5'}`}
+              style={{ color: '#ffffff' }}
+            >
+              {t.typography.openLabel.toUpperCase()}
+            </button>
+          </div>
         </div>
       </div>
 

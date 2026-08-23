@@ -19,7 +19,7 @@ export const ColorMixArt = ({ className = "" }: ColorMixArtProps) => {
         .cma-accent{ fill: var(--color-accent); }
       `}</style>
 
-      <svg viewBox="0 0 300 300" className="cma-svg">
+      <svg viewBox="70 50 160 150" className="cma-svg">
         <circle
           className="cma-circle cma-primary"
           cx={PRIMARY.cx}
