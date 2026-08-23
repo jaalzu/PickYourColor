@@ -115,7 +115,7 @@ export const ToolbarMobile = () => {
           </div>
 
           {/* Colors | Fonts tabs - replaces TOOLBAR */}
-          <div className="grid grid-cols-2 divide-x divide-white/10 bg-[#1a1a2e] border-t border-white/10">
+          <div className="grid grid-cols-2 divide-x divide-white/10 bg-[#1a1a2e] border-y border-white/10">
             <button
               onClick={handleColorsTab}
               aria-label={t.typography.backLabel}

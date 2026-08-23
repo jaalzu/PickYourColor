@@ -14,7 +14,7 @@ interface TypographyToolbarPanelProps {
   compact?: boolean;
 }
 
-export const TypographyToolbarPanel = ({ compact = false }: TypographyToolbarPanelProps) => {
+export const TypographyToolbarPanel = ({ onBack, compact = false }: TypographyToolbarPanelProps) => {
   const {
     typography,
     setHeadingFont,
@@ -139,6 +139,19 @@ export const TypographyToolbarPanel = ({ compact = false }: TypographyToolbarPan
       <div className={compact ? 'border-t border-white/10' : 'w-px h-full bg-white/20'} />
 
       <UndoRedoButtons className={compact ? 'w-full py-4' : ''} />
+
+      {onBack && !compact && (
+        <>
+          <div className="w-px h-full bg-white/20" />
+          <button
+            onClick={onBack}
+            className="h-full px-5 flex items-center justify-center gap-1.5 hover:bg-white/5 transition-colors flex-shrink-0"
+            aria-label={t.backAria}
+          >
+            <span className="font-mono text-[11.5px] font-bold tracking-widest text-white">{t.backLabel.toUpperCase()}</span>
+          </button>
+        </>
+      )}
     </div>
   );
 };

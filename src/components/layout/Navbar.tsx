@@ -79,11 +79,15 @@ export const Navbar = () => {
               className="flex gap-1.5 mr-2 font-mono text-xs font-bold select-none px-2 py-1 cursor-pointer"
               style={{ color: "var(--color-text)" }}
             >
-              <span className={`transition-all duration-300 ${lang === "es" ? "opacity-100 underline decoration-2 underline-offset-4" : "opacity-40"}`}>
+              <span
+                className={`transition-all duration-300 ${lang === "es" ? "opacity-100 underline decoration-2 underline-offset-4" : "opacity-40"}`}
+              >
                 ES
               </span>
               <span style={{ opacity: 0.3 }}>|</span>
-              <span className={`transition-all duration-300 ${lang === "en" ? "opacity-100 underline decoration-2 underline-offset-4" : "opacity-40"}`}>
+              <span
+                className={`transition-all duration-300 ${lang === "en" ? "opacity-100 underline decoration-2 underline-offset-4" : "opacity-40"}`}
+              >
                 EN
               </span>
             </button>
@@ -107,18 +111,18 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* 3 LÍNEAS SEPARADORAS AL FINAL DEL NAVBAR */}
-        <div className="w-full flex flex-col gap-1  mb-2 px-3 md:px-12 opacity-5">
+        {/* 3 LÍNEAS SEPARADORAS — centradas, recorte simétrico, largo al revés de la opacidad */}
+        <div className="w-full flex flex-col gap-1 mb-2 px-3 md:px-12 items-center">
           <div
-            className="w-full h-px bg-current"
+            className="h-px bg-current opacity-[0.18] w-full mx-auto"
             style={{ color: "var(--color-text)" }}
           />
           <div
-            className="w-full h-px bg-current"
+            className="h-px bg-current opacity-[0.08] w-[82%] mx-auto"
             style={{ color: "var(--color-text)" }}
           />
           <div
-            className="w-full h-px bg-current"
+            className="h-px bg-current opacity-[0.03] w-[62%] mx-auto"
             style={{ color: "var(--color-text)" }}
           />
         </div>
@@ -162,11 +166,15 @@ export const Navbar = () => {
                   className="flex gap-1.5 mr-2 font-mono text-xs font-bold select-none px-2 py-1 cursor-pointer"
                   style={{ color: "var(--color-text)" }}
                 >
-                  <span className={`transition-all duration-300 ${lang === "es" ? "opacity-100 underline decoration-2 underline-offset-4" : "opacity-40"}`}>
+                  <span
+                    className={`transition-all duration-300 ${lang === "es" ? "opacity-100 underline decoration-2 underline-offset-4" : "opacity-40"}`}
+                  >
                     ES
                   </span>
                   <span style={{ opacity: 0.3 }}>|</span>
-                  <span className={`transition-all duration-300 ${lang === "en" ? "opacity-100 underline decoration-2 underline-offset-4" : "opacity-40"}`}>
+                  <span
+                    className={`transition-all duration-300 ${lang === "en" ? "opacity-100 underline decoration-2 underline-offset-4" : "opacity-40"}`}
+                  >
                     EN
                   </span>
                 </button>
