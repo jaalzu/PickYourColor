@@ -61,9 +61,7 @@ export const Hero = () => {
       <div className="flex-1 grid grid-cols-1 md:grid-cols-2 items-center md:items-start gap-0 md:gap-8 lg:gap-14 md:px-8 md:pt-16 pb-4 md:pb-0 relative z-10 max-w-7xl mx-auto w-full">
         {/* texto — columna izquierda en desktop, segundo en mobile */}
         <div className="order-2 md:order-1 justify-self-start px-6 md:pl-10 lg:pl-16 md:pr-0 max-w-lg md:max-w-xl lg:max-w-2xl text-left md:-translate-x-2">
-          <h1
-            className="hero-title leading-[1.2] font-extrabold mt-12 sm:mt-6 mb-8 sm:mb-5"
-          >
+          <h1 className="hero-title leading-[1.2] font-extrabold mt-12 sm:mt-6 mb-8 sm:mb-5">
             <span className="block" style={{ color: "var(--color-text)" }}>
               {titleLine1}
             </span>

@@ -1,4 +1,10 @@
-export type ColorKey = 'background' | 'text' | 'primary' | 'secondary' | 'accent';
+// src/types/index.ts
+export type ColorKey =
+  | "background"
+  | "text"
+  | "primary"
+  | "secondary"
+  | "accent";
 
 export interface ColorScheme {
   background: string;
@@ -8,42 +14,11 @@ export interface ColorScheme {
   accent: string;
 }
 
-export type FontKey =
-  | 'figtree'
-  | 'inter'
-  | 'spaceGrotesk'
-  | 'montserrat'
-  | 'playfair'
-  | 'merriweather'
-  | 'lora'
-  | 'caveat'
-  | 'roboto'
-  | 'openSans'
-  | 'lato'
-  | 'poppins'
-  | 'raleway'
-  | 'nunito'
-  | 'ubuntu'
-  | 'oswald'
-  | 'playpenSans'
-  | 'rubik'
-  | 'quicksand'
-  | 'dancingScript'
-  | 'pacifico'
-  | 'Cinzel'
-  | 'BebasNeue'
-  | 'sourceSans3'
-  | 'workSans'
-  | 'ptSans'
-  | 'mulish'
-  | 'firaCode'
-  | 'jetBrainsMono'
-  | 'crimsonPro'
-  | 'cardo'
-  | 'ebGaramond'
-  | 'georgia'
-  | 'system'
-  | 'mono';
+// Antes era una unión cerrada de ~34 valores. Ahora acepta cualquier
+// nombre de familia de Google Fonts (o los valores curados de siempre,
+// que también son strings válidos). El autocompletado en el editor se
+// pierde, pero es el trade-off necesario para fuentes dinámicas.
+export type FontKey = string;
 
 export interface TypographySettings {
   headingFont: FontKey;

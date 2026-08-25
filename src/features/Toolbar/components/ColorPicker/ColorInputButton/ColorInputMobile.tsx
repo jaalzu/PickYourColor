@@ -1,35 +1,9 @@
-import { useRef } from 'react';
-import { LockButton } from './LockButton';
-import { Tooltip } from '../../../../../components/ui/Tooltip';
-import type { ColorInputBaseProps } from './ColorInputBase';
+// src/features/Toolbar/components/ColorPicker/ColorInputButton/ColorInputMobile.tsx
+import { ColorSwatchButton } from "./ColorSwatchButton";
+import type { ColorInputBaseProps } from "./ColorInputBase";
 
-export const ColorInputMobile = ({ colorKey, label, color, onClick }: ColorInputBaseProps) => {
-  const ref = useRef<HTMLDivElement>(null);
-
-  return (
-    <Tooltip content={`${label}: ${color.toUpperCase()}`} side="top">
-      <div className="flex flex-col w-full h-full">
-        <div
-          ref={ref}
-          onClick={() => ref.current && onClick(ref.current)}
-          className="group relative flex flex-col items-center justify-between px-3 py-1 h-25 w-full cursor-pointer"
-          style={{ backgroundColor: color }}
-          role="button"
-          tabIndex={0}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') ref.current && onClick(ref.current);
-          }}
-        >
-          <div className="flex-1 flex items-center justify-center">
-            <span className="text-[18px] font-medium text-white tracking-wider">{label}</span>
-          </div>
-          <div className="flex w-full items-center justify-between">
-            <div onClick={(e) => e.stopPropagation()}>
-              <LockButton colorKey={colorKey} />
-            </div>
-          </div>
-        </div>
-      </div>
-    </Tooltip>
-  );
-};
+// showTooltip=false: en touch no hay hover real, y el tooltip mal anclado
+// es mi sospechoso #1 del "input viejo" al final del toolbar.
+export const ColorInputMobile = (props: ColorInputBaseProps) => (
+  <ColorSwatchButton {...props} size="lg" showTooltip={false} />
+);

@@ -1,7 +1,9 @@
-import * as Popover from '@radix-ui/react-popover';
-import { ColorPickerContent } from './ColorPickerContent';
-import { useColorPickerLogic } from './useColorPickerLogic';
-import type { ColorKey } from '../../../../../types';
+// src/features/Toolbar/components/ColorPicker/ColorPickerModal/ColorPickerModal.tsx
+import * as Popover from "@radix-ui/react-popover";
+import { ColorPickerContent } from "./ColorPickerContent";
+import { useColorPickerLogic } from "./useColorPickerLogic";
+import { useToolbarTextContent } from "../../../hooks/useToolbarTextContent";
+import type { ColorKey } from "../../../../../types";
 
 interface ColorPickerModalProps {
   colorKey: ColorKey;
@@ -10,7 +12,12 @@ interface ColorPickerModalProps {
   triggerElement?: HTMLElement | null;
 }
 
-export const ColorPickerModal = ({ colorKey, open, onClose, triggerElement }: ColorPickerModalProps) => {
+export const ColorPickerModal = ({
+  colorKey,
+  open,
+  onClose,
+  triggerElement,
+}: ColorPickerModalProps) => {
   const {
     currentColor,
     format,
@@ -19,20 +26,24 @@ export const ColorPickerModal = ({ colorKey, open, onClose, triggerElement }: Co
     handleCopy,
     toggleFormat,
   } = useColorPickerLogic(colorKey);
+  const label = useToolbarTextContent().colorKeys[colorKey];
 
   return (
     <Popover.Root open={open} onOpenChange={(isOpen) => !isOpen && onClose()}>
-      {triggerElement && <Popover.Anchor virtualRef={{ current: triggerElement }} />}
-      
+      {triggerElement && (
+        <Popover.Anchor virtualRef={{ current: triggerElement }} />
+      )}
       <Popover.Portal>
         <Popover.Content
-          side="top"
-          sideOffset={10}
-          align="center"
-          className="z-60 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95"
+          side="right"
+          sideOffset={20}
+          align="start"
+          collisionPadding={20}
+          className="z-90 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95"
         >
           <ColorPickerContent
             colorKey={colorKey}
+            label={label}
             currentColor={currentColor}
             formattedColor={formattedColor}
             format={format}
