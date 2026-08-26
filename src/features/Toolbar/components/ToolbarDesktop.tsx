@@ -26,9 +26,8 @@ export const ToolbarDesktop = () => {
     handleCloseModal,
   } = useToolbarLogic();
   const isToolbarShaking = useColorStore((state) => state.isToolbarShaking);
-  const [toolbarMode, setToolbarMode] = useState<"colors" | "typography">(
-    "colors",
-  );
+  const toolbarMode = useColorStore((state) => state.toolbarMode);
+  const setToolbarMode = useColorStore((state) => state.setToolbarMode);
   const [isVisible, setIsVisible] = useState(true);
   const t = useToolbarTextContent();
 

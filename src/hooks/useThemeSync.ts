@@ -15,8 +15,8 @@ export const useThemeSync = () => {
     Object.entries(colors).forEach(([key, value]) => {
       root.style.setProperty(`--color-${key}`, value);
     });
-    root.style.setProperty('--font-heading', FONT_STACKS[typography.headingFont]);
-    root.style.setProperty('--font-body', FONT_STACKS[typography.bodyFont]);
+    root.style.setProperty('--font-heading', FONT_STACKS[typography.headingFont] ?? `"${typography.headingFont}", sans-serif`);
+    root.style.setProperty('--font-body', FONT_STACKS[typography.bodyFont] ?? `"${typography.bodyFont}", sans-serif`);
     root.style.setProperty('--heading-scale', String(typography.headingScale));
     root.style.setProperty('--body-scale', String(typography.bodyScale));
   }, [colors, typography]);

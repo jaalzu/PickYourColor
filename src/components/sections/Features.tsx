@@ -8,68 +8,61 @@ import { useLang } from "../../hooks/useLang";
 export const Features = () => {
   const { sectionTitle, features } = useLang({
     es: {
-      sectionTitle: "Explora la toolbar",
+      sectionTitle: "Diviertete con la toolbar",
       features: [
         {
           title: "Aleatorizar",
-          description:
-            "Generá combinaciones aleatorias hasta encontrar la paleta ideal.",
+          description: "Generá combinaciones al instante.",
           Icon: DiceIcon,
         },
         {
           title: "Deshacer/Rehacer",
-          description: "¿Cambio por error? Volvé atrás con un click.",
+          description: "Volvé atrás o recuperá cambios con un click.",
           Icon: FlowIcon,
         },
         {
           title: "Color input",
-          description:
-            "Cambiá cualquier color de tu paleta al instante desde la toolbar.",
+          description: "Modificá cualquier color desde la toolbar.",
           Icon: PaletteIcon,
         },
         {
           title: "Exportar sistema",
-          description:
-            "CSS variables, SCSS tokens o Tailwind config. Listo para usar.",
+          description: "Obtené variables en CSS, SCSS o Tailwind",
           Icon: ExportIcon,
         },
         {
           title: "Claro/Oscuro",
-          description:
-            "Probá tu paleta en ambos modos para asegurarte que funciona.",
+          description: "Evaluá el contraste en ambos modos.",
           Icon: ThemeIcon,
         },
       ],
     },
     en: {
-      sectionTitle: "Explore the Toolbar",
+      sectionTitle: "Have fun with toolbar!",
       features: [
         {
           title: "Randomize",
-          description:
-            "Generate random combinations until you find the perfect palette.",
+          description: "Generate combinations instantly.",
           Icon: DiceIcon,
         },
         {
           title: "Undo/Redo",
-          description: "Made a mistake? Go back with a single click.",
+          description: "Go back or restore changes in one click.",
           Icon: FlowIcon,
         },
         {
           title: "Color input",
-          description:
-            "Change any color in your palette instantly from the toolbar.",
+          description: "Modify any color directly from the toolbar.",
           Icon: PaletteIcon,
         },
         {
           title: "Export system",
-          description:
-            "CSS variables, SCSS tokens or Tailwind config. Ready to use.",
+          description: "Get CSS variables, SCSS tokens, or Tailwind config.",
           Icon: ExportIcon,
         },
         {
           title: "Dark/Light",
-          description: "Test your palette in both modes to make sure it works.",
+          description: "Test contrast across both modes.",
           Icon: ThemeIcon,
         },
       ],
@@ -99,8 +92,8 @@ export const Features = () => {
               <div
                 className="absolute inset-0 rounded-[13px]"
                 style={{
-                  backgroundColor: "var(--color-secondary)",
-                  opacity: 0.2,
+                  backgroundColor: "var(--color-primary)",
+                  opacity: 0.1,
                   zIndex: 0,
                 }}
               />
@@ -108,7 +101,7 @@ export const Features = () => {
               <div className="relative z-10 flex flex-col md:flex-col  items-start w-full md:h-full md:justify-between">
                 <feature.Icon
                   className="w-10 h-10 md:w-13 md:h-13 shrink-0 mb-9 "
-                  style={{ color: "var(--color-primary)" }}
+                  style={{ color: "var(--color-accent)" }}
                 />
 
                 <div>

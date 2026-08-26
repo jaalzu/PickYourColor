@@ -1,7 +1,5 @@
 // src/features/Toolbar/components/Typography/TypographyToolbarPanel.tsx
-import { useEffect } from "react";
 import { useColorStore } from "../../../../store/useColorStore";
-import { loadGoogleFont } from "../../../../utils/googleFonts";
 import { TypographyCompactPanel } from "./TypographyCompactPanel";
 import { TypographyHorizontalPanel } from "./TypographyHorizontalPanel";
 
@@ -22,11 +20,6 @@ export const TypographyToolbarPanel = ({
     setBodyScale,
     randomizeTypography,
   } = useColorStore();
-
-  useEffect(() => {
-    loadGoogleFont(typography.headingFont);
-    loadGoogleFont(typography.bodyFont);
-  }, [typography.headingFont, typography.bodyFont]);
 
   const Panel = compact ? TypographyCompactPanel : TypographyHorizontalPanel;
 
