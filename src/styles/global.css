@@ -20,6 +20,11 @@ body * {
   font-family: var(--font-heading);
 }
 
+/* Global fallback — headings outside .type-scope also get heading font */
+h1, h2, h3, h4, h5, h6, .heading {
+  font-family: var(--font-heading);
+}
+
 .type-scope h1:not(.hero-title) {
   font-size: clamp(2.7rem, calc(4.8rem * var(--heading-scale)), 6.8rem);
   line-height: 1.2;
@@ -66,6 +71,12 @@ body * {
 
 .type-scope .keep-mono {
   font-family: "Courier New", Courier, monospace;
+}
+
+/* Toolbar — siempre Figtree, aislado de --font-heading/--font-body */
+#toolbar,
+#toolbar * {
+  font-family: "Figtree", sans-serif !important;
 }
 
 ::selection {

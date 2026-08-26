@@ -53,7 +53,7 @@ export const ToolbarMobile = () => {
         <div className={`flex flex-col w-full pointer-events-auto ${isShaking ? 'animate-feedback-mobile' : ''}`}>
           
           <div className={`
-            bg-[#1a1a2e] transition-all duration-200 
+            bg-[#2c2c2c] transition-all duration-200 
             overflow-hidden 
             ${isToolbarOpen ? 'max-h-[95vh] opacity-100' : 'max-h-0 opacity-0'}
           `}>
@@ -115,7 +115,7 @@ export const ToolbarMobile = () => {
           </div>
 
           {/* Colors | Fonts tabs - replaces TOOLBAR */}
-          <div className="grid grid-cols-2 divide-x divide-white/10 bg-[#1a1a2e] border-t border-white/10">
+          <div className="grid grid-cols-2 divide-x divide-white/10 bg-[#2c2c2c] border-y border-white/10">
             <button
               onClick={handleColorsTab}
               aria-label={t.typography.backLabel}

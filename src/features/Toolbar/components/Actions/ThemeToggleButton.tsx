@@ -1,45 +1,48 @@
-import { SunIcon, MoonIcon } from '@heroicons/react/24/outline';
-import { useColorStore } from '../../../../store/useColorStore';
-import { useEffect } from 'react';
-import { Tooltip } from '../../../../components/ui/Tooltip';
-import { useToolbarTextContent } from '../../hooks/useToolbarTextContent';
-
+// src/features/Toolbar/components/Actions/ThemeToggleButton.tsx
+import { useEffect } from "react";
+import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
+import { useColorStore } from "../../../../store/useColorStore";
+import { useToolbarTextContent } from "../../hooks/useToolbarTextContent";
+import { ToolbarIconButton } from "../ui/ToolbarIconButton";
 
 interface ThemeToggleButtonProps {
   className?: string;
+  showLabel?: boolean;
 }
 
-export const ThemeToggleButton = ({ className = "" }: ThemeToggleButtonProps) => {
+export const ThemeToggleButton = ({
+  className = "",
+  showLabel = true,
+}: ThemeToggleButtonProps) => {
   const themeMode = useColorStore((state) => state.themeMode);
   const toggleTheme = useColorStore((state) => state.toggleTheme);
   const setColor = useColorStore((state) => state.setColor);
   const t = useToolbarTextContent().theme;
 
   useEffect(() => {
-    if (themeMode === 'light') {
-      setColor('background', '#FFFFFF');
-      setColor('text', '#000000');
+    if (themeMode === "light") {
+      setColor("background", "#FFFFFF");
+      setColor("text", "#000000");
     } else {
-      setColor('background', '#1a1a2e');
-      setColor('text', '#FFFFFF');
+      setColor("background", "#1a1a2e");
+      setColor("text", "#FFFFFF");
     }
   }, [themeMode, setColor]);
-return (
-  <Tooltip content={t.tooltip}>
-    <button
-      className={`flex flex-col items-center justify-center gap-1 px-4 h-full hover:bg-white/5 transition-colors ${className}`}
+
+  return (
+    <ToolbarIconButton
+      icon={themeMode === "light" ? <MoonIcon /> : <SunIcon />}
+      label={
+        showLabel
+          ? themeMode === "light"
+            ? t.labelDark
+            : t.labelLight
+          : undefined
+      }
+      tooltip={t.tooltip}
+      ariaLabel={themeMode === "light" ? t.ariaToDark : t.ariaToLight}
       onClick={toggleTheme}
-      aria-label={themeMode === 'light' ? t.ariaToDark : t.ariaToLight}
-    >
-      {themeMode === 'light' ? (
-        <MoonIcon className="w-6 h-6 text-white" />
-      ) : (
-        <SunIcon className="w-6 h-6 text-white" />
-      )}
-      <span className="text-[12px] text-white tracking-wide">
-        {themeMode === 'light' ? t.labelDark : t.labelLight}
-      </span>
-    </button>
-  </Tooltip>
-);
+      className={className}
+    />
+  );
 };

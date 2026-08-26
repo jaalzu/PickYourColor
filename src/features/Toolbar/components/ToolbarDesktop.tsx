@@ -1,101 +1,120 @@
-import { useState } from 'react';
-import { LanguageIcon } from '@heroicons/react/24/outline';
-import { ColorInputButton } from './ColorPicker/ColorInputButton/ColorInputDesktop';
-import { ColorPickerModal } from './ColorPicker/ColorPickerModal/ColorPickerModal';
-import { RandomizeButton } from './Actions/RandomizeButton';
-import { UndoRedoButtons } from './Actions/UndoRedoButtons';
-import { ExportButton } from './Actions/ExportButton';
-import { ShareButton } from './Actions/ShareButton';
-import { ThemeToggleButton } from './Actions/ThemeToggleButton';
-import { useToolbarTextContent } from '../hooks/useToolbarTextContent';
+// src/features/Toolbar/components/ToolbarDesktop.tsx
+import { useState } from "react";
+import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
+import { ColorInputButton } from "./ColorPicker/ColorInputButton/ColorInputDesktop";
+import { ColorPickerModal } from "./ColorPicker/ColorPickerModal/ColorPickerModal";
+import { RandomizeButton } from "./Actions/RandomizeButton";
+import { UndoRedoButtons } from "./Actions/UndoRedoButtons";
+import { ExportButton } from "./Actions/ExportButton";
+import { ShareButton } from "./Actions/ShareButton";
+import { ThemeToggleButton } from "./Actions/ThemeToggleButton";
+import { useToolbarTextContent } from "../hooks/useToolbarTextContent";
 
-import { COLOR_CONFIG } from '../constants/colorConfig';
-import { useToolbarLogic } from '../hooks/useToolbarLogic';
-import { useColorStore } from '../../../store/useColorStore';
-import { Tooltip } from '../../../components/ui/Tooltip';
-import { TypographyToolbarPanel } from './Typography/TypographyToolbarPanel';
+import { COLOR_KEYS } from "../constants/colorConfig";
+import { useToolbarLogic } from "../hooks/useToolbarLogic";
+import { useColorStore } from "../../../store/useColorStore";
+import { TypographyToolbarPanel } from "./Typography/TypographyToolbarPanel";
+import { ToolbarDivider } from "./ui/ToolbarDivider";
+import { ToolbarIconButton } from "./ui/ToolbarIconButton";
 
 export const ToolbarDesktop = () => {
-  const { colors, selectedColor, triggerElement, handleColorSelect, handleCloseModal } = useToolbarLogic();
+  const {
+    colors,
+    selectedColor,
+    triggerElement,
+    handleColorSelect,
+    handleCloseModal,
+  } = useToolbarLogic();
   const isToolbarShaking = useColorStore((state) => state.isToolbarShaking);
-  const [toolbarMode, setToolbarMode] = useState<'colors' | 'typography'>('colors');
-const t = useToolbarTextContent();
+  const toolbarMode = useColorStore((state) => state.toolbarMode);
+  const setToolbarMode = useColorStore((state) => state.setToolbarMode);
+  const [isVisible, setIsVisible] = useState(true);
+  const t = useToolbarTextContent();
 
   return (
     <>
-      {/* CONTENEDOR POSICIONADOR */}
-      <div className="fixed bottom-3 left-1/2 -translate-x-1/2 z-50 w-[99vw] max-w-[1450px]">
-        
-        {/* CONTENEDOR ANIMADO  */}
-        <div 
-          className={`bg-[#131322] border border-white/20 rounded-[6px] h-23 flex items-center overflow-hidden ${
-            isToolbarShaking ? 'animate-simple-shake' : ''
-          }`}
+      <div className="fixed left-3 top-[72px] z-50">
+        <div
+          className={`w-[62px] flex flex-col items-stretch overflow-hidden rounded-lg bg-[#2c2c2c]
+  shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08),2px_1px_4px_rgba(0,0,0,0.2)]
+  ${isToolbarShaking ? "animate-simple-shake" : ""}`}
+          style={{ fontFamily: '"Figtree", sans-serif' }}
         >
-          {toolbarMode === 'typography' ? (
-            <TypographyToolbarPanel onBack={() => setToolbarMode('colors')} />
-          ) : (
-            <>
-              {COLOR_CONFIG.map(({ key, width }) => (
-                <div key={key} className={`flex items-center h-full ${width}`}>
-                  <ColorInputButton
-                    colorKey={key}
-                    label={t.colorKeys[key]}
-                    color={colors[key]}
-                    isSelected={selectedColor === key}
-                    onClick={(buttonElement) => handleColorSelect(key, buttonElement)}
-                  />
-                  <div className="w-px h-full bg-white/20" />
-                </div>
-              ))}
+          {/* Ocultar/mostrar: arriba de todo, siempre visible, fuera del bloque colapsable */}
+          <div className="px-1.5 pt-2">
+            <ToolbarIconButton
+              icon={isVisible ? <EyeSlashIcon /> : <EyeIcon />}
+              tooltip={isVisible ? "Ocultar toolbar" : "Mostrar toolbar"}
+              ariaLabel={isVisible ? "Ocultar toolbar" : "Mostrar toolbar"}
+              onClick={() => setIsVisible((v) => !v)}
+              size="sm"
+              tone="danger"
+            />
+          </div>
+          <ToolbarDivider />
 
-              <div className="flex h-full">
-                <RandomizeButton />
-                <div className="w-px h-full bg-white/20" />
-              </div>
+          <div
+            className={`overflow-hidden ${
+              isVisible
+                ? "transition-none max-h-[2000px] opacity-100"
+                : "transition-all duration-300 ease-in-out max-h-0 opacity-0"
+            }`}
+          >
+            <div key={toolbarMode} className="animate-toolbar-fade">
+              {toolbarMode === "typography" ? (
+                <TypographyToolbarPanel
+                  compact
+                  onBack={() => setToolbarMode("colors")}
+                />
+              ) : (
+                <>
+                  <div className="flex flex-col gap-1 px-1.5 py-2">
+                    {COLOR_KEYS.map((key) => (
+                      <ColorInputButton
+                        key={key}
+                        colorKey={key}
+                        label={t.colorKeys[key]}
+                        color={colors[key]}
+                        isSelected={selectedColor === key}
+                        onClick={(buttonElement) =>
+                          handleColorSelect(key, buttonElement)
+                        }
+                      />
+                    ))}
+                  </div>
 
-              <div className="flex h-full">
-                <UndoRedoButtons />
-                <div className="w-px h-full bg-white/20" />
-              </div>
+                  <ToolbarDivider />
 
-              <div className="flex h-full">
-                <ExportButton />
-                <div className="w-px h-full bg-white/20" />
-              </div>
+                  <div className="flex flex-col gap-1 px-1.5 py-2">
+                    <RandomizeButton showLabel={false} />
+                    <UndoRedoButtons variant="grouped" showLabel={false} />
+                    <ExportButton showLabel={false} />
+                    <ThemeToggleButton showLabel={false} />
+                    <ShareButton showLabel={false} />
+                  </div>
 
-              <div className="flex h-full">
-                <ThemeToggleButton />
-                <div className="w-px h-full bg-white/20" />
-              </div>
+                  <ToolbarDivider />
 
-              <div className="flex h-full">
-                <ShareButton />
-              </div>
-
-              {/* double divider + font at the end */}
-              <div className="flex items-center h-full gap-1 px-1">
-                <div className="w-px h-full bg-white/20" />
-                <div className="w-px h-full bg-white/20" />
-              </div>
-
-              <div className="flex h-full">
-                <Tooltip content={t.typography.openLabel}>
-                  <button
-                    className="flex flex-col items-center justify-center gap-1 px-5 h-full hover:bg-white/5 transition-colors"
-                    onClick={() => {
-                      handleCloseModal();
-                      setToolbarMode('typography');
-                    }}
-                    aria-label={t.typography.openAria}
-                  >
-                    <LanguageIcon className="w-6 h-6 text-white" />
-                    <span className="font-mono text-[16px] md:text-[12.5px] text-white">{t.typography.openLabel}</span>
-                  </button>
-                </Tooltip>
-              </div>
-            </>
-          )}
+                  {/* Trigger de Typography: abajo de todo, dentro del bloque colapsable */}
+                  <div className="px-1.5 py-2">
+                    <ToolbarIconButton
+                      icon={
+                        <span className="font-mono text-[15px] font-bold leading-none">
+                          Aa
+                        </span>
+                      }
+                      tooltip={t.typography.openLabel}
+                      ariaLabel={t.typography.openAria}
+                      onClick={() => {
+                        handleCloseModal();
+                        setToolbarMode("typography");
+                      }}
+                    />
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
         </div>
       </div>
 

@@ -11,7 +11,6 @@ export const Navbar = () => {
   const lang = useColorStore((state) => state.lang);
   const setLang = useColorStore((state) => state.setLang);
 
-  // Traducciones
   const menuItems = useLang({
     es: [
       { name: "Cómo funciona", id: "how-it-works" },
@@ -46,11 +45,20 @@ export const Navbar = () => {
 
   return (
     <Dialog.Root open={isOpen} onOpenChange={setIsOpen} modal={!isDesktop}>
-      <nav className="w-full flex flex-col pt-1 z-[100] relative">
-        <div className="w-full flex justify-between items-center px-3 md:px-12">
-          <Logo size="md" />
+      <nav
+        className="w-full flex flex-col  fixed top-0 left-0 z-[100]"
+        style={{
+          backgroundColor:
+            "color-mix(in srgb, var(--color-background) 92%, transparent)",
+          backdropFilter: "blur(10px)",
+          borderBottom:
+            "1px solid color-mix(in srgb, var(--color-text) 8%, transparent)",
+        }}
+      >
+        <div className="w-full max-w-7xl mx-auto flex justify-between items-center px-6  ">
+          <Logo size="sm" />
 
-          <div className="flex flex-row-reverse items-center gap-4">
+          <div className="flex flex-row-reverse items-center gap-5">
             {/* TRIGGER HAMBURGUESA */}
             <Dialog.Trigger asChild>
               <button
@@ -76,14 +84,20 @@ export const Navbar = () => {
             <button
               onClick={() => setLang(lang === "es" ? "en" : "es")}
               aria-label={`Switch language to ${lang === "es" ? "English" : "Español"}`}
-              className="flex gap-1.5 mr-2 font-mono text-xs font-bold select-none px-2 py-1 cursor-pointer"
+              className="flex items-center gap-1.5 mr-2 font-mono font-bold select-none px-2 py-1 cursor-pointer"
               style={{ color: "var(--color-text)" }}
             >
-              <span className={`transition-all duration-300 ${lang === "es" ? "opacity-100 underline decoration-2 underline-offset-4" : "opacity-40"}`}>
+              <span
+                className={`transition-all duration-300 text-sm ${lang === "es" ? "opacity-100 underline decoration-2 underline-offset-4" : "opacity-40"}`}
+              >
                 ES
               </span>
-              <span style={{ opacity: 0.3 }}>|</span>
-              <span className={`transition-all duration-300 ${lang === "en" ? "opacity-100 underline decoration-2 underline-offset-4" : "opacity-40"}`}>
+              <span style={{ opacity: 0.3 }} className="text-xs">
+                |
+              </span>
+              <span
+                className={`transition-all duration-300 text-xs ${lang === "en" ? "opacity-100 underline decoration-2 underline-offset-4" : "opacity-40"}`}
+              >
                 EN
               </span>
             </button>
@@ -107,22 +121,6 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* 3 LÍNEAS SEPARADORAS AL FINAL DEL NAVBAR */}
-        <div className="w-full flex flex-col gap-1  mb-2 px-3 md:px-12 opacity-5">
-          <div
-            className="w-full h-px bg-current"
-            style={{ color: "var(--color-text)" }}
-          />
-          <div
-            className="w-full h-px bg-current"
-            style={{ color: "var(--color-text)" }}
-          />
-          <div
-            className="w-full h-px bg-current"
-            style={{ color: "var(--color-text)" }}
-          />
-        </div>
-
         {/* MOBILE PORTAL — pantalla completa */}
         <Dialog.Portal>
           <Dialog.Overlay className="md:hidden fixed inset-0 z-[120]" />
@@ -131,10 +129,10 @@ export const Navbar = () => {
             style={{ backgroundColor: "var(--color-background)" }}
           >
             {/* Header exactamente igual al nav principal */}
-            <div className="w-full flex justify-between items-center px-3 md:px-12 pt-1">
+            <div className="w-full max-w-7xl mx-auto flex justify-between items-center px-6 md:px-10 py-2">
               <Logo size="md" />
 
-              <div className="flex flex-row-reverse items-center gap-4">
+              <div className="flex flex-row-reverse items-center gap-5">
                 <Dialog.Close asChild>
                   <button
                     aria-label="Close menu"
@@ -159,14 +157,20 @@ export const Navbar = () => {
                 <button
                   onClick={() => setLang(lang === "es" ? "en" : "es")}
                   aria-label={`Switch language to ${lang === "es" ? "English" : "Español"}`}
-                  className="flex gap-1.5 mr-2 font-mono text-xs font-bold select-none px-2 py-1 cursor-pointer"
+                  className="flex items-center gap-1.5 mr-2 font-mono font-bold select-none px-2 py-1 cursor-pointer"
                   style={{ color: "var(--color-text)" }}
                 >
-                  <span className={`transition-all duration-300 ${lang === "es" ? "opacity-100 underline decoration-2 underline-offset-4" : "opacity-40"}`}>
+                  <span
+                    className={`transition-all duration-300 text-sm ${lang === "es" ? "opacity-100 underline decoration-2 underline-offset-4" : "opacity-40"}`}
+                  >
                     ES
                   </span>
-                  <span style={{ opacity: 0.3 }}>|</span>
-                  <span className={`transition-all duration-300 ${lang === "en" ? "opacity-100 underline decoration-2 underline-offset-4" : "opacity-40"}`}>
+                  <span style={{ opacity: 0.3 }} className="text-xs">
+                    |
+                  </span>
+                  <span
+                    className={`transition-all duration-300 text-xs ${lang === "en" ? "opacity-100 underline decoration-2 underline-offset-4" : "opacity-40"}`}
+                  >
                     EN
                   </span>
                 </button>

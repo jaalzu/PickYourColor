@@ -1,3 +1,4 @@
+@import "tailwindcss";
 @import "./styles/theme-variables.css";
 @import "./styles/global.css";
 @import "./styles/scrollbar.css";
@@ -5,4 +6,3 @@
 @import "./styles/buttons.css";
 @import "./styles/sections.css";
 @import "./styles/animations.css";
-@import "tailwindcss";

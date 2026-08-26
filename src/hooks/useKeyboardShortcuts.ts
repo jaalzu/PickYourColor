@@ -2,7 +2,8 @@ import { useEffect } from "react";
 import { useColorStore } from "../store/useColorStore";
 
 export const useKeyboardShortcuts = () => {
-  const { undo, redo, randomizeColors } = useColorStore();
+  const { undo, redo, randomizeColors, randomizeTypography, toolbarMode } =
+    useColorStore();
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -11,9 +12,15 @@ export const useKeyboardShortcuts = () => {
         document.activeElement instanceof HTMLTextAreaElement;
 
       // --- RANDOMIZE (Espacio) ---
+      // Antes llamaba siempre a randomizeColors, sin importar qué panel
+      // del toolbar estuviera abierto. Ahora respeta toolbarMode.
       if (e.code === "Space" && !isTyping) {
         e.preventDefault();
-        randomizeColors();
+        if (toolbarMode === "typography") {
+          randomizeTypography();
+        } else {
+          randomizeColors();
+        }
       }
 
       // --- UNDO (Ctrl/Cmd + Z) ---
@@ -39,5 +46,5 @@ export const useKeyboardShortcuts = () => {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [undo, redo, randomizeColors]);
+  }, [undo, redo, randomizeColors, randomizeTypography, toolbarMode]);
 };

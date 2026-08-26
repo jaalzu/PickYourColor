@@ -6,6 +6,13 @@ import { useLang } from "../../hooks/useLang";
 import { ColorMixArt } from "../art/ColorMixArt";
 import { loadGoogleFont } from "../../utils/googleFonts";
 
+const SELECTION_HANDLE_POSITIONS = [
+  "-top-[3px] -left-[3px]",
+  "-top-[3px] -right-[3px]",
+  "-bottom-[3px] -left-[3px]",
+  "-bottom-[3px] -right-[3px]",
+];
+
 export const Hero = () => {
   const headingFont = useColorStore((state) => state.typography.headingFont);
 
@@ -25,7 +32,7 @@ export const Hero = () => {
     es: {
       titleLine1: "Obtené tus",
       titleColors: "Colores",
-      titleAnd: " y ",
+      titleAnd: " & ",
       titleFonts: "Fuentes",
       subtitle:
         "Elegí tus colores sobre una web real. Usá la toolbar para aplicar y visualizar tus elecciones en tiempo real.",
@@ -58,44 +65,50 @@ export const Hero = () => {
     <section className="min-h-[92vh] lg:min-h-[89vh] flex flex-col relative overflow-visible">
       <Navbar />
 
-      <div className="flex-1 grid grid-cols-1 md:grid-cols-2 items-center md:items-start gap-0 md:gap-8 lg:gap-14 md:px-8 md:pt-16 pb-4 md:pb-0 relative z-10 max-w-7xl mx-auto w-full">
+      <div className="flex-1 grid grid-cols-1 md:grid-cols-2 items-center md:items-start gap-0 md:gap-8 lg:gap-20 md:px-12 pt-20 md:pt-40 pb-4 md:pb-0 relative z-10 max-w-7xl mx-auto w-full">
         {/* texto — columna izquierda en desktop, segundo en mobile */}
         <div className="order-2 md:order-1 justify-self-start px-6 md:pl-10 lg:pl-16 md:pr-0 max-w-lg md:max-w-xl lg:max-w-2xl text-left md:-translate-x-2">
-          <h1
-            className="hero-title leading-[1.2] font-extrabold mt-12 sm:mt-6 mb-8 sm:mb-5"
-          >
+          <h1 className="hero-title leading-[1.2] font-extrabold mt-12 sm:mt-6 mb-8 sm:mb-5">
             <span className="block" style={{ color: "var(--color-text)" }}>
               {titleLine1}
             </span>
 
             <span className="block">
-              <span
-                className="relative inline-block pb-0.5"
-                style={{ color: "var(--color-primary)" }}
-              >
-                {titleColors}
-                <svg
-                  aria-hidden
-                  viewBox="0 0 120 10"
-                  preserveAspectRatio="none"
-                  className="absolute left-0 -bottom-1 w-full h-2 pointer-events-none"
-                >
-                  <path
-                    d="M0 6 Q 10 2, 20 6 T 40 6 T 60 6 T 80 6 T 100 6 T 120 6"
-                    fill="none"
-                    stroke="var(--color-primary)"
-                    strokeWidth="3"
-                    strokeLinecap="round"
+              {/* "Colores" ahora estilo selección Figma: border dashed +
+                  bg semitransparente + handles en las 4 esquinas, todo en primary */}
+              <span className="relative inline-block px-2 py-0.5 mx-0.5">
+                <span
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    border: "1.5px dashed var(--color-primary)",
+                    backgroundColor:
+                      "color-mix(in srgb, var(--color-primary) 12%, transparent)",
+                  }}
+                />
+                {SELECTION_HANDLE_POSITIONS.map((pos) => (
+                  <span
+                    key={pos}
+                    aria-hidden
+                    className={`absolute w-[6px] h-[6px] bg-white pointer-events-none ${pos}`}
+                    style={{ border: "1.5px solid var(--color-primary)" }}
                   />
-                </svg>
+                ))}
+                <span
+                  className="relative"
+                  style={{ color: "var(--color-primary)" }}
+                >
+                  {titleColors}
+                </span>
               </span>
 
-              <span style={{ color: "var(--color-text)" }}>{titleAnd}</span>
+              <span style={{ color: "var(--color-text)", opacity: 0.2 }}>
+                {titleAnd}
+              </span>
 
               <span
-                className="italic "
+                className="italic"
                 style={{
-                  fontFamily: `"${headingFont}", Georgia, serif`,
+                  fontFamily: "var(--font-heading)",
                   WebkitTextStroke: "2px var(--color-text)",
                   color: "transparent",
                 }}

@@ -13,21 +13,10 @@ export const LockButton = ({ colorKey }: LockButtonProps) => {
   );
   const toggleLock = useColorStore((state) => state.toggleLock);
 
-  const sizeClass = "w-[18px] h-[18px] md:w-3.5 md:h-3.5";
-
-  // Función unificada para manejar la acción y liberar el foco
   const handleToggle = (e: React.MouseEvent | React.KeyboardEvent) => {
     e.stopPropagation();
-
-    // Si es teclado y es "Espacio", prevenimos el scroll por defecto
-    if ("key" in e && e.key === " ") {
-      e.preventDefault();
-    }
-
+    if ("key" in e && e.key === " ") e.preventDefault();
     toggleLock(colorKey);
-
-    // CRUCIAL: Quitamos el foco del botón para que el "Espacio"
-    // vuelva a activar el randomize global en la siguiente pulsación.
     (e.currentTarget as HTMLElement).blur();
   };
 
@@ -36,20 +25,16 @@ export const LockButton = ({ colorKey }: LockButtonProps) => {
       role="button"
       tabIndex={0}
       onClick={handleToggle}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          handleToggle(e);
-        }
-      }}
+      onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && handleToggle(e)}
       aria-pressed={isLocked}
       data-testid={`lock-${colorKey}`}
       aria-label={isLocked ? "Unlock color" : "Lock color"}
-      className="text-gray-400 hover:text-white transition-all duration-200 cursor-pointer opacity-100 md:opacity-0 group-hover:opacity-100 outline-none"
+      className="rounded-md p-2 text-gray-400 outline-none transition-colors hover:bg-white/10 hover:text-white active:bg-white/10 cursor-pointer"
     >
       {isLocked ? (
-        <LockClosedIcon className={sizeClass} />
+        <LockClosedIcon className="w-4 h-4" />
       ) : (
-        <LockOpenIcon className={sizeClass} />
+        <LockOpenIcon className="w-4 h-4" />
       )}
     </div>
   );

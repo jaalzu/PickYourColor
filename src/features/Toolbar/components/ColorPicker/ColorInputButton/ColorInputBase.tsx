@@ -1,5 +1,5 @@
-import type { ColorKey } from '../../../../../types';
-import { LockButton } from './LockButton';
+// src/features/Toolbar/components/ColorPicker/ColorInputButton/ColorInputBase.tsx
+import type { ColorKey } from "../../../../../types";
 
 export interface ColorInputBaseProps {
   colorKey: ColorKey;
@@ -7,5 +7,3 @@ export interface ColorInputBaseProps {
   color: string;
   onClick: (element: HTMLElement) => void;
 }
-
-export { LockButton };

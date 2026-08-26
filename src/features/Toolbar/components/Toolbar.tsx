@@ -11,7 +11,7 @@ export const Toolbar = () => {
   const animationClass = isDesktop ? 'animate-desktop-feedback' : 'animate-mobile-feedback';
 
   return (
-    <div className={isShaking ? animationClass : ''}>
+    <div id="toolbar" style={{ fontFamily: '"Figtree", sans-serif' }} className={isShaking ? animationClass : ''}>
       {isDesktop ? <ToolbarDesktop /> : <ToolbarMobile />}
     </div>
   );

@@ -1,4 +1,4 @@
-import { CheckIcon } from "@heroicons/react/24/outline";
+import { CheckCircleIcon } from "@heroicons/react/24/outline";
 import { Button } from "../ui/button/Button";
 import tinycolor from "tinycolor2";
 import { useColorStore } from "../../store/useColorStore";
@@ -254,7 +254,7 @@ export const Pricing = () => {
                   <ul className="space-y-4 mb-6">
                     {plan.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-3">
-                        <CheckIcon
+                        <CheckCircleIcon
                           className="w-5 h-5 flex-shrink-0 mt-0.5"
                           style={{
                             color: "var(--color-accent)",
