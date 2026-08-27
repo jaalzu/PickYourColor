@@ -19,9 +19,9 @@ export const Pricing = () => {
       mostPopular: "Más Popular",
       plans: [
         {
-          title: "Entusiasta",
+          title: "Básico",
           description:
-            "Para aquellos que desean empezar a explorar el mundo del diseño UI.",
+            "Ideal para empezar a explorar el mundo del diseño UI y crear tus primeras paletas.",
           price: "Gratis",
           features: [
             "Acceso a todas las funciones gratuitas",
@@ -29,9 +29,9 @@ export const Pricing = () => {
           ],
         },
         {
-          title: "Alquimista",
+          title: "Pro",
           description:
-            "Para usuarios con un conocimiento sólido que buscan construir diseños de sistemas completos.",
+            "Perfecto para usuarios con experiencia que quieren construir sistemas completos.",
           price: "$0.01",
           features: [
             "Pre-Acceso a nuevas funciones",
@@ -40,8 +40,9 @@ export const Pricing = () => {
           ],
         },
         {
-          title: "Da Vinci",
-          description: "Para maestros artesanos de UI/UX de nivel Dios.",
+          title: "Empresa",
+          description:
+            "Pensado para maestros artesanos de UI/UX que buscan un control total y sin límites.",
           price: "Personalizado",
           features: [
             "IA super avanzada",
@@ -62,9 +63,9 @@ export const Pricing = () => {
       mostPopular: "Most Popular",
       plans: [
         {
-          title: "Enthusiast",
+          title: "Starter",
           description:
-            "For those who want to start exploring the world of UI design and color systems.",
+            "Perfect to start exploring UI design and create your first color palettes with ease.",
           price: "Free",
           features: [
             "Access to all features",
@@ -72,9 +73,9 @@ export const Pricing = () => {
           ],
         },
         {
-          title: "Alchemist",
+          title: "Pro",
           description:
-            "For users with solid design knowledge who want to experiment and build structured color systems.",
+            "Built for experienced users who want to craft complete and scalable design systems.",
           price: "$0.01",
           features: [
             "Pre-Access to new features",
@@ -83,8 +84,9 @@ export const Pricing = () => {
           ],
         },
         {
-          title: "Da Vinci",
-          description: "For god-tier UI/UX master crafters.",
+          title: "Enterprise",
+          description:
+            "Designed for god-tier UI/UX masters seeking total control and limitless precision.",
           price: "Custom",
           features: [
             "Super advanced AI",
@@ -125,7 +127,7 @@ export const Pricing = () => {
             return (
               <div
                 key={plan.title}
-                className={`rounded-[16px] relative overflow-visible h-full flex flex-col border transition-all duration-300 ${
+                className={`rounded-[13px] relative overflow-visible h-full flex flex-col border transition-all duration-300 ${
                   index === 2 ? "md:col-span-2 lg:col-span-1" : ""
                 }`}
                 style={{
@@ -181,7 +183,7 @@ export const Pricing = () => {
                   </h3>
 
                   <p
-                    className="text-lg font-medium mb-10 min-h-[70px]"
+                    className="text-lg font-medium mb-18 min-h-[70px]"
                     style={{
                       color: isFeatured
                         ? featuredTextColor

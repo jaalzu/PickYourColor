@@ -136,15 +136,7 @@ export const Testimonials = () => {
   const { scrollRef, handleMouseEnter, handleMouseLeave, handleMouseDown } =
     useTestimonialsScroll();
 
-  const cardColors = [
-    primary,
-    secondary,
-    accent,
-    primary,
-    secondary,
-    accent,
-    primary,
-  ];
+  const cardColors = [primary, secondary];
   const doubled = useMemo(
     () => [...testimonials, ...testimonials],
     [testimonials],
@@ -204,26 +196,31 @@ export const Testimonials = () => {
               }}
             />
 
-            <div className="relative z-10 flex flex-col gap-6">
-              <div
-                className="flex items-center gap-3"
-                style={{ color: "var(--color-text)" }}
-              >
-                <CompanyIcon name={t.iconId} size={28} />
-                <span className="font-black text-lg tracking-tight uppercase">
+            <div className="relative z-10 flex flex-col gap-8">
+              <div className="flex items-center gap-3">
+                <span style={{ color: accent }}>
+                  <CompanyIcon name={t.iconId} size={28} />
+                </span>
+                <span
+                  className="font-black text-lg tracking-tight uppercase"
+                  style={{ color: "var(--color-text)" }}
+                >
                   {t.brand}
                 </span>
               </div>
               <p
-                className="text-xl leading-[1.3] italic font-medium"
+                className="text-xl leading-[1.5] italic font-medium"
                 style={{ color: "var(--color-text)" }}
               >
                 "{t.comment}"
               </p>
             </div>
 
-            <div className="relative z-10 flex items-center gap-3 mt-8">
-              <div className="w-10 h-10 rounded-full overflow-hidden shrink-0">
+            <div className="relative z-10 flex items-center gap-4 mt-8">
+              <div
+                className="w-10 h-10 rounded-full overflow-hidden shrink-0"
+                style={{ backgroundColor: accent }}
+              >
                 <img
                   loading="lazy"
                   src={avtrImage}
@@ -232,10 +229,8 @@ export const Testimonials = () => {
                 />
               </div>
               <div style={{ color: "var(--color-text)" }}>
-                <span className="font-bold text-base leading-none mb-1">
-                  {t.name}
-                </span>
-                <p className="text-xs  tracking-[0.08em] font-bold">{t.role}</p>
+                <span className=" text-base leading-none ">{t.name}</span>
+                <p className="text-xs  tracking-[.08em] ">{t.role}</p>
               </div>
             </div>
           </div>

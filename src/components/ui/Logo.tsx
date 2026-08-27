@@ -11,7 +11,7 @@ export const Logo = ({ size = "md", showText = true }: LogoProps) => {
   };
 
   return (
-    <div className="flex items-center gap-2">
+    <a href="/" aria-label="Go to homepage" className="flex items-center gap-2">
       <svg viewBox="0 0 256 256" className={sizes[size].svg}>
         <defs>
           <linearGradient
@@ -34,10 +34,12 @@ export const Logo = ({ size = "md", showText = true }: LogoProps) => {
 
       {showText && (
         <span
-          className={`${sizes[size].text} font-mono font-bold tracking-tighter`}
-          style={{ color: "var(--color-text)" }}
-        ></span>
+          className="font-bold tracking-tighter text-[13px] md:text-[16px]"
+          style={{ color: "var(--color-text)", fontFamily: "var(--font-heading)" }}
+        >
+          PickYourColor
+        </span>
       )}
-    </div>
+    </a>
   );
 };
