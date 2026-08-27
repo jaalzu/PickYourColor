@@ -68,7 +68,7 @@ export const Hero = () => {
       <div className="flex-1 grid grid-cols-1 md:grid-cols-2 items-center md:items-start gap-0 md:gap-8 lg:gap-20 md:px-12 pt-20 md:pt-40 pb-4 md:pb-0 relative z-10 max-w-7xl mx-auto w-full">
         {/* texto — columna izquierda en desktop, segundo en mobile */}
         <div className="order-2 md:order-1 justify-self-start px-6 md:pl-10 lg:pl-16 md:pr-0 max-w-lg md:max-w-xl lg:max-w-2xl text-left md:-translate-x-2">
-          <h1 className="hero-title leading-[1.2] font-extrabold mt-12 sm:mt-6 mb-8 sm:mb-5">
+          <h1 className="hero-title leading-[1.3] font-semibold  mt-12 sm:mt-7 mb-14 ">
             <span className="block" style={{ color: "var(--color-text)" }}>
               {titleLine1}
             </span>
@@ -89,7 +89,7 @@ export const Hero = () => {
                   <span
                     key={pos}
                     aria-hidden
-                    className={`absolute w-[6px] h-[6px] bg-white pointer-events-none ${pos}`}
+                    className={`absolute w-[7px] h-[7px] bg-white pointer-events-none ${pos}`}
                     style={{ border: "1.5px solid var(--color-primary)" }}
                   />
                 ))}
@@ -101,7 +101,7 @@ export const Hero = () => {
                 </span>
               </span>
 
-              <span style={{ color: "var(--color-text)", opacity: 0.2 }}>
+              <span style={{ color: "var(--color-text)", opacity: 0.3 }}>
                 {titleAnd}
               </span>
 
@@ -119,7 +119,7 @@ export const Hero = () => {
           </h1>
 
           <p
-            className="hero-subtitle text-[13px] sm:text-base md:text-lg mb-6 sm:mb-12 max-w-sm md:max-w-md leading-relaxed"
+            className="hero-subtitle  sm:text-base md:text-lg mb-6 sm:mb-9 max-w-sm md:max-w-md leading-relaxed"
             style={{ color: "var(--color-text)" }}
           >
             {subtitle}
@@ -128,7 +128,7 @@ export const Hero = () => {
           <div className="flex gap-3 sm:gap-4 justify-start items-center">
             <Button
               variant="primary"
-              padding="12px 32px"
+              padding="9px 42px"
               borderRadius="5px"
               effect="stars"
             >
@@ -137,7 +137,7 @@ export const Hero = () => {
 
             <Button
               variant="ghost"
-              padding="12px 28px"
+              padding="10px 30px"
               borderRadius="5px"
               onClick={scrollToHowItWorks}
             >

@@ -108,7 +108,7 @@ export const Pricing = () => {
     <section id="pricing" className="px-8 py-20">
       <div className="max-w-lg md:max-w-2xl lg:max-w-[1550px] mx-auto">
         <h2
-          className="text-4xl md:text-5xl font-bold text-center mb-16"
+          className="text-4xl md:text-5xl font-bold text-center md:mb-5"
           style={{ color: "var(--color-text)" }}
         >
           {current.title}
@@ -135,11 +135,11 @@ export const Pricing = () => {
                   borderColor: isFeatured ? "transparent" : neutralBorder,
                   boxShadow: isFeatured
                     ? isDark
-                      ? "0 8px 20px -4px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.15)"
-                      : "0 8px 20px -4px rgba(0,0,0,0.12)"
+                      ? "0 8px 20px -4px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.15), 0 1px 4px rgba(0,0,0,0.08)"
+                      : "0 8px 20px -4px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.06)"
                     : isDark
-                      ? "0 0 0 1px rgba(255,255,255,0.06)"
-                      : undefined,
+                      ? "0 1px 4px rgba(0,0,0,0.18), 0 0 0 1px rgba(255,255,255,0.06)"
+                      : "0 1px 4px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
                 }}
               >
                 {isFeatured && (
@@ -214,8 +214,11 @@ export const Pricing = () => {
                     <Button
                       variant="primary"
                       padding="10px 0"
-                      borderRadius="10px"
-                      className="w-full shadow-md"
+                      borderRadius="5px"
+                      className="w-full"
+                      style={{
+                        border: `1px solid ${isDark ? "rgba(255,255,255,0.14)" : "rgba(0,0,0,0.08)"}`,
+                      }}
                     >
                       {current.button}
                     </Button>

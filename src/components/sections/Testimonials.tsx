@@ -184,6 +184,8 @@ export const Testimonials = () => {
               minHeight: "24rem",
               padding: "2rem",
               borderRadius: "1.5rem",
+              boxShadow:
+                "0 1px 4px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
             }}
           >
             <div
@@ -209,14 +211,14 @@ export const Testimonials = () => {
                 </span>
               </div>
               <p
-                className="text-xl leading-[1.5] italic font-medium"
+                className=" leading-[1.5] italic font-medium"
                 style={{ color: "var(--color-text)" }}
               >
                 "{t.comment}"
               </p>
             </div>
 
-            <div className="relative z-10 flex items-center gap-4 mt-8">
+            <div className="relative z-10 flex items-center gap-3 mt-8">
               <div
                 className="w-10 h-10 rounded-full overflow-hidden shrink-0"
                 style={{ backgroundColor: accent }}
@@ -229,8 +231,7 @@ export const Testimonials = () => {
                 />
               </div>
               <div style={{ color: "var(--color-text)" }}>
-                <span className=" text-base leading-none ">{t.name}</span>
-                <p className="text-xs  tracking-[.08em] ">{t.role}</p>
+                <span className=" text-base ">{t.name}</span>
               </div>
             </div>
           </div>

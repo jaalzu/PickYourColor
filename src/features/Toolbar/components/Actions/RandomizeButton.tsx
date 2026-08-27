@@ -7,11 +7,15 @@ import { ToolbarIconButton } from "../ui/ToolbarIconButton";
 interface RandomizeButtonProps {
   className?: string;
   showLabel?: boolean;
+  size?: "sm" | "md" | "lg";
+  iconGap?: string;
 }
 
 export const RandomizeButton = ({
   className = "",
   showLabel = true,
+  size = "md",
+  iconGap = "gap-0.5",
 }: RandomizeButtonProps) => {
   const randomize = useColorStore((state) => state.randomizeColors);
   const t = useToolbarTextContent().randomize;
@@ -23,6 +27,8 @@ export const RandomizeButton = ({
       tooltip={t.tooltip}
       ariaLabel={t.aria}
       onClick={randomize}
+      size={size}
+      iconGap={iconGap}
       className={className}
     />
   );

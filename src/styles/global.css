@@ -1,11 +1,16 @@
 html {
   scrollbar-gutter: stable;
   scroll-behavior: smooth;
+  font-optical-sizing: auto;
+  hanging-punctuation: first;
 }
 
 body {
   font-family: var(--font-body);
   background-color: var(--color-background);
+  font-optical-sizing: auto;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 body * {
@@ -23,6 +28,41 @@ body * {
 /* Global fallback — headings outside .type-scope also get heading font */
 h1, h2, h3, h4, h5, h6, .heading {
   font-family: var(--font-heading);
+  text-wrap: balance;
+  hanging-punctuation: first;
+}
+
+/* Editorial typesetting — balance headings, pretty body */
+.type-scope :is(h1, h2, h3, h4, h5, h6) {
+  text-wrap: balance;
+}
+
+.type-scope p,
+.type-scope li,
+p, li, blockquote {
+  text-wrap: pretty;
+  hanging-punctuation: first allow-end last;
+}
+
+/* Native drop cap — use with <p class="drop-cap"> or wrapper .has-drop-cap */
+.drop-cap::first-letter,
+.has-drop-cap > p:first-of-type::first-letter {
+  initial-letter: 3;
+  initial-letter: 3 2;
+  font-weight: 700;
+  margin-right: 0.12em;
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+}
+
+@supports not (initial-letter: 3) {
+  .drop-cap::first-letter,
+  .has-drop-cap > p:first-of-type::first-letter {
+    float: left;
+    font-size: 3.2em;
+    line-height: 0.85;
+    padding-right: 0.12em;
+  }
 }
 
 .type-scope h1:not(.hero-title) {
