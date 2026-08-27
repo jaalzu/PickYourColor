@@ -8,7 +8,7 @@ import { useLang } from "../../hooks/useLang";
 export const Features = () => {
   const { sectionTitle, features } = useLang({
     es: {
-      sectionTitle: "Diviertete con la toolbar",
+      sectionTitle: "Diviertete con la toolbar!",
       features: [
         {
           title: "Aleatorizar",
@@ -16,8 +16,8 @@ export const Features = () => {
           Icon: DiceIcon,
         },
         {
-          title: "Deshacer/Rehacer",
-          description: "Volvé atrás o recuperá cambios con un click.",
+          title: "Historial",
+          description: "Recupera tus cambios con un click.",
           Icon: FlowIcon,
         },
         {
@@ -57,7 +57,7 @@ export const Features = () => {
         },
         {
           title: "Export system",
-          description: "Get CSS variables, SCSS tokens, or Tailwind config.",
+          description: "Get variables in CSS, SCSS, or Tailwind .",
           Icon: ExportIcon,
         },
         {
@@ -88,6 +88,10 @@ export const Features = () => {
             <li
               key={index}
               className="group flex flex-row md:flex-col gap-6 items-center md:items-start md:justify-between rounded-[13px] p-5 md:px-8 md:pt-6 md:pb-8 relative min-h-[110px] md:min-h-[240px]"
+              style={{
+                boxShadow:
+                  "0 1px 4px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
+              }}
             >
               <div
                 className="absolute inset-0 rounded-[13px]"
@@ -98,22 +102,25 @@ export const Features = () => {
                 }}
               />
 
-              <div className="relative z-10 flex flex-row md:flex-col items-center md:items-start gap-6 md:gap-0 w-full md:h-full md:justify-between">
+              <div className="relative z-10 flex flex-row md:flex-col items-center md:items-start gap-6 md:gap-10 w-full md:h-full md:justify-between">
                 <feature.Icon
-                  className="w-10 h-10 md:w-13 md:h-13 shrink-0 md:mb-9"
+                  className="w-10 h-10 md:w-13 md:h-13 shrink-0"
                   style={{ color: "var(--color-accent)" }}
                 />
 
-                <div className="flex-1 md:flex-none md:w-full">
+                <div className="flex-1 md:flex-none md:w-full flex flex-col gap-2">
                   <h3
-                    className="text-2xl font-bold mb-2 md:mb-3 min-h-[1.6em] md:min-h-[2.4em] flex items-center md:items-start"
-                    style={{ color: "var(--color-text)" }}
+                    className=" font-bold leading-tight break-words"
+                    style={{
+                      color: "var(--color-text)",
+                      textWrap: "balance" as const,
+                    }}
                   >
                     {feature.title}
                   </h3>
                   <p
-                    className="text-lg font-light min-h-[2.8em] md:min-h-[3.4em]"
-                    style={{ color: "var(--color-text)" }}
+                    className="font-light leading-snug"
+                    style={{ color: "var(--color-text)", opacity: "0.8" }}
                   >
                     {feature.description}
                   </p>

@@ -11,7 +11,8 @@ interface ToolbarIconButtonProps {
   disabled?: boolean;
   active?: boolean;
   tone?: "default" | "success" | "danger";
-  size?: "sm" | "md";
+  size?: "sm" | "md" | "lg";
+  iconGap?: string;
   className?: string;
 }
 
@@ -28,9 +29,10 @@ const TONE_HOVER_BG: Record<"default" | "success" | "danger", string> = {
 };
 
 // +1px por lado en ambos tamaños respecto a la versión anterior
-const ICON_SIZE: Record<"sm" | "md", string> = {
+const ICON_SIZE: Record<"sm" | "md" | "lg", string> = {
   sm: "[&>svg]:w-[18px] [&>svg]:h-[18px]",
   md: "[&>svg]:w-6 [&>svg]:h-6",
+  lg: "[&>svg]:w-8 [&>svg]:h-8",
 };
 
 export const ToolbarIconButton = ({
@@ -43,6 +45,7 @@ export const ToolbarIconButton = ({
   active = false,
   tone = "default",
   size = "md",
+  iconGap = "gap-0.5",
   className = "",
 }: ToolbarIconButtonProps) => (
   <Tooltip content={tooltip}>
@@ -52,7 +55,7 @@ export const ToolbarIconButton = ({
       aria-label={ariaLabel}
       aria-pressed={active}
       className={`
-        flex flex-col items-center justify-center gap-0.5 w-full py-2 rounded-md
+        flex flex-col items-center justify-center ${iconGap} w-full min-w-0 py-2 px-1 rounded-md overflow-hidden
         transition-colors duration-150 ${TONE_HOVER_BG[tone]}
         disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:active:bg-transparent
         ${TONE_CLASSES[tone]} ${active ? "bg-white/10" : ""} ${className}
@@ -62,7 +65,7 @@ export const ToolbarIconButton = ({
         {icon}
       </span>
       {label && (
-        <span className="font-mono text-[9px] leading-none tracking-wide">
+        <span className="font-mono text-[9px] leading-tight tracking-wide text-center whitespace-normal break-words max-w-[90px] px-1">
           {label}
         </span>
       )}

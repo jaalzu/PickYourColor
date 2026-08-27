@@ -10,7 +10,11 @@ export const FAQ = () => {
   const borderColor = isLightBg ? "rgba(0, 0, 0, 1)" : "rgba(255, 255, 255, 1)";
   const textColor = isLightBg ? "#000000" : "#ffffff";
 
-  const { title, subtitle, faqs } = useLang({
+  const {
+    title: _title,
+    subtitle,
+    faqs,
+  } = useLang({
     es: {
       title: "Preguntas Frecuentes",
       subtitle: "¿Tenés preguntas? Tenemos respuestas",
@@ -88,38 +92,33 @@ export const FAQ = () => {
   return (
     <section id="FAQ" className="py-3 md:py-17  px-8">
       <div className="max-w-3xl mx-auto">
-        <p
-          className="text-md text-center "
-          style={{ color: "var(--color-text)", opacity: 0.5 }}
-        >
-          {title}
-        </p>
         <h2
-          className=" text-4xl md:text-5xl font-bold text-center mb-12"
+          className=" text-4xl md:text-5xl font-bold text-center mb-5"
           style={{ color: "var(--color-text)" }}
         >
           {subtitle}
         </h2>
 
-        <Accordion.Root type="single" collapsible className="space-y-4">
+        <Accordion.Root type="single" collapsible className="space-y-6">
           {faqs.map((faq, index) => (
             <Accordion.Item
               key={index}
               value={`item-${index}`}
-              className="border rounded-[30px] overflow-hidden transition-all duration-300 relative group"
-              style={{ borderColor: borderColor }}
+              className="border rounded-[13px] overflow-hidden transition-all duration-300 relative group"
+              style={{
+                borderColor: borderColor,
+                boxShadow:
+                  "0 1px 4px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
+              }}
             >
               <div
-                className="absolute inset-0 rounded-[30px] pointer-events-none transition-opacity duration-300 opacity-0 group-data-[state=open]:opacity-20"
+                className="absolute inset-0 rounded-[14px] pointer-events-none transition-opacity duration-300 opacity-0 group-data-[state=open]:opacity-20"
                 style={{ backgroundColor: "var(--color-secondary)", zIndex: 0 }}
               />
 
               <Accordion.Header>
                 <Accordion.Trigger className="w-full px-5 py-4 flex justify-between items-center text-left relative z-10">
-                  <h3
-                    className="text-2xl font-bold"
-                    style={{ color: textColor }}
-                  >
+                  <h3 className="font-regular" style={{ color: textColor }}>
                     {faq.question}
                   </h3>
                   <div

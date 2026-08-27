@@ -57,7 +57,7 @@ export const CTA = () => {
     return () => clearTimeout(timer);
   }, [inView]);
 
-  const TARGET_SUBSCRIBERS = 2379379;
+  const TARGET_SUBSCRIBERS = 123456;
   const count = useCountUp(TARGET_SUBSCRIBERS, {
     start: revealed,
     duration: 1800,

@@ -21,7 +21,7 @@ export const ColorSwatchButton = ({
   className = "",
 }: ColorSwatchButtonProps) => {
   const ref = useRef<HTMLButtonElement>(null);
-  const sizeClasses = size === "lg" ? "h-20 rounded-lg" : "py-2 rounded-md";
+  const sizeClasses = size === "lg" ? "h-20 py-2 rounded-lg flex-col gap-2" : "py-2 rounded-md";
   const circleSize = size === "lg" ? 32 : 25;
 
   const button = (
@@ -35,6 +35,9 @@ export const ColorSwatchButton = ({
       } ${sizeClasses} ${className}`}
     >
       <ColorCircle color={color} size={circleSize} />
+      {size === "lg" && (
+        <span className="font-mono text-[9px] leading-none tracking-wide text-white/90">{label}</span>
+      )}
     </button>
   );
 

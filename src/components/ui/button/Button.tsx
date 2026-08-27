@@ -15,6 +15,7 @@ interface ButtonProps {
   className?: string;
   asChild?: boolean;
   effect?: "stars" | "glow";
+  style?: React.CSSProperties;
 }
 
 export const Button = ({
@@ -27,6 +28,7 @@ export const Button = ({
   className = "",
   asChild = false,
   effect = "glow",
+  style,
 }: ButtonProps) => {
   const isGhost = variant === "ghost";
 
@@ -83,6 +85,7 @@ export const Button = ({
           borderRadius: borderRadius || "9px",
           boxSizing: "border-box",
           "--shadow-color": solidColor,
+          ...style,
         } as React.CSSProperties
       }
     >

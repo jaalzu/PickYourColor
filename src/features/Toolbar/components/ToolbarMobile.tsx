@@ -3,10 +3,11 @@ import { useState } from 'react';
 import { ColorInputMobile } from './ColorPicker/ColorInputButton/ColorInputMobile';
 import { ColorPickerModal } from './ColorPicker/ColorPickerModal/ColorPickerModal';
 import { RandomizeButton } from './Actions/RandomizeButton';
-import { UndoRedoButtons } from './Actions/UndoRedoButtons';
+import { ArrowUturnLeftIcon, ArrowUturnRightIcon } from '@heroicons/react/24/outline';
 import { ThemeToggleButton } from './Actions/ThemeToggleButton';
 import { ExportButton } from './Actions/ExportButton';
 import { ShareButton } from './Actions/ShareButton';
+import { ToolbarIconButton } from './ui/ToolbarIconButton';
 import { useToolbarLogic } from '../hooks/useToolbarLogic';
 import { useColorStore } from '../../../store/useColorStore';
 import { TypographyToolbarPanel } from './Typography/TypographyToolbarPanel';
@@ -24,6 +25,7 @@ export const ToolbarMobile = () => {
   } = useToolbarLogic();
 
   const isShaking = useColorStore((state) => state.isToolbarShaking);
+  const { undo, redo, past, future } = useColorStore();
   const [toolbarMode, setToolbarMode] = useState<'colors' | 'typography'>('colors');
   const t = useToolbarTextContent();
 
@@ -92,23 +94,38 @@ export const ToolbarMobile = () => {
                     color={colors.accent}
                     onClick={(el) => handleColorSelect('accent', el)}
                   />
-                  <div className="flex flex-col border border-white/10">
-                    <RandomizeButton />
+                  <div className="flex flex-col items-center justify-center border border-white/10 py-2">
+                    <RandomizeButton className="w-full py-3" size="lg" iconGap="gap-2" />
                   </div>
                 </div>
 
-                <div className="flex flex-col">
-                  {/* Deshacer/Rehacer - full width */}
-                  <div className="border-t border-white/10">
-                    <UndoRedoButtons className="w-full py-4" />
-                  </div>
-                  <div className="grid grid-cols-2 divide-x divide-white/10 border-t border-white/10">
-                    <ThemeToggleButton className="w-full py-4" />
-                    <ExportButton className="w-full py-4" />
-                  </div>
-                  <div className="border-t border-white/10">
-                    <ShareButton className="w-full py-4" />
-                  </div>
+                {/* Actions grid - all items together in 2-col grid */}
+                <div className="grid grid-cols-2 divide-x divide-white/10 divide-y divide-white/10 border-t border-white/10">
+                  <ToolbarIconButton
+                    icon={<ArrowUturnLeftIcon />}
+                    label={t.undoRedo.undoLabel}
+                    tooltip={t.undoRedo.tooltip}
+                    ariaLabel={t.undoRedo.undoAria}
+                    onClick={undo}
+                    disabled={past.length === 0}
+                    size="lg"
+                    iconGap="gap-2"
+                    className="py-3"
+                  />
+                  <ToolbarIconButton
+                    icon={<ArrowUturnRightIcon />}
+                    label={t.undoRedo.redoLabel}
+                    tooltip={t.undoRedo.tooltip}
+                    ariaLabel={t.undoRedo.redoAria}
+                    onClick={redo}
+                    disabled={future.length === 0}
+                    size="lg"
+                    iconGap="gap-2"
+                    className="py-3"
+                  />
+                  <ThemeToggleButton className="w-full py-3" />
+                  <ExportButton className="w-full py-3" />
+                  <ShareButton className="w-full py-3 col-span-2" />
                 </div>
               </>
             )}
