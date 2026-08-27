@@ -64,7 +64,7 @@ export const HowItWorks = () => {
           className="absolute inset-0 rounded-[13px]"
           style={{
             backgroundColor:
-              "color-mix(in srgb, var(--color-secondary) 5%, transparent)",
+              "color-mix(in srgb, var(--color-secondary) 6%, transparent)",
           }}
         />
 
@@ -79,14 +79,14 @@ export const HowItWorks = () => {
             </h2>
             <p
               className="text-lg leading-relaxed"
-              style={{ color: "var(--color-text)", opacity: 0.65 }}
+              style={{ color: "var(--color-text)", opacity: 0.75 }}
             >
               {subtitle}
             </p>
           </div>
 
           {/* Derecha: 4 puntos numerados */}
-          <div className="flex flex-col gap-7">
+          <div className="flex flex-col gap-10">
             {steps.map((step) => (
               <div key={step.title} className="flex items-start gap-4">
                 <span

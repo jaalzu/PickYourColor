@@ -40,7 +40,7 @@ export const Hero = () => {
       secondaryBtn: "Saber más",
     },
     en: {
-      titleLine1: "Get your brand",
+      titleLine1: "Get your",
       titleColors: "Colors",
       titleAnd: " & ",
       titleFonts: "Fonts",
