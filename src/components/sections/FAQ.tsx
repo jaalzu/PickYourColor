@@ -93,7 +93,7 @@ export const FAQ = () => {
     <section id="FAQ" className="py-3 md:py-17  px-8">
       <div className="max-w-3xl mx-auto">
         <h2
-          className=" text-4xl md:text-5xl font-bold text-center mb-5"
+          className=" text-[32px] md:text-[44px] font-bold text-left md:text-center mb-5"
           style={{ color: "var(--color-text)" }}
         >
           {subtitle}

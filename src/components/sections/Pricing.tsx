@@ -108,7 +108,7 @@ export const Pricing = () => {
     <section id="pricing" className="px-8 py-20">
       <div className="max-w-lg md:max-w-2xl lg:max-w-[1550px] mx-auto">
         <h2
-          className="text-4xl md:text-5xl font-bold text-center md:mb-5"
+          className="text-[32px] md:text-[44px] font-bold text-center md:mb-5"
           style={{ color: "var(--color-text)" }}
         >
           {current.title}

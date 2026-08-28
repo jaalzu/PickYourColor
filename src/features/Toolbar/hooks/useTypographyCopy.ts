@@ -6,7 +6,7 @@ export const useTypographyCopy = (typography: TypographySettings) => {
   const { copied, copy } = useCopyToClipboard();
 
   const copyDetails = () => {
-    const text = `Heading Font: ${typography.headingFont}\nBody Font: ${typography.bodyFont}\nHeading Scale: ${typography.headingScale}\nBody Scale: ${typography.bodyScale}`;
+    const text = `Heading Font: ${typography.headingFont}\nBody Font: ${typography.bodyFont}`;
     copy(text);
   };
 

@@ -105,6 +105,7 @@ export const ToolbarDesktop = () => {
                       }
                       tooltip={t.typography.openLabel}
                       ariaLabel={t.typography.openAria}
+                      size="md"
                       onClick={() => {
                         handleCloseModal();
                         setToolbarMode("typography");

@@ -104,7 +104,7 @@ export const Features = () => {
 
               <div className="relative z-10 flex flex-row md:flex-col items-center md:items-start gap-6 md:gap-10 w-full md:h-full md:justify-between">
                 <feature.Icon
-                  className="w-10 h-10 md:w-13 md:h-13 shrink-0"
+                  className="w-[37px] h-[37px] md:w-13 md:h-13 shrink-0"
                   style={{ color: "var(--color-accent)" }}
                 />
 
