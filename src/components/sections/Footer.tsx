@@ -13,12 +13,12 @@ export const Footer = () => {
   });
 
   return (
-    <footer className="relative pt-24  pb-8  px-8">
+    <footer className="relative pt-24 pb-24 md:pb-8 px-8">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           {/* izquierda — logo + copyright */}
           <div className="flex flex-col items-center md:items-start gap-2 flex-1 order-2 md:order-1">
-            <Logo size="lg" />
+            <Logo size="lg" showText={false} />
             <span
               className="text-[14px] opacity-60 cursor-default text-center md:text-left"
               style={{ color: "var(--color-text)" }}

@@ -32,21 +32,21 @@ export const Hero = () => {
     es: {
       titleLine1: "Obtené tus",
       titleColors: "Colores",
-      titleAnd: " & ",
+      titleAnd: " y ",
       titleFonts: "Fuentes",
       subtitle:
         "Elegí tus colores sobre una web real. Usá la toolbar para aplicar y visualizar tus elecciones en tiempo real.",
-      primaryBtn: "Comenzar",
+      primaryBtn: "Probar ahora",
       secondaryBtn: "Saber más",
     },
     en: {
       titleLine1: "Get your",
       titleColors: "Colors",
-      titleAnd: " & ",
+      titleAnd: " y ",
       titleFonts: "Fonts",
       subtitle:
         "Choose your colors on a real website. Use the toolbar to apply and preview your choices in real time.",
-      primaryBtn: "Get Started",
+      primaryBtn: "Try it now",
       secondaryBtn: "Learn More",
     },
   });
@@ -128,7 +128,7 @@ export const Hero = () => {
           <div className="flex gap-3 sm:gap-4 justify-start items-center">
             <Button
               variant="primary"
-              padding="9px 42px"
+              padding="9px 36px"
               borderRadius="5px"
               effect="stars"
             >
@@ -140,6 +140,7 @@ export const Hero = () => {
               padding="10px 30px"
               borderRadius="5px"
               onClick={scrollToHowItWorks}
+              style={{ opacity: 0.8 }}
             >
               {secondaryBtn}
             </Button>

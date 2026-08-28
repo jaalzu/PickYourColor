@@ -62,7 +62,7 @@ export const Resources = () => {
 
   return (
     <section className="py-18 px-6 md:px-8 max-w-7xl mx-auto">
-      <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left mb-7 gap-3">
+      <div className="flex flex-col md:flex-row justify-between items-start text-left mb-7 gap-3">
         <p
           className="!text-xl font-medium max-w-md"
           style={{ color: "var(--color-text)" }}

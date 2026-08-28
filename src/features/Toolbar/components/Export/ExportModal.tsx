@@ -40,8 +40,9 @@ export const ExportModal = ({
           side="right"
           sideOffset={16}
           align="start"
+          alignOffset={-32}
           collisionPadding={12}
-          className="z-60 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95"
+          className="z-60 -translate-y-8 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95"
           onClick={(e) => e.stopPropagation()}
         >
           <div className="w-[95vw] max-w-[420px] rounded-lg border border-white/10 bg-[#2c2c2c] p-4 shadow-xl">
