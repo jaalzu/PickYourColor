@@ -42,7 +42,7 @@ export const Hero = () => {
     en: {
       titleLine1: "Get your",
       titleColors: "Colors",
-      titleAnd: " y ",
+      titleAnd: " & ",
       titleFonts: "Fonts",
       subtitle:
         "Choose your colors on a real website. Use the toolbar to apply and preview your choices in real time.",
