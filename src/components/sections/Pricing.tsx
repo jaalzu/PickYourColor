@@ -121,8 +121,8 @@ export const Pricing = () => {
 
             const neutralBg = isDark ? "#12121c" : "#f4f4f8";
             const neutralBorder = isDark
-              ? "rgba(255,255,255,0.22)"
-              : "rgba(0,0,0,0.1)";
+              ? "rgba(255, 255, 255, 0.07)"
+              : "rgba(0, 0, 0, 0.04)";
 
             return (
               <div
@@ -135,11 +135,11 @@ export const Pricing = () => {
                   borderColor: isFeatured ? "transparent" : neutralBorder,
                   boxShadow: isFeatured
                     ? isDark
-                      ? "0 8px 20px -4px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.15), 0 1px 4px rgba(0,0,0,0.08)"
-                      : "0 8px 20px -4px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.06)"
+                      ? "0 8px 20px -4px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.15), 0 1px 4px rgba(0,0,0,0.08), 0 0 8px rgba(0,0,0,0.04)"
+                      : "0 8px 20px -4px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.06), 0 0 8px rgba(0,0,0,0.03)"
                     : isDark
-                      ? "0 1px 4px rgba(0,0,0,0.18), 0 0 0 1px rgba(255,255,255,0.06)"
-                      : "0 1px 4px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
+                      ? "0 1px 4px rgba(0,0,0,0.18), 0 0 0 1px rgba(255,255,255,0.06), 0 0 8px rgba(0,0,0,0.12)"
+                      : "0 1px 4px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04), 0 0 8px rgba(0,0,0,0.03)",
                 }}
               >
                 {isFeatured && (

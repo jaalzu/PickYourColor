@@ -83,7 +83,7 @@ export const Resources = () => {
             rel="noopener noreferrer"
             className="flex flex-col group"
           >
-            <div className="w-full aspect-video rounded-[8px] mb-3 overflow-hidden bg-zinc-800" style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)" }}>
+            <div className="w-full aspect-video rounded-[8px] mb-3 overflow-hidden bg-zinc-800" style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04), 0 0 8px rgba(0,0,0,0.03)" }}>
               <img
                 loading="lazy"
                 decoding="async"

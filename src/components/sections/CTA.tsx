@@ -103,11 +103,13 @@ export const CTA = () => {
             {subtitle}
           </p>
 
+          <style>{`
+            .cta-input-wrap{ border-color: color-mix(in srgb, var(--color-text) 12%, transparent); }
+            .cta-input-wrap:focus-within{ border-color: color-mix(in srgb, var(--color-text) 22%, transparent) !important; box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-primary) 33%, transparent); }
+          `}</style>
           <div
-            className="flex items-center gap-1 max-w-xl mx-auto mb-4 p-1 rounded-full border transition-colors"
+            className="cta-input-wrap flex items-center gap-1 max-w-xl mx-auto mb-4 p-1 rounded-full border transition-colors"
             style={{
-              borderColor:
-                "color-mix(in srgb, var(--color-text) 6%, transparent)",
               backgroundColor: "transparent",
               borderWidth: "0.4px",
             }}
@@ -117,7 +119,7 @@ export const CTA = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder={placeholder}
-              className="flex-1 min-w-0 bg-transparent outline-none border-none px-4 py-2.5 text-[15px] placeholder:opacity-60"
+              className="flex-1 min-w-0 bg-transparent outline-none border-none px-4 py-2.5 text-[15px] placeholder:opacity-100"
               style={{
                 color: "var(--color-text)",
               }}

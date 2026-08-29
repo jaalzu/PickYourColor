@@ -90,14 +90,14 @@ export const Features = () => {
               className="group flex flex-row md:flex-col gap-6 items-center md:items-start md:justify-between rounded-[13px] p-5 md:px-8 md:pt-6 md:pb-8 relative min-h-[110px] md:min-h-[240px]"
               style={{
                 boxShadow:
-                  "0 1px 4px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
+                  "0 1px 4px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04), 0 0 8px rgba(0,0,0,0.03)",
               }}
             >
               <div
                 className="absolute inset-0 rounded-[13px]"
                 style={{
                   backgroundColor: "var(--color-primary)",
-                  opacity: 0.25,
+                  opacity: 0.045,
                   zIndex: 0,
                 }}
               />
