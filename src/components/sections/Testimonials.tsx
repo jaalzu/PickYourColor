@@ -131,21 +131,19 @@ const content = {
 };
 
 export const Testimonials = () => {
-  const { primary, secondary, accent } = useColorStore((state) => state.colors);
+  const { accent } = useColorStore((state) => state.colors);
   const { title, testimonials } = useLang(content);
   const { scrollRef, handleMouseEnter, handleMouseLeave, handleMouseDown } =
     useTestimonialsScroll();
-
-  const cardColors = [primary, secondary];
   const doubled = useMemo(
     () => [...testimonials, ...testimonials],
     [testimonials],
   );
 
   return (
-    <section className="py-10 md:py-19 w-full overflow-hidden relative">
+    <section className="py-10 md:py-19 w-full overflow-x-hidden relative">
       <h2
-        className="text-[32px] md:text-[44px] font-bold text-center mb-8 max-w-xs md:max-w-md lg:max-w-2xl mx-auto"
+        className="text-[32px] md:text-[44px] font-bold text-center mb-8 max-w-xs md:max-w-md lg:max-w-2xl mx-auto leading-[1.1]"
         style={{ color: "var(--color-text)" }}
       >
         {title}
@@ -168,7 +166,7 @@ export const Testimonials = () => {
 
       <div
         ref={scrollRef}
-        className="flex gap-4 md:gap-6 overflow-x-auto no-scrollbar px-6 md:px-24"
+        className="flex gap-4 md:gap-6 overflow-x-auto overflow-y-visible no-scrollbar px-6 md:px-24 py-3"
         style={{ cursor: "grab" }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -185,14 +183,14 @@ export const Testimonials = () => {
               padding: "2rem",
               borderRadius: "1.5rem",
               boxShadow:
-                "0 1px 4px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
+                "0 1px 4px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04), 0 0 8px rgba(0,0,0,0.03)",
             }}
           >
             <div
               className="absolute inset-0"
               style={{
-                backgroundColor: cardColors[i % cardColors.length],
-                opacity: 0.2,
+                backgroundColor: "var(--color-primary)",
+                opacity: 0.073,
                 borderRadius: "1.5rem",
                 zIndex: 0,
               }}

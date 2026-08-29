@@ -68,7 +68,7 @@ export const HowItWorks = () => {
           }}
         />
 
-        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start p-8 md:p-12 rounded-[13px]" style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)" }}>
+        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start p-8 md:p-12 rounded-[13px]" style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04), 0 0 8px rgba(0,0,0,0.03)" }}>
           {/* Izquierda: título + subtítulo */}
           <div>
             <h2
