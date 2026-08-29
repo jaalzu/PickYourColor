@@ -93,7 +93,7 @@ export const FAQ = () => {
     <section id="FAQ" className="py-3 md:py-17  px-8">
       <div className="max-w-3xl mx-auto">
         <h2
-          className=" text-[32px] md:text-[44px] font-bold text-left md:text-center mb-5"
+          className=" text-[32px] md:text-[41px] font-bold text-left md:text-center mb-5"
           style={{ color: "var(--color-text)" }}
         >
           {subtitle}
@@ -104,7 +104,7 @@ export const FAQ = () => {
             <Accordion.Item
               key={index}
               value={`item-${index}`}
-              className="border rounded-[13px] overflow-hidden transition-all duration-300 relative group"
+              className="border rounded-[13px] overflow-hidden transition-all duration-200 relative group"
               style={{
                 borderColor: borderColor,
                 boxShadow:
@@ -122,7 +122,7 @@ export const FAQ = () => {
                     {faq.question}
                   </h3>
                   <div
-                    className="text-5xl font-medium transition-transform duration-300 ml-4 flex items-center justify-center group-data-[state=open]:rotate-45"
+                    className="text-6xl font-medium transition-transform duration-300 ml-4 flex items-center justify-center group-data-[state=open]:rotate-45"
                     style={{
                       color: "var(--color-accent)",
                       lineHeight: "0",
