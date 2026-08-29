@@ -20,7 +20,7 @@ export const CTA = () => {
       heading: "Empezá a construir tu marca hoy",
       subtitle: "Sumate y recibí noticias y tips.",
       placeholder: "Ingresá tu email",
-      button: "Enviar",
+      button: "Suscribirse",
       joinLabel: "Sumate a",
       subscribersLabel: "otros suscriptores",
     },
@@ -28,7 +28,7 @@ export const CTA = () => {
       heading: "Start building your brand today",
       subtitle: "Join and get news and tips.",
       placeholder: "Enter your email",
-      button: "Send",
+      button: "Subscribe",
       joinLabel: "Join",
       subscribersLabel: "other subscribers",
     },
@@ -103,30 +103,34 @@ export const CTA = () => {
             {subtitle}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 justify-center items-stretch max-w-lg mx-auto mb-4">
+          <div
+            className="flex items-center gap-1 max-w-xl mx-auto mb-4 p-1 rounded-full border transition-colors"
+            style={{
+              borderColor:
+                "color-mix(in srgb, var(--color-text) 6%, transparent)",
+              backgroundColor: "transparent",
+              borderWidth: "0.4px",
+            }}
+          >
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder={placeholder}
-              className="w-full sm:flex-1 px-5 rounded-md border outline-none transition-colors box-border"
+              className="flex-1 min-w-0 bg-transparent outline-none border-none px-4 py-2.5 text-[15px] placeholder:opacity-60"
               style={{
-                borderColor:
-                  "color-mix(in srgb, var(--color-text) 20%, transparent)",
                 color: "var(--color-text)",
-                backgroundColor: "transparent",
-                height: "52px",
               }}
             />
 
             <Button
               variant="primary"
-              padding="12px 40px"
-              borderRadius="5px"
+              padding="13px 28px"
+              borderRadius="9999px"
               opacity={1}
               effect="stars"
               onClick={handleFakeSubmit}
-              className="h-[52px] flex items-center justify-center box-border"
+              className="shrink-0 flex items-center justify-center whitespace-nowrap !h-auto leading-none text-[16px]"
             >
               {button}
             </Button>
