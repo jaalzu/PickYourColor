@@ -1,13 +1,18 @@
 // src/tests/components/RandomizeButton.test.tsx
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
+import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 import { RandomizeButton } from '../../src/features/Toolbar/components/Actions/RandomizeButton'
 import { useColorStore } from '../../src/store/useColorStore';
 
 
 describe('RandomizeButton Component', () => {
   it('debe ejecutar randomizeColors al hacer click', () => {
-    render(<RandomizeButton />);
+    render(
+      <TooltipPrimitive.Provider delayDuration={300} skipDelayDuration={300}>
+        <RandomizeButton />
+      </TooltipPrimitive.Provider>
+    );
     
     const button = screen.getByRole('button');
     fireEvent.click(button);
