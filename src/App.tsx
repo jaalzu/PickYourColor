@@ -1,3 +1,4 @@
+import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 import { useThemeSync } from "./hooks/useThemeSync";
 import { Toolbar } from "./features/Toolbar/components/Toolbar";
 import { Resources } from "./components/sections/Resources";
@@ -16,7 +17,7 @@ function App() {
   useKeyboardShortcuts();
   useURLSync();
   return (
-    <>
+    <TooltipPrimitive.Provider delayDuration={300} skipDelayDuration={400}>
       <main className="type-scope">
         <Hero />
         <HowItWorks />
@@ -30,7 +31,7 @@ function App() {
         <LayoutFooterCTA />
       </div>
       <Toolbar />
-    </>
+    </TooltipPrimitive.Provider>
   );
 }
 
