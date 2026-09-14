@@ -107,8 +107,6 @@ export const FAQ = () => {
               className="border rounded-[13px] overflow-hidden transition-all duration-200 relative group"
               style={{
                 borderColor: borderColor,
-                boxShadow:
-                  "0 1px 4px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04), 0 0 8px rgba(0,0,0,0.03)",
               }}
             >
               <div

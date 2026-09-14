@@ -133,19 +133,12 @@ export const Pricing = () => {
                 style={{
                   backgroundColor: isFeatured ? featuredBg : neutralBg,
                   borderColor: isFeatured ? "transparent" : neutralBorder,
-                  boxShadow: isFeatured
-                    ? isDark
-                      ? "0 8px 20px -4px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.15), 0 1px 4px rgba(0,0,0,0.08), 0 0 8px rgba(0,0,0,0.04)"
-                      : "0 8px 20px -4px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.06), 0 0 8px rgba(0,0,0,0.03)"
-                    : isDark
-                      ? "0 1px 4px rgba(0,0,0,0.18), 0 0 0 1px rgba(255,255,255,0.06), 0 0 8px rgba(0,0,0,0.12)"
-                      : "0 1px 4px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04), 0 0 8px rgba(0,0,0,0.03)",
                 }}
               >
                 {isFeatured && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-30">
                     <span
-                      className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap shadow-md"
+                      className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap"
                       style={{
                         backgroundColor: "var(--color-primary)",
                         color: tinycolor(colors.primary).isDark()
