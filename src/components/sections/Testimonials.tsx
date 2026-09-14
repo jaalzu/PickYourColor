@@ -182,8 +182,6 @@ export const Testimonials = () => {
               minHeight: "24rem",
               padding: "2rem",
               borderRadius: "1.5rem",
-              boxShadow:
-                "0 1px 4px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04), 0 0 8px rgba(0,0,0,0.03)",
             }}
           >
             <div
