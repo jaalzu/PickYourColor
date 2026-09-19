@@ -44,7 +44,7 @@ export const ColorSwatchButton = ({
   if (!showTooltip) return button;
 
   return (
-    <Tooltip content={`${label}: ${color.toUpperCase()}`} side="top">
+    <Tooltip content={`${label}: ${color.toUpperCase()}`} side="right">
       {button}
     </Tooltip>
   );

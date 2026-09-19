@@ -8,9 +8,9 @@ export const ScaleIcon = () => (
     strokeLinecap="round"
   >
     <text
-      x="3"
+      x="2"
       y="18"
-      fontSize="9"
+      fontSize="11"
       fontFamily="monospace"
       fill="currentColor"
       stroke="none"
@@ -18,9 +18,9 @@ export const ScaleIcon = () => (
       A
     </text>
     <text
-      x="12"
+      x="11"
       y="19"
-      fontSize="15"
+      fontSize="17"
       fontFamily="monospace"
       fill="currentColor"
       stroke="none"
