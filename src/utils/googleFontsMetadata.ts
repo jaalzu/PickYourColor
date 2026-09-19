@@ -7,22 +7,22 @@ export interface GoogleFontMeta {
 let cache: GoogleFontMeta[] | null = null;
 let pending: Promise<GoogleFontMeta[]> | null = null;
 
-const API_KEY = import.meta.env.VITE_GOOGLE_FONTS_API_KEY;
-const API_URL = `https://www.googleapis.com/webfonts/v1/webfonts?key=${API_KEY}&sort=popularity`;
-
 export const fetchGoogleFonts = async (): Promise<GoogleFontMeta[]> => {
   if (cache) return cache;
   if (pending) return pending;
 
-  if (!API_KEY) {
+  const apiKey = import.meta.env.VITE_GOOGLE_FONTS_API_KEY as string | undefined;
+  const apiUrl = `https://www.googleapis.com/webfonts/v1/webfonts?key=${apiKey}&sort=popularity`;
+
+  if (!apiKey) {
     console.warn(
       "[googleFonts] VITE_GOOGLE_FONTS_API_KEY no está definida. " +
-        "Reiniciá el dev server después de agregarla al .env.",
+        "Verificá que .env esté en la raíz con VITE_GOOGLE_FONTS_API_KEY=... y reiniciá el dev server (vite necesita restart para leer .env).",
     );
     return [];
   }
 
-  pending = fetch(API_URL)
+  pending = fetch(apiUrl)
     .then(async (res) => {
       if (!res.ok) {
         const body = await res.text().catch(() => "");

@@ -17,7 +17,7 @@ function App() {
   useKeyboardShortcuts();
   useURLSync();
   return (
-    <TooltipPrimitive.Provider delayDuration={300} skipDelayDuration={400}>
+    <TooltipPrimitive.Provider delayDuration={150} skipDelayDuration={200}>
       <main className="type-scope">
         <Hero />
         <HowItWorks />

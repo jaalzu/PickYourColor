@@ -74,7 +74,7 @@ export const TypographyCompactPanel = ({
         </span>
         <FontSearchPickerModal
           icon={
-            <span className="font-mono text-[15px] font-bold leading-none">
+            <span className="font-mono text-[18px] font-bold leading-none">
               Aa
             </span>
           }
@@ -100,7 +100,7 @@ export const TypographyCompactPanel = ({
         </span>
         <FontSearchPickerModal
           icon={
-            <span className="font-mono text-[13px] font-medium leading-none">
+            <span className="font-mono text-[18px] font-medium leading-none">
               Aa
             </span>
           }
