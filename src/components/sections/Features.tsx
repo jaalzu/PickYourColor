@@ -92,19 +92,14 @@ export const Features = () => {
               <div
                 className="absolute inset-0 rounded-[13px]"
                 style={{
-                  backgroundColor: "var(--color-primary)",
-                  opacity: 0.045,
+                  backgroundColor:
+                    "color-mix(in srgb, var(--color-secondary) 6%, transparent)",
                   zIndex: 0,
                 }}
               />
 
               <div className="relative z-10 flex flex-row md:flex-col items-center md:items-start gap-6 md:gap-10 w-full md:h-full md:justify-between">
-                <feature.Icon
-                  className="w-[37px] h-[37px] md:w-13 md:h-13 shrink-0"
-                  style={{ color: "var(--color-accent)" }}
-                />
-
-                <div className="flex-1 md:flex-none md:w-full flex flex-col gap-2">
+                <div className="flex-1 md:flex-none md:w-full flex flex-col gap-2 order-1 md:order-2">
                   <h3
                     className=" font-bold leading-tight break-words"
                     style={{
@@ -121,6 +116,11 @@ export const Features = () => {
                     {feature.description}
                   </p>
                 </div>
+
+                <feature.Icon
+                  className="w-[37px] h-[37px] md:w-13 md:h-13 shrink-0 order-2 md:order-1"
+                  style={{ color: "var(--color-accent)" }}
+                />
               </div>
             </li>
           ))}

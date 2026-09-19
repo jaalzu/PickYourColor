@@ -1,4 +1,5 @@
 import * as Accordion from "@radix-ui/react-accordion";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import tinycolor from "tinycolor2";
 import { useColorStore } from "../../store/useColorStore";
 import { useLang } from "../../hooks/useLang";
@@ -109,26 +110,15 @@ export const FAQ = () => {
                 borderColor: borderColor,
               }}
             >
-              <div
-                className="absolute inset-0 rounded-[14px] pointer-events-none transition-opacity duration-300 opacity-0 group-data-[state=open]:opacity-20"
-                style={{ backgroundColor: "var(--color-secondary)", zIndex: 0 }}
-              />
-
               <Accordion.Header>
                 <Accordion.Trigger className="w-full px-5 py-4 flex justify-between items-center text-left relative z-10">
                   <h3 className="font-regular" style={{ color: textColor }}>
                     {faq.question}
                   </h3>
-                  <div
-                    className="text-6xl font-medium transition-transform duration-300 ml-4 flex items-center justify-center group-data-[state=open]:rotate-45"
-                    style={{
-                      color: "var(--color-accent)",
-                      lineHeight: "0",
-                      paddingBottom: "0px",
-                    }}
-                  >
-                    +
-                  </div>
+                  <ChevronDownIcon
+                    className="w-6 h-6 shrink-0 ml-4 transition-transform duration-300 group-data-[state=open]:rotate-180"
+                    style={{ color: "var(--color-accent)" }}
+                  />
                 </Accordion.Trigger>
               </Accordion.Header>
 

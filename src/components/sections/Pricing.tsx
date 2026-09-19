@@ -99,10 +99,7 @@ export const Pricing = () => {
     },
   });
 
-  const featuredBg = tinycolor.mix(colors.primary, "#000000", 65).toHexString();
-  const featuredTextColor = tinycolor(featuredBg).isDark()
-    ? "#ffffff"
-    : "#000000";
+
 
   return (
     <section id="pricing" className="px-8 py-20">
@@ -119,7 +116,7 @@ export const Pricing = () => {
             const isFeatured = index === 1;
             const isCustom = plan.price === current.custom;
 
-            const neutralBg = isDark ? "#12121c" : "#f4f4f8";
+            const neutralBg = isDark ? "#121212" : "#f4f4f8";
             const neutralBorder = isDark
               ? "rgba(255, 255, 255, 0.07)"
               : "rgba(0, 0, 0, 0.04)";
@@ -131,8 +128,8 @@ export const Pricing = () => {
                   index === 2 ? "md:col-span-2 lg:col-span-1" : ""
                 }`}
                 style={{
-                  backgroundColor: isFeatured ? featuredBg : neutralBg,
-                  borderColor: isFeatured ? "transparent" : neutralBorder,
+                  backgroundColor: neutralBg,
+                  borderColor: neutralBorder,
                 }}
               >
                 {isFeatured && (
@@ -151,49 +148,24 @@ export const Pricing = () => {
                   </div>
                 )}
 
-                {!isFeatured && (
-                  <div
-                    className="absolute top-0 left-0 right-0 h-[180px] pointer-events-none rounded-t-[16px]"
-                    style={{
-                      background:
-                        "radial-gradient(ellipse at top, var(--color-primary) 0%, transparent 70%)",
-                      opacity: 0.1,
-                      filter: "blur(20px)",
-                    }}
-                  />
-                )}
-
                 <div className="relative z-10 px-8 pt-8 pb-8 flex flex-col h-full">
                   <h3
                     className="text-3xl font-bold mb-3"
-                    style={{
-                      color: isFeatured
-                        ? featuredTextColor
-                        : "var(--color-text)",
-                    }}
+                    style={{ color: "var(--color-text)" }}
                   >
                     {plan.title}
                   </h3>
 
                   <p
-                    className="text-lg font-medium mb-18 min-h-[70px]"
-                    style={{
-                      color: isFeatured
-                        ? featuredTextColor
-                        : "var(--color-text)",
-                      opacity: 0.8,
-                    }}
+                    className="text-[15px] md:text-[15px] lg:text-lg font-medium mb-10 lg:mb-18 min-h-0 lg:min-h-[70px] leading-snug"
+                    style={{ color: "var(--color-text)", opacity: 0.8 }}
                   >
                     {plan.description}
                   </p>
 
                   <div
                     className="text-3xl font-bold mb-6"
-                    style={{
-                      color: isFeatured
-                        ? featuredTextColor
-                        : "var(--color-text)",
-                    }}
+                    style={{ color: "var(--color-text)" }}
                   >
                     {plan.price}
                     {plan.price !== current.free && !isCustom && (
@@ -221,29 +193,20 @@ export const Pricing = () => {
                     <div
                       className="flex-1 h-[1px]"
                       style={{
-                        backgroundColor: isFeatured
-                          ? featuredTextColor
-                          : "var(--color-text)",
+                        backgroundColor: "var(--color-text)",
                         opacity: 0.2,
                       }}
                     />
                     <span
                       className="text-xs font-mono uppercase tracking-wider"
-                      style={{
-                        color: isFeatured
-                          ? featuredTextColor
-                          : "var(--color-text)",
-                        opacity: 0.6,
-                      }}
+                      style={{ color: "var(--color-text)", opacity: 0.6 }}
                     >
                       {current.features}
                     </span>
                     <div
                       className="flex-1 h-[1px]"
                       style={{
-                        backgroundColor: isFeatured
-                          ? featuredTextColor
-                          : "var(--color-text)",
+                        backgroundColor: "var(--color-text)",
                         opacity: 0.2,
                       }}
                     />
@@ -260,11 +223,7 @@ export const Pricing = () => {
                         />
                         <span
                           className="text-base font-light"
-                          style={{
-                            color: isFeatured
-                              ? featuredTextColor
-                              : "var(--color-text)",
-                          }}
+                          style={{ color: "var(--color-text)" }}
                         >
                           {feature}
                         </span>
