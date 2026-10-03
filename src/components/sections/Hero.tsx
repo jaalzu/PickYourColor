@@ -73,7 +73,7 @@ export const Hero = () => {
               {titleLine1}
             </span>
 
-            <span className="block whitespace-nowrap" style={{ whiteSpace: "nowrap", textWrap: "nowrap" } as React.CSSProperties}>
+            <span className="block max-w-full" style={{ whiteSpace: "normal", textWrap: "balance" } as React.CSSProperties}>
               {/* "Colores" ahora estilo selección Figma: border dashed +
                    bg semitransparente + handles en las 4 esquinas, todo en primary */}
               <span className="relative inline-block px-2 py-0.5 mx-0.5">
